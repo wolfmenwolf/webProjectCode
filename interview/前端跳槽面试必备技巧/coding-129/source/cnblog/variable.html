@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>作用域与变量提升</title>
+  </head>
+  <body>
+      <a href="https://www.cnblogs.com/xxcanghai/p/5189353.html" target="_blank">参考资料</a>
+      <script type="text/javascript">
+        function Foo () {
+            getName = function () { console.log(1); };
+            return this;
+        }
+        Foo.getName = function () { console.log(2); };
+        Foo.prototype.getName = function () { console.log(3); };
+        var getName = function () { console.log(4); };
+        function getName () { console.log(5); }
+
+        Foo.getName();// 2
+        getName();// 4
+        Foo().getName();// 1
+        getName();// 1
+        new Foo.getName();// 2
+        new Foo().getName();// 3
+        new new Foo().getName();// 3
+
+        // 大家直接打开优先级对照表 https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Operator_Precedence
+        /**
+         * 我们先来看第一个Foo.getName()
+         * 这里的getName是Foo的成员方法,所以这个.的优先级是19，后面的()是函数调用，优先级也是19,但.在优先级表上在上，所以优先是.
+         * 结果输出是2，这个一般没有疑问，因为getName是Foo的成员方法。不存在作用域不理解的问题。如果有的话就是Foo.prototype.getName,如果对此有疑问说明对原型链不了解
+         *
+         */
+
+        /**
+         * 我们再看第二个getName(),为什么是4呢，很简单这块有变量提升，function getName () { console.log(5); }这种会提升到最前面，也就是说虽然他写在最后一行，执行的时候反而是在第一行
+         * 然后var getName = function () { console.log(4); };会覆盖刚才定义的getName
+         */
+
+        /**
+         * 我们再来看Foo().getName()，这个也不难理解Foo()这个函数执行做了2件事，第一件重新覆盖了getName,因为非严格模式下不使用var统统都是在window下面；
+         * 第二件事就是函数的结果返回this，也就是window,所以返回1一点不奇怪
+         */
+
+        /**
+         * 我们再来看getName()，因为上一步说了window下的getName已经被覆盖，当然是1了,和上一题没区别
+         */
+
+        /**
+         * 我们来看new Foo.getName()，这里有几个运算符，一个new，一个.，一个()
+         * 我们知道()是函数调用，不是普通的(),.和()的优先级是19，.更高，而new分两种一个是带参数也就是new *()这种形式优先级也是19，但是还是低于.,一种是new *，优先级是18
+         * 所以综合来看，.的优先级最高，优先计算Foo.getName，比如计算的值为A,则表达式变成了new A(),在此我们看作是带参数的new *()，因为带参的new是高于函数调用的。
+         *
+         */
+
+        /**
+         * new Foo().getName()这个相对难理解一点。刚才我们讲了.是高于new和()的，但是他是从左往右计算的。.的左边不能是()只能是带参的new也就是(new Foo())
+         */
+
+        /**
+         * new new Foo().getName();这个大多数也蒙了，按照上一题，new Foo()是最高的也就变成了 new (new Foo()).getName()()不如我们用A代替new Foo()的值，就是
+         * new A.getName()其实一点都不难理解了吧，因为已经在上面的题目中了也就是new (A.getName)()
+         * 因为A的实例是没有getName,所有找Foo构造函数的原型，也就是Foo.prototype，所以输出是3
+         * 有人说new的时候返回的是this,应该是window呀,要知道这块的this已经不是window了,new的时候this指向的是自己是实例对象。
+         */
+      </script>
+  </body>
+</html>

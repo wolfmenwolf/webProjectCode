@@ -1,0 +1,148 @@
+html:
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div class="toolbar">
+        <a href="javascript:;" class="toolbar-list toolbar-weixin">
+            <span class="toolbar-code"></span>
+        </a>
+        <a href="javascript:;" class="toolbar-list toolbar-feedback"></a>
+        <a href="javascript:;" class="toolbar-list toolbar-app">
+            <span class="toolbar-code"></span>
+        </a>
+        <a href="javascript:;" class="toolbar-list toolbar-top"></a>
+    </div>
+</body>
+</html>
+
+//SASS 
+index.scss:
+//引入封装的公共样式
+@import "common";
+
+//引入工具条
+@import "tool-bar";
+
+
+
+common.scss:
+//@mixin指令是另一种简化代码的方法。Mixins可以包含任意内容且可以传递参数
+
+  @mixin transition($transition){
+    -webkit-transition:$transition;
+    -moz-transition:$transition;
+    -ms-transition:$transition;
+    -o-transition:$transition;
+    transition:$transition;
+
+  }
+
+  @mixin scale($scale){
+    -webkit-transform:scale($scale);
+    -moz-transform:scale($scale);
+    -ms-transform:scale($scale);
+    -o-transform:scale($scale);
+    transform:scale($scale);
+  }
+
+  @mixin transform-origin($origin){
+    -webkit-transform-origin:$origin;
+    -moz-transform-origin:$origin;
+    -ms-transform-origin:$origin;
+    -o-transform-origin:$origin;
+    transform-origin:$origin;
+  }
+
+  @mixin opacity($opacity){
+    opacity:$opacity;
+    filter: alpha(opacity=$opacity * 100);
+  }
+
+  @mixin toolbar-list($pos , $hover){
+  background-position: 0 $pos;
+  &:hover{
+    background-position: 0 $hover;
+  }
+}
+
+
+tool-bar.scss:
+//把图片长度存储一下
+$tool-size:52px;
+
+//------------------------------------工具条---------------------------------------------
+.toolbar-code,.toolbar-list{
+  background-image: url('../images/toolbar.png');
+  background-repeat: no-repeat;
+}
+
+.toolbar{
+  position: fixed;
+  top:50%;
+  left: 50%;
+  //屏幕左边到 图片的中轴线的一般  -(表示负数)
+  margin-left: -$tool-size / 2;
+}
+.toolbar-list{
+  position: relative;
+  display:block;
+  width:$tool-size;
+  height:$tool-size;
+  margin-top:1px;
+  //添加公共动画 位置变化
+  @include transition(background-position 1s);
+
+  &:hover{
+    .toolbar-code{
+      //兼容IE
+      @include opacity(1);
+      //缩放到最大
+      @include scale(1);
+    }
+  }
+}
+.toolbar-code{
+  position: absolute;
+  //减去6 清除阴影带来的间距
+  right: $tool-size - 6;
+  width: 172px;
+  bottom: -10px;
+  //兼容IE
+  @include opacity(0);
+  //设置缩放的基准点
+  @include transform-origin(95% 95%);
+  //缩放到最小
+  @include scale(0.01);
+  //添加公共动画 all是设置所有类型的过渡效果
+  @include transition(all 1s);
+
+}
+
+.toolbar-weixin{
+  @include toolbar-list(-798px,-860px);
+  .toolbar-code{
+    height:212px;
+    background-position: 0 0;
+  }
+}
+
+.toolbar-feedback{
+  @include toolbar-list(-426px,-488px);
+}
+
+.toolbar-app{
+  @include toolbar-list(-550px,-612px);
+  .toolbar-code{
+    height:194px;
+    background-position: 0 -222px;
+  }
+}
+
+.toolbar-top{
+  @include toolbar-list(-674px,-736px);
+}

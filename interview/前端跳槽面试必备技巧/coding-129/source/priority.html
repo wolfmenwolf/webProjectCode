@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>
+        ahtml
+    </title>
+</head>
+
+<body>
+
+
+
+    <script>
+        function Foo() {
+            getName = function() {
+                console.log(1);
+            };
+            // this.getName = function() {
+            //     console.log("aaa");
+            // };
+            return this;
+        }
+        Foo.getName = function() {
+            console.log(2);
+            return function() {
+                console.log("aaa");
+            };
+        };
+        Foo.prototype.getName = function() {
+            console.log(3);
+        };
+        var getName = function() {
+            console.log(4);
+        };
+
+        function getName() {
+            console.log(5);
+        }
+
+        //请写出以下输出结果：
+        Foo.getName();
+        getName();
+        Foo().getName();
+        getName();
+        new Foo.getName();
+        new Foo().getName();
+        new new Foo().getName();
+        new new Foo.getName();
+        
+        /*
+            先说一下背景：
+            前面群里讨论过js运算符优先级问题，当时是由一道经典面试题引出的，来源是：
+            https://www.cnblogs.com/xxcanghai/p/5189353.html
+            
+            后面3题的new 运算符和点运算符的优先级问题
+            
+            
+            经过断点调试：
+            1.如果遇到new Foo() 类型的优先计算
+            ![image](/uploads/d241146341dc4874d68d8b9e17c0b647/image.png)
+            将它当做一个整体去计算或者说它的优先级最高（这样解释不知道对不对？待考证，另关联性n/a我没有查阅到资料解释是什么意思）
+            
+            2.如果遇到 new Foo.getName() 
+            ![image](/uploads/87f980a69484cf3f7c15b201ab95ce5c/image.png)
+            这种情况的话点的运算优先级高所以先计算Foo.getName后计算new
+            注意这个情况下的new关联性是从右到左所以也是先计算Foo.getName 如：new new Foo.getName()（我加上的，原题没有此题）
+            
+            
+            建议大家还是自己断点调试一下比较清晰一点，也便于记忆！
+            
+            如果大家有疑问提出来啊，我们一起讨论，谢谢！
+            
+            
+            相关运算符优先级MDN链接：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Operator_Precedence
+            相关new运算机制MDN链接：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/new
+            
+        */
+    </script>
+
+</body>
+
+</html>
+
+
+

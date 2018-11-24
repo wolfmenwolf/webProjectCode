@@ -1,0 +1,41 @@
+//创建requirejs
+requirejs.config({
+    paths:{
+        'jquery':'jquery'
+    }
+});
+
+//接收，用$表示
+requirejs(['jquery'],function ($) {
+    //绑定点击事件
+    $('#backTop').on('click',move);
+
+    //绑定滚动事件，监听滚动的高度
+    $(window).on('scroll',function () {
+        weizhi($(window).height())
+    });
+
+    weizhi($(window).height());
+
+    //函数功能：点击立即返回顶部
+    // function go() {
+    //     $('html,body').scrollTop(0)
+    // }
+
+    //函数功能：点击缓慢返回顶部
+    function move(){
+        $('html,body').animate({
+            scrollTop:0
+        },800)
+    }
+
+    //函数功能：滑动滚动条 隐藏与显示
+    //当滑动超过了pos临界值(当前屏幕)，就显示出来
+    function weizhi(pos) {
+        if ($(window).scrollTop() > pos){
+            $('#backTop').fadeIn();
+        }else {
+            $('#backTop').fadeOut();
+        }
+    }
+});

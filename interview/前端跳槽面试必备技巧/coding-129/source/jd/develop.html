@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>京东商城研发部（社招）面试题</title>
+  </head>
+  <body>
+    <h2>CSS部分</h2>
+    <dl>
+      <dt><em>问题：</em>描述一下CSS的优先级规则</dt>
+      <dd>
+        <p>答案：</p>
+        <ul>
+          <li>
+            CSS权重
+            <p>
+              1.  内联样式表的权值最高 1000；
+              <br>
+              2.  ID 选择器的权值为 100
+              <br>
+              3.  Class 类选择器的权值为 10
+              <br>
+              4.  HTML 标签选择器的权值为 1
+              <br>
+            </p>
+          </li>
+          <li>
+            CSS优先级
+            <p>(外部样式）External style sheet <（内部样式）Internal style sheet <（内联样式）Inline style</p>
+          </li>
+          <li>
+            CSS层叠
+            <p>
+              1. 用户代理声明（译注：如浏览器默认样式）
+              <br>
+              2. 用户声明（译注：如用户浏览器选项设置或通过开发人员调试工具修改）
+              <br>
+              3. 开发者声明（译注：如页面中引用的CSS）
+              <br>
+              4. 带有!important的开发者声明
+              <br>
+              5. 带有!important的用户声明
+              <p>参考：http://blog.csdn.net/u013778905/article/details/52886938?readlog</p>
+            </p>
+          </li>
+        </ul>
+      </dd>
+      <dt><em>问题：</em>如何兼容移动浏览器、不同手机、不同版本垂直距中写法</dt>
+      <dd>
+        <p>答案：</p>
+        <ul>
+          <li>
+            table-cell
+            <style media="screen">
+              .table{
+                display: table;
+                width: 100%;
+                height: 40px;
+                background: yellow;
+              }
+              .table-cell{
+                display: table-cell;
+                text-align: center;
+                vertical-align: middle;
+              }
+            </style>
+            <div class="table">
+              <p class="table-cell">tabel-cell</p>
+            </div>
+          </li>
+          <li>
+            flex
+            <style media="screen">
+              .flex{
+                display: flex;
+                height: 40px;
+                background: yellow;
+                justify-content: center;
+                align-items: center;;
+              }
+            </style>
+            <div class="flex">
+                flex
+            </div>
+          </li>
+          <li>
+            absolute
+            <style media="screen">
+              .absolute{
+                position: relative;
+                background: yellow;
+                height: 40px;
+              }
+              .absolute p{
+                position: absolute;
+                display: inline-block;
+                width: 30px;
+                top: 50%;
+                left: 50%;
+                height: 20px;
+                margin-left: -15px;
+                margin-top: -10px;
+              }
+            </style>
+            <div class="absolute">
+              <p>absolute</p>
+            </div>
+          </li>
+          <li>grid</li>
+        </ul>
+      </dd>
+      <dt><em>问题：</em>怎么让偶数的li标签内的字体变成红色</dt>
+      <dd>
+        <style media="screen">
+          .cssli li:nth-child(2n){
+            color: red;
+          }
+        </style>
+        <ul class="cssli">
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+        </ul>
+      </dd>
+    </dl>
+
+    <h3>JS部分</h3>
+    <dl>
+      <dt><em>问题：</em>这段代码输出什么？
+        <pre>
+          var arr = "ABB";
+        	if(2>1){
+        		arr = "BCC";
+        		let arr;
+        		console.log(arr);
+        	}
+        </pre>
+      </dt>
+      <dd>
+        <script type="text/javascript">
+        var arr = 'ABB';
+        if (2 > 1) {
+            arr = 'BCC';
+            let arr;
+            console.log(arr);
+        }
+        </script>
+      </dd>
+      <dt>
+        <em>问题：</em>
+        <pre>
+          if(!("a" in window)){
+        		var a = 1;
+        	}
+        	console.log(a);
+        </pre>
+      </dt>
+      <dd>
+        <script type="text/javascript">
+          if (!('a' in window)) {
+              var a = 1;
+          }
+          console.log(a);
+        </script>
+      </dd>
+      <dt>
+        <em>问题：</em>
+        <pre>
+          function valueof(){
+        		return 1;
+        	}
+        	var valueof;
+        	alert(typeof valueof);
+        </pre>
+      </dt>
+      <dd>
+        <script type="text/javascript">
+        function valueof () {
+            return 1;
+        }
+        var valueof;
+        console.log(typeof valueof);
+        // http://www.cnblogs.com/silentjesse/p/4024536.html
+        </script>
+      </dd>
+      <dt>
+        <em>问题：</em>
+        <pre>
+          function A(){}
+        	function B(a){
+        		this.a = a;
+        	}
+        	function C(a){
+        		if(a){
+        			this.a = a;
+        		}
+        	}
+        	A.prototype.a = 1;
+        	B.prototype.a = 1;
+        	C.prototype.a = 1;
+        	console.log(new A().a);
+        	console.log(new B().a);
+        	console.log(new C(2).a);
+        </pre>
+      </dt>
+      <dd>
+        <script type="text/javascript">
+        function A () {}
+        function B (a) {
+            this.a = a;
+        }
+        function C (a) {
+            if (a) {
+                this.a = a;
+            }
+        }
+        A.prototype.a = 1;
+        B.prototype.a = 1;
+        C.prototype.a = 1;
+        console.log(new A().a);
+        console.log(new B().a);
+        console.log(new C(2).a);
+        </script>
+      </dd>
+    </dl>
+  </body>
+</html>

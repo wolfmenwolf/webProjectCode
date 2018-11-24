@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>第二种方法</title>
+</head>
+
+<body>
+  <h4>请写出下面</h4>
+  <section class="code">
+    <code>var arr=['a', ['b', 'c'], 2, ['d', 'e', 'f'], 'g', 3, 4];flat(arr)//a,b,c,2,d,e,f,g,3,4</code>
+    <script type="text/javascript">
+      var arr = ['a', ['b', 'c'], 2, ['d', 'e', 'f'], 'g', 3, 4];
+      // 方法二：toString（格式转换）
+
+      var flag = function (arr) {
+          let toString = Array.prototype.toString;
+          Array.prototype.toString = function () {
+              return this.join(',');
+          };
+          let result = arr + '';
+          Array.prototype.toString = toString;
+          return result;
+      };
+
+      console.log(flag(arr));
+    </script>
+  </section>
+</body>
+
+</html>

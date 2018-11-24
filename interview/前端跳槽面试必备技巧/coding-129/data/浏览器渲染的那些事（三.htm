@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)https://segmentfault.com/a/1190000005598925 -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"><meta name="renderer" content="webkit"><meta property="qc:admins" content="15317273575564615446375"><meta property="og:image" content="https://static.segmentfault.com/v-59883fff/global/img/touch-icon.png"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"><meta name="alexaVerifyID" content="LkzCRJ7rPEUwt6fVey2vhxiw1vQ"><meta name="apple-itunes-app" content="app-id=958101793, app-argument="><title>浏览器渲染的那些事（三） - 前端开发之从入门到放弃 - SegmentFault</title><meta name="description" content="终于到了布局的部分了！ 布局 当渲染对象被创建并添加到树中，是没有位置和大小的，计算这些值的过程称为layout或reflow。布局是一个递归过程，由根渲染对象开始，对应html文档元素，布局继续递归的通过一些或所..."><meta name="keywords" content="html,css,html5,javascript"><link rel="search" type="application/opensearchdescription+xml" href="https://segmentfault.com/opensearch.xml" title="SegmentFault"><link rel="shortcut icon" href="https://static.segmentfault.com/v-59883fff/global/img/favicon.ico"><link rel="apple-touch-icon" href="https://static.segmentfault.com/v-59883fff/global/img/touch-icon.png"><meta name="msapplication-TileColor" content="#009a61"><meta name="msapplication-square150x150logo" content="https://static.segmentfault.com/v-59883fff/global/img/touch-icon.png"><meta name="userId" value="1030000003848130" id="SFUserId"><meta name="userRank" value="47" id="SFUserRank"><link rel="alternate" type="application/atom+xml" title="SegmentFault 最新问题" href="https://segmentfault.com/feeds/questions"><link rel="alternate" type="application/atom+xml" title="SegmentFault 最新文章" href="https://segmentfault.com/feeds/blogs"><link rel="stylesheet" href="./浏览器渲染的那些事（三_files/global.css"><link rel="stylesheet" href="./浏览器渲染的那些事（三_files/blog.css"><link rel="stylesheet" href="./浏览器渲染的那些事（三_files/responsive.css"><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://static.segmentfault.com/v-59883fff/3rd/socket/socket.io.js" src="./浏览器渲染的那些事（三_files/socket.io.js"></script></head><body data-mod="blog" class="blog-post "><!--[if lt IE 9]><div class="alert alert-danger topframe" role="alert">你的浏览器实在<strong>太太太太太太旧了</strong>，放学别走，升级完浏览器再说 <a target="_blank" class="alert-link" href="http://browsehappy.com">立即升级</a></div><![endif]--><img id="icon4weChat" style="height: 0;width: 0;" data-src="https://static.segmentfault.com/v-59883fff/global/img/touch-icon-512.png"><div class="global-nav sf-header sf-header--index"><nav class="container nav"><div class="visible-xs header-response"><a href="https://segmentfault.com/search" style="display:block"><i class="fa fa-search" aria-hidden="true"></i></a><div class="sf-header__logo sf-header__logo--response"><h1><a href="https://segmentfault.com/" style="height:24px; background-size: auto 24px;"></a></h1></div><div class="opts"><li class="opts__item user dropdown hoverDropdown"><a class="dropdownBtn user-avatar" data-toggle="dropdown" style="background-image: url(&#39;https://sfault-avatar.b0.upaiyun.com/354/105/3541053247-57a8559e5212b_big64&#39;);" href="https://segmentfault.com/u/cucygh"></a><ul class="dropdown-menu dropdown-menu-right"><li class="message-response visible-xs"><a href="https://segmentfault.com/user/notifications" id="messageCount-response">通知提醒</a></li><li class="letter-response  visible-xs"><a href="https://segmentfault.com/user/messages" id="letterCount-response">私信消息</a></li><li class="divider visible-xs"></li><li><a href="https://segmentfault.com/u/cucygh">我的主页</a></li><li><a href="https://segmentfault.com/u/cucygh/about">我的档案</a></li><li><a href="https://segmentfault.com/user/finance">我的资产</a></li><li><a href="https://segmentfault.com/user/settings">账号设置</a></li><li><a href="https://segmentfault.com/api/user/logout?_=cdabc9c434aa72c7a122d2c20205b811">退出</a></li><li class="divider"></li><li><a href="https://segmentfault.com/">返回主页</a></li><li><a href="https://segmentfault.com/g/1570000009280187">建议反馈</a></li><li><a class="js__action--complain" href="javascript:void(0);">用户申诉</a></li><script src="https://hm.baidu.com/hm.js?e23800c454aa573c0ccb16b52665ac26"></script><script async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/template" id="js__action--complain-tpl"><form class="complain__form" method="post" action="/api/appeals/add"><div class="form-group"><label>理由</label><textarea name="description" class="form-control"
+                                                              rows="3"></textarea></div></form></script></ul></li><li class="opts__item dropdown hoverDropdown write-btns mt0"><a class="dropdownBtn" data-toggle="dropdown" href="https://segmentfault.com/ask"><i class="fa fa-plus" aria-hidden="true" style="margin-top: 7px"></i></a><ul class="dropdown-menu dropdown-menu-right "><li><a href="https://segmentfault.com/ask">提问题</a></li><li><a href="https://segmentfault.com/submit">发头条</a></li><li><a href="https://segmentfault.com/write">写文章</a></li><li><a href="https://segmentfault.com/record">记笔记</a></li><li class="divider"></li><li><a href="https://segmentfault.com/user/draft">草稿箱</a></li></ul></li></div><div class="bottom-nav"><div class="opts"><a class="opts-group " href="https://segmentfault.com/questions"><i class="fa fa-comments" aria-hidden="true"></i><span>问答</span></a><a class="opts-group " href="https://segmentfault.com/news"><i class="fa fa-newspaper-o" aria-hidden="true"></i><span>头条</span></a><a class="opts-group active" href="https://segmentfault.com/blogs"><i class="fa fa-pencil-square" aria-hidden="true"></i><span>专栏</span></a><a class="opts-group " href="https://segmentfault.com/lives"><i class="fa fa-play-circle" aria-hidden="true"></i><span>讲堂</span></a><div class="opts-group"><div class="btn-group dropup"><i class="fa fa-bars dropdown hoverDropdown" data-toggle="dropdown" aria-hidden="true"><span>更多</span></i><ul class="dropdown-menu"><li><a href="https://segmentfault.com/jobs">职位</a></li><li><a href="https://segmentfault.com/events">活动</a></li><li><a href="https://segmentfault.com/tags">标签</a></li><li><a href="https://segmentfault.com/badges">徽章</a></li></ul></div></div></div></div></div><div class="row hidden-xs"><div class="col-sm-8 col-md-9 col-lg-9"><div class="sf-header__logo"><h1><a href="https://segmentfault.com/">SegmentFault</a></h1></div><div><ul class="menu list-inline pull-left hidden-xs"><li class="menu__item"><a href="https://segmentfault.com/questions" class="">问答</a></li><li class="menu__item"><a href="https://segmentfault.com/news" class="">头条</a></li><li class="menu__item"><a href="https://segmentfault.com/blogs" class="active-nav">专栏</a></li><li class="menu__item"><a href="https://segmentfault.com/lives" class="">讲堂</a></li><li class="menu__item"><a href="https://segmentfault.com/jobs" class="">职位</a></li><li class="menu__item"><a href="https://segmentfault.com/events" class="">活动</a></li><li class="menu__item visible-sm-inline-block"><a href="https://segmentfault.com/search"><span class="glyphicon glyphicon-search" style="vertical-align: middle;"></span></a></li></ul><form action="https://segmentfault.com/search" class="header-search  hidden-sm hidden-xs pull-right"><button class="btn btn-link"><span class="sr-only">搜索</span><span class="glyphicon glyphicon-search"></span></button><input id="searchBox" name="q" type="text" placeholder="搜索问题或关键字" class="form-control" value=""></form></div></div><div class="col-sm-4 col-md-3 col-lg-3 text-right"><ul class="opts list-inline hidden-xs"><li class="opts__item dropdown hoverDropdown write-btns visible-lg-inline-block"><div class="btn-group"><button type="button" class="btn btn-primary " id="shuldGoTo" data-type="blog">
+                                                                                        写文章
+                                                                                    </button><button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span><span class="sr-only">显示下拉菜单</span></button><ul class="dropdown-menu"><li><a href="https://segmentfault.com/ask">提问题</a></li><li><a href="https://segmentfault.com/submit">发头条</a></li><li><a href="https://segmentfault.com/write">写文章</a></li><li><a href="https://segmentfault.com/record">记笔记</a></li><li role="separator" class="divider"></li><li><a href="https://segmentfault.com/user/draft">草稿箱</a></li></ul></div></li><li class="opts__item dropdown hoverDropdown write-btns visible-md-inline-block"><a class="dropdownBtn" data-toggle="dropdown" href="https://segmentfault.com/ask"><i class="fa fa-plus" aria-hidden="true"></i></a><ul class="dropdown-menu dropdown-menu-right "><li><a href="https://segmentfault.com/ask">提问题</a></li><li><a href="https://segmentfault.com/submit">发头条</a></li><li><a href="https://segmentfault.com/write">写文章</a></li><li><a href="https://segmentfault.com/record">记笔记</a></li><li class="divider"></li><li><a href="https://segmentfault.com/user/draft">草稿箱</a></li></ul></li><li class="opts__item message has-unread hidden-sm ml10"><a id="dLabel" class="dropdown-toggle-message" href="https://segmentfault.com/user/notifications"><span class="sr-only">消息</span><span id="messageCount" class="fa fa-bell-o"></span></a><div class="opts__item--message hide"><div class="panel panel-default"><div class="panel-heading"><ul class="nav nav-tabs nav-tabs-message"><li role="presentation" class="active"><a href="https://segmentfault.com/a/1190000005598925#messageGeneral" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true"><i class="fa fa-bullhorn"></i><span class="notice-dot hide notice-dot-general"></span></a></li><li role="presentation" class=""><a href="https://segmentfault.com/a/1190000005598925#messageRanked" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true"><i class="fa fa-thumbs-o-up"></i><span class="notice-dot hide notice-dot-ranked"></span></a></li><li role="presentation" class=""><a href="https://segmentfault.com/a/1190000005598925#messageFollowed" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true"><i class="fa fa-user-plus"></i><span class="notice-dot hide notice-dot-followed"></span></a></li></ul></div><div class="panel-body"><div class="tab-content"><div role="tabpanel" class="tab-pane active" id="messageGeneral"></div><div role="tabpanel" class="tab-pane" id="messageRanked"></div><div role="tabpanel" class="tab-pane" id="messageFollowed"></div><script type="text/template" id="messageGeneralTpl"><ul class="mCustomScrollbar-message" data-proto="general"  data-mcs-theme="minimal-dark"><% _.each(general,function(d){ %><li class="<%= d.viewed>0 ?'':'bg-warning'%>"><%= d.sentence %>&nbsp;<a
+                                    href="<%= d.url %>"><%= d.excerpt %></a>&nbsp<%= d.appendSentence %></li><% }) %></ul></script><script type="text/template" id="item--general"><% _.each(general,function(d){ %><li class="<%= d.viewed>0 ?'':'bg-warning'%>"><%= d.sentence %>&nbsp;<a
+                                    href="<%= d.url %>"><%= d.excerpt %></a></li><% }) %></script><script type="text/template" id="messageRankedTpl"><ul class="mCustomScrollbar-message" data-proto="ranked"  data-mcs-theme="minimal-dark"><% _.each(ranked,function(d){ %><li class="<%= d.viewed>0 ?'':'bg-warning'%>"><span class="badge
+                                                    <% if(d.voted && d.voted.rank!=0){ %><%= d.voted.rank > 0 ? 'green':'red' %><% } else { %> transparent <% } %>"><% if(d.voted){ %><%= d.voted.rank > 0 ? '+'+d.voted.rank:d.voted.rank %><% } %></span><div class="rank-desc"><%= d.sentence %>&nbsp;<a href="<%= d.url %>"><%=
+                                    d.excerpt %></a></div></li><% }) %></ul></script><script type="text/template" id="item--ranked"><% _.each(ranked,function(d){ %><li class="<%= d.viewed>0 ?'':'bg-warning'%>"><span class="badge
+                                                    <% if(d.voted && d.voted.rank!=0){ %><%= d.voted.rank > 0 ? 'green':'red' %><% } else { %> transparent <% } %>"><% if(d.voted){ %><%= d.voted.rank > 0 ? '+'+d.voted.rank:d.voted.rank %><% } %></span><div class="rank-desc"><%= d.sentence %>&nbsp;<a href="<%= d.url %>"><%=
+                                    d.excerpt %></a></div></li><% }) %></script><script type="text/template" id="messageFollowedTpl"><ul class="mCustomScrollbar-message" data-proto="followed"  data-mcs-theme="minimal-dark"><p class="follow-tips">他们最近关注了你</p><% _.each(followed,function(d){ %><li class="<%= d.viewed>0 ?'':'bg-warning'%>"><img class="follower__img avatar-32"
+                                 src="<%= d.triggerUser[0] ? d.triggerUser[0].avatarUrl : '' %>"><div class="follower__info"><% if(d.triggerUser[0] ? d.triggerUser[0].isFollowed : ''){ %><button data-id="<%= d.triggerUser[0] ? d.triggerUser[0].id : '' %>"
+                                        class="btn btn-default btn-xs message__btn--unfollow pull-right active">
+                                    已关注
+                                </button><% }else{ %><button data-id="<%= d.triggerUser[0] ? d.triggerUser[0].id : '' %>"
+                                        class="btn btn-default btn-xs message__btn--follow pull-right">
+                                    关注
+                                </button><% } %><a href="<%= d.triggerUser[0] ? d.triggerUser[0].url : '' %>"><%=d.triggerUser[0] ? d.triggerUser[0].name : ''%></a><br><span><%= d.triggerUser[0] ? d.triggerUser[0].rank : '' %> 声望</span></div></li><% }) %></ul></script><script type="text/template" id="item--followed"><% _.each(followed,function(d){ %><li class="<%= d.viewed>0 ?'':'bg-warning'%>"><img class="follower__img avatar-32"
+                                 src="<%= d.triggerUser[0] ? d.triggerUser[0].avatarUrl : '' %>"><div class="follower__info"><% if(d.triggerUser[0] && d.triggerUser[0].isFollowed){ %><button data-id="<%= d.triggerUser[0] ? d.triggerUser[0].id : '' %>"
+                                        class="btn btn-default btn-xs message__btn--unfollow pull-right active">
+                                    已关注
+                                </button><% }else{ %><button data-id="<%= d.triggerUser[0] ? d.triggerUser[0].id : '' %>"
+                                        class="btn btn-default btn-xs message__btn--follow pull-right">
+                                    关注
+                                </button><% } %><a href="<%= d.triggerUser[0] ? d.triggerUser[0].url : '' %>"><%= d.triggerUser[0].name
+                                    %></a><br><span><%= d.triggerUser[0].rank %> 声望</span></div></li><% }) %></script></div><p class="opts__item--message-loading follow-tips">loading</p></div><div class="panel-footer"><div class="row"><div class="col-sm-6"><a href="javascript:;" class="message-ingore-all hide"><span class="glyphicon glyphicon-ok-sign"></span>
+                        全部标记为已读</a></div><div class="col-sm-6"><a class="opts__item--message-view-all" href="https://segmentfault.com/user/notifications">查看全部
+                        »</a></div></div></div></div></div></li><li class="opts__item letter has-unread hidden-sm"><a id="dLabel" class="dropdown-toggle-letter" href="https://segmentfault.com/user/messages"><span class="sr-only">私信</span><span id="letterCount" class="fa fa-envelope-o"></span></a><div class="opts__item--letter hide"><div class="panel panel-default"><div class="panel-heading"><ul class="nav nav-tabs nav-tabs-letter"><li role="presentation" class="active"><span class="opts__item--letter-heading">最近的私信</span></li></ul></div><div class="panel-body"><div class="tab-content"><div id="messageInbox"></div><script type="text/template" id="messageInboxTpl"><ul class="mCustomScrollbar-message" data-proto="inbox" data-mcs-theme="minimal-dark"><% _.each(inboxes,function(d){ %><li class="<%= d.viewed>0 ?'':'bg-warning'%>" data-click="<%= d.url %>"><img class="follower__img avatar-32"
+                                     src="<%= d.targetUser.avatarUrl %>"><div class="follower__info"><a href="<%= d.url %>"><%= d.targetUser.name
+                                        %></a><br><% if (d.lastMessage.content){ %><span class="ellipsis inline-block" style="width: 245px;"><%= d.lastMessage.content.content %></span><% } %></div></li><% }) %><% if(inboxes.length ==0){ %><p class="text-center">没有人给你发私信</p><% } %></ul></script><script type="text/template" id="item--inboxes"><% _.each(inboxes,function(d){ %><li class="<%= d.viewed>0 ?'':'bg-warning'%>" data-click="<%= d.url %>"><img class="follower__img avatar-32"
+                                     src="<%= d.targetUser.avatarUrl %>"><div class="follower__info"><a href="<%= d.targetUser.url %>"><%= d.targetUser.name
+                                        %></a><br><span class="ellipsis inline-block" style="width: 245px;"><%= d.content %></span></div></li><% }) %></script></div><p class="opts__item--letter-loading follow-tips">loading</p></div><div class="panel-footer"><div class="row"><div class="col-sm-6"><a href="javascript:;" class="message-ingore-all hide"><span class="glyphicon glyphicon-ok-sign"></span>
+                        全部标记为已读</a></div><div class="col-sm-6"><a class="opts__item--message-view-all" href="https://segmentfault.com/user/messages">查看全部
+                        »</a></div></div></div></div></div></li><li class="opts__item user dropdown hoverDropdown ml0"><a class="dropdownBtn user-avatar" data-toggle="dropdown" style="background-image: url(&#39;https://sfault-avatar.b0.upaiyun.com/354/105/3541053247-57a8559e5212b_big64&#39;)" href="https://segmentfault.com/u/cucygh"></a><ul class="dropdown-menu dropdown-menu-right"><li class="message-response visible-xs"><a href="https://segmentfault.com/user/notifications" id="messageCount-response">通知提醒</a></li><li class="letter-response  visible-xs"><a href="https://segmentfault.com/user/messages" id="letterCount-response">私信消息</a></li><li class="divider visible-xs"></li><li><a href="https://segmentfault.com/u/cucygh">我的主页</a></li><li><a href="https://segmentfault.com/u/cucygh/about">我的档案</a></li><li><a href="https://segmentfault.com/user/finance">我的资产</a></li><li><a href="https://segmentfault.com/user/settings">账号设置</a></li><li><a href="https://segmentfault.com/api/user/logout?_=cdabc9c434aa72c7a122d2c20205b811">退出</a></li><li class="divider"></li><li><a href="https://segmentfault.com/">返回主页</a></li><li><a href="https://segmentfault.com/g/1570000009280187">建议反馈</a></li><li><a class="js__action--complain" href="javascript:void(0);">用户申诉</a></li><script type="text/template" id="js__action--complain-tpl"><form class="complain__form" method="post" action="/api/appeals/add"><div class="form-group"><label>理由</label><textarea name="description" class="form-control"
+                                                              rows="3"></textarea></div></form></script></ul></li></ul></div></div></nav></div>
+    
+<input id="articleId" value="1190000005598925" class="hidden">
+<div class="wrap" data-blogid="1200000004975759">
+    <div class="post-topheader custom-">
+        <div class="container">
+            <div class="block-for-right-border">
+                <div class="row">
+                    <div class="col-md-9 col-sm-8 col-xs-12">
+                        <div class="post-topheader__info" data-username="lsxj" data-userslug="lsxj" data-useravatar="https://sfault-avatar.b0.upaiyun.com/303/861/3038619584-57844e134e9ae_big64">
+
+                            <h1 class="h3 post-topheader__info--title" id="articleTitle" data-id="1190000005598925">
+                                <a href="https://segmentfault.com/a/1190000005598925"> 浏览器渲染的那些事（三）</a>
+                            </h1>
+
+                            <div class="content__tech">
+                                <ul class="taglist--inline inline-block article__title--tag mr10">
+                                                                            <li class="tagPopup mb5"><a class="tag" href="https://segmentfault.com/t/html/blogs" data-toggle="popover" data-img="https://sfault-avatar.b0.upaiyun.com/418/365/4183652815-1040000000089571_huge256" data-placement="top" data-original-title="html" data-id="1040000000089571">html</a></li>
+                                                                            <li class="tagPopup mb5"><a class="tag" href="https://segmentfault.com/t/css/blogs" data-toggle="popover" data-img="https://sfault-avatar.b0.upaiyun.com/122/960/1229606535-1040000000089434_huge256" data-placement="top" data-original-title="css" data-id="1040000000089434">css</a></li>
+                                                                            <li class="tagPopup mb5"><a class="tag" href="https://segmentfault.com/t/html5/blogs" data-toggle="popover" data-img="https://sfault-avatar.b0.upaiyun.com/320/807/3208078129-1040000000089409_huge256" data-placement="top" data-original-title="html5" data-id="1040000000089409">html5</a></li>
+                                                                            <li class="tagPopup mb5"><a class="tag" href="https://segmentfault.com/t/javascript/blogs" data-toggle="popover" data-img="https://sfault-avatar.b0.upaiyun.com/195/823/1958237468-1040000000089436_huge256" data-placement="top" data-original-title="javascript" data-id="1040000000089436">javascript</a></li>
+                                                                    </ul>
+                                                                                                <div class="article__author">
+                                    <a href="https://segmentfault.com/u/lsxj" class="mr5 "><strong>lsxj</strong></a>
+                                    2016年05月30日发布
+                                                                                                        </div>
+                            </div>
+
+                                                        <form class="form form__tech hidden" data-action="#">
+                                <span class="pull-right">
+                                    <button class="btn btn-default save-tags-btn" type="button">保存</button>
+                                </span>
+                                <div class="form-group" style="margin-right: 65px">
+                                    <label for="tags" class="sr-only">标签：至少1个，最多5个</label>
+                                    <input class="tagsInput form-control hidden" data-init="[{&quot;name&quot;:&quot;html&quot;,&quot;url&quot;:&quot;\/t\/html&quot;,&quot;id&quot;:&quot;1040000000089571&quot;,&quot;thumbnailUrl&quot;:&quot;https:\/\/sfault-avatar.b0.upaiyun.com\/418\/365\/4183652815-1040000000089571_huge256&quot;},{&quot;name&quot;:&quot;css&quot;,&quot;url&quot;:&quot;\/t\/css&quot;,&quot;id&quot;:&quot;1040000000089434&quot;,&quot;thumbnailUrl&quot;:&quot;https:\/\/sfault-avatar.b0.upaiyun.com\/122\/960\/1229606535-1040000000089434_huge256&quot;},{&quot;name&quot;:&quot;html5&quot;,&quot;url&quot;:&quot;\/t\/html5&quot;,&quot;id&quot;:&quot;1040000000089409&quot;,&quot;thumbnailUrl&quot;:&quot;https:\/\/sfault-avatar.b0.upaiyun.com\/320\/807\/3208078129-1040000000089409_huge256&quot;},{&quot;name&quot;:&quot;javascript&quot;,&quot;url&quot;:&quot;\/t\/javascript&quot;,&quot;id&quot;:&quot;1040000000089436&quot;,&quot;thumbnailUrl&quot;:&quot;https:\/\/sfault-avatar.b0.upaiyun.com\/195\/823\/1958237468-1040000000089436_huge256&quot;}]" name="tags" type="text" placeholder="标签，如：php 可使用逗号,分号;分隔" data-role="tagsinput"><div class="sf-typeHelper"><span class="sf-typeHelper-item  ">html<span data-role="remove">×</span></span><span class="sf-typeHelper-item  ">css<span data-role="remove">×</span></span><span class="sf-typeHelper-item  ">html5<span data-role="remove">×</span></span><span class="sf-typeHelper-item  ">javascript<span data-role="remove">×</span></span><input type="text" data-role="sf_typeHelper-input" class="sf-typeHelper-input" placeholder="标签，如：php 可使用逗号,分号;分隔" style="width: 20em;"><ul class="sf-typeHelper-list dropdown-menu"></ul></div>
+                                    <div role="tabpanel" class="techTags panel panel-default techTags-panel" data-tech="{&quot;\u5f00\u53d1\u8bed\u8a00&quot;:[{&quot;id&quot;:&quot;1040000000089436&quot;,&quot;name&quot;:&quot;javascript&quot;},{&quot;id&quot;:&quot;1040000000089387&quot;,&quot;name&quot;:&quot;php&quot;},{&quot;id&quot;:&quot;1040000000089434&quot;,&quot;name&quot;:&quot;css&quot;},{&quot;id&quot;:&quot;1040000000089571&quot;,&quot;name&quot;:&quot;html&quot;},{&quot;id&quot;:&quot;1040000000089449&quot;,&quot;name&quot;:&quot;java&quot;},{&quot;id&quot;:&quot;1040000000089534&quot;,&quot;name&quot;:&quot;python&quot;},{&quot;id&quot;:&quot;1040000000089409&quot;,&quot;name&quot;:&quot;html5&quot;},{&quot;id&quot;:&quot;1040000000089918&quot;,&quot;name&quot;:&quot;node.js&quot;},{&quot;id&quot;:&quot;1040000000089741&quot;,&quot;name&quot;:&quot;c++&quot;},{&quot;id&quot;:&quot;1040000000089457&quot;,&quot;name&quot;:&quot;c&quot;},{&quot;id&quot;:&quot;1040000000090209&quot;,&quot;name&quot;:&quot;objective-c&quot;},{&quot;id&quot;:&quot;1040000000089669&quot;,&quot;name&quot;:&quot;shell&quot;},{&quot;id&quot;:&quot;1040000000090203&quot;,&quot;name&quot;:&quot;golang&quot;},{&quot;id&quot;:&quot;1040000000531223&quot;,&quot;name&quot;:&quot;swift&quot;},{&quot;id&quot;:&quot;1040000000089581&quot;,&quot;name&quot;:&quot;c#&quot;},{&quot;id&quot;:&quot;1040000000089699&quot;,&quot;name&quot;:&quot;ruby&quot;},{&quot;id&quot;:&quot;1040000000089686&quot;,&quot;name&quot;:&quot;bash&quot;},{&quot;id&quot;:&quot;1040000000091262&quot;,&quot;name&quot;:&quot;sass&quot;},{&quot;id&quot;:&quot;1040000000090433&quot;,&quot;name&quot;:&quot;asp.net&quot;},{&quot;id&quot;:&quot;1040000000365394&quot;,&quot;name&quot;:&quot;typescript&quot;},{&quot;id&quot;:&quot;1040000000090600&quot;,&quot;name&quot;:&quot;less&quot;},{&quot;id&quot;:&quot;1040000000090228&quot;,&quot;name&quot;:&quot;scala&quot;},{&quot;id&quot;:&quot;1040000000090208&quot;,&quot;name&quot;:&quot;lua&quot;},{&quot;id&quot;:&quot;1040000000161068&quot;,&quot;name&quot;:&quot;coffeescript&quot;},{&quot;id&quot;:&quot;1040000000090194&quot;,&quot;name&quot;:&quot;actionscript&quot;},{&quot;id&quot;:&quot;1040000000090201&quot;,&quot;name&quot;:&quot;erlang&quot;},{&quot;id&quot;:&quot;1040000000089698&quot;,&quot;name&quot;:&quot;perl&quot;},{&quot;id&quot;:&quot;1040000000311191&quot;,&quot;name&quot;:&quot;rust&quot;}],&quot;\u5e73\u53f0\u6846\u67b6&quot;:[{&quot;id&quot;:&quot;1040000000196640&quot;,&quot;name&quot;:&quot;laravel&quot;},{&quot;id&quot;:&quot;1040000000125263&quot;,&quot;name&quot;:&quot;flask&quot;},{&quot;id&quot;:&quot;1040000000089564&quot;,&quot;name&quot;:&quot;django&quot;},{&quot;id&quot;:&quot;1040000000090103&quot;,&quot;name&quot;:&quot;spring&quot;},{&quot;id&quot;:&quot;1040000000166256&quot;,&quot;name&quot;:&quot;express&quot;},{&quot;id&quot;:&quot;1040000000089646&quot;,&quot;name&quot;:&quot;ruby-on-rails&quot;},{&quot;id&quot;:&quot;1040000000090398&quot;,&quot;name&quot;:&quot;yii&quot;},{&quot;id&quot;:&quot;1040000000116331&quot;,&quot;name&quot;:&quot;tornado&quot;},{&quot;id&quot;:&quot;1040000000622042&quot;,&quot;name&quot;:&quot;koa&quot;},{&quot;id&quot;:&quot;1040000000089638&quot;,&quot;name&quot;:&quot;struts&quot;}],&quot;\u670d\u52a1\u5668&quot;:[{&quot;id&quot;:&quot;1040000000089392&quot;,&quot;name&quot;:&quot;linux&quot;},{&quot;id&quot;:&quot;1040000000090145&quot;,&quot;name&quot;:&quot;nginx&quot;},{&quot;id&quot;:&quot;1040000000089761&quot;,&quot;name&quot;:&quot;apache&quot;},{&quot;id&quot;:&quot;1040000000366352&quot;,&quot;name&quot;:&quot;docker&quot;},{&quot;id&quot;:&quot;1040000000090245&quot;,&quot;name&quot;:&quot;ubuntu&quot;},{&quot;id&quot;:&quot;1040000000090249&quot;,&quot;name&quot;:&quot;centos&quot;},{&quot;id&quot;:&quot;1040000000090401&quot;,&quot;name&quot;:&quot;\u7f13\u5b58&quot;},{&quot;id&quot;:&quot;1040000000090117&quot;,&quot;name&quot;:&quot;tomcat&quot;},{&quot;id&quot;:&quot;1040000000090107&quot;,&quot;name&quot;:&quot;\u8d1f\u8f7d\u5747\u8861&quot;},{&quot;id&quot;:&quot;1040000000090646&quot;,&quot;name&quot;:&quot;unix&quot;},{&quot;id&quot;:&quot;1040000000089648&quot;,&quot;name&quot;:&quot;hadoop&quot;},{&quot;id&quot;:&quot;1040000000090609&quot;,&quot;name&quot;:&quot;windows-server&quot;}],&quot;\u6570\u636e\u5e93\u548c\u7f13\u5b58&quot;:[{&quot;id&quot;:&quot;1040000000089439&quot;,&quot;name&quot;:&quot;mysql&quot;},{&quot;id&quot;:&quot;1040000000090049&quot;,&quot;name&quot;:&quot;sql&quot;},{&quot;id&quot;:&quot;1040000000089431&quot;,&quot;name&quot;:&quot;redis&quot;},{&quot;id&quot;:&quot;1040000000089488&quot;,&quot;name&quot;:&quot;mongodb&quot;},{&quot;id&quot;:&quot;1040000000090701&quot;,&quot;name&quot;:&quot;oracle&quot;},{&quot;id&quot;:&quot;1040000000089432&quot;,&quot;name&quot;:&quot;nosql&quot;},{&quot;id&quot;:&quot;1040000000089873&quot;,&quot;name&quot;:&quot;memcached&quot;},{&quot;id&quot;:&quot;1040000000090424&quot;,&quot;name&quot;:&quot;sqlserver&quot;},{&quot;id&quot;:&quot;1040000000090354&quot;,&quot;name&quot;:&quot;sqlite&quot;},{&quot;id&quot;:&quot;1040000000090861&quot;,&quot;name&quot;:&quot;postgresql&quot;}],&quot;\u5f00\u53d1\u5de5\u5177&quot;:[{&quot;id&quot;:&quot;1040000000089459&quot;,&quot;name&quot;:&quot;git&quot;},{&quot;id&quot;:&quot;1040000000091226&quot;,&quot;name&quot;:&quot;github&quot;},{&quot;id&quot;:&quot;1040000000089467&quot;,&quot;name&quot;:&quot;vim&quot;},{&quot;id&quot;:&quot;1040000000089579&quot;,&quot;name&quot;:&quot;xcode&quot;},{&quot;id&quot;:&quot;1040000000126097&quot;,&quot;name&quot;:&quot;sublime-text&quot;},{&quot;id&quot;:&quot;1040000000089509&quot;,&quot;name&quot;:&quot;eclipse&quot;},{&quot;id&quot;:&quot;1040000000090560&quot;,&quot;name&quot;:&quot;intellij-idea&quot;},{&quot;id&quot;:&quot;1040000002720957&quot;,&quot;name&quot;:&quot;visual-studio-code&quot;},{&quot;id&quot;:&quot;1040000000089447&quot;,&quot;name&quot;:&quot;svn&quot;},{&quot;id&quot;:&quot;1040000000090186&quot;,&quot;name&quot;:&quot;maven&quot;},{&quot;id&quot;:&quot;1040000000090473&quot;,&quot;name&quot;:&quot;ide&quot;},{&quot;id&quot;:&quot;1040000000090524&quot;,&quot;name&quot;:&quot;atom&quot;},{&quot;id&quot;:&quot;1040000000090231&quot;,&quot;name&quot;:&quot;visual-studio&quot;},{&quot;id&quot;:&quot;1040000000090216&quot;,&quot;name&quot;:&quot;emacs&quot;},{&quot;id&quot;:&quot;1040000000183694&quot;,&quot;name&quot;:&quot;hg&quot;},{&quot;id&quot;:&quot;1040000000089663&quot;,&quot;name&quot;:&quot;textmate&quot;}],&quot;\u7cfb\u7edf\u8bbe\u5907&quot;:[{&quot;id&quot;:&quot;1040000000089658&quot;,&quot;name&quot;:&quot;android&quot;},{&quot;id&quot;:&quot;1040000000089442&quot;,&quot;name&quot;:&quot;ios&quot;},{&quot;id&quot;:&quot;1040000000089407&quot;,&quot;name&quot;:&quot;chrome&quot;},{&quot;id&quot;:&quot;1040000000089709&quot;,&quot;name&quot;:&quot;windows&quot;},{&quot;id&quot;:&quot;1040000000089498&quot;,&quot;name&quot;:&quot;iphone&quot;},{&quot;id&quot;:&quot;1040000000090217&quot;,&quot;name&quot;:&quot;firefox&quot;},{&quot;id&quot;:&quot;1040000000125504&quot;,&quot;name&quot;:&quot;internet-explorer&quot;},{&quot;id&quot;:&quot;1040000000089499&quot;,&quot;name&quot;:&quot;safari&quot;},{&quot;id&quot;:&quot;1040000000090638&quot;,&quot;name&quot;:&quot;ipad&quot;},{&quot;id&quot;:&quot;1040000000090218&quot;,&quot;name&quot;:&quot;opera&quot;},{&quot;id&quot;:&quot;1040000002871462&quot;,&quot;name&quot;:&quot;apple-watch&quot;}],&quot;\u5176\u5b83&quot;:[{&quot;id&quot;:&quot;1040000000089409&quot;,&quot;name&quot;:&quot;html5&quot;},{&quot;id&quot;:&quot;1040000002893277&quot;,&quot;name&quot;:&quot;react.js&quot;},{&quot;id&quot;:&quot;1040000000090137&quot;,&quot;name&quot;:&quot;\u641c\u7d22\u5f15\u64ce&quot;},{&quot;id&quot;:&quot;1040000000123810&quot;,&quot;name&quot;:&quot;virtualenv&quot;},{&quot;id&quot;:&quot;1040000000090316&quot;,&quot;name&quot;:&quot;lucene&quot;}]}">
+    <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="https://segmentfault.com/a/1190000005598925#开发语言" aria-controls="type" role="tab" data-toggle="tab">开发语言</a>
+            </li>
+                    <li role="presentation" class=""><a href="https://segmentfault.com/a/1190000005598925#平台框架" aria-controls="type" role="tab" data-toggle="tab">平台框架</a>
+            </li>
+                    <li role="presentation" class=""><a href="https://segmentfault.com/a/1190000005598925#服务器" aria-controls="type" role="tab" data-toggle="tab">服务器</a>
+            </li>
+                    <li role="presentation" class=""><a href="https://segmentfault.com/a/1190000005598925#数据库和缓存" aria-controls="type" role="tab" data-toggle="tab">数据库和缓存</a>
+            </li>
+                    <li role="presentation" class=""><a href="https://segmentfault.com/a/1190000005598925#开发工具" aria-controls="type" role="tab" data-toggle="tab">开发工具</a>
+            </li>
+                    <li role="presentation" class=""><a href="https://segmentfault.com/a/1190000005598925#系统设备" aria-controls="type" role="tab" data-toggle="tab">系统设备</a>
+            </li>
+                    <li role="presentation" class=""><a href="https://segmentfault.com/a/1190000005598925#其它" aria-controls="type" role="tab" data-toggle="tab">其它</a>
+            </li>
+            </ul>
+    <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="开发语言">
+                <ul class="taglist--inline">
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000089436&quot;,&quot;name&quot;:&quot;javascript&quot;}" href="javascript: void(0);">javascript</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000089387&quot;,&quot;name&quot;:&quot;php&quot;}" href="javascript: void(0);">php</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000089434&quot;,&quot;name&quot;:&quot;css&quot;}" href="javascript: void(0);">css</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000089571&quot;,&quot;name&quot;:&quot;html&quot;}" href="javascript: void(0);">html</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000089449&quot;,&quot;name&quot;:&quot;java&quot;}" href="javascript: void(0);">java</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000089534&quot;,&quot;name&quot;:&quot;python&quot;}" href="javascript: void(0);">python</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000089409&quot;,&quot;name&quot;:&quot;html5&quot;}" href="javascript: void(0);">html5</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000089918&quot;,&quot;name&quot;:&quot;node.js&quot;}" href="javascript: void(0);">node.js</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000089741&quot;,&quot;name&quot;:&quot;c++&quot;}" href="javascript: void(0);">c++</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000089457&quot;,&quot;name&quot;:&quot;c&quot;}" href="javascript: void(0);">c</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000090209&quot;,&quot;name&quot;:&quot;objective-c&quot;}" href="javascript: void(0);">objective-c</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000089669&quot;,&quot;name&quot;:&quot;shell&quot;}" href="javascript: void(0);">shell</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000090203&quot;,&quot;name&quot;:&quot;golang&quot;}" href="javascript: void(0);">golang</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000531223&quot;,&quot;name&quot;:&quot;swift&quot;}" href="javascript: void(0);">swift</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000089581&quot;,&quot;name&quot;:&quot;c#&quot;}" href="javascript: void(0);">c#</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000089699&quot;,&quot;name&quot;:&quot;ruby&quot;}" href="javascript: void(0);">ruby</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000089686&quot;,&quot;name&quot;:&quot;bash&quot;}" href="javascript: void(0);">bash</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000091262&quot;,&quot;name&quot;:&quot;sass&quot;}" href="javascript: void(0);">sass</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000090433&quot;,&quot;name&quot;:&quot;asp.net&quot;}" href="javascript: void(0);">asp.net</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000365394&quot;,&quot;name&quot;:&quot;typescript&quot;}" href="javascript: void(0);">typescript</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000090600&quot;,&quot;name&quot;:&quot;less&quot;}" href="javascript: void(0);">less</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000090228&quot;,&quot;name&quot;:&quot;scala&quot;}" href="javascript: void(0);">scala</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000090208&quot;,&quot;name&quot;:&quot;lua&quot;}" href="javascript: void(0);">lua</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000161068&quot;,&quot;name&quot;:&quot;coffeescript&quot;}" href="javascript: void(0);">coffeescript</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000090194&quot;,&quot;name&quot;:&quot;actionscript&quot;}" href="javascript: void(0);">actionscript</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000090201&quot;,&quot;name&quot;:&quot;erlang&quot;}" href="javascript: void(0);">erlang</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000089698&quot;,&quot;name&quot;:&quot;perl&quot;}" href="javascript: void(0);">perl</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000311191&quot;,&quot;name&quot;:&quot;rust&quot;}" href="javascript: void(0);">rust</a>
+                        </li>
+                                    </ul>
+            </div>
+                    <div role="tabpanel" class="tab-pane " id="平台框架">
+                <ul class="taglist--inline">
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000196640&quot;,&quot;name&quot;:&quot;laravel&quot;}" href="javascript: void(0);">laravel</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000125263&quot;,&quot;name&quot;:&quot;flask&quot;}" href="javascript: void(0);">flask</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000089564&quot;,&quot;name&quot;:&quot;django&quot;}" href="javascript: void(0);">django</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000090103&quot;,&quot;name&quot;:&quot;spring&quot;}" href="javascript: void(0);">spring</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000166256&quot;,&quot;name&quot;:&quot;express&quot;}" href="javascript: void(0);">express</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000089646&quot;,&quot;name&quot;:&quot;ruby-on-rails&quot;}" href="javascript: void(0);">ruby-on-rails</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000090398&quot;,&quot;name&quot;:&quot;yii&quot;}" href="javascript: void(0);">yii</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000116331&quot;,&quot;name&quot;:&quot;tornado&quot;}" href="javascript: void(0);">tornado</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000622042&quot;,&quot;name&quot;:&quot;koa&quot;}" href="javascript: void(0);">koa</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000089638&quot;,&quot;name&quot;:&quot;struts&quot;}" href="javascript: void(0);">struts</a>
+                        </li>
+                                    </ul>
+            </div>
+                    <div role="tabpanel" class="tab-pane " id="服务器">
+                <ul class="taglist--inline">
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000089392&quot;,&quot;name&quot;:&quot;linux&quot;}" href="javascript: void(0);">linux</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000090145&quot;,&quot;name&quot;:&quot;nginx&quot;}" href="javascript: void(0);">nginx</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000089761&quot;,&quot;name&quot;:&quot;apache&quot;}" href="javascript: void(0);">apache</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000366352&quot;,&quot;name&quot;:&quot;docker&quot;}" href="javascript: void(0);">docker</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000090245&quot;,&quot;name&quot;:&quot;ubuntu&quot;}" href="javascript: void(0);">ubuntu</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000090249&quot;,&quot;name&quot;:&quot;centos&quot;}" href="javascript: void(0);">centos</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000090401&quot;,&quot;name&quot;:&quot;\u7f13\u5b58&quot;}" href="javascript: void(0);">缓存</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000090117&quot;,&quot;name&quot;:&quot;tomcat&quot;}" href="javascript: void(0);">tomcat</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000090107&quot;,&quot;name&quot;:&quot;\u8d1f\u8f7d\u5747\u8861&quot;}" href="javascript: void(0);">负载均衡</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000090646&quot;,&quot;name&quot;:&quot;unix&quot;}" href="javascript: void(0);">unix</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000089648&quot;,&quot;name&quot;:&quot;hadoop&quot;}" href="javascript: void(0);">hadoop</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000090609&quot;,&quot;name&quot;:&quot;windows-server&quot;}" href="javascript: void(0);">windows-server</a>
+                        </li>
+                                    </ul>
+            </div>
+                    <div role="tabpanel" class="tab-pane " id="数据库和缓存">
+                <ul class="taglist--inline">
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000089439&quot;,&quot;name&quot;:&quot;mysql&quot;}" href="javascript: void(0);">mysql</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000090049&quot;,&quot;name&quot;:&quot;sql&quot;}" href="javascript: void(0);">sql</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000089431&quot;,&quot;name&quot;:&quot;redis&quot;}" href="javascript: void(0);">redis</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000089488&quot;,&quot;name&quot;:&quot;mongodb&quot;}" href="javascript: void(0);">mongodb</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000090701&quot;,&quot;name&quot;:&quot;oracle&quot;}" href="javascript: void(0);">oracle</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000089432&quot;,&quot;name&quot;:&quot;nosql&quot;}" href="javascript: void(0);">nosql</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000089873&quot;,&quot;name&quot;:&quot;memcached&quot;}" href="javascript: void(0);">memcached</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000090424&quot;,&quot;name&quot;:&quot;sqlserver&quot;}" href="javascript: void(0);">sqlserver</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000090354&quot;,&quot;name&quot;:&quot;sqlite&quot;}" href="javascript: void(0);">sqlite</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000090861&quot;,&quot;name&quot;:&quot;postgresql&quot;}" href="javascript: void(0);">postgresql</a>
+                        </li>
+                                    </ul>
+            </div>
+                    <div role="tabpanel" class="tab-pane " id="开发工具">
+                <ul class="taglist--inline">
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000089459&quot;,&quot;name&quot;:&quot;git&quot;}" href="javascript: void(0);">git</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000091226&quot;,&quot;name&quot;:&quot;github&quot;}" href="javascript: void(0);">github</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000089467&quot;,&quot;name&quot;:&quot;vim&quot;}" href="javascript: void(0);">vim</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000089579&quot;,&quot;name&quot;:&quot;xcode&quot;}" href="javascript: void(0);">xcode</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000126097&quot;,&quot;name&quot;:&quot;sublime-text&quot;}" href="javascript: void(0);">sublime-text</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000089509&quot;,&quot;name&quot;:&quot;eclipse&quot;}" href="javascript: void(0);">eclipse</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000090560&quot;,&quot;name&quot;:&quot;intellij-idea&quot;}" href="javascript: void(0);">intellij-idea</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000002720957&quot;,&quot;name&quot;:&quot;visual-studio-code&quot;}" href="javascript: void(0);">visual-studio-code</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000089447&quot;,&quot;name&quot;:&quot;svn&quot;}" href="javascript: void(0);">svn</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000090186&quot;,&quot;name&quot;:&quot;maven&quot;}" href="javascript: void(0);">maven</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000090473&quot;,&quot;name&quot;:&quot;ide&quot;}" href="javascript: void(0);">ide</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000090524&quot;,&quot;name&quot;:&quot;atom&quot;}" href="javascript: void(0);">atom</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000090231&quot;,&quot;name&quot;:&quot;visual-studio&quot;}" href="javascript: void(0);">visual-studio</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000090216&quot;,&quot;name&quot;:&quot;emacs&quot;}" href="javascript: void(0);">emacs</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000183694&quot;,&quot;name&quot;:&quot;hg&quot;}" href="javascript: void(0);">hg</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000089663&quot;,&quot;name&quot;:&quot;textmate&quot;}" href="javascript: void(0);">textmate</a>
+                        </li>
+                                    </ul>
+            </div>
+                    <div role="tabpanel" class="tab-pane " id="系统设备">
+                <ul class="taglist--inline">
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000089658&quot;,&quot;name&quot;:&quot;android&quot;}" href="javascript: void(0);">android</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000089442&quot;,&quot;name&quot;:&quot;ios&quot;}" href="javascript: void(0);">ios</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000089407&quot;,&quot;name&quot;:&quot;chrome&quot;}" href="javascript: void(0);">chrome</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000089709&quot;,&quot;name&quot;:&quot;windows&quot;}" href="javascript: void(0);">windows</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000089498&quot;,&quot;name&quot;:&quot;iphone&quot;}" href="javascript: void(0);">iphone</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000090217&quot;,&quot;name&quot;:&quot;firefox&quot;}" href="javascript: void(0);">firefox</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000125504&quot;,&quot;name&quot;:&quot;internet-explorer&quot;}" href="javascript: void(0);">internet-explorer</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000089499&quot;,&quot;name&quot;:&quot;safari&quot;}" href="javascript: void(0);">safari</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000090638&quot;,&quot;name&quot;:&quot;ipad&quot;}" href="javascript: void(0);">ipad</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000090218&quot;,&quot;name&quot;:&quot;opera&quot;}" href="javascript: void(0);">opera</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000002871462&quot;,&quot;name&quot;:&quot;apple-watch&quot;}" href="javascript: void(0);">apple-watch</a>
+                        </li>
+                                    </ul>
+            </div>
+                    <div role="tabpanel" class="tab-pane " id="其它">
+                <ul class="taglist--inline">
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000089409&quot;,&quot;name&quot;:&quot;html5&quot;}" href="javascript: void(0);">html5</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000002893277&quot;,&quot;name&quot;:&quot;react.js&quot;}" href="javascript: void(0);">react.js</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000090137&quot;,&quot;name&quot;:&quot;\u641c\u7d22\u5f15\u64ce&quot;}" href="javascript: void(0);">搜索引擎</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000123810&quot;,&quot;name&quot;:&quot;virtualenv&quot;}" href="javascript: void(0);">virtualenv</a>
+                        </li>
+                                            <li class="mb5">
+                            <a class="tag" data-tag="{&quot;id&quot;:&quot;1040000000090316&quot;,&quot;name&quot;:&quot;lucene&quot;}" href="javascript: void(0);">lucene</a>
+                        </li>
+                                    </ul>
+            </div>
+            </div>
+</div>
+
+                                </div>
+                               
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-4 hidden-xs">
+                        <ul class="post-topheader__side list-unstyled">
+                            <li>
+                                                                    <button type="button" class="btn btn-success btn-sm " data-id="1190000005598925" id="sideLike"><i class="fa fa-caret-up fa-lg" aria-hidden="true"></i>
+                                            &nbsp;&nbsp;<span class="seprator">|</span>&nbsp;&nbsp;
+                                            <span id="sideLikeNum">0</span>
+                                    </button>
+                                                                                                    <button type="button" id="sideBookmark" class="btn btn-default btn-sm " data-id="1190000005598925" data-type="article">
+                                            <span id="sideBookmarkText">收藏</span>&nbsp;&nbsp;<span class="seprator">|</span>&nbsp;&nbsp;<span id="sideBookmarkNum">14</span>
+                                    </button>
+                                                            </li>
+                            <li>
+                                <strong class="no-stress">739</strong> 次浏览
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- end .post-topheader -->
+
+    <div class="container mt30">
+        <div class="row">
+            <div class="col-xs-12 col-md-9 main ">
+
+                
+                <div class="article fmt article__content" data-id="1190000005598925" data-license="cc">
+                    
+<p>终于到了布局的部分了！</p>
+<h2 id="articleHeader0">布局</h2>
+<p>当渲染对象被创建并添加到树中，是没有位置和大小的，计算这些值的过程称为layout或reflow。<br>布局是一个递归过程，由根渲染对象开始，对应html文档元素，布局继续递归的通过一些或所有的frame层级，为每个需要几何信息的渲染对象进行计算。跟渲染对象位置是0，0。所有渲染对象都有一个layout或reflow方法，每个渲染对象调用需要布局的children的layout方法。<br>浏览器会对发生变化的呈现器以及其子代标注为"dirty"，表示需要进行layout<br>标记分为两种："dirty"和"children are dirty"。<br>“children are dirty”表示尽管呈现器本身没有变化，但它至少有一个子代需要布局。<br>这里需要说明一下重排reflow和重绘repaint。</p>
+<h3 id="articleHeader1">重排 reflow</h3>
+<p>当改变影响到文本内容、结构或元素位置时，就会发生重排。<br>通常有以下事件触发：</p>
+<ul>
+<li><p>网页初始化时</p></li>
+<li><p>DOM操作（元素添加、删除、修改、元素顺序变化）</p></li>
+<li><p>内容变化，包括表单域内文本改变</p></li>
+<li><p>CSS属性的计算或改变</p></li>
+<li><p>添加或删除样式表</p></li>
+<li><p>更改“类”属性</p></li>
+<li><p>浏览器窗口的缩放、滚动等</p></li>
+<li><p>伪类激活（例如:hover悬停）</p></li>
+</ul>
+<h3 id="articleHeader2">重绘 repaint</h3>
+<p>改变不会影响元素的位置及大小的样式时，则会触发重绘。换句话说，元素改变外观时会触发这个行为，不包括修改元素的几何属性。例如background,visibility。</p>
+<h3 id="articleHeader3">异步layout和同步layout</h3>
+<p>异步layout，简单来说，就是指浏览器为了尽可能减少reflow和repaint的操作，而将这些操作积攒起来，再统一做一次reflow。<br>什么时候会产生同步layout呢？<br>例如resize窗口、改变页面默认字体时，或者是脚本作出以下请求：</p>
+<ul>
+<li><p>offsetTop, offsetLeft, offsetWidth, offsetHeight</p></li>
+<li><p>scrollTop/Left/Width/Height</p></li>
+<li><p>clientTop/Left/Width/Height</p></li>
+<li><p>IE中的 getComputedStyle(), 或 currentStyle<br>那么浏览器需要立即layout以返回最新的值。</p></li>
+</ul>
+<h3 id="articleHeader4">layout过程</h3>
+<ol>
+<li><p>parent渲染对象决定宽度</p></li>
+<li><p>parent渲染对象读取children,设置其x,y；在需要时【标记为dirty或全局layout等】调用child渲染对象的layout，计算child高度；parent使用child的累积高度，以及margin和padding的高度来设置自己的高度；最后将dirty标志设置为false</p></li>
+</ol>
+<h2 id="articleHeader5">绘制</h2>
+<p>和布局一样，绘制也可以是全局的——绘制完整的树——或增量的。在增量的绘制过程中，一些渲染对象以不影响整棵树的方式改变，改变的渲染对象使其在屏幕上的矩形区域失效，这将导致操作系统将其看作dirty区域，并产生一个paint事件，操作系统很巧妙的处理这个过程，并将多个区域合并为一个。Chrome中，这个过程更复杂些，因为渲染对象在不同的进程中，而不是在主进程中。Chrome在一定程度上模拟操作系统的行为，表现为监听事件并派发消息给渲染根，在树中查找到相关的渲染对象，重绘这个对象（往往还包括它的children）。</p>
+<h3 id="articleHeader6">绘制顺序</h3>
+<p>一个块渲染对象的堆栈顺序是：</p>
+<ol>
+<li><p>背景色</p></li>
+<li><p>背景图</p></li>
+<li><p>border</p></li>
+<li><p>children</p></li>
+<li><p>outline</p></li>
+</ol>
+<p>【待更新】<br>参考文献：</p>
+<ol>
+<li><p><a href="http://www.admin10000.com/document/1471.html#chapter3" target="_blank">浏览器内部工作原理</a></p></li>
+<li><p><a href="http://coolshell.cn/articles/9666.html" target="_blank">浏览器的渲染原理简介</a></p></li>
+<li><p><a href="http://taligarsiel.com/Projects/howbrowserswork1.htm" target="_blank">How browsers work</a></p></li>
+<li><p><a href="http://www.html-js.com/article/3000" target="_blank">有关网页渲染，每个前端开发者都该知道的那点事</a></p></li>
+<li><p><a href="http://www.cnblogs.com/lhb25/p/how-browsers-work.html#Webkit_CSS_parser" target="_blank">前端文摘：深入解析浏览器的幕后工作原理</a></p></li>
+<li><p><a href="https://developer.mozilla.org/en-US/docs/Style_System_Overview" target="_blank">MDN:Style System Overview</a></p></li>
+</ol>
+
+                </div>
+                                                
+                <div class="clearfix mt10">
+                    <ul class="article-operation list-inline pull-left"><li><a href="https://segmentfault.com/a/1190000005598925">2016年05月30日发布</a></li><li class="dropdown js__content-ops" data-module="article" data-id="1190000005598925" data-typetext="文章"><a href="javascript:void(0);" class="dropdown-toggle text-muted" data-toggle="dropdown"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a><ul class="dropdown-menu dropdown-menu-left"><li><a href="https://segmentfault.com/a/1190000005598925#911" data-toggle="modal" data-target="#911" data-action="report">举报</a></li></ul></li></ul>
+                    <div class="pull-right">
+                        <div class="widget-share__full" data-text="浏览器渲染的那些事（三）" data-url="https://segmentfault.com/a/1190000005598925?share_user=1030000003848130" data-shorturl="http://sfau.lt/b5xEHp"><div class="widget-share-network sharer-0" style="display: block;"><ul class="sn-inline"><li data-network="weibo"><a href="javascript:void(0);" class="entypo-weibo icon-sn-weibo share-1" data-toggle="tooltip" data-placement="top" title="" data-original-title="分享至新浪微博">新浪微博</a></li><li data-network="wechart"><a href="javascript:void(0);" class="entypo-wechart icon-sn-weixin share-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="分享至微信">微信</a></li><li data-network="twitter"><a href="javascript:void(0);" class="entypo-twitter icon-sn-twitter share-3" data-toggle="tooltip" data-placement="top" title="" data-original-title="分享至 Twitter">Twitter</a></li><li data-network="facebook"><a href="javascript:void(0);" class="entypo-facebook icon-sn-facebook share-4" data-toggle="tooltip" data-placement="top" title="" data-original-title="分享至 Facebook">Facebook</a></li></ul></div><a type="button" class="btn btn-sm shareMore btn-sn-more" data-toggle="popover" data-placement="top" data-url="https://segmentfault.com/a/1190000005598925?share_user=1030000003848130" data-shorturl="http://sfau.lt/b5xEHp"><span class="icon-sn-dotted" data-original-title="" title=""></span><strong class="visible-xs-inline">•••</strong></a></div>
+
+
+                    </div>
+                </div>
+                <div class="mt10 text-center"><button type="button" id="mainLike" data-id="1190000005598925" class="btn btn-success btn-lg mr15 "><i class="fa fa-caret-up fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;<span class="seprator">|</span>&nbsp;&nbsp;
+                                <span id="mainLikeNum">0 </span></button><button type="button" id="mainBookmark" data-type="article" data-id="1190000005598925" class="btn btn-default btn-lg "><span id="mainBookmarkText">收藏</span>&nbsp;&nbsp;<span class="seprator">|</span>&nbsp;&nbsp;<span id="mainBookmarkNum">14</span></button></div>
+                                    <div class="recommend-post pt30 mt40 mb30 border-top">
+                        <div class="row">
+                            <div class="col-md-8">
+                                                                    <h4 class="mt0">你可能感兴趣的文章</h4>
+                                    <ul class="widget-links list-unstyled">
+                                                                                    <li class="widget-links__item">
+                                                <a href="https://segmentfault.com/a/1190000000738105" title="JavaScript、jQuery、HTML5、Node.js实例大全-读书笔记2">JavaScript、jQuery、HTML5、Node.js实例大全-读书笔记2</a>
+                                                <small class="text-muted">
+                                                    22 收藏，3.2k
+                                                    浏览
+                                                </small>
+                                            </li>
+                                                                                    <li class="widget-links__item">
+                                                <a href="https://segmentfault.com/a/1190000000609021" title="【标题】全栈工程师是不是必须得会HTML5？">【标题】全栈工程师是不是必须得会HTML5？</a>
+                                                <small class="text-muted">
+                                                    4 收藏，1.8k
+                                                    浏览
+                                                </small>
+                                            </li>
+                                                                                    <li class="widget-links__item">
+                                                <a href="https://segmentfault.com/a/1190000003976076" title="HTML5与HTML4区别简介">HTML5与HTML4区别简介</a>
+                                                <small class="text-muted">
+                                                    14 收藏，1k
+                                                    浏览
+                                                </small>
+                                            </li>
+                                                                            </ul>
+                                                            </div>
+                            <div class="col-md-4">
+                                                            </div>
+                        </div>
+
+                    </div>
+                                <!-- <ul class="list-unstyled text-muted mt30">
+                                        <li>上一篇：<a href="/a/1190000005178434">设计模式第三弹【Proxy,Decorator,Mediator】</a></li>
+                                                            <li class="mt5">下一篇：<a href="/a/1190000005607846">js获取文档和元素的坐标</a></li>
+                                    </ul> -->
+
+                <h2 class="h4 post-comment-title"></h2>
+                        <div class="comments--news comments--default comments--article" data-id="1190000005598925" data-user-id="1030000003848130" data-author-id="1030000004033401 " data-is-admin="false">
+                    <div class="mb10 clearfix">
+                <strong class="comments-stat pull-left mr10">评论</strong>
+
+                                                    <div class="btn-group btn-group-xs pull-right comments-sort btn-group-menu" role="menu">
+                        <a href="javascript:;" class="btn btn-default active" data-sort="default">默认排序</a>
+                        <a href="javascript:;" class="btn btn-default" data-sort="desc">时间排序</a>
+                    </div>
+                            </div>
+                <div class="comments-container">
+                                <div class="comments-list">
+            </div>
+    <div class="comments-loading hide">载入中...</div>
+        <div class="comments-more hide"><a href="javascript:;">显示更多评论</a></div>
+    
+                        <div class="comments-box">
+                <div class="pull-left">
+                    <img class="avatar-32 " src="./浏览器渲染的那些事（三_files/3541053247-57a8559e5212b_big64" alt="">
+                </div>
+                <div class="comments-box-content">
+                    <form action="https://segmentfault.com/api/article/1190000005598925/comments/add">
+                        <div class="form-group mb0">
+                                            <textarea name="text" rows="3" class="form-control" placeholder="文明社会，理性评论"></textarea>
+
+                            <div class="mt15 text-right">
+                                <button type="button" class="hide"></button>
+                                <button class=" btn btn-primary" type="button">发布评论</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+                                </div>
+    </div>
+
+
+                
+            </div><!-- /.main -->
+
+
+            <div class="col-xs-12 col-md-3 side">
+                                <div id="mm_124884735_33830642_120592878" class="mb25"></div>
+
+                <div class="widget-box widget-box--blog-info">
+                    <div class="blog__sidebar-author ">
+                                                    <button type="button" class="btn btn-sm btn-success follow-user ml10 pull-right" data-do="follow" data-type="user" data-id="1030000004033401">关注作者
+                            </button>
+                        
+                        <div class="article__widget--author">
+                            <a href="https://segmentfault.com/u/lsxj">
+                                <img class="avatar-40" src="./浏览器渲染的那些事（三_files/3038619584-57844e134e9ae_big64" alt="lsxj">
+                            </a>
+                            <a class="article__widget-author-name" href="https://segmentfault.com/u/lsxj">
+                                <strong>lsxj</strong>
+                            </a>
+                            <p class="article__widget-author-text-muted mb0">
+                                <span>487 声望</span>
+
+                            </p>
+
+
+                        </div>
+
+
+                    </div>
+                                        <div class="blog__sidebar-blog-name">
+                        <p class="article__widget-author-text-muted mt15 mb5">发布于专栏</p>
+
+                        <h4 class="fz16"><a style="word-break: break-all;" href="https://segmentfault.com/blog/lsxj">前端开发之从入门到放弃</a></h4>
+                        <p class="article__widget-author-desc">技术渣渣的学习之路</p>
+
+                        <p>
+                            <span class="article__widget-author-text-muted">24 人关注</span>
+                            
+                                                                    <button type="button mb20" class="btn btn-sm btn-default follow-article pull-right" data-do="follow" data-type="blog" data-id="1200000004975759">关注专栏
+                                    </button>
+                                
+                                                    </p>
+
+                    </div>
+                    
+
+                </div>
+                
+                                <div id="mm_124884735_33830642_121788665" class="mb25"></div>
+                
+                 
+                <div class="post-nav hidden-xs side-outline hidden-sm fixed" style="display: block; width: 255px; top: 0px;">
+                    <div class="panel panel-default widget-outline">
+                        <div class="panel-heading">目录</div>
+                        <div class="panel-body">
+                            <div class="nav-body" style="top: 0px;">
+                                <div class="highlight-title" style="display: block; top: 162px; height: 27px;"></div>
+                                <ul class="articleIndex"><li class=""><a href="https://segmentfault.com/a/1190000005598925#articleHeader0">布局</a></li><li style="list-style:none;"><ul><li class=""><a href="https://segmentfault.com/a/1190000005598925#articleHeader1">重排 reflow</a></li><li class=""><a href="https://segmentfault.com/a/1190000005598925#articleHeader2">重绘 repaint</a></li><li class=""><a href="https://segmentfault.com/a/1190000005598925#articleHeader3">异步layout和同步layout</a></li><li class=""><a href="https://segmentfault.com/a/1190000005598925#articleHeader4">layout过程</a></li></ul></li><li class=""><a href="https://segmentfault.com/a/1190000005598925#articleHeader5">绘制</a></li><li style="list-style:none;"><ul><li class="active"><a href="https://segmentfault.com/a/1190000005598925#articleHeader6">绘制顺序</a></li></ul></li></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.side -->
+        </div>
+    </div>
+</div>
+
+<div id="shareToWeiboModal" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title">分享</h4>
+            </div>
+            <div class="modal-body">
+                <p class="sfModal-content">
+                    分享到微博？
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default dont-likeweibo" data-dismiss="modal">取消</button>
+                <a href="https://segmentfault.com/a/1190000005598925" id="shareLink" class="btn btn-primary done-btn" target="_blank" onclick="$(&#39;#shareToWeiboModal&#39;).modal(&#39;hide&#39;)">分享</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal widget-911" id="911" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close" data-dismiss="modal" type="button">
+          <span aria-hidden="true">×</span>
+          <span class="sr-only">Close</span>
+        </button>
+        <h4 class="modal-title"><span data-model="action"></span><span data-model="type"></span></h4>
+      </div>
+      <div class="modal-body">
+        <form id="reportForm">
+          <!-- 后台返回信息 -->
+          <p class="alert alert-warning" data-model="returnMsg"></p>
+          <div data-role="base">
+            <p>
+              <strong class="required">我要<span data-model="action"></span>该<span data-model="type"></span>，理由是：</strong>
+            </p>
+            <ul class="list-unstyled" data-model="list"></ul>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-default pull-left" type="button" data-role="back" style="display:none">返回重选</button>
+                <button class="btn btn-default" data-dismiss="modal" type="button">取消</button>
+        <button class="btn btn-primary" data-role="submit" type="button">提交</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+
+
+<footer id="footer">
+    <div class="container">
+        <div class="row hidden-xs">
+            <dl class="col-sm-2 site-link">
+                <dt>网站相关</dt>
+                <dd><a href="https://segmentfault.com/about">关于我们</a></dd>
+                <dd><a href="https://segmentfault.com/tos">服务条款</a></dd>
+                <dd><a href="https://segmentfault.com/faq">帮助中心</a></dd>
+                <dd><a href="https://segmentfault.com/repu">声望与权限</a></dd>
+                <dd><a href="https://segmentfault.com/markdown">编辑器语法</a></dd>
+                <dd><a href="https://segmentfault.com/weekly">每周精选</a></dd>
+                                <dd><a href="https://segmentfault.com/community">社区服务中心</a></dd>
+            </dl>
+            <dl class="col-sm-2 site-link">
+                <dt>联系合作</dt>
+                <dd><a href="https://segmentfault.com/contact">联系我们</a></dd>
+                <dd><a href="https://segmentfault.com/hiring">加入我们</a></dd>
+                <dd><a href="https://segmentfault.com/link">合作伙伴</a></dd>
+                <dd><a href="https://segmentfault.com/press">媒体报道</a></dd>
+                <dd><a href="https://segmentfault.com/g/1570000009280187">建议反馈</a></dd>
+                                            </dl>
+            <dl class="col-sm-2 site-link">
+                <dt>常用链接</dt>
+                                                <dd><a href="https://chrome.google.com/webstore/detail/segmentfault-%E7%AC%94%E8%AE%B0/pjklfdmleagfaekibdccmhlhellefcfo" target="_blank">笔记插件: Chrome</a></dd>
+                                                                <dd><a href="https://addons.mozilla.org/zh-CN/firefox/addon/sf-note-ext/" target="_blank">笔记插件: Firefox</a></dd>
+                                                                <dd>订阅：<a href="https://segmentfault.com/feeds">问答</a> / <a href="https://segmentfault.com/feeds/blogs">文章</a></dd>
+                                                                <dd><a href="https://mirrors.segmentfault.com/" target="_blank">文档镜像</a></dd>
+                                                                <dd><a href="https://segmentfault.com/d-day" target="_blank">D-DAY 技术沙龙</a></dd>
+                                                                <dd><a href="https://segmentfault.com/hackathon" target="_blank">黑客马拉松 Hackathon</a></dd>
+                                                                <dd><a href="https://namebeta.com/" target="_blank">域名搜索注册</a></dd>
+                                                                <dd><a href="https://shop165859711.taobao.com/" target="_blank">周边店铺</a></dd>
+                                            </dl>
+            <dl class="col-sm-2 site-link">
+                <dt>社区日志</dt>
+                                <dd><a href="https://segmentfault.com/blog/segmentfault" target="_blank">产品技术日志</a></dd>
+                                <dd><a href="https://segmentfault.com/blog/community_admin" target="_blank">社区运营日志</a></dd>
+                                <dd><a href="https://segmentfault.com/blog/segmentfault_news" target="_blank">市场运营日志</a></dd>
+                                <dd><a href="https://segmentfault.com/blog/segmentfault_team" target="_blank">团队日志</a></dd>
+                                <dd><a href="https://segmentfault.com/blog/interview" target="_blank">社区访谈</a></dd>
+                                <dd>
+                    <ul class="sn-inline">
+                        <li>
+                            <a class="entypo-wechart icon-sn-weixin weixin-popover-qrcode" data-toggle="popover" data-placement="top" data-content="" data-original-title="" title="">微信</a>
+                        </li>
+                        <li>
+                            <a href="http://weibo.com/segmentfault" target="_blank" class="entypo-weibo icon-sn-weibo">新浪微博</a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/SegmentFault" target="_blank" class="entypo-facebook icon-sn-github">Github</a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/segment_fault" target="_blank" class="entypo-twitter icon-sn-twitter">Twitter</a>
+                        </li>
+                    </ul>
+                </dd>
+            </dl>
+            <dl class="col-sm-4 site-link" id="license">
+                <dt>内容许可</dt>
+                <dd>除特别说明外，用户内容均采用 <a rel="license" target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a> 进行许可
+                </dd>
+                <dd>本站由 <a target="_blank" href="https://www.upyun.com/?utm_source=segmentfault&amp;utm_medium=link&amp;utm_campaign=upyun&amp;md=segmentfault">又拍云</a> 提供 CDN 存储服务
+                </dd>
+                <dd>
+                    <a href="https://segmentfault.com/app"><img src="./浏览器渲染的那些事（三_files/appQrcode.png" class="app-qrcode"></a>
+                    <div class="app-download-desc">
+                        <p>手机扫一扫</p>
+                        <p>下载官方 App</p>
+                    </div>
+                    
+                </dd>
+            </dl>
+            <div>
+            </div>
+        </div>
+        <div class="copyright">
+            Copyright © 2011-2017 SegmentFault. 当前呈现版本 17.06.16<br>
+            <a href="http://www.miibeian.gov.cn/" rel="nofollow">浙ICP备 15005796号-2</a> &nbsp;
+            <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010602002000" rel="nofollow">浙公网安备 33010602002000号</a>
+        </div>
+        <p class="text-center">
+            <a class="js__view--selector hidden-sm hidden-md hidden-lg" data-action="mobile" href="javascript:;">移动版</a>
+            <a class="js__view--selector hidden-sm hidden-md hidden-lg" data-action="desktop" href="javascript:;">桌面版</a>
+        </p>
+    </div>
+</footer>
+
+<div id="fixedTools" class="hidden-xs hidden-sm">
+    <a id="backtop" class="border-bottom" href="https://segmentfault.com/a/1190000005598925#">回顶部</a>
+</div>
+
+<script id="loginModal" type="text/template">
+    <div class="row bg-white login-modal">
+        <div class="col-md-4 col-sm-12 col-md-push-7 login-wrap">
+            <h1 class="h4 text-muted login-title">用户登录</h1>
+            <form action="/api/user/login" method="POST" role="form" class="mt30">
+                <div class="form-group">
+                    <label for="username" class="control-label">手机号 或 Email</label>
+                    <input type="text" class="form-control" name="username" required placeholder="11 位手机号 或 Email"
+                           autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">密码</label><span class="pull-right"><a
+                                href="/user/forgot">忘记密码</a></span>
+                    <input type="password" class="form-control" name="password" required placeholder="密码">
+                </div>
+                <div class="form-group clearfix">
+                    <div class="checkbox pull-left">
+                        <label><input name="remember" type="checkbox" value="1" checked> 记住登录状态</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary pull-right pl20 pr20"
+                            onclick='ga("send", "event", "email login button", "clicked", "login modal");'>登录
+                    </button>
+                </div>
+            </form>
+            <p class="h4 text-muted visible-xs-block h4">快速登录</p>
+            <div class="widget-login mt30">
+                <p class="text-muted mt5 mr10 pull-left hidden-xs">快速登录</p>
+                <a href="/user/oauth/google" class=""
+                   onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "google"});'><span
+                            class="icon-sn-google"></span> <strong class="visible-xs-inline">Google 账号</strong></a>
+                <a href="/user/oauth/github" class=""
+                   onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "github"});");'><span
+                            class="icon-sn-github"></span> <strong class="visible-xs-inline">Github 账号</strong></a>
+                <a href="/user/oauth/weibo" class=""
+                   onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "weibo"});'><span
+                            class="icon-sn-weibo"></span> <strong class="visible-xs-inline">新浪微博账号</strong></a>
+                <a href="/user/oauth/qq" class=""
+                   onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "qq"});'><span
+                            class="icon-sn-qq"></span> <strong class="visible-xs-inline">QQ 账号</strong></a>
+                <a href="/user/oauth/weixin" class=""
+                   onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "qq"});'><span
+                            class="icon-sn-weixin"></span> <strong class="visible-xs-inline">微信账号</strong></a>
+                <a href="/user/oauth/linkedin" class=""
+                   onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "linkedin"});'><span
+                            class="icon-sn-linkedin"></span> <strong class="visible-xs-inline">LinkedIn 账号</strong></a>
+                <span id="loginShowMore" style="cursor: pointer" class="mb5"><span class="icon-sn-dotted"></span><strong
+                            class="visible-xs-inline">•••</strong></span>
+                <a href="/user/oauth/twitter" class=" hidden"
+                   onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "twitter"});'><span
+                            class="icon-sn-twitter"></span> <strong class="visible-xs-inline">Twitter 账号</strong></a>
+                <a href="/user/oauth/facebook" class=" hidden"
+                   onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "facebook"});'><span
+                            class="icon-sn-facebook"></span> <strong class="visible-xs-inline">Facebook 账号</strong></a>
+                <a href="/user/oauth/douban" class=" hidden"
+                   onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "douban"});'><span
+                            class="icon-sn-douban"></span> <strong class="visible-xs-inline">豆瓣账号</strong></a>
+            </div>
+        </div>
+        <div class="login-vline hidden-xs hidden-sm"></div>
+        <div class="col-md-4 col-md-pull-3 col-sm-12 login-wrap">
+            <h1 class="h4 text-muted login-title">注册新账号</h1>
+            <form action="/api/user/phone/register" method="POST" role="form" class="mt30">
+                <div class="form-group">
+                    <label for="name" class="control-label">名字</label>
+                    <input type="text" class="form-control" name="name" required placeholder="真实姓名或常用昵称">
+                </div>
+
+
+                <div class="form-group js-register-switch-box">
+                    <div class="mb10">
+                        <label class="radio-inline">
+                            <input type="radio" name="register_type" value="phone" checked> 用手机号注册
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="register_type" value="mail"> 用 Email 注册
+                        </label>
+                    </div>
+                    <div class="js-register-switch-content">
+                        <input type="phone" class="form-control mb15" name="phone" required placeholder="仅支持大陆手机号"
+                               autocomplete="off">
+                        <div class="input-group"><input name="code" type="text"
+                                                        class="form-control js-user-login__phone-code-value"
+                                                        placeholder="短信验证码">
+                            <span class="input-group-btn"><button class="btn btn-default js-user-login__phone-vaild-btn"
+                                                                  style="width:96px;" type="button">获取验证码</button></span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="password" class="control-label">密码</label>
+                    <input type="password" class="form-control" name="password" required placeholder="不少于 6 位">
+                </div>
+                <div class="form-group" style="display:none;">
+                    <label class="required control-label">验证码</label>
+                    <input type="text" class="form-control" id="captcha" name="captcha" placeholder="请输入下方的验证码">
+                    <div class="mt10"><a id="loginReloadCaptcha" href="javascript:void(0)"><img
+                                    data-src="/user/captcha?w=240&h=50" class="captcha" width="240" height="50"/></a>
+                    </div>
+                </div>
+                <div class="form-group clearfix">
+                    <div class="checkbox pull-left">
+                        同意并接受<a href="/tos" target="_blank">《服务条款》</a>
+                    </div>
+                    <button type="submit" class="btn btn-primary pl20 pr20 pull-right"
+                            onclick='ga("send", "event", "email register button", "clicked", "login modal");'>注册
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div style="position: absolute;transform: scale(0.5,0.5) translate(136%,-114%); left: -3px;" class="hidden-xs">
+        <img src="https://static.segmentfault.com/v-59883fff/global/img/fool/login@2x.png">
+    </div>
+
+    <div class="text-center text-muted mt30">
+    </div>
+</script>
+<script id="bindPhoneModal" type="text/template">
+    <div class="bg-white bindphone-model">
+        <div class="alert alert-warning" role="alert">
+            为了保证账号安全，请先绑定手机
+        </div>
+        <div>
+            <form class="form-horizontal form__bindphone-apply" style="background-color:#fff;padding:0;">
+                <div class="form-group ">
+                    <label for="phoneNumber" class="col-sm-3 control-label required" >手机号码</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control bindphone--phone" id="phoneNumber" name="phone" placeholder="仅只支持大陆手机号">
+                    </div>
+                    <div class="col-sm-3"></div>
+                </div>
+                <div class="form-group">
+                    <label for="authCode" class="col-sm-3 control-label required">验证码</label>
+                    <div class="col-sm-6">
+                        <div class="input-group">
+                            <input type="text" class="form-control bindphone--code" name="code" placeholder="短信验证码">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default user-bind__phone-vaild-btn" type="button">获取验证码</button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3"></div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</script>
+
+
+
+<script>
+    (function (w) {
+        w.SF = {
+            staticUrl: "https://static.segmentfault.com/v-59883fff"
+        };
+        w.SF.token = (function () {
+    var _R6AeP = //'5z'
+'cd'+'ab'//'Wz'
++//'o'
+'c9c'+'fAE'//'fAE'
++//'L'
+'4'+'3'//'irM'
++'4aa'//'u'
++'72'//'6Aq'
++/* 'w'//'w' */''+''///*'2Je'*/'2Je'
++//'WL'
+'WL'+//'u01'
+'c7a'+''///*'Fl'*/'Fl'
++//'c'
+'1'+'U5'//'U5'
++'22d'//'l'
++//'Xc3'
+'2c2'+//'G'
+'020'+'5b8'//'qy7'
++//'w'
+'w'+'1'//'Qsf'
++'lE'//'lE'
++/* 'c'//'c' */''+'2j'//'2j'
++//'v'
+'1', _xVh = [[7,10],[14,16],[18,20],[30,31],[31,33],[31,33]];
+
+    for (var i = 0; i < _xVh.length; i ++) {
+        _R6AeP = _R6AeP.substring(0, _xVh[i][0]) + _R6AeP.substring(_xVh[i][1]);
+    }
+
+    return _R6AeP;
+})();;
+    })(window);
+
+                var lock = {
+        type: "",
+        text: '',
+        table: {"ban_post":[1,"\u4f60\u5df2\u7ecf\u88ab\u7981\u8a00, \u65e0\u6cd5\u8fdb\u884c\u6b64\u64cd\u4f5c, \u5982\u6709\u7591\u4e49\u8bf7\u63d0\u4ea4\u7533\u8bc9, \u6216\u8005\u53d1\u90ae\u4ef6\u5230pr@segmentfault.com"]}
+    };
+</script>
+    <script crossorigin="" src="./浏览器渲染的那些事（三_files/assets.js"></script>
+    <script crossorigin="" src="./浏览器渲染的那些事（三_files/post.min.js"></script>
+
+
+<script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-918487-8']);
+    _gaq.push(['_trackPageview']);
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+            
+        
+
+                        
+
+    ga('create', 'UA-918487-8', 'auto', {
+        'userID'
+    : 1030000003848130,
+        'createdTime'
+    : 1444649188,
+        'now'
+    : 1502210223 });
+    ga('set', 'dimension1', 'active_registed_visitor');
+    ga('send', 'pageview');
+
+</script>
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?e23800c454aa573c0ccb16b52665ac26";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+        <script type="text/javascript" src="https://afpmm.alicdn.com/g/mm/afp-cdn/JS/k.js"></script>
+            <script>
+                    ac_keywords_targeting = "html";
+                _acM({
+            aid: "mm_124884735_33830642_120592878",
+            format: 1,
+            mode: 1,
+            gid: 1,
+            destid: "mm_124884735_33830642_120592878",
+            sendkeywords: 1,
+            serverbaseurl: "afpeng.alimama.com/"
+        });
+        </script>
+            <script>
+                _acM({
+            aid: "mm_124884735_33830642_121788665",
+            format: 1,
+            mode: 1,
+            gid: 1,
+            destid: "mm_124884735_33830642_121788665",
+            sendkeywords: 0,
+            serverbaseurl: "afpeng.alimama.com/"
+        });
+        </script>
+     
+
+
+
+<iframe id="p_analyse_iframe" src="./浏览器渲染的那些事（三_files/saved_resource.html" style="display: none;"></iframe><div id="noteWidget" class="noteWidget hidden hidden-xs">
+    <div class="noteWidget-header clearfix">
+        <h2 class="h4 pull-left">记笔记</h2>
+        <ul class="list-inline pull-right mb0">
+            <li id="noteWidgetMinimize"><span class="icon-minimize"></span></li><li id="noteWidgetZoom"><span class="icon-zoom"></span></li><li id="noteWidgetClose"><span class="icon-close"></span></li>
+        </ul>
+    </div>
+    <form method="POST" action="https://segmentfault.com/api/notes/add" role="form">
+        <div class="form-group">
+            <label for="title" class="sr-only">标题</label>
+            <input type="hidden" value="" id="draftId">
+            <input type="text" name="title" data-error="" autocomplete="off" class="form-control" placeholder="笔记描述" value="">
+        </div>
+        <div class="editor-config clearfix">
+            <select name="lang" class="form-control pull-left input-sm">
+                <optgroup label="文本语法">
+                    <option value="text" data-mode="text">纯文本</option>
+                    <option value="markdown" data-mode="markdown">Markdown</option>
+                    <option value="javascript" data-mode="javascript">Javascript</option>
+                    <option value="css" data-mode="css">CSS</option>
+                    <option value="html5" data-mode="htmlmixed">HTML</option>
+                    <option value="php" data-mode="php">PHP</option>
+                    <option value="python" data-mode="python">Python</option>
+                    <option value="ruby" data-mode="ruby">Ruby</option>
+                    <option value="go" data-mode="go">Go</option>
+                    <option value="c" data-mode="clike">C/C++</option>
+                    <option value="java" data-mode="java">Java</option>
+                    <option value="bash" data-mode="shell">Shell/Bash</option>
+                </optgroup>
+            </select>
+            <div class="pull-right hidden-xs">
+                <select name="indentWithTabs" class="form-control inline-block input-sm">
+                    <optgroup label="缩进模式">
+                        <option value="false">空格缩进</option>
+                        <option value="true">Tabs 缩进</option>
+                    </optgroup>
+                </select>
+                <select name="tabSize" class="form-control inline-block input-sm">
+                    <optgroup label="缩进大小">
+                        <option value="2">2</option>
+                        <option value="4" selected="">4</option>
+                    </optgroup>
+                </select>
+                <select name="lineWrap" class="form-control inline-block input-sm">
+                    <optgroup label="换行方式">
+                        <option value="true">自动换行</option>
+                        <option value="false">不换行</option>
+                    </optgroup>
+                </select>
+            </div>
+        </div>
+        <textarea id="codeMirror" class="form-control" style="display: none;"></textarea><div class="CodeMirror cm-s-default CodeMirror-wrap"><div style="overflow: hidden; position: relative; width: 3px; height: 0px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none;" tabindex="0"></textarea></div><div class="CodeMirror-hscrollbar" style="left: 0px;"><div style="height: 100%; min-height: 1px;"></div></div><div class="CodeMirror-vscrollbar"><div style="min-width: 1px;"></div></div><div class="CodeMirror-scrollbar-filler"></div><div class="CodeMirror-gutter-filler"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px;"><div style="position: relative;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"></div><div class="CodeMirror-code"></div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px;"></div><div class="CodeMirror-gutters"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 1px;"></div></div></div></div>
+        <div class="mt20 clearfix">
+            <div class="pull-right">
+                <span class="text-muted hidden" id="editorStatus">已保存</span>
+                <a id="dropIt" href="javascript:void(0);" class="mr10 hidden">[舍弃]</a>
+                <button data-type="note" id="publishIt2" class="btn btn-default ml10" data-id="" data-do="add" data-url="" data-text="保存私密笔记" data-name="">保存私密笔记</button>
+                <button data-type="note" id="publishIt" class="btn btn-primary ml10" data-id="" data-do="add" data-url="" data-text="保存公开笔记" data-name="">保存公开笔记</button>
+                </div>
+            </div>
+        </form></div>
+    
+<div id="atwho-container"><div id="atwho-ground-568af8d31502210224148"><div class="atwho-view" id="at-view-64"><ul class="atwho-view-ul"></ul></div></div></div></body></html>

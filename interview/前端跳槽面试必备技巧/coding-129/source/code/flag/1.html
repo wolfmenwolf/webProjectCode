@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>第一种方法</title>
+</head>
+
+<body>
+  <h4>请写出下面</h4>
+  <section class="code">
+    <code>var arr=['a', ['b', 'c'], 2, ['d', 'e', 'f'], 'g', 3, 4];flat(arr)//a,b,c,2,d,e,f,g,3,4</code>
+    <script type="text/javascript">
+      // 方法一：递归
+      function flat (array) {
+          var result = [];
+          var each = function (arr) {
+              arr.forEach(item => {
+                  if (item instanceof Array) {
+                      each(item);
+                  } else {
+                      result.push(item);
+                  }
+              });
+          };
+          each(array);
+          return result.join(',');
+      }
+      var arr = ['a', ['b', 'c', [7, 8]], 2, ['d', 'e', 'f'], 'g', 3, 4];
+      console.log(flat(arr));
+    </script>
+  </section>
+</body>
+
+</html>

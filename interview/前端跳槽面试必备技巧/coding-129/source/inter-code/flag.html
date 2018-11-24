@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>flag</title>
+</head>
+
+<body>
+  <h4>请写出下面</h4>
+  <section class="code">
+    <code>var arr=[1,2,[3,4,[5,6,7]]];flat(arr)//1,2,3,4,5,6,7</code>
+    <script type="text/javascript">
+      // 方法一：递归
+      function flat (array) {
+          var result = [];
+          var each = function (arr) {
+              arr.forEach(item => {
+                  if (item instanceof Array) {
+                      each(item);
+                  } else {
+                      result.push(item);
+                  }
+              });
+          };
+          each(array);
+          return result;
+      }
+      var arr = [1, 2, [3, 4, [5, 6, 7]]]; flat(arr).forEach(item=>{ console.log(item); });
+      // 方法二：toString（格式转换）
+      Array.prototype.toString = function () {
+          return this.join(',');
+      };
+
+      Array.prototype.valueOf = function () {
+          return this.join(',');
+      };
+
+      console.log([1, 2, [3, 4, [5, 6, 7]]] + '');
+      // 方法三：Iterator
+      Array.prototype[Symbol.iterator] = function () {
+          let arr = [].concat(this),
+              index = 0;
+          let getFirst = function (array) {
+              let first = array[0];
+              if (first instanceof Array) {
+                  return getFirst(array[0]);
+              } else if (first !== undefined) {
+                  return array.shift();
+              } else {
+                  return '';
+              }
+          };
+          return {
+              next: function () {
+                  let item = getFirst(arr);
+                  if (item) {
+                      return {
+                          value: item,
+                          done: false,
+                      };
+                  } else {
+                      return {
+                          done: true,
+                      };
+                  }
+              },
+          };
+      };
+      var t = [1, 2, [3, 4, [5, 6]]];
+      for (let i of t) { console.log(i); }
+    </script>
+  </section>
+</body>
+
+</html>
