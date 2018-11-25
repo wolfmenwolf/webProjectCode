@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>MTV Menu</title>
+<script type="text/javascript" src="JQuery/jquery-1.3.2.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('#menu li').hover(function(){
+		$(this).children('ul').show();
+	},function(){
+		$(this).children('ul').hide();
+	});
+});
+</script>
+<link href="css/menu.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<!--Menu start-->
+<ul id="menu" class="first-menu">
+  <li><a href="#">Home</a></li>
+  <li><a href="#">Music</a></li>
+  <li><a href="#">Shows</a></li>
+  <li><a href="#">News</a></li>
+  <li><a href="#">Movies,Games &amp More</a>
+    <!--Mgm Start -->
+    <ul id="subMgm" class="second-menu">
+      <li><a href="#" class="arrow">movies</a></li>
+      <li><a href="#" class="arrow">video games</a></li>
+      <li><a href="#" class="arrow">online games</a></li>
+      <li><a href="#">activsm</a></li>
+      <li><a href="#" class="arrow">mobile</a>
+        <!--mobile start -->
+        <ul class="third-menu">
+          <li><a href="#" class="arrow">MTV shows</a>
+            <!--MTV shows start-->
+            <ul class="fourth-menu">
+              <li><a href="#">a.d.d.bio</a></li>
+              <li><a href="#">beavis and butthead</a></li>
+              <li><a href="#">the hills</a></li>
+              <li><a href="#">kaya</a></li>
+              <li><a href="#">MTV2</a></li>
+              <li><a href="#">MTVU</a></li>
+              <li><a href="#">run's house</a></li>
+              <li><a href="#">sucker free on MTV</a></li>
+              <li><a href="#">TRL</a></li>
+              <li><a href="#">yo momma</a></li>
+            </ul>
+            <!--MTV shows end -->
+          </li>
+          <li><a href="#">ringtones</a></li>
+          <li><a href="#">graphics</a></li>
+          <li><a href="#">games</a></li>
+          <li><a href="#">alerts</a></li>
+          <li><a href="#">video</a></li>
+        </ul>
+        <!--mobile end -->
+      </li>
+      <li><a href="#">contest &amp; sweepstakes</a></li>
+      <li><a href="#" class="arrow">specials</a></li>
+    </ul>
+    <!--Mgm end -->
+  </li>
+</ul>
+<!--Menu end -->
+</body>
+</html>

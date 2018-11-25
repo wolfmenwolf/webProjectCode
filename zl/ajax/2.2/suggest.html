@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<title>输入内容前提示</title>
+
+<style type="text/css">
+/* 提示div的样式 */
+#suggest {
+    width:100px;
+    border:1px solid black;
+    font-size:14px;
+}
+
+/* 提示信息鼠标覆盖时信息 */
+div.over {
+    border:1px solid #999;
+    background:#FFFFCC;
+    cursor:hand;
+}
+
+/* 提示信息鼠标移出时信息 */
+div.out {
+    border: 1px solid #FFFFFF;
+    background:#FFFFFF;
+}
+</style>
+
+<script type="text/javascript">
+var xmlHttp;                        //用于保存XMLHttpRequest对象的全局变量
+var currentInfo = "";               //用于保存当前用户输入信息
+var counter = 1;                    //读取信息计数器
+var isReading = true;               //是否处于监视用户输入状态
+
+//用于创建XMLHttpRequest对象
+function createXmlHttp() {
+    //根据window.XMLHttpRequest对象是否存在使用不同的创建方式
+    if (window.XMLHttpRequest) {
+       xmlHttp = new XMLHttpRequest();                  //FireFox、Opera等浏览器支持的创建方式
+    } else {
+       xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");//IE浏览器支持的创建方式
+    }
+}
+
+//读取用户输入信息
+function readInfo() {
+    var info = document.getElementById("info").value;
+
+    /*
+      当用户信息没有变化并且非空时，计数器加1
+      否则更新currentInfo变量为用户当前输入，重置计数器
+    */
+    if (currentInfo==info && info!="") {
+        counter++;
+    } else {
+        currentInfo = info;
+        counter = 1;
+    }
+
+    //当计数器累计到3时，如果用户信息仍没有变化，表示用户已停止输入，否则继续监视
+    if (counter==3) {
+        getSuggest(info);               //向服务器获取提示信息
+        isReading = false;              //设置监视标记为false
+    } else {
+        setTimeout("readInfo()", 200);  //200毫秒后再次读取用户输入信息
+    }
+}
+
+//向服务器获取提示信息
+function getSuggest(info) {
+    createXmlHttp();                                //创建XMLHttpRequest对象
+    xmlHttp.onreadystatechange = showSuggest;       //设置回调函数
+    xmlHttp.open("GET", "suggest.jsp?info=" + encodeURI(info), true);
+    xmlHttp.send(null);
+}
+
+//处理服务器返回信息
+function showSuggest() {
+    if (xmlHttp.readyState == 4) {
+        clearSuggest();                             //清除现有提示信息
+        var suggestsText = xmlHttp.responseText;
+
+        //如果服务器返回信息不为空则创建新的suggest
+        if (suggestsText != "") {
+            var suggests = suggestsText.split("|"); //使用“|”分隔提示信息
+            //循环遍历提示信息数组
+            for (var i=0; i<suggests.length; i++) {
+                createSuggest(suggests[i]);         //创建每条提示信息
+            }
+            displaySuggest();                       //显示提示信息
+        } else {
+            hiddenSuggest();                        //隐藏提示信息
+        }
+    }
+}
+
+//创建提示信息节点
+function createSuggest(text) {
+    var sDiv = "<div class='out' onmouseover=\"this.className='over'\"" + " onmouseout = \"this.className='out'\" onclick='setSuggest(this)'>" + text + "</div>";
+    document.getElementById("suggest").innerHTML += sDiv;   //将新建节点加入suggest div
+}
+
+//响应鼠标点击事件，将suggest信息写入用户文本框
+function setSuggest(src) {
+    document.getElementById("info").value = src.innerHTML;
+    hiddenSuggest();        //隐藏提示信息
+}
+
+//当用户再次键入信息时，调用此函数重新打开监视状态
+function resetReading() {
+    if (!isReading) {
+        isReading = true;
+        readInfo();         //开始监视用户文本框
+    }
+}
+
+//显示提示信息
+function displaySuggest() {
+    document.getElementById("suggest").style.display = "";
+}
+
+//隐藏提示信息
+function hiddenSuggest() {
+    document.getElementById("suggest").style.display = "none";
+}
+
+//清空提示信息
+function clearSuggest() {
+    document.getElementById("suggest").innerHTML = "";
+}
+
+//点击“确定”后调用此函数确定文本框内信息
+function showInfo() {
+    alert("文本框内的信息是 " + document.getElementById("info").value);
+}
+</script>
+</head>
+
+<body onload="readInfo()">
+<h1>输入内容前提示</h1>
+<input type="text" name="info" id="info" onkeyup="resetReading()">
+<input type="button" value="确定" onclick="showInfo()">
+
+<!-- 用于显示提示信息的div -->
+<div id="suggest" style="display:none"></div>
+
+</body>
+</html>

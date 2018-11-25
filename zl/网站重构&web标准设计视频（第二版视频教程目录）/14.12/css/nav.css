@@ -1,0 +1,24 @@
+@charset "utf-8";
+
+#nav a {
+	text-decoration:none;
+	font:14px Verdana, Geneva, sans-serif;
+	color:#000;
+	font-weight:bold;
+	display:block;
+}
+#nav li ul a {
+	color:#666;
+	font-weight:normal;
+	font:12px Verdana, Geneva, sans-serif;
+	height:25px;
+	line-height:25px;
+	padding-left:22px;
+}
+#nav li ul a:hover {
+	color:#000;
+	text-decoration:underline;
+	font-style:italic;
+	font-weight:bold;
+	background:#fff url(../images/arrow.gif) no-repeat 15px 10px;
+}

@@ -1,0 +1,71 @@
+/* 页面基本样式 */
+body, td, input, textarea {
+    font-family:Arial;
+    font-size:12px;
+}
+
+/* 提示信息div的样式 */
+#statusDiv {
+    border:1px solid #999;
+    background:#FFFFCC;
+    width:100px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin:-50px 0 0 -100px;
+    width:280px;
+    padding:10px;
+}
+
+/* 信息编辑区域样式 */
+#editArea {
+    text-align:center;
+}
+
+/* 表格基本样式 */
+table.default {
+    border-collapse:collapse;
+    border:1px solid black;
+    width:300px;
+}
+
+/* 表格单元格样式 */
+table.default td {
+    border:1px solid black;
+    text-align:center;
+}
+
+/* 索引按钮样式 */
+#indextd input {
+    width:25px;
+    height:18px;
+    font-size:10px;
+    font-family:Verdana;
+}
+
+/* 名片列表样式 */
+#addressList {
+    height:360px;
+    overflow:auto;
+    text-align:left;
+}
+
+/* 单条信息容器样式 */
+.box {
+    background:#FFFFCC;
+    border:1px solid #006699;
+    margin:3px;
+    padding:3px;
+    cursor:pointer;
+}
+
+/* 标题样式 */
+.title {
+    background:#006699;
+    margin:3px;
+    height:23px;
+    color:#FFF;
+    text-align:center;
+    line-height:23px;
+    font-weight:bold;
+}

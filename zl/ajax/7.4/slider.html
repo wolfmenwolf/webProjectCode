@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<title>使用滑动栏设置参数</title>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/iutil.js"></script>
+<script type="text/javascript" src="js/idrag.js"></script>
+<script type="text/javascript" src="js/idrop.js"></script>
+<script type="text/javascript" src="js/islider.js"></script>
+<style type="text/css">
+/* 页面字体样式 */
+body, td, input, textarea {
+    font-family:Arial;
+    font-size:14px;
+}
+
+/* 文本框内容居中 */
+input {
+    text-align:center;
+}
+
+/* 滑动栏1样式 */
+#slider1 {
+    width:310px;
+    height:10px;
+    background-color:#006699;
+    position:relative;
+}
+
+/* 滑动栏2样式 */
+#slider2 {
+    width:110px;
+    height:110px;
+    background-color:#006699;
+    position:relative;
+}
+
+/* 滑动栏3样式 */
+#slider3 {
+    width:10px;
+    height:110px;
+    background-color:#006699;
+    position:relative;
+}
+
+/* 滑动块样式 */
+.indicator {
+    width:10px;
+    height:10px;
+    background-color:#FF9900;
+    position:absolute;
+    font-size:1px;
+    overflow:hidden;
+}
+</style>
+<script type="text/javascript">
+//页面加载完毕后初始化各滑动栏
+function init() {
+
+    //设置滑动栏1
+    $("#slider1").Slider(
+        {
+            accept : ".indicator",                  //设置滑动块标识
+            fractions : 100,                        //设置分段数
+            onSlide : function(x) {                 //设置滑动过程中的回调函数
+                $("#x1").val(x);                    //更新文本框信息
+            },
+            onChange : function(x) {                //滑动结束参数值变化时的回调函数
+                sendParam({id:"slider1", x:x});     //调用sendParam函数向服务器发送信息
+            },
+            values : [                              //滑动块初始坐标
+                [30,0]
+            ]
+        }
+    );
+
+    //设置滑动栏2
+    $("#slider2").Slider(
+        {
+            accept : ".indicator",                  //设置滑动块标识
+            fractions : 100,                        //设置分段数
+            onSlide : function(x, y) {              //设置滑动过程中的回调函数
+                $("#x2").val(x);                    //更新文本框信息
+                $("#y2").val(y);                    //更新文本框信息
+            },
+            onChange : function(x, y) {             //滑动结束参数值变化时的回调函数
+                sendParam({id:"slider2", x:x, y:y});//调用sendParam函数向服务器发送信息
+            },
+            values : [                              //滑动块初始坐标
+                [20,20]
+            ]
+        }
+    );
+
+    //设置滑动栏3
+    $("#slider3").Slider(
+        {
+            accept : ".indicator",                  //设置滑动块标识
+            fractions : 10,                         //设置分段数
+            onSlide : function(x, y) {              //设置滑动过程中的回调函数
+                $("#y3").val(y);                    //更新文本框信息
+            },
+            onChange : function(x, y) {             //滑动结束参数值变化时的回调函数
+                sendParam({id:"slider3", y:y});     //调用sendParam函数向服务器发送信息
+            },
+            values : [                              //滑动块初始坐标
+                [0,50]
+            ]
+        }
+    );
+}
+
+//将新的参数值发给服务器
+function sendParam(params) {
+    //将参数发送POST请求给服务器，并将返回提示使用alert函数进行提示
+    $.post("slider.jsp", params, function(result) {
+        alert(result);
+    });
+}
+</script>
+</head>
+
+<body onload="init()">
+<h1>使用滑动栏设置参数</h1>
+
+<p>参数1：水平滑动，范围从0到100，最小刻度为1</p>
+<input type="text" size="2" id="x1">
+<div id="slider1"><div class="indicator"></div></div>
+
+<p>参数2：二维滑动，范围从0,0到100,100，最小刻度为1</p>
+<input type="text" size="2" id="x2"> x <input type="text" size="2" id="y2">
+<div id="slider2"><div class="indicator"></div></div>
+
+<p>参数3：垂直滑动，范围从0到100，最小刻度为10</p>
+<input type="text" size="2" id="y3">
+<div id="slider3"><div class="indicator"></div></div>
+
+</body>
+</html>

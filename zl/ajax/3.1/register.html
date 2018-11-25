@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<title>注册表单验证</title>
+
+<style type="text/css">
+/* 页面字体样式 */
+body, td, input {
+    font-family:Arial;
+    font-size:12px;
+}
+
+/* 表格基本样式 */
+table.default {
+    border-collapse:collapse;
+    width:300px;
+}
+
+/* 表格单元格样式 */
+table.default td {
+    border:1px solid black;
+    padding:3px;
+}
+
+/* 列头样式 */
+table.default td.item {
+    background:#006699;
+    color:#fff;
+}
+
+/* 正常信息样式 */
+div.ok {
+    color:#006600;
+}
+
+/* 警告信息样式 */
+div.warning {
+    color:#FF0000;
+}
+</style>
+
+<!-- 引入外部checker.js文件 -->
+<script type="text/javascript" src="checker.js"></script>
+</head>
+
+<body>
+<h1>注册表单验证</h1>
+
+<form method="post" action="register.jsp" onsubmit="alert('后面的注册过程与传统方式相同。');return false">
+<table class="default">
+<tr>
+    <td class="item" width="30%">用户名：</td>
+    <td width="70%">
+        <input type="text" name="username" id="username" onblur="Checker.checkNode(this)">
+        <div id="usernameCheckDiv" class="warning">请输入用户名。</div>
+    </td>
+</tr>
+<tr>
+    <td class="item">密码：</td>
+    <td>
+        <input type="password" name="password" id="password" onblur="Checker.checkPassword()">
+        <div id="passwordCheckDiv" class="warning">请输入密码。</div>
+    </td>
+</tr>
+<tr>
+    <td class="item">密码验证：</td>
+    <td>
+        <input type="password" name="password2" id="password2" onblur="Checker.checkPassword()">
+        <div id="password2CheckDiv" class="warning">请再次输入密码。</div>
+    </td>
+</tr>
+<tr>
+    <td class="item">Email：</td>
+    <td>
+        <input type="text" name="email" id="email" onblur="Checker.checkNode(this)">
+        <div id="emailCheckDiv" class="warning">请输入邮件地址。</div>
+    </td>
+</tr>
+<tr>
+    <td class="item">验证码：</td>
+    <td>
+        <input type="text" name="code" id="code" size="5" onblur="Checker.checkNode(this)">
+        <img src="code.jsp" width="40" height="20" border="0" alt="">
+        <div id="codeCheckDiv" class="warning">请输入图片中的数字验证码。</div>
+    </td>
+</tr>
+<tr>
+    <td colspan="2" align="center">
+        <input type="submit" value="注册">
+    </td>
+</tr>
+</table>
+</form>
+
+</body>
+</html>

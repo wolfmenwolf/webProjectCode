@@ -1,0 +1,20 @@
+@CHARSET "UTF-8";
+* { margin:0; padding:0; }
+body { font:11px Verdana, Arial, Helvetica, sans-serif; padding:10px; }
+table { border-collapse:collapse; background:white; }
+caption { padding-bottom:10px; font-weight:bold; font: italic 60px Georgia, "Times New Roman", Times, serif; }
+th, td { border:1px solid #ccc; padding:5px 10px; }
+th { background:url(../images/th-bg.gif) repeat-x; }
+input{ font:11px Verdana, Geneva, sans-serif;}
+
+.even, .odd { background:#DBECF4; }
+.checked, .hover { background:#0066CC; color:white; cursor:pointer; }
+
+.search-box{ padding-top:10px;}
+.search{ border:1px solid #ccc; padding:2px;}
+.search-btn{ font:11px Verdana, Geneva, sans-serif; margin-left:10px;}
+.highligth{ border:1px solid #fc0; background:#FF6;}
+
+.delete_btn,.edit_btn{ display:block; width:16px; height:16px;}
+.delete_btn{ background:url("../images/del-btn.png") no-repeat;}
+.edit_btn{ background:url("../images/edit-btn.png") no-repeat;}

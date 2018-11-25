@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<script src="jQuery/jquery-1.6.4.js" type="text/javascript"></script>
+<script type="text/javascript" >
+$( function(){
+    var $uli = $(".tab ul li");
+    var $oli = $(".tab ol li");
+    $uli.addClass("normal");
+    $oli.addClass("none");
+    $uli[0].className = "hover";
+    $oli[0].className = "show";
+    $uli.each(function(n){
+        $(this).mouseover(function(){
+            $uli.removeClass().addClass("normal");
+            $(this).removeClass().addClass("hover");
+            $oli.removeClass().addClass("none");
+            $($oli[n]).removeClass().addClass("show");
+        })   
+    })
+});
+
+</script>
+<style type="text/css">
+.tab ul, .tab ol { list-style:none; margin:0; padding:0; }
+.tab ul { height:26px; width:500px; }
+.tab ol { height:auto; width:500px; padding:6px; background:#1B8DD6; }
+.tab ul li { float:left; height:24px; padding:0 1em; cursor:pointer; }
+.normal { color:#1f3a87; background:#fff; border:2px solid #1B8DD6; border-bottom:0; }
+.hover { color:#fff; font-weight:bold; background:#1B8DD6; border:2px solid #1B8DD6; border-bottom:0; }
+.show { display:block; }
+.none { display:none; }
+</style>
+<title>上机练习</title>
+</head>
+<body>
+<div class="tab">
+    <ul>
+        <li>Tab1</li>
+        <li>Tab2</li>
+        <li>Tab3</li>
+    </ul>
+    <ol>
+        <li><img src="images/bg2.jpg" width="450" /></li>
+        <li><img src="images/bg3.jpg" width="450" /></li>
+        <li><img src="images/bg4.jpg" width="450" /></li>
+    </ol>
+</div>
+</body>
+</html>

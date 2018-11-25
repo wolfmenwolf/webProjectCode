@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<title>邮件订阅</title>
+
+<style type="text/css">
+/* 页面字体样式 */
+body, td, input {
+    font-family:Arial;
+    font-size:12px;
+}
+
+/* 表格基本样式 */
+table.default {
+    border-collapse:collapse;
+    width:300px;
+}
+
+/* 表格单元格样式 */
+table.default td {
+    border:1px solid black;
+    padding:3px;
+    height:30px;
+}
+
+/* 列头样式 */
+table.default td.item {
+    background:#006699;
+    color:#fff;
+    text-align:center;
+}
+</style>
+
+<script type="text/javascript">
+var xmlHttp;                        //用于保存XMLHttpRequest对象的全局变量
+
+//用于创建XMLHttpRequest对象
+function createXmlHttp() {
+    //根据window.XMLHttpRequest对象是否存在使用不同的创建方式
+    if (window.XMLHttpRequest) {
+       xmlHttp = new XMLHttpRequest();                  //FireFox、Opera等浏览器支持的创建方式
+    } else {
+       xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");//IE浏览器支持的创建方式
+    }
+}
+
+//向服务器获取提示信息
+function regEmail() {
+    var email = document.getElementById("email").value; //获取邮件地址信息
+    //如果用户没有输入，提示用户输入邮件地址
+    if (email=="") {
+        alert("请输入邮件地址。");
+    } else {
+        createXmlHttp();                                //创建XMLHttpRequest对象
+        xmlHttp.onreadystatechange = showRegResult;     //设置回调函数
+        xmlHttp.open("POST", "mail_list.jsp", true);    //发送POST请求
+        xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        xmlHttp.send("email=" + encodeURIComponent(email));
+    }
+}
+
+//处理服务器返回信息
+function showRegResult() {
+    if (xmlHttp.readyState == 4) {
+        //将服务器反馈信息写入页面
+        document.getElementById("regtd").innerHTML = xmlHttp.responseText;
+    }
+}
+
+</script>
+</head>
+
+<body>
+<h1>邮件订阅</h1>
+
+<table class="default">
+<tr>
+    <td class="item">输入邮件地址订阅本站最新信息：</td>
+</tr>
+<tr>
+    <td id="regtd" align="center">
+        <input type="text" id="email" size="30">
+        <input type="button" value="确定" onclick="regEmail()">
+    </td>
+</tr>
+</table>
+
+</body>
+</html>

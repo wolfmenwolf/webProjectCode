@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>网站重构 Web标准设计(第二版)</title>
+<script type="text/javascript" src="JQuery/jquery-1.3.2.min.js"></script>
+<script type="text/javascript">
+$(function(){ 
+	$('.list .show dt').addClass('icon');
+    $('.list .show dd').show('slow');
+	$('.list dt').click(function(){
+		$(this).toggleClass('icon');
+		$(this).nextAll().slideToggle();
+	});
+	$('.all-show-btn').click(function(){
+		$('.list dl dd').slideDown();
+		$('.list dl dt').addClass('icon');	
+	});
+	$('.all-hide-btn').click(function(){
+		$('.list dl dt').removeClass('icon');	
+		$('.list dl dd').slideUp();	
+	});
+});
+</script>
+<style type="text/css">
+* { margin:0; padding:0; }
+body { font:12px Verdana, Geneva, sans-serif; color:#666; margin:10px;background:url(images/background-image.jpg) no-repeat fixed right top; }
+h1 { font-size:20px; }
+h2, h3 { font-size:12px; font-weight:normal; color:#F60; margin-bottom:10px; }
+h3 { color:#fff; background:#39c; width:120px; padding:0 3px; }
+a { color:#39c; text-decoration:none; }
+a:hover { color:#060; text-decoration:underline; }
+
+.bar{ padding-bottom:10px;}
+.all-show-btn,.all-hide-btn{font-size:12px; padding:0 10px 0 20px; background:url(images/icon.png) no-repeat;}
+.all-show-btn{ background-position:0 0;}
+.all-hide-btn{ background-position:0 -30px;}
+
+.list{ width:500px;}
+.list dl { font-size:12px; line-height:200%; font-weight:normal; cursor:pointer; }
+.list dl dt { color:#000; padding-left:20px; background:url(images/icon.png) no-repeat 0 -56px;}
+.list dl dd { padding-left:40px; display:none; background:url(images/icon.png) no-repeat 20px -114px;}
+
+.list .icon{ background:url(images/icon.png) no-repeat 0 -86px;}
+</style>
+</head>
+<body>
+<h1>网站重构 &amp; Web标准设计(第二版教程目录)</h1>
+<h2>爱生活，爱设计，将Web标准进行到底...</h2>
+<h3>作者：于亚东 Adam</h3>
+<div class="bar"><a href="#" class="all-show-btn">全部展开</a><a href="#" class="all-hide-btn">全部折叠</a></div>
+<div class="list">
+	<dl class="show">
+	  <dt>第1章 Web标准思想</dt>
+	  <dd><a href="#">1.1 掌握学习的思想</a></dd>
+	  <dd><a href="#">1.2 传统网站 &amp; David Siegel</a></dd>
+	  <dd><a href="#">1.3 传统网站 VS Web标准</a></dd>
+	  <dd><a href="#">1.4 Web标准的好处</a></dd>
+	  <dd><a href="#">1.5 推荐优秀书籍</a></dd>
+	</dl>
+	<dl>
+	  <dt>第2章 浏览器</dt>
+	  <dd><a href="#">2.1 过时的浏览器</a></dd>
+	  <dd><a href="#">2.2 符合标准的现代浏览器</a></dd>
+	  <dd><a href="#">2.3 Mozilla Firefox</a></dd>
+	  <dd><a href="#">2.4 Mozilla Firefox 安装与操作</a></dd>
+	  <dd><a href="#">2.5 Mozilla Firefox 附加组件</a></dd>
+	  <dd><a href="#">2.6 Mozilla FireFox 附加组件 Web Developer</a></dd>
+	  <dd><a href="#">2.7 Mozilla FireFox 附加组件 Firebug &amp; CSS Viewer</a></dd>
+	  <dd><a href="#">2.8 Mozilla FireFox 附加组件 Pencil  New</a></dd>
+	  <dd><a href="#">2.9 Opera简介与安装</a></dd>
+	  <dd><a href="#">2.10 Opera应用与定制介绍</a></dd>
+	  <dd><a href="#">2.11 各浏览器市场占有率</a></dd>
+	</dl>
+	<dl>
+	  <dt>第3章 开发工具</dt>
+	  <dd><a href="#">3.1 EditPlus</a></dd>
+	  <dd><a href="#">3.2 TopStyle</a></dd>
+	  <dd><a href="#">3.3 Adobe Dreamweaver</a></dd>
+	</dl>
+	<dl>
+	  <dt>第4章 基础知识</dt>
+	  <dd><a href="#">4.1 Web标准组织W3C</a></dd>
+	  <dd><a href="#">4.2 文档类型、DOCTYPE切换和浏览器模式</a></dd>
+	  <dd><a href="#">4.3 良好的XHTML规则</a></dd>
+	  <dd><a href="#">4.4 使用有意义的XHTML标签</a></dd>
+	  <dd><a href="#">4.5 Web应用图像格式GIF，JPEG ,PNG(选修课)</a></dd>
+	  <dd><a href="#">4.6 结构化文档</a></dd>
+	  <dd><a href="#">4.7 CSS层叠样式表 - 常用选择器</a></dd>
+	  <dd><a href="#">4.8 CSS层叠样式表 - 通用选择器</a></dd>
+	  <dd><a href="#">4.9 CSS层叠样式表 - 伪类和伪元素选择器</a></dd>
+	  <dd><a href="#">4.10 CSS层叠样式表 - 高级属性选择器</a></dd>
+	  <dd><a href="#">4.11 CSS层叠样式表 - 层叠和特殊性</a></dd>
+	  <dd><a href="#">4.12 规划、组织和维护样式表</a></dd>
+	</dl>
+	<dl>
+	  <dt>第5章 可视化格式模型</dt>
+	  <dd><a href="#">5.1框模型概述 - 盒模式</a></dd>
+	  <dd><a href="#">5.2框模型概述 - 怪异模式 &amp; 标准规范模式</a></dd>
+	  <dd><a href="#">5.3框模型概述 - 空白边叠加</a></dd>
+	  <dd><a href="#">5.4框模型概述 - 定位概述</a></dd>
+	</dl>
+	<dl>
+	  <dt>第6章 文字排版</dt>
+	  <dd><a href="#">6.1 文字排版 - 字体系列</a></dd>
+	  <dd><a href="#">6.2 文字排版 - 文本属性</a></dd>
+	  <dd><a href="#">6.3 文字排版 - 打印样式</a></dd>
+	  <dd><a href="#">6.4 文字排版 - 幻灯片(Operashow)</a></dd>
+	</dl>
+	<dl>
+	  <dt>第7章 背景图像 &amp; 图像替换</dt>
+	  <dd><a href="#">7.1 背景图像基础</a></dd>
+	  <dd><a href="#">7.2 圆角图片制作（选修课）</a></dd>
+	  <dd><a href="#">7.3 圆角框 - 固定宽度圆角框</a></dd>
+	  <dd><a href="#">7.4 圆角框 - 灵活的圆角框</a></dd>
+	  <dd><a href="#">7.5 圆角框 - 山顶角效果</a></dd>
+	  <dd><a href="#">7.6 圆角框 - CSS2.1 圆角框</a></dd>
+	  <dd><a href="#">7.7 圆角框 - 山顶角效果扩展</a></dd>
+	  <dd><a href="#">7.8 圆角框 - Gecko，Webkie内核浏览器圆角框</a></dd>
+	  <dd><a href="#">7.9 圆角框 - 淘宝网灵活的圆角框</a></dd>
+	  <dd><a href="#">7.10 圆角框 - CSS3 灵活的圆角框</a></dd>
+	  <dd><a href="#">7.11 圆角框 - Nifty Corners Cube 圆角框（JavaScript）</a></dd>
+	  <dd><a href="#">7.12 JavaScript Framework（JS框架）</a></dd>
+	  <dd><a href="#">7.13 JavaScript Framework - Ext JS</a></dd>
+	  <dd><a href="#">7.14 JavaScript Framework - JQuery - A</a></dd>
+	  <dd><a href="#">7.15 JavaScript Framework - JQuery - B</a></dd>
+	  <dd><a href="#">7.16 JavaScript Framework - JQuery UI</a></dd>
+	  <dd><a href="#">7.17 圆角框 - JQuery.Corners 圆角框（JavaScript）</a></dd>
+	  <dd><a href="#">7.18 JavaScript Framework - Yahoo UI</a></dd>
+	  <dd><a href="#">7.19 阴影效果 - 背景阴影</a></dd>
+	  <dd><a href="#">7.20 阴影效果 - 图片阴影</a></dd>
+	  <dd><a href="#">7.21 阴影效果 - 洋葱皮效果</a></dd>
+	  <dd><a href="#">7.22 CSS Decorative Gallery - A</a></dd>
+	  <dd><a href="#">7.23 CSS Decorative Gallery - B</a></dd>
+	  <dd><a href="#">7.24 CSS Decorative Gallery - C</a></dd>
+	  <dd><a href="#">7.25 网页背景底纹制作 - PhotoShop(选修课)</a></dd>
+	  <dd><a href="#">7.26 图片边框遮罩效果 - PhotoShop(选修课)</a></dd>
+	  <dd><a href="#">7.27 图像加载 - Flash</a></dd>
+	  <dd><a href="#">7.28 图像替换 - FIR Phark Gilder/Levin</a></dd>
+	  <dd><a href="#">7.29 图像替换 - sIFR </a></dd>
+	</dl>
+	<dl>
+	  <dt>第8章 超链接应用 &amp; CSS Sprites</dt>
+	  <dd><a href="#">8.1超链接应用- A</a></dd>
+	  <dd><a href="#">8.2超链接应用- B</a></dd>
+	  <dd><a href="#">8.3CSS Sprites - CSS贴图定位</a></dd>
+	  <dd><a href="#">8.4ICON 矢量图标 &amp; 像素图标(选修课)</a></dd>
+	  <dd><a href="#">8.5CSS Sprites - Yahoo Services 导航栏</a></dd>
+	</dl>
+	<dl>
+	  <dt>第9章 列表元素 &amp; 导航栏</dt>
+	  <dd><a href="#">9.1 CSS 导航栏 - Fireworks（选修课）</a></dd>
+	  <dd><a href="#">9.2 滑动门技术</a></dd>
+	  <dd><a href="#">9.3 面包屑导航栏</a></dd>
+	  <dd><a href="#">9.4 操作步骤</a></dd>
+	  <dd><a href="#">9.5 翻页效果</a></dd>
+	  <dd><a href="#">9.6 CSS图像映射</a></dd>
+	  <dd><a href="#">9.7 纵向导航栏 - 女性专题</a></dd>
+	  <dd><a href="#">9.8 图像翻转 - JQuery</a></dd>
+	  <dd><a href="#">9.9 Yahoo Services 导航栏 - 弹出菜单  - JQuery</a></dd>
+	  <dd><a href="#">9.10 图像导航栏 - 视觉标识</a></dd>
+	  <dd><a href="#">9.11 CSS多级下拉菜单 - A - JQuery</a></dd>
+	  <dd><a href="#">9.12 CSS多级下拉菜单 - B - JQuery</a></dd>
+	  <dd><a href="#">9.13 Flash基础知识（选修课）</a></dd>
+	  <dd><a href="#">9.14 Flash动感导航栏 - Flash</a></dd>
+	  <dd><a href="#">9.15 Flash动感多级下拉菜单 - Flash</a></dd>
+      	  <dd><a href="#">9.16 折叠式下拉菜单 - A - JQuery</a></dd>
+	  <dd><a href="#">9.17 折叠式下拉菜单 - B - JQuery</a></dd>
+	  <dd><a href="#">9.18 MTV 个性导航栏</a></dd>
+	</dl>
+</div>
+</body>
+</html>

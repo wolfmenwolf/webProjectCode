@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="jQuery/jquery-1.6.4.js" type="text/javascript"></script>
+<script type="text/javascript" >
+$(function(){
+    $("input").click(function(){
+        $.getJSON("test1.asp",function(data){	//使用getJSON()方法发送请求并接收JSON格式数据
+                var data  = data;	//获取响应数据
+                var str = "<table border=1 width=100%>";	//定义字符串临时变量
+                str += "<tr>";
+                for(var name in data[0]){	//遍历响应数据中的第一个数组元素对象
+                    str += "<th>" + name + "</th>";	//获取并显示元素对象的属性名
+                }
+                str += "</tr>";    
+                for(var i=0; i<data.length; i++){	//遍历响应数据中数组元素
+                    str += "<tr>";
+                    for(var name in data[i]){ 	//遍历数组元素中的每个属性成员
+                        str += "<td>" + data[i][name]  + "</td>";	//获取并显示元素对象的属性值
+                    }
+                    str += "</tr>";
+                }
+                str += "<table>";
+                $("div").html(str); 	//把临时字符串以HTML格式嵌入到div元素中显示
+        });
+    });
+})
+
+
+</script>
+<title>上机练习</title>
+</head>
+<body>
+<input type="button" value="向服务器发出异步请求" />
+<div></div>
+</body>
+</html>

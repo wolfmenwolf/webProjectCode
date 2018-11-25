@@ -1,0 +1,68 @@
+@charset "utf-8";
+
+#logo sub{ margin-left:10px; text-decoration:overline;}
+
+#w3c_link{
+	position:absolute;
+	top:0;
+	right:0;
+	border-left:1px solid #000;
+	border-bottom:1px solid #000;
+}
+#w3c_link:hover{
+	border-left:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+}
+
+#content #heading{ 
+	font:25px Verdana, Geneva, sans-serif; 
+	padding-bottom:10px;
+	font-weight:bold;
+}
+#content p{ 
+	padding-bottom:20px;
+	line-height:200%;
+	color:#666;
+	text-align:justify;
+}
+
+#content dt{ 
+	padding-bottom:10px;
+}
+#content dd a{ 
+	display:block;
+	height:30px;
+	line-height:30px;
+	text-decoration:none;
+	padding-left:20px;
+	background:url(../images/arrow.gif) no-repeat 5px 13px;
+}
+#content dd a:hover{ 
+	background:url(../images/arrow.gif) no-repeat 10px 13px;
+}
+
+#browsers_list li a {
+	display:block;
+	height:140px;
+	padding-top:20px;
+}
+#browsers_list img {
+	display:block;
+	width:100px;
+	height:100px;
+	margin-left:32px;
+}
+#browsers_list em{ 
+	text-align:center; 
+	display:block;
+}
+
+#copyright {
+	background:url(../images/bg_footer.png) repeat-x;
+	text-align:center;
+	padding:10px;
+}
+#copyright sup {
+	background:#fc0;
+	padding:0 5px;
+}

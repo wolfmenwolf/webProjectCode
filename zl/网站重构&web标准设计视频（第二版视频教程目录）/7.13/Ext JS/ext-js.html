@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link rel="stylesheet" type="text/css" href="ext-2.2.1/resources/css/ext-all.css" />
+<script type="text/javascript" src="ext-2.2.1/ext-all.js"></script>
+<script type="text/javascript" src="ext-2.2.1/ext-all-debug.js"></script>
+<script type="text/javascript" src="ext-2.2.1/adapter/ext/ext-base.js"></script>
+<script type="text/javascript" src="ext-2.2.1/adapter/jquery/ext-jquery-adapter.js"></script>
+<script type="text/javascript" src="ext-2.2.1/adapter/jquery/jquery.js"></script>
+<script type="text/javascript">
+Ext.onReady(function(){
+	//Ext.MessageBox.alert('Hello World','大家好，这是一个非传统的EXT-JS弹出框效果，是不是很酷呢？');
+	var myDiv = Ext.get('myDiv');
+	myDiv.highlight().addClass('red').center();
+	Ext.select('ul li').highlight();
+	Ext.get('myButton').on('click', function(){
+        Ext.MessageBox.alert("你单击了按钮");
+    });
+});
+</script>
+<style type="text/css">
+.red {
+	color:red;
+}
+</style>
+</head>
+<div id="myDiv">Hello World</div>
+<ul>
+  <li><a href="#">Hello World</a></li>
+  <li><a href="#">Hello World</a></li>
+  <li><a href="#">Hello World</a></li>
+  <li><a href="#">Hello World</a></li>
+  <li><a href="#">Hello World</a></li>
+</ul>
+<button id="myButton">myButton</button>
+<body>
+</body>
+</html>

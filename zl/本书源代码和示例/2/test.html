@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<script src="jQuery/jquery-1.6.4.js" type="text/javascript"></script>
+<script type="text/javascript" >
+$(function(){
+    $("a[href$='.pdf']").before(" <img src='images/pdf.gif' /> ");
+    $("a[href$='.rar']").before( " <img src='images/rar.gif' /> ");
+    $("a[href$='.jpg'],a[href$='.bmp'],a[href$='.gif'],a[href$='.png']").before(" <img src='images/jpg.gif' /> ");
+    $("a[href^='http:']").before(" <img src='images/html.gif' /> ");
+})
+
+
+</script>
+<title>上机练习</title>
+</head>
+
+<body>
+<ul>
+    <li><a href="1.pdf">1.pdf</a></li>
+    <li><a href="2.rar">2.rar</a></li>
+    <li><a href="3.jpg">3.jpg</a></li>
+    <li><a href="4.bmp">4.bmp</a></li>
+    <li><a href="5.gif">5.gif</a></li>
+    <li><a href="6.png">6.png</a></li>
+    <li><a href="http://www.baidu.com/">http://www.baidu.com/</a></li>
+</ul>
+</body>
+</html>

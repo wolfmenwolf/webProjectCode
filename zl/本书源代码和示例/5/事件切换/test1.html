@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<script src="jQuery/jquery-1.6.4.js" type="text/javascript"></script>
+<script type="text/javascript" >
+$(function(){
+    $("input").hover(
+    function(){
+        this.value = "鼠标经过";
+    },
+    function(){
+        this.value = "鼠标已移出";
+    })
+})
+
+
+</script>
+<title>上机练习</title>
+</head>
+<body>
+<input type="button" value="鼠标切换事件"  />
+</body>
+</html>

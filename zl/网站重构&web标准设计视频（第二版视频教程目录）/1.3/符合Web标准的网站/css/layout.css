@@ -1,0 +1,109 @@
+@charset "utf-8";
+/* CSS Document */
+
+* {
+	margin:0;
+	padding:0;
+}
+body {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+	background: url(../images/mm_bg_red.gif);
+	color:#f90;
+}
+ul {
+	list-style:none;
+}
+img {
+	border:none;
+}
+#header {
+	height:109px;
+	background:#220103 url(../images/header_bg.jpg) no-repeat;
+	position:relative;
+}
+#logo, #tagline {
+	position:absolute;
+	color:#f90;
+	left: 216px;
+	font-weight:normal;
+	width:300px;
+}
+#logo {
+	font-size:14px;
+	letter-spacing:7px;
+	top:30px;
+}
+#tagline {
+	font-size:14px;
+	letter-spacing:2px;
+	top:50px;
+	font-size:11px;
+}
+#xian {
+	height:26px;
+	background:url(../images/xian.gif) repeat-x;
+}
+#nav, #mainCon, #products {
+	float:left;
+}
+#nav {
+	padding-top:10px;
+	overflow:hidden;
+}
+#nav li a{
+	width:130px;
+	height:32px;
+	line-height:32px;
+	padding-left:30px;
+	color:#f90;
+	display:block;
+	border-bottom:1px solid #f90;
+	text-decoration:none;
+}
+#nav li a:hover{
+	color:#fff;
+	font-weight:bold;
+	background:url(../images/arrow.gif) no-repeat 20px center;
+}
+#mainCon {
+	width:305px;
+	margin:30px 50px 0 50px;
+}
+#mainCon h2{
+	font-size:18px;
+	font-weight:normal;
+	letter-spacing:5px;
+}
+#mainCon p{
+	line-height:180%;
+	padding-top:10px;
+	letter-spacing:1px;
+}
+#products {
+	background:#ffffcc;
+	margin-top:10px;
+	text-align:center;
+}
+#products h2{
+	letter-spacing:1px;
+	color:#ff080e;
+	font-size:11px;
+	font-weight:normal;
+	padding:20px 0;
+}
+#products img{
+	padding-bottom:10px;
+}
+#products p{
+	width:110px;
+	text-align:left;
+	color:#333;
+	padding:0 40px;
+}
+#products a{
+	color:#ff080e;
+	text-align:left;
+	display:block;
+	margin-bottom:20px;
+}

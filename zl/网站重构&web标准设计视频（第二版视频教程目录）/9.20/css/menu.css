@@ -1,0 +1,68 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{ margin:0; padding:0;}
+body{ font:11px Verdana, Arial, Helvetica, sans-serif; padding:20px; background:#a9a9a9 url(../images/hat-01.jpg) no-repeat top center; color:white;}
+ul{ list-style:none;}
+a{ color:white; text-decoration:none;font-weight:bold;}
+
+#menu{ width:958px; margin:0 auto; margin-top:107px; height:37px; background:#333;}
+#menu li ul{ display:none;}
+#menu li ul li{ float:none;}
+*html #menu li ul li{ display:inline;}
+#menu li ul a{ float:none; height:32px; line-height:32px; padding:0 10px; text-transform:capitalize;}
+#menu .height-auto{line-height:15px; padding:5px 10px;}
+
+.second-menu,.third-menu,.fourth-menu{position:absolute;}
+
+.first-menu li{ float:left; position:relative;}
+.first-menu a{ float:left;display:block; padding:0 20px; height:35px; line-height:35px; background:#333; border-top:1px solid #4a4a4a;border-left:1px solid #4a4a4a; border-bottom:1px solid #242424; border-right:1px solid #242424; font-size:15px;}
+.first-menu a:hover{ background:#4698ca; border-top:1px solid #5db1e0;border-left:1px solid #5db1e0;}
+
+.second-menu{top:37px; right:0;}
+*html .second-menu{right:-1px;}
+.second-menu a{ font-size:11px;}
+.second-menu a.arrow{ background:#3a3a3a url(../images/arrow.gif) no-repeat right top;}
+.second-menu a.arrow:hover{ background:#4698ca url(../images/arrow.gif) no-repeat right -32px;}
+
+.second-menu a.arrow-02{ background:#3a3a3a url(../images/arrow.gif) no-repeat right -64px;}
+.second-menu a.arrow-02:hover{ background:#4698ca url(../images/arrow.gif) no-repeat right -110px;}
+
+.third-menu,.fourth-menu{width:180px;top:0; left:177px;}
+.third-menu a{ background:#4c4c4c; font-weight:normal;border-top:1px solid #595959;border-left:1px solid #595959; border-bottom:1px solid #333; border-right:1px solid #333;}
+
+#subMgm{ width:225px;}
+#subMgm .third-menu{left:225px;}
+#subMgm .fourth-menu{left:180px;}
+
+#subMusic,#subNews{ width:177px;}
+
+#shows-list-all{ width:620px;background:#333; right:-468px;border-top:1px solid #4a4a4a; display:none;}
+#shows-list-all dl{ float:left; padding:10px 0 10px 10px;}
+#shows-list-all dt{ background:black; font-weight:bold; padding:5px; margin-bottom:10px;}
+#shows-list-all dd{ float:left;}
+#shows-list-all dd a{ border:none; width:130px; text-transform:capitalize;line-height:15px; padding:0 5px 0 5px; font-weight:normal;}
+
+
+#shows-list-all .shows{width:151px; padding:0; margin-top:-1px;}
+#shows-list-all .shows a{border-top:1px solid #4a4a4a;border-left:1px solid #4a4a4a; border-bottom:1px solid #242424; border-right:1px solid #242424; height:32px; line-height:32px;padding:0 10px; font-weight:bold;}
+#shows-list-all .shows a:hover{border-top:1px solid #5db1e0;border-left:1px solid #5db1e0;}
+
+#shows-list-all .shows a.TVschedule{ background:#3a3a3a url(../images/TVschedule.gif) no-repeat 10px center; padding-left:25px; width:115px;}
+#shows-list-all .shows a.TVschedule:hover{ background:#4698ca url(../images/TVschedule.gif) no-repeat 10px center;}
+
+
+#shows-list-all .shows-list{ width:280px;border-left:1px solid #242424;}
+#shows-list-all .specials-list{ width:160px;}
+#shows-list-all .specials-list a{ width:150px;}
+
+
+
+
+
+
+
+
+
+
+

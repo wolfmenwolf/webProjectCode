@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+*{ color:#F90;}					/* specificity = 0 , 0 , 0 , 0 */
+
+div{ color:orange;} 			/* specificity = 0 , 0 , 0 , 1 */
+body div{ color:green;} 		/* specificity = 0 , 0 , 0 , 2 */
+
+#div-id{ color:red;} 			/* specificity = 0 , 1 , 0 , 0 */
+.div-class{ color:blue;} 		/* specificity = 0 , 0 , 1 , 0 */
+
+div#div-id{ color:#ccc;} 		/* specificity = 0 , 1 , 0 , 1 */
+div.div-class{ color:#39c;} 	/* specificity = 0 , 0 , 1 , 1 */
+
+[id="div-id"]{ color:#060;}		/* specificity = 0 , 0 , 1 , 0 */
+</style>
+</head>
+
+<body>
+
+</body>
+</html>

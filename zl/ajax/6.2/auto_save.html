@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<title>自动保存草稿</title>
+
+<style type="text/css">
+/* 页面字体样式 */
+body, td, input, textarea {
+    font-family:Arial;
+    font-size:12px;
+}
+
+/* 表格基本样式 */
+table.default {
+    border-collapse:collapse;
+    border:1px solid black;
+}
+
+/* 表格单元格样式 */
+table.default td {
+    border:1px solid black;
+    padding:3px;
+}
+
+/* 列头样式 */
+table.default td.item {
+    background:#006699;
+    color:#fff;
+    text-align:center;
+    height:25px;
+}
+</style>
+
+<script type="text/javascript">
+var xmlHttp;                        //用于保存XMLHttpRequest对象的全局变量
+var saveTime = 1000 * 30;           //保存时间间隔，目前为30秒
+var saveTimer;                      //自动保存计时器
+var isSaving = false;               //是否处于保存过程中
+
+//用于创建XMLHttpRequest对象
+function createXmlHttp() {
+    //根据window.XMLHttpRequest对象是否存在使用不同的创建方式
+    if (window.XMLHttpRequest) {
+       xmlHttp = new XMLHttpRequest();                  //FireFox、Opera等浏览器支持的创建方式
+    } else {
+       xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");//IE浏览器支持的创建方式
+    }
+}
+
+//保存用户输入文本
+function save() {
+    //如果已在保存过程中，直接返回，取消操作
+    if (isSaving) {
+        return;
+    }
+
+    //获取用户名和用户输入文本
+    var userName = document.getElementById("userName").value;
+    var content = document.getElementById("content").value;
+
+    isSaving = true;                                //设置isSaving为true，表示处于保存状态
+    createXmlHttp();                                //创建XMLHttpRequest对象
+    xmlHttp.onreadystatechange = writeSaveResult;   //设置回调函数
+    xmlHttp.open("POST", "auto_save.jsp", true);    //发送POST请求
+    xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    xmlHttp.send("action=save&userName=" + encodeURIComponent(userName) + "&content=" + encodeURIComponent(content));
+}
+
+//将保存结果写回页面
+function writeSaveResult() {
+    if (xmlHttp.readyState == 4) {
+        isSaving = false;                           //保存过程结果，设置isSaving为false
+        //将保存结果写入页面
+        document.getElementById("saveInfo").innerHTML = xmlHttp.responseText;
+    }
+}
+
+//恢复已保存的文本
+function restore() {
+    var userName = document.getElementById("userName").value;   //获取用户名
+
+    createXmlHttp();                                //创建XMLHttpRequest对象
+    xmlHttp.onreadystatechange = writeContent;      //设置回调函数
+    xmlHttp.open("POST", "auto_save.jsp", true);    //发送POST请求
+    xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    xmlHttp.send("action=restore&userName=" + encodeURIComponent(userName) + "&timestamp=" + new Date().getTime());
+}
+
+//将获取的已保存文本写回文字区域
+function writeContent() {
+    if (xmlHttp.readyState == 4) {
+        document.getElementById("content").value = xmlHttp.responseText;
+    }
+}
+
+//初始化函数，开始定时调用save函数执行自动保存
+function init() {
+    saveTimer = setInterval("save()", saveTime);
+}
+
+//提交输入表单
+function commit() {
+    document.forms[0].submit();
+}
+</script>
+</head>
+
+<body onload="init()">
+<h1>自动保存草稿</h1>
+
+<form method="post" action="auto_save.jsp">
+<table class="default">
+<tr>
+    <td class="item">用户名：</td>
+    <td><input type="text" id="userName" value="User" name="userName"></td>
+</tr>
+<tr>
+    <td class="item">内容：</td>
+    <td><textarea rows="5" cols="40" id="content" name="content"></textarea></td>
+</tr>
+<tr>
+    <td class="item">信息：</td>
+    <td id="saveInfo"></td>
+</table>
+
+<div style="padding:10px;padding-left:30px;">
+    <input type="button" onclick="commit()" value="提交">
+    <input type="button" onclick="save()" value="暂存">
+    <input type="button" onclick="restore()" value="恢复最后的草稿">
+</div>
+</form>
+
+</body>
+</html>

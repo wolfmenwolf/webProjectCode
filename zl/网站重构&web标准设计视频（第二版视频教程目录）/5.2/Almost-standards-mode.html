@@ -1,0 +1,18 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Almost standards mode（几乎标准模式）</title>
+<style type="text/css">
+input{ font-family:Verdana, Geneva, sans-serif; font-size:12px;}
+</style>
+<script type="text/javascript">
+function showInfo(){
+	document.getElementById("box-mode").innerHTML=document.compatMode;	
+}
+</script>
+</head>
+
+<body>
+<input type="button" value="显示信息" onClick="showInfo();"/>
+<h1 id="box-mode"></h1>
+</html>

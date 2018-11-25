@@ -1,0 +1,47 @@
+@charset "utf-8";
+/* = 网格主导航菜单
+------------------------------------------------------------ */
+#menuMain {
+	background:url(../images/bg_menuMain.png) no-repeat;
+	height:40px;
+	position:absolute;
+	left:0;
+	bottom:0;
+	float:left;
+	width:100%;
+}
+#menuMain li { float:left; }
+#menuMain li a {
+	width:110px;
+	display:block;
+	height:40px;
+	line-height:40px;
+	text-align:center;
+}
+#menuMain li a:hover {
+	background:url(../images/bg_menuMain_hover.png) no-repeat center center;
+	font-weight:bold;
+	color:#fff;
+}
+/* = 网格主导航菜单视觉标识
+------------------------------------------------------------ */
+#home #menuMain li#btnHome a, 
+#about #menuMain li#btnAbout a, 
+#news #menuMain li#btnNews a, 
+#products #menuMain li#btnProducts a, 
+#download #menuMain li#btnDownload a, 
+#contact #menuMain li#btnContact a, 
+#bbs #menuMain li#btnBBS a {
+	background:url(../images/bg_menuMain_hover.png) no-repeat center center;
+	color:#fff;
+	font-weight:bold;
+}
+/* = 网站页脚导航
+------------------------------------------------------------ */
+#menuMainBottom { padding-top:10px; }
+#menuMainBottom li { float:left; }
+#menuMainBottom li a {
+	padding:0 10px;
+	color:white;
+}
+#menuMainBottom li a:hover { text-decoration:underline; }

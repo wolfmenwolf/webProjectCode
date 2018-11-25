@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Flower - Gallery - JQuery.cornerz</title>
+<script type="text/javascript" src="JQuery/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="JQuery/jquery.hoverpulse.js"></script>
+<script type="text/javascript">
+$(function(){  
+    $('.gallery li img').hoverpulse({
+		size: 50,  // number of pixels to pulse element (in each direction)
+        speed: 200 // speed of the animation 
+	});
+});
+</script>
+<style type="text/css">
+* {
+	margin:0;
+	padding:0;
+}
+body {
+	font:11px Verdana, Geneva, sans-serif;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	background:#DEF5F8;
+}
+ul {
+	list-style:none;
+}
+img {
+	border:none;
+}
+.wrraper {
+	margin:0 auto;
+	width:680px;
+}
+h1.title, h2.credits {
+	font-style:italic;
+	font-weight:normal;
+}
+h1.title {
+	font-size:38px;
+	padding-top:10px;
+	text-shadow:2px 2px 3px #ccc;		/*safari,opera */
+}
+h1.title span{
+	font-size:16px;
+	font-family:Verdana, Geneva, sans-serif;
+}
+h2.credits {
+	font-size:12px;
+	padding-bottom:5px;
+	border-bottom:1px solid #ccc;
+	color:#ccc;
+}
+h2.credits a {
+	text-decoration:none;
+	color:orange;
+}
+h2.credits a:hover {
+	text-decoration: underline;
+	color:black;
+}
+.gallery {
+	position: relative;
+	padding:0 0 25px 45px;
+}
+.gallery li {
+	float: left;
+	padding: 1px;
+	margin:26px 26px 0 0;
+	display:inline;
+	width: 170px;
+	height: 120px;
+	position:relative;
+}
+.gallery li img {
+	padding:5px;
+	border:1px solid #ccc;
+	background:white;
+}
+.gallery li span {
+	position:absolute;
+	top:95px;
+	left:10px;
+	z-index:100;
+	background:url(images/tape.png) no-repeat;
+	width:77px;
+	height:27px;
+	line-height:27px;
+	text-align:center;
+}
+.gallery li a {
+	text-decoration:none;
+	color:black;
+}
+</style>
+<!--[if lt IE 7]>
+<style type="text/css">
+	.gallery li span { behavior: url(iepngfix.htc); cursor: pointer; }
+</style>
+<![endif]-->
+</head>
+<body>
+<div class="wrraper">
+  <h1 class="title">Flower Gallery <span>JQuery.hoverpulse</span></h1>
+  <h2 class="credits"><em>by</em>:<a href="#">Web Designer Adam</a></h2>
+  <ul class="gallery">
+    <li><span><a href="#">Delight</a></span><img src="images/flower-01.jpg" width="170" height="120"/></li>
+    <li><span><a href="#">Daisies</a></span><img src="images/flower-02.jpg" width="170" height="120"/></li>
+    <li><span><a href="#">Helianthus</a></span><img src="images/flower-03.jpg" width="170" height="120"/></li>
+    <li><span><a href="#">Dream</a></span><img src="images/flower-04.jpg" width="170" height="120"/></li>
+    <li><span><a href="#">Immensity</a></span><img src="images/flower-05.jpg" width="170" height="120"/></li>
+    <li><span><a href="#">Waterlily</a></span><img src="images/flower-06.jpg" width="170" height="120"/></li>
+    <li><span><a href="#">Soft purple</a></span><img src="images/flower-07.jpg" width="170" height="120"/></li>
+    <li><span><a href="#">Bright</a></span><img src="images/flower-08.jpg" width="170" height="120"/></li>
+    <li><span><a href="#">Bliss</a></span><img src="images/flower-09.jpg" width="170" height="120"/></li>
+  </ul>
+</div>
+</body>
+</html>

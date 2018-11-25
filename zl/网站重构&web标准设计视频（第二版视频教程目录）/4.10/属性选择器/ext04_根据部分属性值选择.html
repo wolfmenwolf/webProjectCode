@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>根据部分属性值选择</title>
+<style type="text/css">
+.one{ color:green;}
+.two{ font-style:italic;}
+.hello{ font-weight:bold;}
+p[class~="hello"]{ text-decoration:overline; font-size:3em;}
+img[title~="Adam"]{ border:3px solid green;}
+</style>
+</head>
+<body>
+<p class="one two hello">Hello World,My name is Adam!!!</p>
+<img src="images/img-test01.png" alt="photo" title="Hello World,My name is Adam!!!" />
+</body>
+</html>

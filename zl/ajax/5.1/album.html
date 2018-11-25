@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<title>相册浏览</title>
+
+<style type="text/css">
+/* 页面字体样式 */
+body, td, input {
+    font-family:Arial;
+    font-size:12px;
+}
+
+/* 表格基本样式 */
+table.default {
+    border-collapse:collapse;
+    width:850px;
+}
+
+/* 表格单元格样式 */
+table.default td {
+    border:1px solid black;
+    padding:3px;
+    height:30px;
+}
+
+/* 列头样式 */
+table.default td.item {
+    background:#006699;
+    color:#fff;
+    text-align:center;
+}
+
+/* 预览图片Div的样式 */
+div.preview {
+    float:left;
+    width:90px;
+    height:70px;
+    border:1px solid black;
+    text-align:center;
+    margin-left:5px;
+}
+
+/* 预览图片的样式 */
+div.preview img {
+    margin:5px;
+    border:0;
+    cursor:pointer;
+}
+
+/* 完整图片Div的样式 */
+#picDiv {
+    text-align:center;
+}
+
+/* 完整图片的样式 */
+#picDiv img {
+    border:0;
+}
+</style>
+
+<script type="text/javascript">
+var xmlHttp;                        //用于保存XMLHttpRequest对象的全局变量
+var basePath = "photos/";           //图片保存目录
+
+//用于创建XMLHttpRequest对象
+function createXmlHttp() {
+    //根据window.XMLHttpRequest对象是否存在使用不同的创建方式
+    if (window.XMLHttpRequest) {
+       xmlHttp = new XMLHttpRequest();                  //FireFox、Opera等浏览器支持的创建方式
+    } else {
+       xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");//IE浏览器支持的创建方式
+    }
+}
+
+//向服务器获取图片信息
+function getPicInfo() {
+    createXmlHttp();                                //创建XMLHttpRequest对象
+    xmlHttp.onreadystatechange = displayPreview;    //设置回调函数
+    xmlHttp.open("GET", "album.jsp", true);         //发送GET请求
+    xmlHttp.send(null);
+}
+
+//处理服务器返回信息
+function displayPreview() {
+    if (xmlHttp.readyState == 4) {
+        var previewDiv = document.getElementById("previewDiv"); //获取预览图容器对象
+        previewDiv.innerHTML = "";                              //清空容器内容
+        var pics = eval("(" + xmlHttp.responseText + ")");      //将服务器信息转为JSON数组
+
+        //遍历整个JSON数组，创建预览图片
+        for (var i=0; i<pics.length; i++) {
+            var pic = pics[i];
+            previewDiv.appendChild(createPreviewPic(pic));      //在容器内追加预览图节点
+        }
+    }
+}
+
+//创建预览图片节点
+function createPreviewPic(pic) {
+    var picNode = document.createElement("div");
+    picNode.className = "preview";
+    picNode.innerHTML = "<img src='" + basePath +"preview_" + pic.name + "' onclick='loadPic(\"" + pic.name + "\"," + pic.width + "," + pic.height + ")'>";
+    return picNode;
+}
+
+//加载完整图片
+function loadPic(picName, width, height) {
+    document.getElementById("picDiv").innerHTML = "<img src='" + basePath + picName + "' width='" + width + "' height='" + height + "'>";
+}
+</script>
+</head>
+
+<body onload="getPicInfo()">
+<h1>相册浏览</h1>
+
+<table class="default">
+<tr>
+    <td class="item">点击缩略图查看完整图片</td>
+</tr>
+<tr>
+    <td>
+    <div id="previewDiv">正在加载缩略图……</div>
+    </td>
+</tr>
+<tr>
+    <td>
+    <div id="picDiv"></div>
+    </td>
+</tr>
+</table>
+
+</body>
+</html>

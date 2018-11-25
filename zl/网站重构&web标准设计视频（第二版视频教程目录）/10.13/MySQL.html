@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>MySQL 数据类型表</title>
+<style type="text/css">
+* { margin:0; padding:0; }
+body { font:12px Verdana, Arial, Helvetica, sans-serif; padding:10px; }
+table { border-collapse:collapse; }
+caption { padding:5px; font: italic 30px Georgia, "Times New Roman", Times, serif; color:#39c; }
+th, td { border:1px solid #ccc; padding:5px 10px; }
+th { background:url(images/th-bg.gif) repeat-x; }
+.even { background:#DBECF4; }
+
+/*tbody tr:nth-child(odd){background:#DBECF4;}*/
+tbody tr:nth-child(even) {
+background:#DBECF4;
+}
+tbody tr:hover { background:#06c; color:white; }
+.highlight { background:#ddd; font-weight:bold; }
+</style>
+</head>
+<body>
+<table summary="MySQL">
+  <caption>
+  MySQL 数据类型表
+  </caption>
+  <colgroup>
+  <col class="type" />
+  <col class="length" />
+  <col class="description" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th id="type">类型</th>
+      <th id="length">大小</th>
+      <th id="description">描述</th>
+    </tr>
+  </thead>
+  <tbody>	
+    <tr>
+      <td colspan="3" class="highlight">字符串</td>
+    </tr>
+	<tr>
+      <td headers="type">CHAR(Length) </td>
+      <td headers="length">Length字节</td>
+      <td headers="description">定长字段，长度0 ~ 255</td>
+    </tr>
+    <tr>
+      <td headers="type">VARCHAR(Length)</td>
+      <td headers="length">String长度 + 1字节</td>
+      <td headers="description">变长字段，长度0 ~ 255</td>
+    </tr>
+    <tr>
+      <td headers="type">TINYTEXT</td>
+      <td headers="length">String长度 + 1字节</td>
+      <td headers="description">字符串，最大长度为255</td>
+    </tr>
+	<tr>
+      <td headers="type">TEXT</td>
+      <td headers="length">String长度 + 2字节</td>
+      <td headers="description">字符串，最大长度为65 535</td>
+    </tr>
+	<tr>
+      <td headers="type">MEDIUMTEXT</td>
+      <td headers="length">String长度 + 3字节</td>
+      <td headers="description">字符串，最大长度为16 777 215</td>
+    </tr>
+	<tr>
+      <td headers="type">LONGTEXT</td>
+      <td headers="length">String长度 + 4字节</td>
+      <td headers="description">字符串，最大长度为4 294 967 295</td>
+    </tr>
+    <tr>
+      <td colspan="3" class="highlight">整型</td>
+    </tr>
+	<tr>
+      <td headers="type">TINYINT(Length) </td>
+      <td headers="length">1字节</td>
+      <td headers="description">范围：-128 ~ 127,或者0 ~ 255(无符号)</td>
+    </tr>
+    <tr>
+      <td headers="type">SMALLINT(Length) </td>
+      <td headers="length">2字节</td>
+      <td headers="description">范围：-32768 ~ 32767,或者0 ~ 65 535(无符号)</td>
+    </tr>
+    <tr>
+      <td headers="type">MEDIUMTINT(Length)</td>
+      <td headers="length">3字节</td>
+      <td headers="description">范围：-8 388 608 ~ 8388607,或者0 ~ 16 777 215(无符号)</td>
+    </tr>
+    <tr>
+      <td headers="type">INT(Length)</td>
+      <td headers="length">4字节</td>
+      <td headers="description">范围：-2 147 483 648 ~ 2 147 483 647,或者0 ~ 4 294 967 295(无符号)</td>
+    </tr>
+    <tr>
+      <td headers="type">BIGINT(Length)</td>
+      <td headers="length">8字节</td>
+      <td headers="description">范围：-9 223 372 036 854 775 808 ~ 9 223 372 036 854 775 807,<br/>或者0 ~ 18 446 744 073 709 551 615(无符号)</td>
+    </tr>
+     <tr>
+      <td colspan="3" class="highlight">浮点型</td>
+    </tr>
+	<tr>
+      <td headers="type">FLOAT</td>
+      <td headers="length">4字节</td>
+      <td headers="description">单精度浮点型，8位精度(4字节),m是十进制数字的总个数，d是小数点后面的数字个数</td>
+    </tr>
+    <tr>
+      <td headers="type">DOUBEL</td>
+      <td headers="length">8字节</td>
+      <td headers="description">双精度浮点型，16位精度(8字节)</td>
+    </tr>
+    <tr>
+      <td colspan="3" class="highlight">定点数</td>
+    </tr>
+	<tr>
+      <td headers="type">DECIMAL</td>
+      <td headers="length">Length + 1字节或Length + 2字节</td>
+      <td headers="description">存储为字符串DOUBEL，允许固定的小数</td>
+    </tr>
+    <tr>
+      <td colspan="3" class="highlight">日期时间类型</td>
+    </tr>
+	<tr>
+      <td headers="type">DATE</td>
+      <td headers="length">3字节</td>
+      <td headers="description">采用YYYY-MM-DD格式</td>
+    </tr>
+    <tr>
+      <td headers="type">DATETIME</td>
+      <td headers="length">8字节</td>
+      <td headers="description">采用YYYY-MM-DD HH-MM-SS格式</td>
+    </tr>
+    <tr>
+      <td headers="type">TIMESTAMP</td>
+      <td headers="length">4字节</td>
+      <td headers="description">采用YYYYMMDDHHMMSS格式，可结束范围终止于2037</td>
+    </tr>
+    <tr>
+      <td headers="type">TIME</td>
+      <td headers="length">3字节</td>
+      <td headers="description">采用HH-MM-SS格式</td>
+    </tr>
+    <tr>
+      <td colspan="3" class="highlight">枚举</td>
+    </tr>
+	<tr>
+      <td headers="type">ENUM</td>
+      <td headers="length">1或2字节</td>
+      <td headers="description">枚举，意味着每一列都可以具有多个可能的值之一</td>
+    </tr>
+    <tr>
+      <td colspan="3" class="highlight">集合</td>
+    </tr>
+	<tr>
+      <td headers="type">SET</td>
+      <td headers="length">1，2，3，4或8字节</td>
+      <td headers="description">与ENUM一样，只不过每一列都可以具有多个可能的值</td>
+    </tr>
+  </tbody>
+</table>
+<table summary="MySQL">
+  <caption>
+  MySQL 数据类型属性
+  </caption>
+  <colgroup>
+  <col class="MySQL_keywords" />
+  <col class="meaning" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th id="MySQL_keywords">MySQL 关键字</th>
+      <th id="meaning">含义</th>
+    </tr>
+  </thead>
+  <tbody>	
+	<tr>
+      <td headers="MySQL_keywords">NULL </td>
+      <td headers="meaning">数据列可包含NULL值</td>
+    </tr>
+    <tr>
+      <td headers="MySQL_keywords">NOT NULL </td>
+      <td headers="meaning">数据列不允许包含NULL值</td>
+    </tr>
+    <tr>
+      <td headers="MySQL_keywords">DEFAULT</td>
+      <td headers="meaning">默认值，如果插入记录的时候没有指定值，将取这个默认值 </td>
+    </tr>
+    <tr>
+      <td headers="MySQL_keywords">PRIMARY KEY </td>
+      <td headers="meaning">主键  </td>
+    </tr>
+    <tr>
+      <td headers="MySQL_keywords">AUTO_INCREMENT</td>
+      <td headers="meaning">递增，如果插入记录的时候没有指定值，则在上一条记录的值上加1，仅适用于整数类型 </td> 
+    </tr>
+    <tr>
+      <td headers="MySQL_keywords">UNSIGNED</td>
+      <td headers="meaning">无符号</td> 
+    </tr>
+    <tr>
+      <td headers="MySQL_keywords">CHARACTER SET name</td>
+      <td headers="meaning">指定一个字符集  </td> 
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>

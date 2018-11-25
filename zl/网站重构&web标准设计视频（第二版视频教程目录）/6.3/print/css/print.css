@@ -1,0 +1,23 @@
+* {
+	color:black !important;
+	background:white !important;
+}
+body {
+	font:12pt/200% "Times New Roman", Times, serif;
+}
+#nav {
+	display:none;
+}
+h1 {
+	font-size:36pt;
+}
+h2 {
+	font-size:20pt;
+}
+h2#tagline {
+	font-size:18pt;
+	font-style:italic;
+}
+p {
+	text-align:justify;
+}

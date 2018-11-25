@@ -1,0 +1,27 @@
+@charset "utf-8";
+/* ------------------------------------------------------------
+Basic Style Sheet (for version 4 browsers)
+
+version	:	1.0
+ author	:	Adam YU
+  email	:	yydxp88@163.com
+     qq	:	106395181
+	msn	:	zatsl@hotmail.com
+website	:	http://www.yuyadong.com
+------------------------------------------------------------ */
+
+/* = import css
+reset		CSS重定义文件用的是Yahoo的CSS重定义
+layout    	网站布局样式
+form    	网站表单样式
+text    	网站字体样式
+menu		网站菜单样式
+
+------------------------------------------------------------ */
+@import url(reset.css);
+@import url(layout.css);
+@import url(form.css);
+@import url(text.css);
+@import url(menu.css);
+
+

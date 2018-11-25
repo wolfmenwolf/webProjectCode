@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>根据元素属性选择</title>
+<style type="text/css">
+img{ border:3px solid red;}
+img[alt]{ border:3px solid blue;}
+img[title]{ border:3px solid green;}
+a[href]{ text-decoration:none; color:green;}
+a[title][href]{ text-decoration:none; color:red;}
+</style>
+</head>
+<body>
+<p><img src="images/img-test01.png" alt="This is img-test01.png" />
+  <img src="images/img-test02.png" title="This is img-test02.png"/>
+  <img src="images/img-test03.png" alt="This is img-test03.png"/></p>
+<a title="Hello World,my name is Adam" href="#">Hello World</a>
+<a href="#">Hello World</a>
+</body>
+</html>

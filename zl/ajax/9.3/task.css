@@ -1,0 +1,73 @@
+/* 页面基本样式 */
+body, td, input, textarea {
+    font-family:Arial;
+    font-size:12px;
+}
+
+/* 提示信息div的样式 */
+#statusDiv {
+    border:1px solid #999;
+    background:#FFFFCC;
+    width:100px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin:-50px 0 0 -100px;
+    width:280px;
+	padding:10px;
+}
+
+/* div通用样式 */
+div {
+	padding:2px;
+}
+
+/* 任务列表容器样式 */
+#lists {
+	background:#99CC99;
+	padding:20px;
+}
+
+/* 标题样式 */
+.title {
+	background:#FFCC66;
+	padding:5px;
+	font-weight:bold;
+}
+
+/* 任务容器样式 */
+#tasks {
+	background:#CCFFFF;
+	padding:20px;
+}
+
+/* 手形鼠标样式 */
+.pointer {
+	cursor:pointer;
+}
+
+/* 任务和任务列表项样式 */
+.task, .list{
+	margin-left:5px;
+	margin-right:10px;
+	font-size:14px;
+}
+
+/* 完成的任务样式 */
+.status1 {
+	text-decoration:line-through;
+	color:#999;
+}
+
+/* 操作链接样式 */
+.operation {
+	font-size:11px;
+	font-weight:bold;
+}
+
+/* 登录区域样式 */
+#login {
+	background:#FFFFCC;
+	width:200px;
+	padding:10px;
+}

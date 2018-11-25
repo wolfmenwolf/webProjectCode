@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>CSS2.1 圆角框 3D</title>
+<style type="text/css">
+* {
+	margin:0;
+	padding:0;
+}
+body {
+	font:11px Verdana, Geneva, sans-serif;
+	padding:10px;
+	color:#333;
+}
+.box-round {
+	width:500px;
+}
+.box-round .content {
+	border:1px solid #666;
+	border-width:0 1px;
+	background: #E2EFFA;
+	border-left:1px solid #E2EFFA;
+}
+.box-round .content h1 {
+	font-size:20px;
+	padding:30px 0 30px 30px;
+}
+.box-round .content p {
+	line-height:180%;
+	padding:0 30px 30px 30px;
+}
+.b1, .b2, .b3, .b4 {
+	height:1px;
+	border:1px solid #666;
+	border-width:0 1px;
+	background:#E2EFFA;
+	overflow:hidden
+}
+.b1 {
+	margin:0 5px;
+	background:#666;
+}
+.b2 {
+	margin:0 3px;
+	border-width:0 2px;
+}
+.b3 {
+	margin:0 2px;
+}
+.b4 {
+	margin:0 1px;
+	height:2px;
+}
+.clear {
+	background:#E2EFFA;
+	border:#E2EFFA;
+}
+</style>
+</head>
+<body>
+<div class="box-round">
+  <div class="b1 clear"></div>
+  <div class="b2 clear"></div>
+  <div class="b3 clear"></div>
+  <div class="b4 clear"></div>
+  <div class="content">
+    <h1>Mozilla Firefox</h1>
+    <p> Referred to as IE or MSIE, Microsoft launched a web browser. Internet Explorer is the most widely used Web browser, although since 2004 it has lost some market share. In April 2005, it has a market share of about 85%.</p>
+    <p>Internet Explorer is Microsoft's new version of the Windows operating system as an integral part. In an earlier version of the operating system, it is an independent, free of charge. Windows 95 OSR2 from the beginning, it was all tied up as a new version of the Windows operating system in the default browser. However, the recent (2004 ~ 2005), a major update applies only to Windows XP SP2 and Windows Server 2003 SP1. Initially, Microsoft plans and the next version of the Windows operating system release Internet Explorer 7, but Microsoft recently announced that, Internet Explorer 7 in a test version (Beta 1) in the summer of 2005 will be made available to Windows XP SP2 users. In the second half of 2006 released Windows Vista will be bundled with the official version of Internet Explorer 7.0. 2008 on 5 years 3 release of Internet Explorer 8 Beta1.</p>
+    <p>As the first by bundling Windows and gain market share and growing out of major security hole, the implementation of its own inefficient and does not support W3C standards, Internet Explorer has been criticized, but had to admit it for the development of the Internet has contributed to .</p>
+  </div>
+  <div class="b4"></div>
+  <div class="b3"></div>
+  <div class="b2"></div>
+  <div class="b1"></div>
+</div>
+</body>
+</html>

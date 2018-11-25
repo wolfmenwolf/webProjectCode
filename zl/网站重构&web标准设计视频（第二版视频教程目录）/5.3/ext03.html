@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>行内元素，浮动元素或者定位元素之间是不会产生空白边叠加的</title>
+<style type="text/css">
+* {
+	margin:0;
+	padding:0;
+}
+#box-a {
+	width:200px;
+	background:#ccc;
+	margin:20px;
+	position:absolute;
+	left: 46px;
+	top: 147px;
+}
+#box-b {
+	width:200px;
+	background:#ccc;
+	position:absolute;
+	left: 35px;
+	top: 123px;
+}
+</style>
+</head>
+<body>
+<div id="box-a">box-a</div>
+<div id="box-b">box-b</div>
+</body>
+</html>

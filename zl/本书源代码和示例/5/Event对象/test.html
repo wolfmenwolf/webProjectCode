@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<script type="text/javascript" >
+window.onload = function(){
+    var btn = document.getElementsByTagName("input")[0];
+    btn.onclick = function(event){	//绑定鼠标单击事件处理函数
+        var event = event || window.event;	//兼容不同类型浏览器
+        btn.value = event.type;	//获取当前事件的类型
+    }
+    btn.ondblclick = function(event){ 	//绑定鼠标双击事件处理函数
+        var event = event || window.event; 	//兼容不同类型浏览器
+        btn.value = event.type; 	//获取当前事件的类型
+    }
+}
+
+
+</script>
+<title>上机练习</title>
+</head>
+<body>
+<input type="button" value="Event对象" />
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<title>在线词典</title>
+
+<style type="text/css">
+/* 页面字体样式 */
+body, td, input {
+    font-family:Arial;
+    font-size:16px;
+}
+
+/* 英文短文的样式 */
+#englishText {
+    border:1px dotted #FF0000;
+    width:500px;
+    padding:10px;
+    margin:10px;
+}
+
+/* 单词解释的样式 */
+#explainDiv {
+    font-size:14px;
+    border:1px solid black;
+    background:#FFC;
+    width:500px;
+    margin:10px;
+    padding:10px;
+    line-height:150%;
+}
+</style>
+
+<script type="text/javascript">
+var xmlHttp;                        //用于保存XMLHttpRequest对象的全局变量
+var wordCache = new Array();        //用于缓存已查过的单词
+
+//获取选中的文本
+function getselection(e) {
+    var txt = "";                   //用于保存选中文本
+
+    //根据不同浏览器支持的方式获取选中的文本
+    if (window.getSelection) {
+        txt = window.getSelection();
+    } else if (document.getSelection) {
+        txt = document.getSelection();
+    } else if (document.selection) {
+        txt = document.selection.createRange().text;
+    } else {
+        return;
+    }
+
+    //如果选中的文本不为空字符串，则向服务器查询单词信息
+    if (txt != "") {
+        loadExplain(txt);
+    }
+    return false;                   //取消原有的上下文菜单显示
+}
+
+//用于创建XMLHttpRequest对象
+function createXmlHttp() {
+    //根据window.XMLHttpRequest对象是否存在使用不同的创建方式
+    if (window.XMLHttpRequest) {
+       xmlHttp = new XMLHttpRequest();                  //FireFox、Opera等浏览器支持的创建方式
+    } else {
+       xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");//IE浏览器支持的创建方式
+    }
+}
+
+//在单词解释div中显示传入的内容
+function displayExplain(content, isLoading, word) {
+    explainDiv.innerHTML = content;                     //将内容写入explainDiv
+
+    //当信息不是加载过程的提示信息时，将获取的单词解释写入缓存数组
+    if (!isLoading) {
+        wordCache[word] = content;
+    }
+}
+
+//从服务器加载单词的解释
+function loadExplain(word) {
+    var explainDiv = document.getElementById("explainDiv");     //获取explainDiv对象
+
+    //如果缓存中存在需要加载的单词解释，直接从缓存读取
+    if(wordCache[word]){
+        explainDiv.innerHTML = wordCache[word];
+        return;                                                 //从缓存读取后终止函数调用
+    }
+
+    displayExplain("正在加载……", true);                       //显示“正在加载……”提示信息
+    createXmlHttp();                                            //创建XMLHttpRequest对象
+    xmlHttp.onreadystatechange = function() {
+        if (xmlHttp.readyState == 4) {
+            displayExplain(xmlHttp.responseText, false, word);  //显示获取到的单词解释
+        }
+    };
+    xmlHttp.open("GET", "online_dict.jsp?word=" + word, true);
+    xmlHttp.send(null);
+}
+
+//当打开上下文菜单时（即点击鼠标右键时），调用getselection函数
+document.oncontextmenu = getselection;
+</script>
+</head>
+
+<body>
+<h1>在线词典</h1>
+
+英文短文：
+<div id="englishText">
+The students were having their chemistry class.Miss Li was telling the students what water was like.After that,she asked her students,"What's water?"No one spoke for a few minutes.Miss Li asked again,"Why don't you answer my question?Didn't I tell you what water is like?"<br>
+Just then a student put up his hand and said,"Miss Li,you told us that water has no color and no smell.However,where to find such kind of water?The water in the river behind my house is always black and it has a bad smell."Most of the students agreed with him.<br>
+"I'm sorry,children."said the teacher,"Our water is getting dirtier and dirtier.That's a problem."<br>
+</div>
+
+单词解释：
+<div id="explainDiv">
+</div>
+</body>
+</html>

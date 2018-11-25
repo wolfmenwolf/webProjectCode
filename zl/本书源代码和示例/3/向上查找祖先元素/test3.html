@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="jQuery/jquery-1.6.4.js" type="text/javascript"></script>
+<script type="text/javascript" >
+$(function(){
+	$('li.l31').parentsUntil().css({"border":"solid 1px red","margin":"10px"});
+})
+</script>
+<title>上机练习</title>
+</head>
+
+<body>
+<ul class="u1">一级菜单
+	<li class="l1">1</li>
+	<li class="l2">2
+        <ul class="u2">二级菜单
+            <li class="l21">21</li>
+            <li class="l22">22
+                <ul class="u3">三级菜单
+                    <li class="l31">31</li>
+                    <li class="l32">32</li>
+                    <li class="l33">33</li>
+                </ul>
+            </li>
+            <li class="item-c">C</li>
+        </ul>
+    </li>
+    <li class="l3">3</li>
+</ul>
+</body>
+</html>

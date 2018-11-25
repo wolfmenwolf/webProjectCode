@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<title>获取服务器当前时间</title>
+
+<style type="text/css">
+/* 页面字体样式 */
+body, td, input, textarea {
+    font-family:Arial;
+    font-size:12px;
+}
+
+/* div统一样式 */
+div {
+    margin-top:5px;
+}
+</style>
+
+<script type="text/javascript">
+var xmlHttp;                        //用于保存XMLHttpRequest对象的全局变量
+
+//用于创建XMLHttpRequest对象
+function createXmlHttp() {
+    //根据window.XMLHttpRequest对象是否存在使用不同的创建方式
+    if (window.XMLHttpRequest) {
+       xmlHttp = new XMLHttpRequest();                  //FireFox、Opera等浏览器支持的创建方式
+    } else {
+       xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");//IE浏览器支持的创建方式
+    }
+}
+
+//获取服务器时间
+function getServerTime() {
+    createXmlHttp();                                //创建XMLHttpRequest对象
+    xmlHttp.onreadystatechange = writeServerTime;   //设置回调函数
+    xmlHttp.open("GET", "server_time.jsp?timestamp=" + new Date().getTime(), true);
+    xmlHttp.send(null);
+}
+
+//将服务器时间和客户端时间写入页面
+function writeServerTime() {
+    if (xmlHttp.readyState == 4) {
+        document.getElementById("serverTime").innerHTML = xmlHttp.responseText;
+        document.getElementById("clientTime").innerHTML = getFormattedClientTime();
+    }
+}
+
+//按年月日时分秒的格式获取客户端时间
+function getFormattedClientTime() {
+    var now = new Date();           //创建新的Date对象
+    //获取日期
+    var nowDate = now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate();
+    //获取时间
+    var nowTime = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+    return nowDate + " " + nowTime;
+}
+</script>
+</head>
+
+<body>
+<h1>获取服务器当前时间</h1>
+
+<div>
+    <input type="button" value="获取服务器当前时间" onclick="getServerTime()">
+</div>
+
+<div>服务器时间：<span id="serverTime"></span></div>
+<div>客户端时间：<span id="clientTime"></span></div>
+
+</body>
+</html>

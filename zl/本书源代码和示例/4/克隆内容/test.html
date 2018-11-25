@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<script type="text/javascript" >
+window.onload = function(){
+    var div = document.getElementsByTagName("div")[0]; 
+    div.onclick = function(){	
+        var div1 = div.cloneNode(true); 	
+        div.parentNode.insertBefore(div1,div.nextSibling);
+    }
+}
+</script>
+<title>上机练习</title>
+</head>
+<body>
+<div class="red" title="no" ondblclick="alert('ok')">
+    <p>段落文本</p>
+</div>
+</body>
+</html>

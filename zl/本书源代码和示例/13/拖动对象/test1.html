@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<script src="jQuery/jquery-1.6.4.js" type="text/javascript"></script>
+<script src="jqueryui/development-bundle/ui/jquery.ui.core.js"></script>
+<script src="jqueryui/development-bundle/ui/jquery.ui.widget.js"></script>
+<script src="jqueryui/development-bundle/ui/jquery.ui.mouse.js"></script>
+<script src="jqueryui/development-bundle/ui/jquery.ui.draggable.js"></script>
+<link rel="stylesheet" href="jqueryui/development-bundle/themes/smoothness/jquery.ui.all.css">
+<script type="text/javascript" >
+
+$(function() {
+		var $start_counter = $( "#event-start" ),
+			$drag_counter = $( "#event-drag" ),
+			$stop_counter = $( "#event-stop" ),
+			counts = [ 0, 0, 0 ];
+
+		$( "#draggable" ).draggable({
+			start: function() {
+				counts[ 0 ]++;
+				updateCounterStatus( $start_counter, counts[ 0 ] );
+			},
+			drag: function() {
+				counts[ 1 ]++;
+				updateCounterStatus( $drag_counter, counts[ 1 ] );
+			},
+			stop: function() {
+				counts[ 2 ]++;
+				updateCounterStatus( $stop_counter, counts[ 2 ] );
+			}
+		});
+
+		function updateCounterStatus( $event_counter, new_count ) {
+			// first update the status visually...
+			if ( !$event_counter.hasClass( "ui-state-hover" ) ) {
+				$event_counter.addClass( "ui-state-hover" )
+					.siblings().removeClass( "ui-state-hover" );
+			}
+			// ...then update the numbers
+			$( "span.count", $event_counter ).text( new_count );
+		}
+	});
+</script>
+<style type="text/css">
+#draggable { width: 16em; padding: 0 1em; }
+#draggable ul li { margin: 1em 0; padding: 0.5em 0; }
+* html #draggable ul li { height: 1%; }
+#draggable ul li span.ui-icon { float: left; }
+#draggable ul li span.count { font-weight: bold; }
+</style>
+<title>上机练习</title>
+</head>
+<body>
+<div id="draggable" class="ui-widget ui-widget-content">
+    <p>拖动事件</p>
+    <ul class="ui-helper-reset">
+        <li id="event-start" class="ui-state-default ui-corner-all"><span class="ui-icon ui-icon-play"></span>"start" 被调用 <span class="count">0</span>x</li>
+        <li id="event-drag" class="ui-state-default ui-corner-all"><span class="ui-icon ui-icon-arrow-4"></span>"drag" 被调用 <span class="count">0</span>x</li>
+        <li id="event-stop" class="ui-state-default ui-corner-all"><span class="ui-icon ui-icon-stop"></span>"stop" 被调用 <span class="count">0</span>x</li>
+    </ul>
+</div>
+</body>
+</html>

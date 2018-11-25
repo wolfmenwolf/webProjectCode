@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<title>访问搜索服务</title>
+
+<link href="http://www.google.com/uds/css/gsearch.css" type="text/css" rel="stylesheet"/>
+<script src="http://www.google.com/uds/api?file=uds.js&v=1.0&key=ABQIAAAA8NGAnKtRRC6atJWclW0BTRSJeLKRgKKx37iIoIIDwVXoCcEFfhR0JzHmWlDziPWJX-sU-ufn4om7tg" type="text/javascript"></script>
+<script language="Javascript" type="text/javascript">
+function init() {
+    //创建一个搜索控制对象
+    var searchControl = new GSearchControl();
+
+    //添加自己需要的搜索服务
+    var localSearch = new GlocalSearch();           //创建一个本地搜索服务
+    searchControl.addSearcher(localSearch);         //添加本地搜索服务到控制对象
+    searchControl.addSearcher(new GwebSearch());    //添加Web搜索服务到控制对象
+    searchControl.addSearcher(new GvideoSearch());  //添加视频搜索服务到控制对象
+    searchControl.addSearcher(new GblogSearch());   //添加Blog搜索服务到控制对象
+
+    localSearch.setCenterPoint("China");            //设置本地搜索服务的中心位置
+
+    //通过设置依附对象确定服务对象的显示位置
+    searchControl.draw(document.getElementById("searchcontrol"));
+
+    searchControl.execute("Ajax");                  //执行初始化搜索
+}
+</script>
+
+</head>
+
+<body onload="init()">
+<h1>访问搜索服务</h1>
+
+    <div id="searchcontrol"></div>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+/* 页面基本样式 */
+body, td, input, textarea {
+    font-family:Arial;
+    font-size:12px;
+}
+
+/* 主题的样式 */
+#thread {
+    border:1px solid black;
+    width:300px;
+    margin-bottom:10px;
+}
+
+/* 提示信息div的样式 */
+#statusDiv {
+    border:1px solid #999;
+    background:#FFFFCC;
+    width:100px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin:-50px 0 0 -100px;
+    width:280px;
+}
+
+/* 帖子的样式 */
+div.post {
+    border-bottom:1px solid black;
+    padding:5px;
+}
+
+/* 帖子title的样式 */
+div.post_title {
+    border-bottom:1px dotted #0066CC;
+    font-weight:bold;
+}
+
+/* 帖子content的样式 */
+div.post_content {
+    font-size:12px;
+    margin:5px;
+}
+
+/* 回帖表格基本样式 */
+table.reply {
+    border-collapse:collapse;
+    width:300px;
+}
+
+/* 回帖表格单元格样式 */
+table.reply td {
+    border:1px solid black;
+    padding:3px;
+}
+
+/* 回帖表格表头样式 */
+table.reply td.title {
+    background:#003366;
+    color:#FFFFFF;
+}
+
+/* 表单元素样式 */
+input, textarea {
+    border:1px solid black;
+}
+
+/* 文字区域样式 */
+textarea {
+    width:200px;
+    height:50px;
+}
+
+/* 预定义格式样式 */
+pre {
+    margin:0;
+}

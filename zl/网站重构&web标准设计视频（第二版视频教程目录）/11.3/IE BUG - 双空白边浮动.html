@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>IE BUG - 双空白边浮动</title>
+<style type="text/css">
+* { margin:0; padding:0; }
+body { font:12px Verdana, Geneva, sans-serif; padding:10px; }
+ul{ list-style:none;}
+
+.box-model a{ display:inline-block; padding:10px; background:#cf0; border:1px solid black;}
+
+.box-moedl-layout{ border:1px solid red; margin-top:10px; padding:10px 0; /*position:absolute;*/ /*width:100%;*/ /*height:1%;*/ /*zoom:100%;*/ overflow:hidden; height:1%;* /*position:fixed;*/ /*min-width:100%;*/}
+.box-moedl-layout div{ width:100px; height:100px; background:#cf0; border:1px solid black; padding:10px;float:left; margin:0 10px;}
+.box-moedl-layout .box-model-01{ display:inline;}
+</style>
+</head>
+<body>
+<ul class="box-model">
+  <li><a href="#">box-model-01</a></li>
+  <li><a href="#">box-model-02</a></li>
+</ul>
+
+<div class="box-moedl-layout">
+	<div class="box-model-01">box-model-01</div>
+    <div class="box-model-02">box-model-02</div>
+</div>
+</body>
+</html>

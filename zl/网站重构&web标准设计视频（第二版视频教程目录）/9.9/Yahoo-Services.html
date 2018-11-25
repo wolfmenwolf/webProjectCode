@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Yahoo! Services - 弹出菜单</title>
+<script type="text/javascript" src="JQuery/jquery-1.3.2.min.js"></script>
+<script type="text/javascript">
+$(function(){ 
+	$('.Services-btn').click(function(){
+		$('#trough-overlay-content').show('slow');
+	});
+	$('#trough-close').click(function(){
+		$('#trough-overlay-content').hide('slow');
+	});
+});
+</script>
+<style type="text/css">
+* { margin:0; padding:0; }
+body { font:11px Verdana, Geneva, sans-serif; padding:20px; }
+ol { list-style:none; }
+a { text-decoration:none; color:#16387c; }
+a:hover { text-decoration:underline; }
+div#Yahoo { position:relative; }
+dl.Yahoo-Services { width:180px; border-top:1px solid #b0bdc6; border-left:1px solid #b0bdc6; border-bottom:1px solid #91a7b4; border-right:1px solid #91a7b4; background:url(images/grd-4px_1.1.gif) repeat-x; }
+dl.Yahoo-Services dd { height:2.5em; padding-left:30px; background:url(images/trough_2.0_062308.gif) no-repeat; }
+dl.Yahoo-Services dd a { font: bold 11px Verdana, Geneva, sans-serif; color:#16387c; text-decoration:none; line-height:2.5em; }
+dl.Yahoo-Services dd a:hover { text-decoration:underline; }
+dl.Yahoo-Services dt { padding:5px; background:#f8f9fb; border-top:1px solid #91a7b5; }
+dl.Yahoo-Services dt .Services-btn { height:20px; background:#ccc; display:block; text-align:center; line-height:20px; text-decoration:none; font-weight:bold; font-size:12px; letter-spacing:-1px; color:black; background:url(images/grd-1px_1.4.gif) repeat-x 0 -450px; border:1px solid black; }
+dl.Yahoo-Services dt .Services-btn:hover { text-decoration:underline; }
+dl.Yahoo-Services dd.a { background-position: -396px -116px; }
+dl.Yahoo-Services dd.b { background-position: -396px -436px; }
+dl.Yahoo-Services dd.c { background-position: 4px -757px; }
+dl.Yahoo-Services dd.d { background-position: 4px -1596px }
+dl.Yahoo-Services dd.e { background-position: 4px -1396px; }
+dl.Yahoo-Services dd.f { background-position: 4px -435px; }
+dl.Yahoo-Services dd.g { background-position: 4px -596px; }
+dl.Yahoo-Services dd.h { background-position: 4px -157px; }
+dl.Yahoo-Services dd.i { background-position: 4px -557px; }
+dl.Yahoo-Services dd.j { background-position: 4px -1558px; }
+dl.Yahoo-Services dd.k { background-position: -396px -1115px; }
+dl.Yahoo-Services dd.l { background-position: 4px -36px; }
+dl.Yahoo-Services dd.m { background-position: -396px -157px; }
+dl.Yahoo-Services dd.n { background-position: -396px -1317px; }
+dl.Yahoo-Services dd.o { background-position: 4px -1636px; }
+dl.Yahoo-Services dd.p { background-position: 4px -796px; }
+dl.Yahoo-Services dd.q { background-position: 4px -75px; }
+dl.Yahoo-Services dd.r { background-position: 4px -117px; }
+#trough-overlay-content { font: bold 11px Verdana, Geneva, sans-serif; width:578px; padding:5px; border:1px solid #184473; background:#85a9cb url(images/grd-4px.gif) left -3100px repeat-x; position: absolute; top:0; left:0; display:none;}
+#trough-overlay-content h2 { color:white; position:relative; padding-bottom:10px; font-size:18px; }
+#trough-close { display:block; position:absolute; top:6px; right:5px; padding:0 0 0 10px; font:bold 11px Verdana, Geneva, sans-serif; color:#fff; background:url(images/trough-close-2.gif) center left no-repeat; }
+#trough-overlay-bd { background:white url(images/shd-tr.gif) no-repeat; padding:3px 0 0 3px; }
+#properties, #properties-intl { background:#f1f6fa url(images/grd-2px.gif) repeat-x left bottom; overflow:hidden; }
+#properties-intl { background:white url(images/grd-2px.gif) repeat-x left bottom; }
+#properties ol, #properties-intl ol { float:left; width:100px; line-height:25px; padding:10px 0 10px 10px; }
+#seriously { background:white; padding:10px; text-align:right; }
+
+*html #properties, *html #properties-intl { height:1%; }
+*+html #properties, *+html #properties-intl { height:1%; }
+#properties:after, #properties-intl:after { content:" "; height:0; display:block; visibility: hidden; clear:both; }
+</style>
+</head>
+<body>
+<div id="Yahoo">
+  <dl class="Yahoo-Services">
+    <dd class="a"><a href="#">Answers</a></dd>
+    <dd class="b"><a href="#">Autos</a></dd>
+    <dd class="c"><a href="#">Finance</a></dd>
+    <dd class="d"><a href="#">Games</a></dd>
+    <dd class="e"><a href="#">Groups</a></dd>
+    <dd class="f"><a href="#">HotJobs</a></dd>
+    <dd class="g"><a href="#">Maps</a></dd>
+    <dd class="h"><a href="#">Mobile<small class="updated"></small> </a></dd>
+    <dd class="i"><a href="#" style="display: inline">Movies</a> | <a class="trough_tv" href="#">TV</a></dd>
+    <dd class="j"><a href="#">Music<small class="updated"></small> </a></dd>
+    <dd class="k"><a href="#">OMG</a></dd>
+    <dd class="l"><a href="#">Personals</a></dd>
+    <dd class="m"><a href="#">Real Estate</a></dd>
+    <dd class="n"><a href="#">Shine</a></dd>
+    <dd class="o"><a href="#">Shopping</a></dd>
+    <dd class="p"><a href="#">Sports</a></dd>
+    <dd class="q"><a href="#">Travel</a></dd>
+    <dd class="r"><a href="#">Yellow Pages</a></dd>
+    <dt><a href="#" class="Services-btn">More Yahoo! Services</a></dt>
+  </dl>
+  <div id="trough-overlay-content">
+    <h2>Yahoo! Services<a href="#" id="trough-close">Close</a></h2>
+    <div id="trough-overlay-bd">
+      <div id="properties">
+        <ol id="drawer-1">
+          <li><a href="#">360°</a></li>
+          <li><a href="#">Addresses</a></li>
+          <li><a href="#">Alerts</a></li>
+          <li><a href="#">Answers</a></li>
+          <li><a href="#">Autos</a></li>
+          <li><a href="#">Bix</a></li>
+          <li><a href="#">Bookmarks</a></li>
+          <li><a href="#">Buzz</a></li>
+          <li><a href="#">Calendar</a></li>
+          <li><a href="#">Chat</a></li>
+          <li><a href="#">Directory</a></li>
+          <li><a href="#">Downloads</a></li>
+          <li><a href="#">Education</a></li>
+        </ol>
+        <ol id="drawer-2">
+          <li><a href="#">Entertainment</a></li>
+          <li><a href="#">Family Accts</a></li>
+          <li><a href="#">Fantasy FB</a></li>
+          <li><a href="#">Fantasy MLB</a></li>
+          <li><a href="#">Finance</a></li>
+          <li><a href="#">Flickr</a></li>
+          <li><a href="#">Fntsy Sports</a></li>
+          <li><a href="#">Food</a></li>
+          <li><a href="#">Games</a></li>
+          <li><a href="#">GeoCities</a></li>
+          <li><a href="#">Green</a></li>
+          <li><a href="#">Greetings</a></li>
+          <li><a href="#">Groups</a></li>
+        </ol>
+        <ol id="drawer-3">
+          <li><a href="#">Health</a></li>
+          <li><a href="#">Horoscopes</a></li>
+          <li><a href="#">HotJobs</a></li>
+          <li><a href="#">Kids</a></li>
+          <li><a href="#">Local</a></li>
+          <li><a href="#">Mail</a></li>
+          <li><a href="#">Maps</a></li>
+          <li><a href="#">Messenger</a></li>
+          <li><a href="#">Mobile</a></li>
+          <li><a href="#">Movies</a></li>
+          <li><a href="#">Music</a></li>
+          <li><a href="#">My Yahoo!</a></li>
+          <li><a href="#">MyBlogLog</a></li>
+        </ol>
+        <ol id="drawer-4">
+          <li><a href="#">News</a></li>
+          <li><a href="#">OMG</a></li>
+          <li><a href="#">People Srch</a></li>
+          <li><a href="#">Pers Finance</a></li>
+          <li><a href="#">Personals</a></li>
+          <li><a href="#">Pets</a></li>
+          <li><a href="#">Real Estate</a></li>
+          <li><a href="#">Search</a></li>
+          <li><a href="#">Shine</a></li>
+          <li><a href="#">Shopping</a></li>
+          <li><a href="#">Small Biz</a></li>
+          <li><a href="#">Sports</a></li>
+          <li><a href="#">Tech</a></li>
+        </ol>
+        <ol id="drawer-5">
+          <li><a href="#">Tickets</a></li>
+          <li><a href="#">Toolbar</a></li>
+          <li><a href="#">Travel</a></li>
+          <li><a href="#">TV</a></li>
+          <li><a href="#">Upcoming</a></li>
+          <li><a href="#">Video</a></li>
+          <li><a href="#">Voice</a></li>
+          <li><a href="#">Weather</a></li>
+          <li><a href="#">Widgets</a></li>
+          <li><a href="#">Yellow Pages</a></li>
+          <li><a href="#">Zimbra</a></li>
+        </ol>
+      </div>
+      <div id="properties-intl">
+        <ol id="drawer-i-1">
+          <li><a href="#">Y! Argentina</a></li>
+          <li><a href="#">Y! Asia</a></li>
+          <li><a href="#">Y! Australia</a></li>
+          <li><a href="#">Y! Austria</a></li>
+          <li><a href="#">Y! Brazil</a></li>
+          <li><a href="#">Y! Canada</a></li>
+          <li><a href="#">Y! Catalan</a></li>
+          <li><a href="#">Y! Chile</a></li>
+          <li><a href="#">Y! China</a></li>
+        </ol>
+        <ol id="drawer-i-2">
+          <li><a href="#">Y! Colombia</a></li>
+          <li><a href="#">Y! Denmark</a></li>
+          <li><a href="#">Y! en Español</a></li>
+          <li><a href="#">Y! Finland</a></li>
+          <li><a href="#">Y! France</a></li>
+          <li><a href="#">Y! Germany</a></li>
+          <li><a href="#">Y! Greece</a></li>
+          <li><a href="#">Y! Hong Kong</a></li>
+          <li><a href="#">Y! India</a></li>
+        </ol>
+        <ol id="drawer-i-3">
+          <li><a href="#">Y! Indonesia</a></li>
+          <li><a href="#">Y! Ireland</a></li>
+          <li><a href="#">Y! Italy</a></li>
+          <li><a href="#">Y! Japan</a></li>
+          <li><a href="#">Y! Korea</a></li>
+          <li><a href="#">Y! Malaysia</a></li>
+          <li><a href="#">Y! Mexico</a></li>
+          <li><a href="#">Y! Netherlands</a></li>
+          <li><a href="#">Y! New Zealand</a></li>
+        </ol>
+        <ol id="drawer-i-4">
+          <li><a href="#">Y! Norway</a></li>
+          <li><a href="#">Y! Peru</a></li>
+          <li><a href="#">Y! Philippines</a></li>
+          <li><a href="#">Y! Québec</a></li>
+          <li><a href="#">Y! Russia</a></li>
+          <li><a href="#">Y! Singapore</a></li>
+          <li><a href="#">Y! Spain</a></li>
+          <li><a href="#">Y! Sweden</a></li>
+          <li><a href="#">Y! Switzerland</a></li>
+        </ol>
+        <ol id="drawer-i-5">
+          <li><a href="#">Y! Taiwan</a></li>
+          <li><a href="#">Y! Thailand</a></li>
+          <li><a href="#">Y! Turkey</a></li>
+          <li><a href="#">Y! UK &amp; IE</a></li>
+          <li><a href="#">Y! Venezuela</a></li>
+          <li><a href="#">Y! Vietnam</a></li>
+        </ol>
+      </div>
+    </div>
+    <div id="seriously"><a href="#">» All Yahoo! Services</a></div>
+  </div>
+</div>
+</body>
+</html>

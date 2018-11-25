@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<script type="text/javascript" src="jquery.js"></script>
+<link href="address.css" type="text/css" rel="stylesheet">
+<title>名片册</title>
+<script type="text/javascript">
+var currIndexKey = "";              //记录当前名片信息索引标记
+
+//页面加载完毕后自动获取全部名片列表
+$(function () {
+    getAddressList(currIndexKey);
+});
+
+//根据索引标记获取名片列表
+function getAddressList(indexKey) {
+    currIndexKey = indexKey;                //将传入的索引标记参数保存为当前标记
+    //从服务器获取JSON格式的信息
+    $.getJSON("address.jsp",                //服务器页面地址
+        {
+            action: "getAddressList",       //action参数
+            indexKey: indexKey,             //indexKey参数
+            timestamp: new Date().getTime() //日期戳记参数，防止缓存
+        },
+        function(json){                     //回调函数
+            $("#addressList").empty();      //清空名片信息列表
+            //根据indexKey不同在列表内写入不同的标题
+            if (indexKey != "") {
+                $("#addressList").append("<div class='title'>姓名或其拼音以 " + currIndexKey + " 开头的名片</div>");
+            } else {
+                $("#addressList").append("<div class='title'>全部名片</div>");
+            }
+            //遍历json数组中每一个对象
+            $(json).each(function(i) {
+                var box = $(document.createElement("div"));         //创建一个div节点
+                box.addClass("box");                                //设置class为box
+                var spanNode = $(document.createElement("span"));   //创建一个span节点
+                spanNode.id("address" + json[i].id);                //设置span节点的id
+                spanNode.addClass("pointer");                       //增加class样式pointer
+                spanNode.addClass("address");                       //增加class样式address
+                spanNode.click(function(){                          //设置鼠标点击响应事件
+                    getAddress(json[i].id);                         //点击鼠标后获取名片详细信息
+                });
+                spanNode.html(json[i].name);                        //span节点内容为名片姓名
+                box.append(spanNode);                               //将span节点加入div节点
+                $("#addressList").append(box);                      //将div节点加入名片信息列表
+            });
+        }
+    );
+}
+
+//获取名片详细信息
+function getAddress(id) {
+    $.getJSON("address.jsp",                    //服务器页面地址
+        {
+            action: "getAddress",               //action参数
+            id: id,                             //id参数
+            timestamp: new Date().getTime()     //时间戳记参数，防止缓存
+        },
+        function(json){                         //回调函数
+            $("#id").val(json.id);              //为id隐藏域赋值
+            $("#name").val(json.name);          //为name文本框赋值
+            $("#tel").val(json.tel);            //为tel文本框赋值
+            $("#email").val(json.email);        //为email文本框赋值
+        }
+    );
+}
+
+//新建名片信息
+function newAddress() {
+    $("#id").val("");                           //将id隐藏域置空
+    $("#name").val("");                         //将name文本框置空
+    $("#tel").val("");                          //将tel文本框置空
+    $("#email").val("");                        //将email文本框置空
+    $("#name")[0].focus();                      //将输入焦点放在name文本框
+}
+
+//删除名片信息
+function delAddress() {
+    var id = $("#id").val();                            //获取id隐藏域当前值
+
+    //如果id值不为空串时向服务器发送删除请求
+    if (id != "") {
+        $.post("address.jsp",                           //服务器页面地址
+            {
+                action: "delAddress",                   //action参数
+                id: id                                  //id参数
+            },
+            function(result) {                          //回调函数
+                $("#address" + id).parent().remove();   //删除页面该名片节点
+                displayStatus(result);                  //显示服务器操作结果
+                newAddress();                           //转为新建名片信息状态
+            }
+        );
+    }
+}
+
+//保存名片信息
+function saveAddress() {
+    var id = $("#id").val();        //获取id隐藏域当前值
+    var name = $("#name").val();    //获取name文本框当前值
+    var tel = $("#tel").val();      //获取tel文本框当前值
+    var email = $("#email").val();  //获取email文本框当前值
+
+    //判断姓名是否不为空串
+    if ($.trim(name) != "") {
+        //根据id是否有值确定执行add或update操作
+        if (id != "") {
+            $.post("address.jsp",                   //服务器页面地址
+                {
+                    action: "updateAddress",        //action参数
+                    id: id,                         //id参数
+                    name: name,                     //name参数
+                    tel: tel,                       //tel参数
+                    email: email                    //email参数
+                },
+                function(result) {                  //回调函数
+                    displayStatus(result);          //显示服务器操作结果
+                    getAddressList(currIndexKey);   //更新当前名片列表
+                }
+            );
+        } else {
+            $.post("address.jsp",                   //服务器页面地址
+                {
+                    action: "addAddress",           //action参数
+                    name: name,                     //name参数
+                    tel: tel,                       //tel参数
+                    email: email                    //email参数
+                },
+                function(result) {                  //回调函数
+                    displayStatus(result);          //显示服务器操作结果
+                    getAddressList(currIndexKey);   //更新当前名片列表
+                }
+            );
+        }
+        newAddress();                               //将表单设置为新建状态
+    //姓名为空串时提示输入姓名
+    } else {
+        alert("请输入姓名。");
+        $("#name")[0].focus();
+    }
+}
+
+//显示提示信息div
+function displayStatus(info) {
+    var statusDiv = $("#statusDiv");                //获取提示信息div对象
+    statusDiv.html(info);                           //设置其显示内容
+    statusDiv.fadeIn();                             //实现淡入效果
+    setTimeout("hiddenStatus()",1000);              //1秒后隐藏提示信息div
+}
+
+//隐藏提示信息div
+function hiddenStatus() {
+    $("#statusDiv").fadeOut();                      //淡出提示信息div对象
+}
+</script>
+</head>
+
+<body>
+<h1>名片册</h1>
+
+<div id="statusDiv" style="display:none"></div>
+
+<table class="default">
+<tr>
+    <td rowspan="2" width="30px" id="indextd">
+        <input type="button" onclick="getAddressList('')" value="ALL">
+        <input type="button" onclick="getAddressList('A')" value="A">
+        <input type="button" onclick="getAddressList('B')" value="B">
+        <input type="button" onclick="getAddressList('C')" value="C">
+        <input type="button" onclick="getAddressList('D')" value="D">
+        <input type="button" onclick="getAddressList('E')" value="E">
+        <input type="button" onclick="getAddressList('F')" value="F">
+        <input type="button" onclick="getAddressList('G')" value="G">
+        <input type="button" onclick="getAddressList('H')" value="H">
+        <input type="button" onclick="getAddressList('I')" value="I">
+        <input type="button" onclick="getAddressList('J')" value="J">
+        <input type="button" onclick="getAddressList('K')" value="K">
+        <input type="button" onclick="getAddressList('L')" value="L">
+        <input type="button" onclick="getAddressList('M')" value="M">
+        <input type="button" onclick="getAddressList('N')" value="N">
+        <input type="button" onclick="getAddressList('O')" value="O">
+        <input type="button" onclick="getAddressList('P')" value="P">
+        <input type="button" onclick="getAddressList('Q')" value="Q">
+        <input type="button" onclick="getAddressList('R')" value="R">
+        <input type="button" onclick="getAddressList('S')" value="S">
+        <input type="button" onclick="getAddressList('T')" value="T">
+        <input type="button" onclick="getAddressList('U')" value="U">
+        <input type="button" onclick="getAddressList('V')" value="V">
+        <input type="button" onclick="getAddressList('W')" value="W">
+        <input type="button" onclick="getAddressList('X')" value="X">
+        <input type="button" onclick="getAddressList('Y')" value="Y">
+        <input type="button" onclick="getAddressList('Z')" value="Z">
+    </td>
+    <td height="360px">
+        <div id="addressList"></div>
+    </td>
+<tr>
+    <td height="130px">
+        <div id="editArea">
+            <input type="hidden" id="id">
+            <div>姓名：<input type="text" id="name"></div>
+            <div>电话：<input type="text" id="tel"></div>
+            <div>邮件：<input type="text" id="email"></div>
+            <input type="button" value="新建" onclick="newAddress()">
+            <input type="button" value="保存" onclick="saveAddress()">
+            <input type="button" value="删除" onclick="delAddress()">
+        </div>
+    </td>
+</tr>
+</table>
+
+</body>
+</html>

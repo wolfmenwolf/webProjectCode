@@ -1,0 +1,378 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<script src="jQuery/jquery-1.6.4.js" type="text/javascript"></script>
+<script type="text/javascript" >
+
+jQuery.uiTableFilter = function(jq, phrase, column, ifHidden) {
+	var new_hidden = false;
+	if(this.last_phrase === phrase)
+		return false;
+
+	var phrase_length = phrase.length;
+	var words = phrase.toLowerCase().split(" ");
+
+	// these function pointers may change
+	var matches = function(elem) {
+		elem.show()
+	}
+	var noMatch = function(elem) {
+		elem.hide();
+		new_hidden = true
+	}
+	var getText = function(elem) {
+		return elem.text()
+	}
+	if(column) {
+		var index = null;
+		jq.find("thead > tr:last > th").each(function(i) {
+			if($(this).text() == column) {
+				index = i;
+				return false;
+			}
+		});
+		if(index == null)
+			throw ("given column: " + column + " not found")
+		getText = function(elem) {
+			return jQuery(elem.find(("td:eq(" + index + ")"))).text()
+		}
+	}
+
+	// if added one letter to last time,
+	// just check newest word and only need to hide
+	if((words.size > 1) && (phrase.substr(0, phrase_length - 1) === this.last_phrase)) {
+
+		if(phrase[-1] === " ") {
+			this.last_phrase = phrase;
+			return false;
+		}
+
+		var words = words[-1];
+		// just search for the newest word
+
+		// only hide visible rows
+		matches = function(elem) {;
+		}
+		var elems = jq.find("tbody > tr:visible")
+	} else {
+		new_hidden = true;
+		var elems = jq.find("tbody > tr")
+	}
+
+	elems.each(function() {
+		var elem = jQuery(this); 
+		jQuery.uiTableFilter.has_words(getText(elem), words, false) ? matches(elem) : noMatch(elem);
+	});
+	last_phrase = phrase;
+	if(ifHidden && new_hidden)
+		ifHidden();
+	return jq;
+};
+// caching for speedup
+jQuery.uiTableFilter.last_phrase = ""
+
+// not jQuery dependent
+// "" [""] -> Boolean
+// "" [""] Boolean -> Boolean
+jQuery.uiTableFilter.has_words = function(str, words, caseSensitive) {
+	var text = caseSensitive ? str : str.toLowerCase();
+	for(var i = 0; i < words.length; i++) {
+		if(text.indexOf(words[i]) === -1)
+			return false;
+	}
+	return true;
+}
+$(function() {
+	var theTable = $('table.filter')
+	$("#filter").keyup(function() {
+		$.uiTableFilter(theTable, this.value);
+	})
+})
+
+</script>
+<style type="text/css">
+table { font-size:12px; width:100%; table-layout:fixed; empty-cells:show; border-collapse: collapse; margin:0 auto; border:1px solid #cad9ea; color:#666; }
+th { background-image: url(images/th_bg1.gif); background-repeat:repeat-x; height:30px; cursor:pointer; }
+td { height:20px; }
+td, th { border:1px solid #cad9ea; padding:0 1em 0; }
+td.sorted { background: #ffd; }
+th.sorted-asc { background: url('images/icons/arrow_up.png') no-repeat 0 50%; }
+th.sorted-desc { background: url('images/icons/arrow_down.png') no-repeat 0 50%; }
+tr.even, tr.first { background-color: #fff; }
+tr.odd, tr.second { background-color: #f5fafe; }
+tr.third { background-color: #ccc; }
+</style>
+<title>上机练习</title>
+</head>
+<body>
+<form>数据过滤：<input name="filter" id="filter" value="" maxlength="30" size="30" type="text"></form>
+<table class="filter">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>产品名称</th>
+            <th>标准成本</th>
+            <th>列出价格</th>
+            <th>单位数量</th>
+            <th>最小再订购数量</th>
+            <th>类别</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>苹果汁</td>
+            <td>5.00</td>
+            <td>30.00</td>
+            <td>10箱 x 20包</td>
+            <td>10</td>
+            <td>饮料</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>蕃茄酱</td>
+            <td>4.00</td>
+            <td>20.00</td>
+            <td>每箱12瓶</td>
+            <td>25</td>
+            <td>调味品</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>盐</td>
+            <td>8.00</td>
+            <td>25.00</td>
+            <td>每箱12瓶</td>
+            <td>10</td>
+            <td>调味品</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>麻油</td>
+            <td>12.00</td>
+            <td>40.00</td>
+            <td>每箱12瓶</td>
+            <td>10</td>
+            <td>调味品</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>酱油</td>
+            <td>6.00</td>
+            <td>20.00</td>
+            <td>每箱12瓶</td>
+            <td>25</td>
+            <td>果酱</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>海鲜粉</td>
+            <td>20.00</td>
+            <td>40.00</td>
+            <td>每箱30盒</td>
+            <td>10</td>
+            <td>干果和坚果</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>胡椒粉</td>
+            <td>15.00</td>
+            <td>35.00</td>
+            <td>每箱30盒</td>
+            <td>10</td>
+            <td>调味品</td>
+        </tr>
+        <tr>
+            <td>14</td>
+            <td>沙茶</td>
+            <td>12.00</td>
+            <td>30.00</td>
+            <td>每箱12瓶</td>
+            <td>10</td>
+            <td>干果和坚果</td>
+        </tr>
+        <tr>
+            <td>17</td>
+            <td>猪肉</td>
+            <td>2.00</td>
+            <td>9.00</td>
+            <td>每袋500克</td>
+            <td>10</td>
+            <td>水果和蔬菜罐头</td>
+        </tr>
+        <tr>
+            <td>19</td>
+            <td>糖果</td>
+            <td>10.00</td>
+            <td>45.00</td>
+            <td>每箱30盒</td>
+            <td>5</td>
+            <td>焙烤食品</td>
+        </tr>
+        <tr>
+            <td>20</td>
+            <td>桂花糕</td>
+            <td>25.00</td>
+            <td>60.00</td>
+            <td>每箱30盒</td>
+            <td>10</td>
+            <td>果酱</td>
+        </tr>
+        <tr>
+            <td>21</td>
+            <td>花生</td>
+            <td>15.00</td>
+            <td>35.00</td>
+            <td>每箱30包</td>
+            <td>5</td>
+            <td>焙烤食品</td>
+        </tr>
+        <tr>
+            <td>34</td>
+            <td>啤酒</td>
+            <td>10.00</td>
+            <td>30.00</td>
+            <td>每箱24瓶</td>
+            <td>15</td>
+            <td>饮料</td>
+        </tr>
+        <tr>
+            <td>40</td>
+            <td>虾米</td>
+            <td>8.00</td>
+            <td>35.00</td>
+            <td>每袋3公斤</td>
+            <td>30</td>
+            <td>肉罐头</td>
+        </tr>
+        <tr>
+            <td>41</td>
+            <td>虾子</td>
+            <td>6.00</td>
+            <td>30.00</td>
+            <td>每袋3公斤</td>
+            <td>10</td>
+            <td>汤</td>
+        </tr>
+        <tr>
+            <td>43</td>
+            <td>柳橙汁</td>
+            <td>10.00</td>
+            <td>30.00</td>
+            <td>每箱24瓶</td>
+            <td>25</td>
+            <td>饮料</td>
+        </tr>
+        <tr>
+            <td>48</td>
+            <td>玉米片</td>
+            <td>5.00</td>
+            <td>15.00</td>
+            <td>每箱24包</td>
+            <td>25</td>
+            <td>点心</td>
+        </tr>
+        <tr>
+            <td>51</td>
+            <td>猪肉干</td>
+            <td>15.00</td>
+            <td>40.00</td>
+            <td>每箱24包</td>
+            <td>10</td>
+            <td>干果和坚果</td>
+        </tr>
+        <tr>
+            <td>52</td>
+            <td>三合一麦片</td>
+            <td>12.00</td>
+            <td>30.00</td>
+            <td>每箱24包</td>
+            <td>25</td>
+            <td>谷类/麦片</td>
+        </tr>
+        <tr>
+            <td>56</td>
+            <td>白米</td>
+            <td>3.00</td>
+            <td>10.00</td>
+            <td>每袋3公斤</td>
+            <td>30</td>
+            <td>意大利面食</td>
+        </tr>
+        <tr>
+            <td>57</td>
+            <td>小米</td>
+            <td>4.00</td>
+            <td>12.00</td>
+            <td>每袋3公斤</td>
+            <td>20</td>
+            <td>意大利面食</td>
+        </tr>
+        <tr>
+            <td>65</td>
+            <td>海苔酱</td>
+            <td>8.00</td>
+            <td>30.00</td>
+            <td>每箱24瓶</td>
+            <td>10</td>
+            <td>调味品</td>
+        </tr>
+        <tr>
+            <td>66</td>
+            <td>肉松</td>
+            <td>10.00</td>
+            <td>35.00</td>
+            <td>每箱24瓶</td>
+            <td>20</td>
+            <td>调味品</td>
+        </tr>
+        <tr>
+            <td>72</td>
+            <td>酸奶酪</td>
+            <td>3.00</td>
+            <td>8.00</td>
+            <td>每箱2个</td>
+            <td>10</td>
+            <td>奶制品</td>
+        </tr>
+        <tr>
+            <td>74</td>
+            <td>鸡精</td>
+            <td>8.00</td>
+            <td>15.00</td>
+            <td>每盒24个</td>
+            <td>5</td>
+            <td>干果和坚果</td>
+        </tr>
+        <tr>
+            <td>77</td>
+            <td>辣椒粉</td>
+            <td>3.00</td>
+            <td>18.00</td>
+            <td>每袋3公斤</td>
+            <td>15</td>
+            <td>调味品</td>
+        </tr>
+        <tr>
+            <td>80</td>
+            <td>葡萄干</td>
+            <td>2.00</td>
+            <td>10.00</td>
+            <td>每包500克</td>
+            <td>25</td>
+            <td>干果和坚果</td>
+        </tr>
+        <tr>
+            <td>81</td>
+            <td>绿茶</td>
+            <td>4.00</td>
+            <td>20.00</td>
+            <td>每箱20包</td>
+            <td>25</td>
+            <td>饮料</td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

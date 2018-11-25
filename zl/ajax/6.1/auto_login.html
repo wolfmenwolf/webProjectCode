@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<title>自动登录</title>
+
+<style type="text/css">
+/* 页面字体样式 */
+body, td, input {
+    font-family:Arial;
+    font-size:12px;
+}
+
+#loginDiv, #userInfo {
+    border:1px solid black;
+    background:#ffc;
+    width:350px;
+    padding:10px;
+    text-align:center;
+}
+</style>
+
+<script type="text/javascript">
+var xmlHttp;                        //用于保存XMLHttpRequest对象的全局变量
+
+//用于创建XMLHttpRequest对象
+function createXmlHttp() {
+    //根据window.XMLHttpRequest对象是否存在使用不同的创建方式
+    if (window.XMLHttpRequest) {
+       xmlHttp = new XMLHttpRequest();                  //FireFox、Opera等浏览器支持的创建方式
+    } else {
+       xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");//IE浏览器支持的创建方式
+    }
+}
+
+//读取用户输入信息
+function login(isAuto) {
+    var userName = document.getElementById("userName").value;   //获取用户名
+    var password = document.getElementById("password").value;   //获取密码
+
+    //当用户名和密码都非空时自动登录
+    if (userName != "" && password != "") {
+        createXmlHttp();                                    //创建XMLHttpRequest对象
+        xmlHttp.onreadystatechange = function() {
+            if (xmlHttp.readyState == 4) {
+                var result = xmlHttp.responseText;
+                //判断登录结果
+                if (result.substr(0,1) == "1") {            //第一个字符为1表示登录成功
+                    //隐藏登录div，显示用户信息div
+                    document.getElementById("loginDiv").style.display = "none";
+                    document.getElementById("userInfo").style.display = "";
+                    clearLoginValue();                      //清空用户输入的登录信息
+                    //将服务器信息写入用户信息div
+                    document.getElementById("userInfo").innerHTML = result.substr(1);
+                } else {                                    //登录不成功
+                    //如果不是自动登录，则提示错误信息
+                    if (!isAuto) {
+                        alert(result.substr(1));
+                    }
+                }
+            }
+        };      //设置回调函数
+        xmlHttp.open("POST", "auto_login.jsp", true);     //发送POST请求
+        xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        xmlHttp.send("action=login&userName=" + encodeURIComponent(userName) + "&password=" + encodeURIComponent(password));
+    } else {
+        //如果不是自动登录，提示用户填写完整信息
+        if (!isAuto) {
+            alert("用户名和密码必须填写完整后才可以登录。");
+        }
+    }
+}
+
+//清空用户输入的登录信息
+function clearLoginValue() {
+    document.getElementById("userName").value = "";
+    document.getElementById("password").value = "";
+}
+
+//检查用户登录状态
+function checkState() {
+    createXmlHttp();                                    //创建XMLHttpRequest对象
+    xmlHttp.onreadystatechange = showCheckResult;       //设置回调函数
+    xmlHttp.open("POST", "auto_login.jsp", true);       //发送POST请求
+    xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    xmlHttp.send("action=check&timestamp=" + new Date().getTime());
+}
+
+//处理服务器返回的登录结果
+function showCheckResult() {
+    if (xmlHttp.readyState == 4) {
+        alert(xmlHttp.responseText);
+    }
+}
+
+//处理退出请求
+function logout() {
+    createXmlHttp();                                    //创建XMLHttpRequest对象
+    xmlHttp.onreadystatechange = showLogoutResult;      //设置回调函数
+    xmlHttp.open("POST", "auto_login.jsp", true);       //发送POST请求
+    xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    xmlHttp.send("action=logout&timestamp=" + new Date().getTime());
+}
+
+//显示退出结果
+function showLogoutResult() {
+    if (xmlHttp.readyState == 4) {
+        document.getElementById("userInfo").innerHTML = "退出成功。";
+        setTimeout("restoreLoginDiv()", 1000);          //1秒钟后恢复登录表单
+    }
+}
+
+//恢复显示登录表单
+function restoreLoginDiv() {
+    document.getElementById("userInfo").style.display = "none";
+    document.getElementById("loginDiv").style.display = "";
+}
+
+</script>
+</head>
+
+<body>
+<h1>自动登录</h1>
+
+<div id="loginDiv">
+用户名：<input type="text" name="userName" id="userName" size="10" onblur="login(true)">
+密码：<input type="password" name="password" id="password" size="10" onblur="login(true)">
+<input type="button" value="登录" onclick="login(false)">
+</div>
+
+<div id="userInfo" style="display:none">
+</div>
+
+<div style="margin-top:10px">
+<input type="button" value="检查登录状态" onclick="checkState()">
+</div>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<title>条件设置向导</title>
+
+<style type="text/css">
+/* 每个问题的div样式 */
+div.box {
+    margin:10px;
+}
+
+/* 最外层div的样式 */
+#queryDiv {
+    width:300px;
+    border:1px solid black;
+    margin-bottom:10px;
+}
+</style>
+
+<script type="text/javascript">
+var xmlHttp;            //用于保存XMLHttpRequest对象的全局变量
+var isFinished = false; //用于标识条件设置问题是否已结束
+
+//用于创建XMLHttpRequest对象
+function createXmlHttp() {
+    //根据window.XMLHttpRequest对象是否存在使用不同的创建方式
+    if (window.XMLHttpRequest) {
+       xmlHttp = new XMLHttpRequest();                  //FireFox、Opera等浏览器支持的创建方式
+    } else {
+       xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");//IE浏览器支持的创建方式
+    }
+}
+
+//获取条件选项的调用函数
+function loadQuery(queryParam, paramValue) {
+    createXmlHttp();                                    //创建XmlHttpRequest对象
+    xmlHttp.onreadystatechange = loadQueryCallBack;     //设置回调函数
+    xmlHttp.open("GET", "query_step.jsp?queryParam=" + queryParam + "&paramValue=" + paramValue, true);
+    xmlHttp.send(null);
+}
+
+//获取条件选项的回调函数
+function loadQueryCallBack() {
+    if (xmlHttp.readyState == 4) {
+        var queryInfo = eval("("+xmlHttp.responseText+")"); //将从服务器获得的文本转为对象直接量
+        createQuery(queryInfo);                             //根据对象直接量创建查询
+    }
+}
+
+//根据对象直接量创建查询
+function createQuery(queryInfo) {
+    var queryDiv = document.getElementById("queryDiv");     //获取包含所有条件的最外层div对象
+
+    var box = document.createElement("div");                //创建新div对象存放当前问题
+    box.className = "box";                                  //设置当前div对象的class属性
+    var textNode = document.createTextNode(queryInfo.info); //根据queryInfo的info属性创建文本节点
+    box.appendChild(textNode);                              //将文本节点追加到新div对象
+
+    //判断是否是最后一个问题
+    if (queryInfo.last == "true") {
+        isFinished = true;
+    }
+
+    var element;                                            //用户保存问题的表单元素
+
+    //根据queryInfo的type属性决定创建方式，目前支持select和text两种类型
+    if (queryInfo.type == "select") {
+        element = document.createElement("select");         //创建select对象
+        element.name = queryInfo.name;                      //为select对象name属性赋值
+        element.appendChild(createOption("","--请选择--")); //创建第一个默认选项
+
+        //遍历queryInfo的items属性，将里面包含的选项信息追加到select对象中
+        for (var o in queryInfo.items) {
+            element.appendChild(createOption(o, queryInfo.items[o]));
+        }
+    } else if (queryInfo.type == "text") {
+        element = document.createElement("input");          //创建input对象
+        element.type = "text";                              //设置input对象的type属性为text
+        element.name = queryInfo.name;                      //为input对象name属性赋值
+    }
+
+    element.onchange = setQueryParam;                      //设置新表单元素的onchange事件调用函数
+    box.appendChild(element);                               //将新表单元素追加到刚才创建的新div对象
+    queryDiv.appendChild(box);                              //将新div对象追加到queryDiv中
+}
+
+//设置查询参数
+function setQueryParam(evt) {
+    var src;                                                //用于保存触发事件的对象
+
+    //由于FireFox浏览器和IE浏览器的事件对象获取方式不同分别进行处理
+    if (!evt) {
+        src = event.srcElement;                             //IE浏览器的获取方式
+    } else {
+        src = evt.target;                                   //FireFox等浏览器的获取方式
+    }
+
+    var textNode;                                           //用于保存用户输入信息的文本节点
+
+    //根据触发对象的value属性判断是否用户已进行了有效输入或选择
+    if (src.value != "") {
+        src.style.display = "none";                         //隐藏原始表单元素
+
+        //根据元素类型是select对象或input text对象创建包含用户输入信息的文本节点
+        if (src.type == "select-one") {
+            textNode = document.createTextNode(src.options[src.selectedIndex].innerHTML);
+        } else if (src.type == "text") {
+            textNode = document.createTextNode(src.value);
+        }
+
+        src.parentNode.appendChild(textNode);               //将文本节点放在对应表单元素的父节点内
+    }
+
+    //如果是最后一个问题，显示提交按钮，否则加载下一个问题
+    if (isFinished) {
+        showSubmitBtn();                                    //显示提交按钮
+    } else {
+        loadQuery(src.name, src.value);                     //根据当前用户输入加载下一个问题
+    }
+}
+
+//根据传入的value和text创建选项
+function createOption(value, text) {
+     var opt = document.createElement("option");                        //创建一个option节点
+     opt.setAttribute("value", value);                                  //设置value
+     opt.appendChild(document.createTextNode(text));                    //给节点加入文本信息
+     return opt;
+}
+
+//显示提交按钮
+function showSubmitBtn() {
+    document.getElementById("submitBtn").style.display = "";
+}
+</script>
+</head>
+
+<!-- 页面加载完毕后加载第一个问题 -->
+<body onload="loadQuery('0','')">
+<h1>条件设置向导</h1>
+
+<!-- 查询表单 -->
+<form name="queryForm" action="query_commit.jsp" method="post">
+
+<div id="queryDiv">
+</div>
+
+<!-- 提交按钮，初始状态为隐藏 -->
+<input type="submit" id="submitBtn" value="提交" style="display:none" />
+
+</form>
+</body>
+</html>

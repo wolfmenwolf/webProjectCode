@@ -1,0 +1,16 @@
+@charset "utf-8";
+/* CSS Document */
+
+ul#browser li{ margin-right:0;}
+
+ul#browser li span{ width:80px; display:block;}
+
+ul#browser li#trident span{ width:86px;}
+
+
+.http{ color:red; padding-right:20px; background:url(../images/link.png) no-repeat top right;}
+.http1{ color:red; padding-right:20px; background:url(../images/link.png) no-repeat top right; display:block; float:left;}
+.mailto{ color:green; padding-right:20px; background:url(../images/email.png) no-repeat top right;}
+
+.doc{ color:blue; padding-right:20px; background:url(../images/doc.png) no-repeat top right;}
+.pdf{ color:blue; padding-right:20px; background:url(../images/pdf.png) no-repeat top right;}

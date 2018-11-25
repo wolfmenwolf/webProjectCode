@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>特殊性对比</title>
+<style type="text/css">
+*{ color:red;}					/* specificity = 0 */
+
+div{ color:green !important;}				/* specificity = 1 */		
+body div{ color:blue;}			/* specificity = 2 */	
+
+#div-id{ color:orange;}			/* specificity = 100 */		
+.div-class{ color:#F39;}		/* specificity = 10 */
+
+div#div-id{ color:#933;}		/* specificity = 101 */
+div.div-class{ color:#006;}		/* specificity = 11 */
+</style>
+</head>
+
+<body>
+<div id="div-id" class="div-class" style="color:black;">Hello World,my name is Adam!!!</div>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<title>产品快速检索</title>
+
+<style type="text/css">
+/* 页面字体样式 */
+body, td, input {
+    font-family:Arial;
+    font-size:12px;
+}
+
+/* 表格基本样式 */
+table.default {
+    border-collapse:collapse;
+    width:400px;
+}
+
+/* 表格单元格样式 */
+table.default td {
+    border:1px solid black;
+    padding:3px;
+    height:27px;
+}
+
+/* 列头样式 */
+table.default td.item {
+    background:#006699;
+    color:#fff;
+    text-align:center;
+}
+
+/* 查询结果div样式 */
+#searchresult {
+    margin-top:20px;
+}
+</style>
+
+<script type="text/javascript">
+var xmlHttp;                        //用于保存XMLHttpRequest对象的全局变量
+var currentkey = "";                //用于保存当前用户输入信息
+var counter = 1;                    //读取信息计数器
+var isReading = true;               //是否处于监视用户输入状态
+
+//用于创建XMLHttpRequest对象
+function createXmlHttp() {
+    //根据window.XMLHttpRequest对象是否存在使用不同的创建方式
+    if (window.XMLHttpRequest) {
+       xmlHttp = new XMLHttpRequest();                  //FireFox、Opera等浏览器支持的创建方式
+    } else {
+       xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");//IE浏览器支持的创建方式
+    }
+}
+
+//读取用户输入信息
+function readkey() {
+    var key = document.getElementById("key").value;
+
+    /*
+      当用户信息没有变化并且非空时，计数器加1
+      否则更新currentkey变量为用户当前输入，重置计数器
+    */
+    if (currentkey==key && key!="") {
+        counter++;
+    } else {
+        currentkey = key;
+        counter = 1;
+    }
+
+    //当计数器累计到3时，如果用户信息仍没有变化，表示用户已停止输入，否则继续监视
+    if (counter==3) {
+        search(key);                    //向服务器检索包含关键词的产品
+        isReading = false;              //设置监视标记为false
+    } else {
+        setTimeout("readkey()", 200);   //200毫秒后再次读取用户输入信息
+    }
+}
+
+//向服务器检索包含关键词的产品
+function search(key) {
+    createXmlHttp();                                    //创建XMLHttpRequest对象
+    xmlHttp.onreadystatechange = showSearchResult;      //设置回调函数
+    xmlHttp.open("POST", "quick_search.jsp", true);     //发送POST请求
+    xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    xmlHttp.send("key=" + encodeURIComponent(key));
+}
+
+//处理服务器返回的产品信息
+function showSearchResult() {
+    if (xmlHttp.readyState == 4) {
+        document.getElementById("searchResult").innerHTML = xmlHttp.responseText;
+    }
+}
+
+//当用户再次键入信息时，调用此函数重新打开监视状态
+function resetReading() {
+    if (!isReading) {
+        isReading = true;
+        readkey();         //开始监视用户文本框
+    }
+}
+</script>
+</head>
+
+<body onload="readkey()">
+<h1>产品快速检索（CD唱片）</h1>
+<input type="text" name="key" id="key" onkeyup="resetReading()">
+
+<!-- 用于显示检索结果的div -->
+<div id="searchResult">
+</div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>表格应用 - 隔行变色 - Javascript</title>
+<style type="text/css">
+* { margin:0; padding:0; }
+body { font:11px Verdana, Arial, Helvetica, sans-serif; padding:100px; }
+table { border-collapse:collapse; }
+caption { padding:5px; font: italic 30px Georgia, "Times New Roman", Times, serif; color:#39c; }
+th, td { border:1px solid #ccc; padding:5px; }
+th { background:url(images/th-bg.gif) repeat-x; }
+.even { background:#DBECF4; }
+
+/*tbody tr:nth-child(odd){background:#DBECF4;}*/
+tbody tr:nth-child(even) {
+background:#DBECF4;
+}
+tbody tr:hover { background:#06c; color:white; }
+</style>
+</head>
+<body>
+<table summary="www.yahoo.com">
+  <caption>
+  Database Table
+  </caption>
+  <colgroup>
+  <col class="id" />
+  <col class="track" />
+  <col class="artist" />
+  <col class="album" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th id="id">Id</th>
+      <th id="track" abbr="Track">Track Name</th>
+      <th id="artist">Artist</th>
+      <th id="album">Album</th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <td colspan="4">Copyright2009, Yahoo.com,Inc. All Rights Reserved.</td>
+    </tr>
+  </tfoot>
+  <tbody>
+    <tr>
+      <td headers="id">1</td>
+      <td headers="track">Hide You</td>
+      <td headers="artist">Kosheen</td>
+      <td headers="album">Resist</td>
+    </tr>
+    <tr>
+      <td headers="id">2</td>
+      <td headers="track">.38.45</td>
+      <td headers="artist">Thievery Corporation</td>
+      <td headers="album">Sounds From the Thievery Hi-Fi</td>
+    </tr>
+    <tr>
+      <td headers="id">3</td>
+      <td headers="track">Fix You</td>
+      <td headers="artist">Cold Play</td>
+      <td headers="album">&amp;</td>
+    </tr>
+    <tr>
+      <td headers="id">4</td>
+      <td headers="track">Hide You</td>
+      <td headers="artist">Kosheen</td>
+      <td headers="album">Resist</td>
+    </tr>
+    <tr>
+      <td headers="id">5</td>
+      <td headers="track">.38.45</td>
+      <td headers="artist">Thievery Corporation</td>
+      <td headers="album">Sounds From the Thievery Hi-Fi</td>
+    </tr>
+    <tr>
+      <td headers="id">6</td>
+      <td headers="track">Fix You</td>
+      <td headers="artist">Cold Play</td>
+      <td headers="album">&amp;</td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>

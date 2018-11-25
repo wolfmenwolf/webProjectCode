@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<title>拼词游戏</title>
+
+<style type="text/css">
+/* 页面字体样式 */
+body, td, input {
+    font-family:Arial;
+    font-size:12px;
+}
+
+/* 正确单词的样式 */
+span.right {
+    color:#060;
+    margin-right:10px;
+}
+
+/* 错误单词的样式 */
+span.wrong {
+    color:#F00;
+    margin-right:10px;
+}
+
+/* 字符组合的样式 */
+#guessWordDiv {
+    font-size:30px;
+    font-family:Arial;
+    height:50px;
+    font-weight:bold;
+}
+</style>
+
+<script type="text/javascript">
+var xmlHttp;                    //用于保存XMLHttpRequest对象的全局变量
+var guessHistory = new Array(); //用于保存已猜过的词
+var guessWord = "";             //用于保存字符组合
+var totalNum = 0;               //猜词次数
+var rightNum = 0;               //正确数
+var wrongNum = 0;               //错误数
+
+//用于创建XMLHttpRequest对象
+function createXmlHttp() {
+    //根据window.XMLHttpRequest对象是否存在使用不同的创建方式
+    if (window.XMLHttpRequest) {
+       xmlHttp = new XMLHttpRequest();                  //FireFox、Opera等浏览器支持的创建方式
+    } else {
+       xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");//IE浏览器支持的创建方式
+    }
+}
+
+//检查单词是否包含不允许的字符
+function preCheckWord(word) {
+    if (guessWord != "") {
+        //遍历用户输入的单词，判断是否每个字符都在生成的字符组合范围内
+        for (var i=0; i<word.length; i++) {
+            if (guessWord.indexOf(word.charAt(i)) == -1) {
+                alert("您输入的单词包含不允许的字符。");
+                return false;
+            }
+        }
+        return true;
+    } else {
+        alert("字符组合尚未生成。");
+        return false;
+    }
+}
+
+//检查用户输入的单词是否正确
+function checkWord() {
+    var userword = document.getElementById("userword").value;   //获取用户输入
+
+    //检查用户输入单词符合基本要求时发送给服务器
+    if (userword != null) {
+        //检查单词是否包含不允许的字符
+        if (preCheckWord(userword)) {
+            //检查是否是已猜过的单词
+            if (guessHistory[userword] == null) {
+                document.getElementById("userword").value = ""; //清空用户输入
+                guessHistory[userword] = userword;              //将用户输入的单词记录在数组中
+                createXmlHttp();                                //创建XmlHttpRequest对象
+                xmlHttp.onreadystatechange = checkWordCallBack; //设置回调函数
+                xmlHttp.open("GET", "word_check.jsp?word=" + userword, true);
+                xmlHttp.send(null);
+            } else {
+                alert("该单词已经猜过了。");
+            }
+        }
+    }
+}
+
+//检查用户单词的回调函数
+function checkWordCallBack() {
+    if (xmlHttp.readyState == 4) {
+        var result = xmlHttp.responseText;
+        totalNum++;                             //总数加1
+        //根据返回结果增加正确或错误的记数
+        if (result.indexOf("'right'") != -1) {
+            rightNum++;                         //正确数加1
+        } else {
+            wrongNum++;                         //错误数加1
+        }
+
+        //更新总数、正确数、错误数显示
+        document.getElementById("totalText").value = totalNum;
+        document.getElementById("rightText").value = rightNum;
+        document.getElementById("wrongText").value = wrongNum;
+
+        //将猜词结果追加到页面
+        document.getElementById("guessHistoryDiv").innerHTML += totalNum + "." + result;
+    }
+}
+
+//生成新的字符组合
+function createWord() {
+    createXmlHttp();                                //创建XmlHttpRequest对象
+    xmlHttp.onreadystatechange = createWordCallback;//设置回调函数
+    xmlHttp.open("GET", "word_create.jsp?timestamp=" + new Date().getTime(), true);
+    xmlHttp.send(null);
+}
+
+//生成新字符组合的回调函数
+function createWordCallback() {
+    if (xmlHttp.readyState == 4) {
+        guessWord = xmlHttp.responseText;           //保存生成结果
+        clearGuessHistory();                        //清除猜词历史
+        document.getElementById("guessWordDiv").innerHTML = guessWord;  //显示新字符组合
+    }
+}
+
+//清除猜词历史
+function clearGuessHistory() {
+    document.getElementById("guessHistoryDiv").innerHTML = "";  //清除历史信息
+    guessHistory = new Array();                                 //初始化猜词历史数组
+    totalNum = 0;                                               //总数归零
+    rightNum = 0;                                               //正确数归零
+    wrongNum = 0;                                               //错误数归零
+
+    //更新总数、正确数、错误数显示
+    document.getElementById("totalText").value = totalNum;
+    document.getElementById("rightText").value = rightNum;
+    document.getElementById("wrongText").value = wrongNum;
+}
+
+//判断用户输入
+function checkEnter(evt) {
+    var code = evt.keyCode||evt.which;  //兼容IE和FireFox
+
+    //如果用户输入回车，调用checkWord函数
+    if (code == 13) {
+        checkWord();
+    }
+}
+</script>
+</head>
+
+<body onload="createWord()">
+<h1>拼词游戏</h1>
+
+备选字符：<input type="button" value="重新生成" onclick="createWord()">
+<div id="guessWordDiv"></div>
+<input type="text" id="userword" onkeypress="checkEnter(event)">
+<input type="button" value="判断" onclick="checkWord()">
+
+<div>
+总数：<input type="text" id="totalText" size="3" value="0">
+正确：<input type="text" id="rightText" size="3" value="0">
+错误：<input type="text" id="wrongText" size="3" value="0">
+</div>
+
+<p>猜词历史：</p>
+<div id="guessHistoryDiv"></div>
+
+</body>
+</html>

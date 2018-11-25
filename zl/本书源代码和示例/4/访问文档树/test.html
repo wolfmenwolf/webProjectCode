@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<script src="jQuery/jquery-1.6.4.js" type="text/javascript"></script>
+<script type="text/javascript" >
+$(function(){
+    var $body = $("body");	//获取body元素
+    var li = $body.children().eq(2).children()[0];		//利用children()方法，遍历到第一个li元素
+    $(li).text("第1项").next().text("第2项").next().text("第3项");		//利用next()方法，遍历li元素，并修改每个li元素的文本内容
+})
+
+
+</script>
+<title>上机练习</title>
+</head>
+<body>
+<h1>DOM</h1>
+<p>DOM实际上是以面向对象方式描述的文档模型。DOM定义了表示和修改文档所需的对象、这些对象的行为和属性，以及这些对象之间的关系。可以把DOM理解为是页面上数据和结构的一个树形表示，不过页面当然并不是以这种树的方式具体实现。根据W3C DOM规范，DOM是HTML与XML的应用编程接口（API），DOM将整个页面映射为一个由层次节点组成的文件。包括1级、2级、3级共3个级别。</p>
+<ul>
+    <li>1级DOM在1998年10月份成为W3C的提议，由DOM核心与DOM HTML两个模块组成。DOM核心能映射以XML为基础的文档结构，允许获取和操作文档的任意部分。DOM HTML通过添加HTML专用的对象与函数对DOM核心进行了扩展。 </li>
+    <li>2级DOM通过对象接口增加了对鼠标和用户界面事件（DHTML长期支持鼠标与用户界面事件）、范围、遍历（重复执行DOM文档）和层叠样式表（CSS）的支持。同时也对DOM 1的核心进行了扩展，从而可支持XML命名空间。 2级DOM引进了几个新DOM模块来处理新的接口类型：DOM视图，描述跟踪一个文档的各种视图（使用CSS样式设计文档前后）的接口；DOM事件，描述事件接口；DOM样式，描述处理基于CSS样式的接口；DOM遍历与范围，描述遍历和操作文档树的接口； </li>
+    <li>3级DOM通过引入统一方式载入和保存文档和文档验证方法对DOM进行进一步扩展，DOM3包含一个名为"DOM载入与保存"的新模块，DOM核心扩展后可支持XML1.0的所有内容，包扩XML Infoset、 XPath和XML Base。 </li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript" >
+window.onload = function(){
+    var btn = document.getElementsByTagName("input")[0];	//获取按钮
+    var p = document.getElementsByTagName("p")[0]; 	//p元素
+    var i = 1; 	//声明并初始化一个临时变量
+    do{	//使用do循环结构逐层注册鼠标单击事件
+        btn.addEventListener("click", function(){	//注册鼠标单击事件
+            p.innerHTML += "<br />("  + i++ + ")  "  + this.nodeName;
+    },true); 	//动态跟踪当前响应节点的名称
+        btn = btn.parentNode; 	//访问上一级父元素
+    } while(btn); 	//设置循环条件，如果存在父节点
+}
+</script>
+
+<title>上机练习</title>
+</head>
+<body>
+<input type="button" value="Event对象">
+<p>捕获型事件流传播过程：</p>
+
+</body>
+</html>
