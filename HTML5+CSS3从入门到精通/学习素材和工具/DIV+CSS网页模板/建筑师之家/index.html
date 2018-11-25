@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<title>建筑师之家</title>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("li").find("ul").prev().toggle(function(){
+		$(this).next().slideDown("slow");
+	},function(){
+		$(this).next().slideUp("slow");
+	});
+});
+</script>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+
+<body>
+<div id="container">
+   <div id="top">
+      <div id="logo"><a href="#"><img src="images/logo.jpg" /></a></div>
+      <div id="link"><a href="#">首页</a> | <a href="#">网站地图</a> | <a href="#">联系我们</a></div>
+   </div>
+   <div id="banner"><a href="#"><img src="images/banner.jpg" /></a></div>
+   <div id="main">
+   <div id="mainleft">
+      <ul>
+         <li><a href="#">团体简介</a></li>
+         <li><a href="#">收费标准</a></li>
+         <li><a href="#">最新交易</a></li>
+         <li><a href="#">圈子热帖</a></li>
+         <li><a href="#">会员注册</a></li>
+         <li><a href="#">会员博客</a></li>
+         <li><a href="#">联系我们</a></li>
+      </ul>
+      <div class="clear"></div>
+      </div>
+      <div id="maincenter">
+         <div class="title">最新资讯</div>
+         <ul>
+            <li><a href="#">住宅给排水设计中节能和节水技术的应用</a></li>
+            <li><a href="#">中西方园林艺术之浅论</a></li>
+            <li><a href="#">园林绿化工程的施工工序及其规范</a></li>
+            <li><a href="#">因地制宜，简历节约型园林</a></li>
+            <li><a href="#">小高层住宅小区给水与消防措施</a></li>
+            <li><a href="#">下水道管渠内壁生物膜的形成及其特性</a></li>
+            <li><a href="#">污水管道改型检查井-骑马井施工工法</a></li>
+            <li style="line-height:0.3;">&nbsp;</li>
+             <li><a href="#" class="tt">未来五年我国住宅建设情况分析</a></li>
+             <li><a href="#" class="tt">外国房产回报率有多高？</a></li>
+         </ul>
+         <div class="clear"></div>
+      </div>
+      <div id="mainright">
+        <div class="title">精华博客</div>
+        <div class="img"><a href="#"><img src="images/003.jpg"/></a></div>
+        <ul>
+        <li><a href="#">[精华博文]外墙外保湿体系性能</a></li>
+        <li><a href="#">[精华博文]住宅室内装饰装修管理</a></li>
+        <li><a href="#">[精华博文]房价与腐败</a></li>
+        <li><a href="#">[精华博文]建筑学实习连载二</a></li>
+        <li><a href="#">[精华博文]2007年地板行业新关注点</a></li>
+        </ul>
+        <div class="clear"></div>
+      </div>
+   </div>
+   <div id="footer">
+      <p>Copyright@2003-2010 BuildCC Coporation, All Rights Reserved</p>
+   </div>
+</div>
+</body>
+</html>

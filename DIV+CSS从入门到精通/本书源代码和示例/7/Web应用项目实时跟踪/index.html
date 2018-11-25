@@ -1,0 +1,50 @@
+<!DOCTYPE html> 
+<html lang="en" manifest="monkeeTime.manifest"> 
+<head> 
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title></title>
+	<link rel="stylesheet" href="css/reset.css" type="text/css">	
+	<link rel="stylesheet" href="css/screen.css" type="text/css">
+	<link rel="stylesheet" href="scripts/ui-themes/smoothness/jquery-ui-1.8.custom.css" type="text/css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	<script type="text/javascript" src="scripts/jquery-ui-1.8.custom.min.js"></script>
+	<script src="scripts/monkeeTime.js"></script>
+</head> 
+<body>
+	<div id="about" class="hidden">
+		<p><strong></p>
+		<p><button type="button" id="closeButton">Close</button></p>
+	</div>
+	
+	<div id="clearLog-message" title="Clear Log" class="hidden">
+		确定要清除所有的数据？
+	</div>
+	
+	<div id="emptyFields-message" title="Missing Required Fields" class="hidden">
+		必须提供相应数据。
+	</div>
+	<header>
+		<button type="button" id="aboutButton">About</button>
+		<h1>DEMO</h1>
+		<form id="logForm">
+			<input type="text" name="project" value="Project Name" onfocus="if(this.value == 'Project Name') this.value = '';" onblur="if(this.value == '') this.value = 'Project Name';">
+			<input type="number" name="hours" value="Hours" class="shortField" onfocus="if(this.value == 'Hours') this.value = '';" onblur="if(this.value == '') this.value = 'Hours';">
+			<input type="text" name="date" value="Date" id="date" class="shortField" onfocus="if(this.value == 'Date') this.value = '';" onblur="if(this.value == '') this.value = 'Date';">
+			<input type="submit" value="Log Time">
+		</form>
+	</header>
+	<section>
+		<header>
+			<p>总时长: <span>0</span> hours</p>
+		</header>
+	
+		<ul id="theLog">
+			<li class="empty">Loading&hellip;</li>
+		</ul>
+		<button type="button" id="clearLog">Clear Log</button>
+	</section>
+	<footer>
+		<p>demo</p>
+	</footer>
+</body> 
+</html> 

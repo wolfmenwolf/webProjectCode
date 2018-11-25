@@ -1,0 +1,204 @@
+* {
+	margin:0px;
+	padding:0px;
+}
+ul li {
+	list-style-type:none;
+}
+body {
+	font-size:12px;
+	font-family:"宋体";
+	color:#a2a2a2
+}
+.bigmain {
+	border:1px #000 solid;
+	border-bottom:0px;
+	width:997px;
+	height:975px;
+	margin:0 auto;
+}
+.top {
+	width:997px;
+	height:15px;
+	float:left;
+	background:#000;
+}
+.lan {
+	color:#bbc05e;
+	font-family:Arial Black;
+	font-size:30px;
+	width:886px;
+	height:46px;
+	padding-top:10px;
+	float:left;
+	padding-left:111px;
+}
+.leftblak {
+	width:36px;
+	height:169px;
+	float:left;
+	background:#000;
+}
+.pic {
+	padding-left:70px;
+	float:left;
+	width:542px;
+	height:169px;
+}
+.rightdiv {
+	padding-top:7px;
+	padding-left:10px;
+	width:245px;
+	height:162px;
+	float:left;
+	background:#cac75e
+}
+.rightdiv li {
+	font-family:"黑体";
+	padding-top:3px;
+	font-size:15px;
+	font-weight:bold;
+	line-height:31px;
+	padding-left:50px;
+	padding-bottom:5px;
+	background:url(images/linews.jpg) no-repeat;
+	width:188px;
+	height:31px;
+}
+.middmainleft {
+	width:521px;
+	height:650px;
+	float:left;
+	padding-left:106px;
+}
+.woman {
+	color:#666;
+	font-size:15px;
+	font-family:"黑体";
+	font-weight:bold;
+	float:left;
+	width:500px;
+	height:44px;
+	line-height:44px;
+	padding-left:12px;
+}
+.content {
+	line-height:18px;
+	float:left;
+	height:146px;
+	width:508px;
+	padding-left:10px;
+}
+.litlepic {
+	width:176px;
+	height:124px;
+	float:left;
+	border:2px #CCC solid;
+}
+.litltltite {
+	color:#333;
+	line-height:25px;
+	float:left;
+	height:25px;
+	width:508px;
+	padding-left:10px;
+}
+.contentlist {
+	width:500px;
+	height:150px;
+	float:left;
+}
+.contentlist li {
+	padding-left:40px;
+	background: url(images/jian.jpg) no-repeat scroll 10px 5px transparent;
+	width:450px;
+	float:left;
+	line-height:25px;
+}
+.xian {
+	background:url(images/rightbian.jpg);
+	width:22px;
+	float:left;
+	height:600px;
+}
+.rightcontent {
+	padding-left:15px;
+	width:310px;
+	float:left;
+	height:650px;
+}
+.rightcontenttitle {
+	border-bottom:#CCC 1px solid;
+	color:#000;
+	font-size:18px;
+	font-family:"黑体";
+	font-weight:200;
+	width:230px;
+	float:left;
+	height:17px;
+	padding-top:18px;
+}
+.rightlist li {
+	border-bottom:1px #CCC dashed;
+	padding-top:5px;
+	width:230px;
+	float:left;
+	line-height:20px;
+}
+.buttom {
+	line-height:25px;
+	text-align:center;
+	padding-top:20px;
+	background:url(images/buttom.jpg);
+	height:64px;
+	float:left;
+	width:997px;
+}
+.content a, .divcontent a:visited, .divcontent a:link {
+	color:#a2a2a2;
+	text-decoration:none;
+}
+.content a:hover {
+	text-decoration:none;
+	color:#000
+}
+.litltltite a, .litltltite a:visited, .litltltite a:link {
+	color:#bcbf5e;
+	text-decoration:none;
+}
+.litltltite a:hover {
+	text-decoration:none;
+	color:#F00
+}
+.contentlist a, .contentlist a:visited, .contentlist a:link {
+	color:#999;
+	text-decoration:none;
+}
+.contentlist a:hover {
+	text-decoration:none;
+	color:#000
+}
+.rightlist a, .rightlist a:visited, .rightlist a:link {
+	color:#999;
+	text-decoration:none;
+}
+.rightlist a:hover {
+	text-decoration:none;
+	color:#000
+}
+.buttom a, .buttom a:visited, .buttom a:link {
+	color:#999;
+	text-decoration:none;
+}
+.buttom a:hover {
+	text-decoration:none;
+	color:#000
+}
+.rightdiv a, .rightdiv a:visited, .rightdiv a:link {
+	color:#000;
+	text-decoration:none;
+}
+.rightdiv a:hover {
+	color:#000;
+	text-decoration:none;
+}

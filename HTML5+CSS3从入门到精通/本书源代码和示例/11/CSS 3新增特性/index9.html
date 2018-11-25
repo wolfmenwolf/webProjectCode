@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title></title>
+<style type="text/css">
+.text-list {
+    width: 500px;
+    height: 460px;
+    border:solid 1px #CCCCCC;
+    padding-top: 15px;
+    background: #fff;
+    box-shadow: 5px 5px 6px #000;
+}
+.text-list li { line-height: 28px; }
+.ul-one { -webkit-transform: rotate(5deg); }
+/* 针对ul设置 则整体都会有所倾斜 */
+.one { -webkit-transform: rotate(5deg) scale(1.00, 1.50); }
+/* 设置倾斜 和缩放*/
+.two a { -webkit-transform: rotate(3deg); } /*设置li的倾斜*/
+.three { -webkit-transform: rotate(1deg); }
+.three span {
+    color: #f00;
+    -webkit-transform: rotate(-5deg);
+}
+/*内联元素的倾斜度*/
+.four a { -webkit-transform: skew(7deg, 8deg); }
+.p-con {
+    font-weight: bold;
+    color: #f00;
+    -webkit-transform: rotate(15deg) scale(1.5, 1.5) skew(5deg, 8deg) translate(5px, -2px);
+    -webkit-transform-origin: 0 5px;
+}
+</style>
+</head>
+
+<body>
+<div class="text-list">
+    <ul class="ul-one">
+        <li>li的列表</li>
+        <li><a href="#">缩放大小比例</a></li>
+        <li><a href="#">旋转角度</a><span>缩放大小比例</span></li>
+        <li><a href="#"><span>倾斜比例</span></a></li>
+    </ul>
+    <ul>
+        <li class="one">设置字体的倾斜度 rotate(5deg) 和 缩放比例 scale(1.00, 1.50); </li>
+        <li class="two"><a href="#">倾斜度</a></li>
+        <li class="three"><a href="#">这个外层元素已经设倾斜了</a><span>对span有设置了倾斜 两者没有影响</span></li>
+        <li class="four"><a href="#">字体的斜切变换</a></li>
+    </ul>
+    <p class="p-con">transform 的各个属性的用法</p>
+</div>
+</body>
+</html>

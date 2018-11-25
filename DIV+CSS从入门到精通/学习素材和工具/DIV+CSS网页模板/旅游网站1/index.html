@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<title>旅游网站1</title>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("li").find("ul").prev().toggle(function(){
+		$(this).next().slideDown("slow");
+	},function(){
+		$(this).next().slideUp("slow");
+	});
+});
+</script>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="top">
+       <div id="logo"><a href="#"><img src="images/logo.jpg" /></a></div>
+    </div>
+    <div id="menuwrap">
+       <div id="menu">
+           <div id="nav">
+            <ul>
+              <li><a href="#">玩家首页</a></li>
+              <li><a href="#">玩家旅游</a>
+                <ul>
+				 <li><a href="#">国内旅游</a></li>
+				 <li><a href="#">国外旅游</a></li>
+			     </ul>
+                </li>
+              <li><a href="#">玩家吃喝</a>
+                   <ul>
+				<li><a href="#">特色吃喝</a></li>
+				<li><a href="#">推荐吃喝</a></li>
+			    </ul>
+              </li>
+              <li><a href="#">精彩专题</a></li>
+              <li><a href="#">玩家之星</a></li>
+            </ul>
+           </div>
+          </div>
+          <div id="banner"><a href="#"><img src="images/banner.jpg" /></a></div>
+    </div>
+    <div id="main">
+       <div id="left">
+          <div id="eat">
+              <div class="title">玩家吃喝</div>
+              <ul>
+                  <li><a href="#">亲自调配独家个性咖啡</a></li>
+                  <li><a href="#">兰会所午间特价菜</a></li>
+                  <li><a href="#">古韵前门米其林西餐厅</a></li>
+                  <li><a href="#">原汁原味土耳其妈妈菜</a></li>
+                  <li><a href="#">天山美食新势力</a></li>
+              </ul>
+          </div>
+          <div id="resort">
+              <div class="title">旅游度假</div>
+              <div class="img"><a href="#"><img src="images/004.jpg" /></a></div>
+              <p style="text-decoration:none;"><span>荷兰七日体验之旅</span></p>
+              <p><a href="#">一年四季都是游玩阿姆斯特丹的好季节，置身于这座洋溢古典与现代气质的城市，您将一次领略荷兰的多种“面孔”......</a></p>
+              <div style="float:right; width:43px; height:17px; padding-bottom:8px;"><a href="#"><img src="images/icon_03.jpg" /></a></div>
+          </div>
+          <div class="clear">&nbsp;</div>
+       </div>
+       <div id="right">
+           <div id="rttop">
+               <div class="img">
+                 <a href="#"><img src="images/002.jpg" /></a>
+                 <div class="clear">&nbsp;</div>
+                </div>
+               <div class="imgright">
+                   <div class="title"><a href="#"><img src="images/pic_01.jpg" /></a></div>
+                   <p><span>浓情澳洲——伴您畅享悠然假期</span></p>
+                   <p><a href="#">澳洲度假旅游还有哪些新奇好玩的元素？本期玩家旅游网特别邀请了两位达人，给我们玩家用户做澳洲旅游特别推荐......</a></p>
+                   <div style="float:right; width:42px; height:16px; padding:3px 28px 10px 0;"><a href="#"><img src="images/icon_02.jpg" /></a></div>
+               </div>
+               <div class="clear">&nbsp;</div>
+           </div>
+           <div id="rtbottom">
+               <div class="imgwrap">
+                 <a href="#"><img src="images/pic_02.jpg" /></a>
+                 <a href="#"><img src="images/003.jpg" style="margin-top:5px;"/></a>
+                 <div class="clear">&nbsp;</div> 
+               </div>
+               <div class="imgright">
+                  <p><span>荷兰家庭度假计划</span></p>
+                   <p><a href="#">荷兰是著名的“低洼之国”，全国四分之一的国土位于海平面之下，因此荷兰人在与水的斗争中显示了充分的智慧。北海大堤就是其中的经典代表。</a></p>
+                   <p><a href="#">经过几百年的时间，经过多次洪水的挑战，北海大堤终于形成......</a></p>
+                   <div style="float:right; width:42px; height:16px; padding:3px 28px 10px 0;"><a href="#"><img src="images/icon_02.jpg" /></a></div>
+                  <div class="clear">&nbsp;</div>
+               </div>
+               <div class="clear">&nbsp;</div>
+           </div>
+          <div class="clear">&nbsp;</div>
+       </div>
+        <div class="clear">&nbsp;</div>
+    </div>
+    <div id="footer">
+       <p>Copyright&copy; wanjiatravle.com.cn</p>
+    </div>
+  </div>
+</body>
+</html>

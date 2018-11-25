@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<style type="text/css">
+.wrapper {
+    padding: 5px 10px;
+    margin: 40px;
+    text-align:center;
+    border: solid 1px #999;    
+    color:#999;
+}
+.viewing-area span {
+    color: #666;
+    display: none;
+}
+@media screen and (max-width: 600px) {
+    .one {
+        background: red;
+        border: solid 1px #000;    
+        color:#fff;
+    }
+    span.lt600 {
+        display: inline-block;
+    }
+}
+@media screen and (min-width: 900px) {
+    .two {
+        background: red;
+        border: solid 1px #000;    
+        color:#fff;
+    }
+    span.gt900 {
+        display: inline-block;
+    }
+}
+@media screen and (min-width: 600px) and (max-width: 900px) {
+    .three {
+        background: red;
+        border: solid 1px #000;    
+        color:#fff;
+    }
+    span.bt600-900 {
+        display: inline-block;
+    }
+}
+@media screen and (max-device-width: 480px) {
+    .iphone {
+        background: #ccc;
+    }
+}
+</style>
+</head>
+<div class="wrapper one">窗口宽度小于600像素</div>
+<div class="wrapper two">窗口宽度大于900像素</div>
+<div class="wrapper three">窗口宽度介于600像素到900像素之间</div>
+<div class="wrapper iphone">IE iPhone设备，最大宽度为480像素。</div>
+<p class="viewing-area">
+    <strong>当前视图宽度:</strong>
+    <span class="lt600">小于600px</span>
+    <span class="bt600-900">在600 - 900px之间</span>
+    <span class="gt900">大于900px</span>
+</p>
+<body>
+</body>
+</html>

@@ -1,0 +1,153 @@
+@charset "utf-8";
+* {
+	margin: 0px;
+	padding: 0px;
+}
+body{
+	font-family:"宋体";
+	font-size:12px;
+	cursor:auto;
+	background-color:#777;
+	}
+.big{
+	width:766px;
+	margin:0 auto 0 auto;
+	}
+a{
+	color:#000000;
+	text-decoration:none;
+	}
+a:hover{
+	color:#0000FF;
+	text-decoration:underline;
+	}
+.logo{
+	height:118px;
+	}
+/*---------------------------------*/
+.main{
+	width:766px;
+	margin-top:-2px;
+	}
+.main_left{
+	width:279px;
+	float:left;
+	}
+.left_sousuo{
+	width:279px;
+	height:77px;
+	background-image:url(img/souuo.jpg);
+	background-repeat:no-repeat;
+	}
+.left_sousuo p{
+	margin:30px 0 0 60px;}
+.news{
+	background-image:url(img/left01.jpg);
+	height:140px;
+	width:279px;
+	}
+.news h5{
+	color:#FF0000;
+	font-size:12px;
+	font-weight:400;
+	margin:25px 0 0 55px;
+	}
+.news p{
+	width:155px;
+	margin:10px 0 0 120px;}
+
+.mail{
+	background-image:url(img/left02.jpg);
+	height:118px;
+	width:279px;
+	}
+.mail h5{
+	color:#FF0000;
+	font-size:12px;
+	font-weight:400;
+	margin:5px 0 0 55px;
+	}
+.mail p{
+	width:155px;
+	margin:3px 0 0 120px;}
+.zhen{
+	background-image:url(img/left03.jpg);
+	height:157px;
+	width:279px;
+	}
+.zhen h5{
+	color:#FF0000;
+	font-size:12px;
+	font-weight:400;
+	margin:5px 0 0 55px;
+	}
+.zhen p{
+	width:155px;
+	margin:5px 0 0 120px;}
+.login{
+	background-image:url(img/left04.jpg);
+	background-repeat:no-repeat;
+	height:125px;
+	}
+.login p{
+	margin:15px 0 0 80px;}
+.button{
+	margin-left:170px;
+	margin-top:5px;}
+.login h3{
+	margin:5px 0 0 180px;
+	font-size:12px;
+	font-weight:400;}
+.login h3 a{
+	color:#FF0000;
+	text-decoration:none;
+	}
+/*----------------*/
+.main_right{
+	width:487px;
+	float:left;
+	}
+.jian{
+	width:487px;
+	background-image:url(img/right02.jpg);
+	background-repeat:no-repeat;
+	height:258px;
+	margin-top:-4px;}
+.wenzi{
+	width:420px;
+	margin:5px auto 0 auto;}
+.wenzi p{
+	line-height:15px;}
+.wen{
+	width:487px;
+	background-image:url(img/right03.jpg);
+	background-repeat:no-repeat;
+	height:261px;
+	}
+.wen_left{
+	width:190px;
+	float:left;
+	margin-left:20px;
+	display:inline;
+	margin-top:50px;
+	}
+.wen_right{
+	width:190px;
+	float:left;
+	margin-left:40px;
+	display:inline;
+	margin-top:50px;
+	}
+.di{
+	width:487px;
+	height:49px;
+	background-image:url(img/rightdi.jpg);
+	background-repeat:no-repeat;
+	}
+.di p{
+	margin:10px 0 0 60px;}
+.foot{
+	text-align:center;
+	}
+.foot p{
+	margin-top:5px;}

@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script language="javascript">
+function draw() {
+    var ctx = document.getElementById('myCanvas').getContext('2d');
+    var lingrad = ctx.createLinearGradient(0,0,0,200);
+  lingrad.addColorStop(0, '#ff0000');
+    lingrad.addColorStop(1/7, '#ff9900');
+    lingrad.addColorStop(2/7, '#ffff00');
+    lingrad.addColorStop(3/7, '#00ff00');
+    lingrad.addColorStop(4/7, '#00ffff');
+    lingrad.addColorStop(5/7, '#0000ff');
+    lingrad.addColorStop(6/7, '#ff00ff');
+    lingrad.addColorStop(1, '#ff0000');
+    ctx.fillStyle = lingrad;
+    ctx.strokeStyle = lingrad;
+    ctx.fillRect(10,10,200,200);
+}
+window.onload=function(){
+    draw();
+}
+</script>
+</head>
+<body>
+<canvas id="myCanvas" width="300" height="240"></canvas>
+</body>
+</html>

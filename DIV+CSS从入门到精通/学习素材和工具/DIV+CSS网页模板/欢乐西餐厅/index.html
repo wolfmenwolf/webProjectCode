@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<title>披萨</title>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	$(".main-li").hover(function(){
+		$(this).children(".sub-menu").show().prev("a").css({"color":"#fff","text-decoration":"underline"});
+	},function(){
+		$(this).children(".sub-menu").hide().prev("a").css({"color":"#660000","text-decoration":"none"});
+	});
+	$(".sub-menu .main-li2").hover(function(){
+		$(this).children(".li2-a").css({"background-color":"#981C14","color":"#fff","text-decoration":"underline"});
+		$(this).children(".sub-menu-two").show();
+	},function(){
+		$(this).children(".li2-a").css({"background-color":"#7C2418","color":"#660000","text-decoration":"none"});
+		$(this).children(".sub-menu-two").hide();
+	});
+	
+});
+</script>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+
+<body>
+<div id="container">
+ <div id="link"><!--dfdf--></div>
+ <div id="top">
+    <div id="menu">
+       <ul class="main-menu">
+		<li class="main-li"><a class="li-a" href="#">首页</a></li>
+		<li class="main-li"><a class="li-a" href="#">美味选择</a>
+			<ul class="sub-menu">
+				<li class="main-li2"><a class="li2-a" href="#">西式套餐</a></li>
+				<li class="main-li2"><a class="li2-a" href="#">中式套餐</a></li>
+			</ul>
+			
+		</li>
+		<li class="main-li"><a class="li-a" href="#">配送说明</a></li>
+		<li class="main-li"><a class="li-a" href="#">关于我们</a></li>
+		<li class="main-li"><a class="li-a" href="#">联系我们</a></li>
+	</ul>
+       
+    </div>
+ </div>
+ <div id="main">
+    <div id="left">
+       <ul>
+          <li class="slidebar_01"><a href="#" style="color:#000">美味比萨</a></li>
+          <li class="slidebar_02"><a href="#" style="color:#000">西式套餐</a></li>
+          <li class="slidebar_03"><a href="#" style="color:#000">中式套餐</a></li>
+          <li class="slidebar_04"><a href="#" style="color:#000">各式点心</a></li>
+          <li class="slidebar_05"><a href="#" style="color:#000">意大利面</a></li>
+       </ul>
+       <div id="leftbottom"></div>
+    </div>
+    <div id="center">
+       <div id="centerpro">
+          <div id="prosmall_top01"><a href="#"><img src="images/pro_01.jpg" /></a></div>
+          <div id="prosmall_top02"><a href="#"><img src="images/pro_02.jpg" /></a></div>
+          <div id="prosmall_top03"><a href="#"><img src="images/pro_03.jpg" /></a></div>
+          <div id="probig"><a href="#"><img src="images/008.jpg" /></a></div>
+       </div>
+       <div id="centerbottom">
+          <ul>
+            <li><a href="#">打印电子优惠券</a></li>
+            <li><a href="#">加入俱乐部</a></li>
+            <li><a href="#">餐厅信息</a></li>
+            <li><a href="#">配送范围</a></li>
+          </ul>
+          <div id="search">
+            <input type="text" value="---请输入详细地点---" class="input" /><input type="button" class="go" value="" />
+          </div>
+       </div>
+    </div>
+    <div id="right">
+      <div class="titlename">>> 龙虾舞沙拉比萨</div>
+      <div class="produce">
+         <div class="imgwrap"><a href="#"><img src="images/010.jpg" /></a></div>
+         <p><a href="#">用料：小龙虾肉，花枝，鱼卵，日式沙拉酱......</a></p>
+      </div>
+       <div class="titlename">>> 龙虾舞沙拉比萨</div>
+      <div class="produce">
+         <div class="imgwrap"><a href="#"><img src="images/011.jpg" /></a></div>
+         <p><a href="#">用料：肥牛片、泡菜、洋葱......</a></p>
+      </div>
+      <div class="titlename">>> 龙虾舞沙拉比萨</div>
+      <div class="produce">
+         <div class="imgwrap"><a href="#"><img src="images/010.jpg" /></a></div>
+         <p><a href="#">用料：小龙虾肉，花枝，鱼卵，日式沙拉酱......</a></p>
+      </div>
+      <div class="titlename">>> 龙虾舞沙拉比萨</div>
+      <div class="produce">
+         <div class="imgwrap"><a href="#"><img src="images/010.jpg" /></a></div>
+         <p><a href="#">用料：小龙虾肉，花枝，鱼卵，日式沙拉酱......</a></p>
+      </div>
+       <div class="titlename">>> 龙虾舞沙拉比萨</div>
+      <div class="produce">
+         <div class="imgwrap"><a href="#"><img src="images/010.jpg" /></a></div>
+         <p><a href="#">用料：小龙虾肉，花枝，鱼卵，日式沙拉酱......</a></p>
+      </div>
+      <div class="titlename">>> 龙虾舞沙拉比萨</div>
+      <div class="produce" style="border:none">
+         <div class="imgwrap"><a href="#"><img src="images/012.jpg" /></a></div>
+         <p><a href="#">用料：BBQ酱、洋葱、鸡丁......</a></p>
+      </div>
+    </div>
+ 
+ </div>
+ <div id="footer">
+    <div class="copyright">Copyright@2009westfood.com.inc All rights reserved. webdn 版权所有</div>
+ </div>
+</div>
+</body>
+</html>

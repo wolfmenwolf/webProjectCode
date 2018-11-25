@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+</head>
+<body>
+<canvas id="myCanvas" style="border:1px solid;" width="350" height="200"></canvas>
+<script language="javascript">
+    var ctx = document.getElementById('myCanvas').getContext('2d');
+    ctx.font = "italic 35px 黑体";
+    ctx.strokeStyle = "Red";
+    ctx.strokeText("绘制轮廓文字",30, 60,200);
+    ctx.font = "bold 35px 宋体";
+    ctx.strokeStyle = "Blue";
+    ctx.strokeText("绘制轮廓文字",30, 100);
+    ctx.font = "25px 隶书";
+    ctx.strokeStyle = "Green";
+    ctx.strokeText("绘制轮廓文字",30, 130);
+</script>
+</body>
+</html>

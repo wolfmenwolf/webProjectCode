@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+<style type="text/css">
+body { font: normal 11px auto "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif; color: #4f6b72; background: #E6EAE9; }
+table { width: 700px; padding: 0; margin: 0; }
+td { border-right: 1px solid #C1DAD7; border-bottom: 1px solid #C1DAD7; background: #fff; font-size:11px; padding: 6px 6px 6px 12px; color: #4f6b72; text-align:center; }
+</style>
+<script type="text/javascript">
+var worker = new Worker("script.js");
+worker.postMessage("");
+// 从线程中取得计算结果
+worker.onmessage = function(event) {
+    if(event.data!=""){
+        var j,k,tr,td;
+        var intArray=event.data.split(";");
+        var table=document.getElementById("table");
+        for(var i=0;i<intArray.length;i++){            
+            j=parseInt(i/10,0);
+            k=i%10;
+            if(k==0){
+                tr=document.createElement("tr");
+                tr.id="tr"+j;
+                table.appendChild(tr);
+            }
+            else {
+                tr=document.getElementById("tr"+j);
+            }
+            td=document.createElement("td");
+            tr.appendChild(td);
+            td.innerHTML=intArray[j*10+k];
+        }
+    }
+};
+</script>
+</head>
+<body>
+<table id="table">
+</table>
+</body>
+
+

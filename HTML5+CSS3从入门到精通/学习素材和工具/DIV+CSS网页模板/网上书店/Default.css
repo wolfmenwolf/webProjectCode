@@ -1,0 +1,271 @@
+*{
+	padding:0px;
+	margin:0px;}
+ul,li{
+	list-style-type:none;
+	}
+body{font-family:"&#23435; &#20307; "; font-size:12px; font-family:"ËÎÌו"}
+.bigmain{margin:0 auto}
+.bigmain{padding:0px 23px; width:767px; height:1200px}
+.head{width:720px; height:170px; float:left}
+.headtop{width:720px; float:left; height:12px; background:#cbcbcb}
+.headmidd{margin-top:10px; width:720px; height:49px; float:left; margin-bottom:15px}
+.logo{width:260px; float:left; height:49px; padding-left:15px; vertical-align:middle}
+.sou{text-align:left; padding-top:21px; width:429px; float:right; vertical-align:middle}
+.sou a:link,.sou a{text-decoration:none; color:#666}
+.sou a:hover{text-decoration:underline;color:#C06}
+
+.headbuttom{background:#a60000; height:49px; width:720px; float:left; overflow:hidden; padding-top:15px;}
+.main{height:800px; float:left; width:700px; padding:5px 10px 5px 10px}
+.leftmain{margin-right:15px; width:185px; height:792px; float:left}
+.lefttopmokuai{
+	height:244px;
+	float:left;
+	width:185px;
+	margin-bottom:10px;
+	overflow:hidden;
+}
+.topyuanjiao{width:185px; background:url(img/litlejiao.png); height:30px; float:left}
+.lefttopmokuaimidd{border-left:1px #CCC solid; border-right:1px #CCC solid; width:183px; background:#f1efe3; height:205px; float:left}
+.lefttopmokuaimidd ul{
+	
+	width:200px;}
+.lefttopmokuaimidd li{
+	list-style-position:inside;
+
+	width:150px;
+	padding-left:15px;
+	height:20px;
+	line-height:20px;
+	border-bottom:1px #CCC dashed;
+	list-style-image:url(img/sanjiao.png);
+	
+	
+	}
+.leftmokuaibuttom{
+	float:left;
+	width:185px;
+	background:url(img/litledijiao.png);
+	height:8px
+}
+.lefttopmokuai2{height:546px; float:left; width:185px; margin-bottom:10px; overflow:hidden}
+.leftbuttommokuaimidd{border-left:1px #CCC solid; border-right:1px #CCC solid; width:183px; background:#f1efe3; height:508px; float:left}
+.leftbuttommokuaimidd ul{
+	margin-top:20px;
+	
+	
+	width:200px;
+	}
+.leftbuttommokuaimidd li{
+	list-style-type:decimal;
+	float:left;
+	width:150px;
+	padding-left:15px;
+	height:20px;
+	line-height:20px;
+	border-bottom:1px #CCC dashed;
+	
+	
+	
+	
+	}
+.rightmain{float:left; width:}
+.rightmaintop{ width:500px}
+.rightmaintopleft{float:left; width:242px;}
+.rightmiantoppic{float:left; width:242px; background:url(img/middjiao.png); height:21px}
+.rightmaintopcontent{
+	padding:5px 5px 0px 3px;
+	width:234px;
+	height:116px;
+	float:left;}
+rightmaintopcontent {
+	float:left;}
+.wen1{color:#aba05f; padding-top:5px; width:150px;float:right; font-weight:bold}
+.wen2{width:150px; padding-top:2px; color:#C03; border-bottom:1px #CCC dashed; font-weight:100; margin-top:3px;margin-bottom:20px;}
+.wen3{color:#000; font-weight:100; padding-bottom:10px; border-bottom:1px #CCC dashed; font-family:'ËÎÌו'; font-size:12px;}
+.wen4{color:#000; margin-top:4px; float:left; line-height:16px; height:16px; font-weight:100}
+.middcontent{
+	margin-top:5px;
+	width:500px;
+	height:116px;
+	float:left;}
+.rightmainbuttom{
+	margin-top:10px;
+	width:500px;
+	height:335px;
+	float:left;}
+.toplitle{
+	float:left;
+	width:500px;
+	background:url(img/houcuan.png);
+	height:22px;}
+.rightmaincontent1{
+	float:left;
+	width:500px;
+	float:left;
+	height:149px;}
+	
+.middbuttomleft{
+	line-height:18px;
+	color:#aba05f;
+	margin-top:20px;
+	float:left;
+	width:95px;
+	height:98px;
+	padding:4px 5px;
+	border-top:1px #CCC dashed}
+.middbuttomright{
+	margin-top:20px;
+	background:#ededed;
+	width:385px;
+	float:right;
+	height:105px;
+	border-top:1px #CCC dashed;}
+.middbuttomrightleft{
+		margin-left:5px;
+		width:166px;
+		float:left;
+		height:100%}
+.litlte{
+	line-height:22px;
+	font-weight:bold;
+	color:#C00;
+	width:500px;
+	float:left;
+	height:22px;
+	background:#ededed;
+	margin-top:5px;}
+.buttomcontent{
+	
+	margin-bottom:10px;
+	margin-top:10px;
+	float:left;
+	height:120px;
+	width:480px;
+	padding-left:10px;
+	}
+.rightbuttomcontent{
+	float:right;
+	width:390px}
+.buttomtop{
+	
+	
+	padding-left:10px;
+	padding-right:10px;
+	width:700px;
+	
+	height:112px;
+	float:left;}
+.mydindan{
+	
+	width:125px;
+	float:left;}
+.mydindan ul{
+	
+	display:inline;
+	float:left;
+	width:105px;
+	padding-left:10px;
+	}
+.mydindan div ul li{
+	width:110px;
+	float:left;
+	 background:url("img/bg.gif") no-repeat scroll 0 8px transparent;
+	 padding-left:8px;
+	height:20px;
+	line-height:20px;}
+.buttommidd{
+	background:#a2a2a2;
+	float:left;
+	width:720px;
+	height:7px;
+	margin:20px 0px 1px 0px}
+.buttom{
+	background:#C00;
+	width:720px;
+	float:left;
+	height:10px;}
+.footer{
+	text-align:center;
+	color:#a2a2a2;
+	width:720px;
+	height:100px;
+	float:left;
+	padding-top:10px;}
+.headmenuleft{
+	color:#FFF;
+	line-height:20px;
+	margin-top:15px;
+	width:200px;
+	margin-left:20px;
+	float:left;
+	height:40px;
+	}
+
+.bigul ul{
+	
+	overflow:hidden;
+	
+	}
+.bigul li{
+	float:left;white-space:nowrap;}
+.litlekuan{
+	padding-top:15px;
+	
+	
+	width:675px;
+	border:1px #333 solid;
+	padding-left:25px;
+	height:112px;
+	float:left;
+	}
+.leftmenu{
+	margin-left:25px;
+	float:left;
+	width:190px;
+	display:inline;
+	}
+.menutilte{
+	padding-bottom:5px;
+	width:200px;
+	float:left;
+	color:#FFF;
+	height:16px;
+	line-height:16px;}
+.footer a,.footer a:visited,.footer a:link{ text-decoration:none;
+	color:#999}
+.footer a:hover{
+	text-decoration:underline;
+	color:#CCC}
+	
+.mydindan a,.mydindan a:visited ,.mydindan a:link{
+	
+	color:#004b91
+	}
+.mydindan a:hover{text-decoration:none;
+	color:#004b33}
+.rightbuttomcontent a,.rightbuttomcontent a:visited,.rightbuttomcontent a:link{
+	text-decoration:none;
+	color:#C00;}
+.rightbuttomcontent a:hover{
+	text-decoration:underline;
+	color:#FF0;}
+.leftmain a,.leftmain a:visited,.leftmain a:link{
+	text-decoration:none; color:#000}
+.leftmain a:hover{
+	text-decoration:underline; color:#666}
+.middbuttomleft a,.middbuttomleft a:visited,.middbuttomleft a:link{ text-decoration:none;
+color:#aba05f;}
+.middbuttomleft a:hover{
+	text-decoration:underline;
+	color:#F00}
+.wen4 a,.wen4 a:visited,.wen4 a:link{ text-decoration:none;
+color:#aba05f
+	}
+.wen4 a:hover{
+	text-decoration:underline; color:#F00}
+.middbuttomrightleft a,.middbuttomrightleft a:visited ,.middbuttomrightleft a:link{
+	text-decoration:none; color:#aba05f}
+.middbuttomrightleft a:hover{
+	text-decoration:underline; color:#CCC}
+	input,select,option{text-align:center;display:block;}

@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html> 
+<head>
+<script language="javascript">
+function draw() {
+    var ctx = document.getElementById('myCanvas').getContext('2d');
+    var lineCap = ['butt','round','square'];
+    // 绘制参考线。
+    ctx.strokeStyle = 'red';
+    ctx.beginPath();
+    ctx.moveTo(10,10);
+    ctx.lineTo(10,150);
+    ctx.moveTo(150,10);
+    ctx.lineTo(150,150);
+    ctx.stroke();
+    // 绘制直线段。
+    ctx.strokeStyle = 'blue';
+    for (var i=0;i<lineCap.length;i++){
+        ctx.lineWidth = 20;  
+        ctx.lineCap = lineCap[i];
+        ctx.beginPath();
+        ctx.moveTo(10,30+i*50);
+        ctx.lineTo(150,30+i*50); 
+        ctx.stroke();
+    }
+}
+window.onload=function(){
+    draw();
+}
+</script>
+</head>
+<body>
+<canvas id="myCanvas" width="300" height="300"></canvas>
+</body>
+</html>

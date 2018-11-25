@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="Default.css"/>
+<title>花卉网</title>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript"> 
+$(function(){
+	$(".main-li").hover(function(){
+		$(this).children(".sub-menu").show().prev("a").css({"color":"#000","text-decoration":"none"});
+	},function(){
+		$(this).children(".sub-menu").hide().prev("a").css({"color":"#757575","text-decoration":"none"});
+	});
+	$(".sub-menu .main-li2").hover(function(){
+		$(this).children(".li2-a").css({"color":"#fff","text-decoration":"underline"});
+		$(this).children(".sub-menu-two").show();
+	},function(){
+		$(this).children(".li2-a").css({"color":"#FF6633","text-decoration":"none"});
+		$(this).children(".sub-menu-two").hide();
+	});
+	
+});
+</script>
+
+<style>
+.meun{
+	font-size:14px;
+	float:left;
+	background:url(images/menu.jpg);
+	height:37px;
+	width:1005px;}
+.leftmenu ul{
+	padding-top:10px;
+	float:left;
+	}
+.leftmenu a,.leftmenu a:visited,.leftmenu a:link{
+	color:#757575; text-decoration:none}
+.leftmenu a:hover{ color:#000; text-decoration:none}
+.leftmenu li{
+	line-height:27px;
+	height:27px;
+	text-align:center;
+	float:left;
+	width:110px;
+	}
+	
+	
+	
+.main-menu{
+width:100%;
+}
+.main-menu .main-li{
+float:left; padding:0 3px; height:27px; line-height:27px; position:relative; z-index:1;
+}
+.main-menu .main-li a{
+display:block;
+}
+.main-menu .main-li .li-a{
+float:left;
+}
+.main-menu .main-li .li-a{
+width:100px;
+}
+.main-menu .main-li .sub-menu{
+position:absolute; top:25px; display:none; z-index:2; left:0px; width:115px; text-align:center; background-color:#efe8cc;
+}
+.main-menu .main-li .sub-menu-two{
+position:absolute; top:0px; display:none; z-index:3; left:115px;text-align:center;
+}
+.sub-menu-two a{
+width:80px; background-color:#981C14; float:none;
+}
+.sub-menu .li2-a{
+ float:none;width:115px;
+}
+.sub-menu a:hover{
+background-color:#a5cd5b;
+}
+.main-li{
+	
+	padding-top:0px;}
+</style>
+</head>
+<body>
+<div class="bigmain">
+<div class="head"></div>
+<div class="meun">
+<div style="float:left; width:50px; height:37px"></div>
+<div class="leftmenu" >
+
+<ul class="main-menu">
+<li style="width:50px;" onmouseover="this.style.background='#f7f2dc'" onmouseout=" this.style.background=''"><a href="#">首页</a></li>
+<li onmouseover="this.style.background='#f7f2dc'" onmouseout=" this.style.background=''"><a href="#">最新供应</a></li>
+<li  onmouseover="this.style.background='#f7f2dc'" onmouseout=" this.style.background=''" class="main-li"><a class="li-a" href="#">最新求购</a>
+
+			<ul class="sub-menu">
+				<li class="main-li2"><a class="li2-a" href="/">求购热线</a></li>
+				<li class="main-li2"><a class="li2-a" href="/">联系地址</a></li>
+			</ul>
+		</li>
+
+<li  onmouseover="this.style.background='#f7f2dc'" onmouseout=" this.style.background=''" class="main-li"><a class="li-a" href="#">行业市场</a>
+
+			<ul class="sub-menu">
+				<li class="main-li2"><a class="li2-a" href="/">市场调查</a></li>
+				<li class="main-li2"><a class="li2-a" href="/">市场动态</a></li>
+			</ul>
+		</li>
+<li  onmouseover="this.style.background='#f7f2dc'" onmouseout=" this.style.background=''" class="main-li"><a class="li-a" href="#">花卉咨询</a>
+
+			<ul class="sub-menu">
+				<li class="main-li2"><a class="li2-a" href="/">花卉浏览</a></li>
+				<li class="main-li2"><a class="li2-a" href="/">花卉知识</a></li>
+			</ul>
+		</li>
+<li onmouseover="this.style.background='#f7f2dc'" onmouseout=" this.style.background=''"><a href="#">联系我们</a></li>
+</ul>
+
+</div><div class="rightmeun"></div></div>
+<div class="pic"><a href="#"><img src="images/pic.jpg" border="0"></a></div>
+<div class="main">
+<div class="kuai1">
+<div class="title">时事资讯 </div>
+<div class="title2">时事热点</div>
+<div class="list1">
+<ul>
+<li><a href="#">科技创新为福建花卉进</a></li>
+<li><a href="#">大花蕙兰——韩国小姐 </a></li>
+<li><a href="#">花卉也有了“身份证”</a></li>
+<li><a href="#">温室牡丹成为全运会颁</a></li>
+<li><a href="#">花卉专家：生活起居也</a></li>
+<li><a href="#">让你的家罗曼蒂克，让</a></li>
+</ul>
+</div>
+
+<div class="list1">
+<ul>
+<li><a href="#">科技创新为福建花卉进</a></li>
+<li><a href="#">大花蕙兰——韩国小姐 </a></li>
+<li><a href="#">花卉也有了“身份证”</a></li>
+<li><a href="#">温室牡丹成为全运会颁</a></li>
+<li><a href="#">花卉专家：生活起居也</a></li>
+<li><a href="#">让你的家罗曼蒂克，让</a></li>
+</ul>
+</div>
+
+<div class="title2">国内花讯</div>
+<div class="list1" style="width:190px;">
+<ul style="width:190px;">
+<li  style="width:170px;"><a href="#">花木基地休闲游风景独好 花木</a></li>
+<li  style="width:170px;"><a href="#">坚决打击油茶生产“炒苗炒穗风</a></li>
+<li  style="width:170px;"><a href="#">明年青岛最大樱花园将万樱齐放</a></li>
+<li  style="width:170px;"><a href="#">景洪大力发展热带花卉（图）</a></li>
+<li  style="width:170px;"><a href="#">四川温江全力打造西部现代花木</a></li>
+<li  style="width:170px;"><a href="#">九台启动建设“园艺特产之乡”</a></li>
+<li  style="width:170px;"><a href="#">我国花卉产业形成四大区域格局</a></li>
+<li  style="width:170px;"><a href="#">邓州贾宋：花卉市场行情不错</a></li>
+<li  style="width:170px;"><a href="#">万花齐放洛阳城 花姿竞艳最倾</a></li>
+<li  style="width:170px;"><a href="#">今春苗木市场分析：两缺一剩</a></li>
+<li  style="width:170px;"><a href="#">北京首届月季文化节在植物园举</a></li>
+<li  style="width:170px;"><a href="#">香满港城，万花争艳 </a></li>
+</ul>
+
+</div>
+<div class="rightpic">
+<div class="litlepic"><a href="#"><img src="images/004.jpg" border="0"></a></div>
+<div class="litle3">大花蕙兰——韩国小姐</div>
+<div class="litlepic"><a href="#"><img src="images/005.jpg" border="0"></a></div>
+<div class="litle3" >
+  <p>沈阳四大特色营造全新 <br />
+  </p>
+  <p></p>
+</div>
+</div>
+</div>
+<div class="rightmian">
+<div class="kuai2">
+<div class="title" style="width:520px;">展会动态资讯</div>
+<div class="list2">
+<ul>
+<li><a  style="float:left" href="#"> 第十九届莱州月季花节开幕...     </a><font style=" float:right;padding-left:25px; width:100px;">[2009/05/14]</font></li>
+<li><a style="float:left" href="#">世博鲜花亮相上海街头 </a><font style=" float:right;padding-left:25px; width:100px;">[2009/05/23]</font></li>
+<li><a style="float:left" href="#">厦门市洋兰精品展在植物园成功举办</a><font style=" float:right;padding-left:25px; width:100px;">[2009/05/26]</font></li>
+<li><a style="float:left" href="#">2009中国公园园艺与设施展览会...  </a><font style=" float:right;padding-left:25px; width:100px;">[2009/05/26]</font></li>
+<li><a style="float:left" href="#">Horti Fair 2009年荷兰国际...</a><font style=" float:right;padding-left:25px; width:100px;">[2009/05/26]</font></li>
+<li><a style="float:left" href="#">2009中国（上海）国际屋顶绿化和立体绿化..</a><font style=" float:right;padding-left:25px; width:100px;">[2009/05/26]</font></li>
+<li><a style="float:left" href="#">2009中国（昌邑）北方绿化苗木博览会... </a><font style=" float:right;padding-left:25px; width:100px;">[2009/05/26]</font></li>
+<li><a style="float:left" href="#">2009第七届中国.合肥苗木花卉交易大会...  </a><font style=" float:right;padding-left:25px; width:100px;">[2009/05/26]</font></li>
+<li><a style="float:left" href="#">花开满园迎世博 香飘满园迎世界... </a><font style=" float:right;padding-left:25px; width:100px;">[2009/05/14]</font></li>
+<li><a style="float:left" href="#">上海植物园花展开幕初透世博春色...</a><font style=" float:right;padding-left:25px; width:100px;">[2009/05/17]</font></li>
+<li style="padding-bottom:13px; border-bottom:0px;"><a style="float:left" href="#">顺义借花博会契机整合资源为打造时尚旅游基...</a><font style=" float:right;padding-left:25px; width:100px;">[2009/05/05]</font></li>
+
+</ul>
+</div>
+</div>
+<div class="middxian"></div>
+<div class="kuai2">
+<div class="title" style="width:520px;">企业咨讯 </div>
+<div class="list2">
+<ul>
+
+<li><a style="float:left" href="#">2009中国公园园艺与设施展览会...  </a><font style=" float:right;padding-left:25px; width:100px;">[2009/05/26]</font></li>
+<li><a style="float:left" href="#">Horti Fair 2009年荷兰国际...</a><font style=" float:right;padding-left:25px; width:100px;">[2009/05/26]</font></li>
+<li><a style="float:left" href="#">2009中国（上海）国际屋顶绿化和立体绿化..</a><font style=" float:right;padding-left:25px; width:100px;">[2009/05/26]</font></li>
+<li><a style="float:left" href="#">2009中国（昌邑）北方绿化苗木博览会... </a><font style=" float:right;padding-left:25px; width:100px;">[2009/05/26]</font></li>
+<li><a style="float:left" href="#">2009第七届中国.合肥苗木花卉交易大会...  </a><font style=" float:right;padding-left:25px; width:100px;">[2009/05/26]</font></li>
+<li><a style="float:left" href="#">花开满园迎世博 香飘满园迎世界... </a><font style=" float:right;padding-left:25px; width:100px;">[2009/05/14]</font></li>
+<li><a style="float:left" href="#">上海植物园花展开幕初透世博春色...</a><font style=" float:right;padding-left:25px; width:100px;">[2009/05/17]</font></li>
+<li style="padding-bottom:13px; border-bottom:0px;"><a style="float:left" href="#">顺义借花博会契机整合资源为打造时尚旅游基...</a><font style=" float:right;padding-left:25px; width:100px;">[2009/05/05]</font></li>
+
+</ul>
+</div>
+</div>
+
+</div>
+<div class="middxian" style="width:900px;"></div>
+<div class="kuai1">
+<div class="title">花卉展会</div>
+<div class="downpic"><a href="#"><img src="images/006.jpg" border="0"></a></div>
+<div class="list1" style=" width:280px;">
+<ul style="padding-left:20px;">
+<li style=" width:250px;"><a href="#">2009第三届青岛国际花园产业展</a></li>
+<li style=" width:250px;"><a href="#">第三届西部（成都）花卉、果蔬园艺展览会 </a></li>
+<li style=" width:250px;"><a href="#">成都市世纪城新国际展览中心</a></li>
+<li style=" width:250px;"><a href="#">2009中国国际城市景观照明、LED展览</a></li>
+<li style=" width:250px; padding-bottom:10px;"><a href="#">中国国际展览中心 </a></li>
+
+</ul>
+</div>
+</div>
+
+<div class="rightmian">
+<div class="kuai2">
+<div class="title" style="width:520px; background:url(images/title3.jpg)"><font style="float:left">花卉咨询</font>
+<div class="rightright"><a href="#">海外花讯</a> | <a href="#">奇花异木</a> | <a href="#">企业咨讯</a> </div>
+
+</div>
+<div class="downleft">
+<div class="title2" style="background:url(images/title4.jpg) no-repeat; width:265px;">政策法规</div>
+  <div class="list1" style=" width:280px; padding-top:10px;">
+<ul style="padding-left:5px;">
+<li style=" width:250px; line-height:21px; height:21px;"><a href="#">2009第三届青岛国际花园产业展</a></li>
+<li style=" width:250px;line-height:21px; height:21px;"><a href="#">第三届西部（成都）花卉、果蔬园艺展览会 </a></li>
+<li style=" width:250px;line-height:21px; height:21px;"><a href="#">成都市世纪城新国际展览中心</a></li>
+<li style=" width:250px;line-height:21px; height:21px;"><a href="#">2009中国国际城市景观照明、LED展览</a></li>
+<li style=" width:250px;line-height:21px; height:21px;"><a href="#">成都市世纪城新国际展览中心</a></li>
+<li style=" width:250px;line-height:21px; height:21px;"><a href="#">2009中国国际城市景观照明、LED展览</a></li>
+<li style=" width:250px;line-height:21px; height:21px;"><a href="#">2009中国国际城市景观照明、LED展览</a></li>
+<li style=" width:250px;line-height:21px; height:21px; padding-bottom:20px;"><a href="#">中国国际展览中心 </a></li>
+
+
+</ul>
+
+</div>
+</div>
+<div class="xian"><img src="images/shuxian.jpg"></div>
+<div class="downleft" style="width:245px; float:right">
+<div class="title2" style="background:url(images/title4.jpg) no-repeat; width:220px; ">园林绿化 </div>
+  <div class="list1" style=" width:245px; padding-top:10px;">
+<ul style="padding-left:5px;">
+<li style=" width:225px; line-height:21px; height:21px;"><a href="#">成都市金马湖假日公园中心轴线</a></li>
+<li style=" width:220px;line-height:21px; height:21px;"><a href="#">临安吴越街延伸段（左邻右里）</a></li>
+<li style=" width:220px;line-height:21px; height:21px;"><a href="#">上海市“一二八”纪念路重点养</a></li>
+<li style=" width:220px;line-height:21px; height:21px;"><a href="#">上海市天山西路(华翔路-A2</a></li>
+<li style=" width:220px;line-height:21px; height:21px;"><a href="#">盐城市建设局油坊沟景观绿化工</a></li>
+<li style=" width:220px;line-height:21px; height:21px;"><a href="#">淳安县千岛湖镇南景路绿化工程</a></li>
+<li style=" width:220px;line-height:21px; height:21px;"><a href="#">淳安县千岛湖镇南景路绿化工程</a></li>
+<li style=" width:220px;line-height:21px; height:21px; padding-bottom:20px;"><a href="#">烟台市黄金河河道两侧绿化工程</a></li>
+
+
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="buttomtop"></div>
+<div class="buttom">
+<div style="float:left; width:1005px; height:125px;">
+<ul>
+<li><a href="#"><img src="images/011.jpg" border="0"  style="padding:3px; background:#FFF"/></a><a href="#"><br><div style=" padding:5px 0px">酒瓶兰</div></a></li>
+<li><a href="#"><img src="images/007.jpg" border="0" style="padding:3px; background:#FFF"/></a><a href="#"><br>
+<div style=" padding:5px 0px">鹤望兰</div></a></li>
+<li><a href="#"><img src="images/008.jpg" border="0" style="padding:3px; background:#FFF"/></a><a href="#"><br><div style=" padding:5px 0px">大花惠兰</div></a></li>
+<li><a href="#"><img src="images/009.jpg" border="0" style="padding:3px; background:#FFF"/></a><a href="#"><br>
+<div style=" padding:5px 0px">青州草花</div></a></li>
+<li><a href="#"><img src="images/010.jpg" border="0" style="padding:3px; background:#FFF"/></a><a href="#"><br>
+<div style=" padding:5px 0px">广玉兰</div></a></li>
+<li><a href="#"><img src="images/012.jpg" border="0" style="padding:3px; background:#FFF"/></a><a href="#"><br>
+<div style=" padding:5px 0px">玫瑰花</div></a></li>
+<li><a href="#"><img src="images/013.jpg" border="0" style="padding:3px; background:#FFF"/></a><a href="#"><br><div style=" padding:5px 0px">热带花卉</div></a></li>
+
+</ul>
+</div>
+<br>
+<div style="float:left; text-align:center; width:935px; padding-left:60px;"><img src="images/down.jpg" style="float:left"></div>
+<br>Copyright (C) 2003-2009 China Flower & Gardening News All rights reserved 
+</div>
+</div>
+</body>
+</html>

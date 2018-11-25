@@ -1,0 +1,296 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="Default.css"/>
+<title>中华资讯网</title>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	$(".main-li").hover(function(){
+		$(this).children(".sub-menu").show().prev("a").css({"color":"#fff","text-decoration":"underline"});
+	},function(){
+		$(this).children(".sub-menu").hide().prev("a").css({"color":"#4d4c4c","text-decoration":"none"});
+	});
+	$(".sub-menu .main-li2").hover(function(){
+		$(this).children(".li2-a").css({"background-color":"#981C14","color":"#fff","text-decoration":"underline"});
+		$(this).children(".sub-menu-two").show();
+	},function(){
+		$(this).children(".li2-a").css({"background-color":"#7C2418","color":"#FF6633","text-decoration":"none"});
+		$(this).children(".sub-menu-two").hide();
+	});
+	
+});
+</script>
+<style>
+.menu{
+	line-height:40px;padding-left:60px;
+	height:40px;
+	padding-top:230px;
+	}
+.menu ul{
+	}
+.menu li{
+	font-size:14px;
+	font-weight:bold;
+	text-align:center;float:left;
+list-style-type:none;
+width:90px;}
+
+
+.menu a, .meunua:link{ color:#4d4c4c; text-decoration:none;}
+.main-menu{
+	padding:0px;
+width:100%;
+}
+.main-menu .main-li{
+float:left; padding:0 3px; height:40px; line-height:40px; position:relative; z-index:1;
+}
+.main-menu .main-li a{
+display:block; font-weight:bold;
+}
+.main-menu .main-li .li-a{
+float:left;
+}
+.main-menu .main-li .li-a{
+width:91px;
+}
+.main-menu .main-li .sub-menu{
+position:absolute; top:40px; display:none; z-index:2; left:0px; width:97px; text-align:center; background-color:#999999;
+}
+.main-menu .main-li .sub-menu-two{
+position:absolute; top:0px; display:none; z-index:3; left:110px;text-align:center;
+}
+.sub-menu-two a{
+width:80px; background-color:#981C14; float:none;
+}
+.sub-menu .li2-a{
+background-color:#7C2418; float:none;width:97px;
+}
+.sub-menu a:hover{
+background-color:#981C14;
+}
+</style>
+
+</head>
+
+<body>
+<div class="bigmain">
+<div class="main">
+<div class="head">
+<div class="menu">
+<ul class="main-menu">
+<li><a href="#">首页</a></li>
+<li style="width:5px;"><img src="images/xian.jpg"></li>
+
+<li class="main-li"><a class="li-a" href="/">传媒要闻</a>
+			<ul class="sub-menu">
+				<li class="main-li2"><a class="li2-a" href="/">传媒观点</a></li>
+				<li class="main-li2"><a class="li2-a" href="/">传媒要闻</a></li>
+			</ul>
+		</li>
+<li style="width:5px;"><img src="images/xian.jpg"></li>
+<li class="main-li"><a class="li-a" href="/">传媒观点</a>
+			<ul class="sub-menu">
+				<li class="main-li2"><a class="li2-a" href="/">新浪观点</a></li>
+				<li class="main-li2"><a class="li2-a" href="/">百度观点</a></li>
+			</ul>
+		</li>
+<li style="width:5px;"><img src="images/xian.jpg"></li>
+
+<li class="main-li"><a class="li-a" href="/">媒介关注</a>
+			<ul class="sub-menu">
+				<li class="main-li2"><a class="li2-a" href="/">传媒观点</a></li>
+				<li class="main-li2"><a class="li2-a" href="/">媒介关注</a></li>
+			</ul>
+		</li>
+<li style="width:5px;"><img src="images/xian.jpg"></li>
+<li class="main-li"><a class="li-a" href="/">传媒数据</a>
+			<ul class="sub-menu">
+				<li class="main-li2"><a class="li2-a" href="/">雅虎数据</a></li>
+				<li class="main-li2"><a class="li2-a" href="/">央视数据</a></li>
+			</ul>
+		</li>
+<li style="width:5px;"><img src="images/xian.jpg"></li>
+
+<li class="main-li"><a class="li-a" href="/">专题聚焦</a>
+			<ul class="sub-menu">
+				<li class="main-li2"><a class="li2-a" href="/">百姓话题</a></li>
+				<li class="main-li2"><a class="li2-a" href="/">国外新闻</a></li>
+			</ul>
+		</li>
+<li style="width:5px;"><img src="images/xian.jpg"></li>
+
+<li class="main-li"><a class="li-a" href="/">传媒沙龙</a>
+			<ul class="sub-menu">
+				<li class="main-li2"><a class="li2-a" href="/">传媒数据</a></li>
+				<li class="main-li2"><a class="li2-a" href="/">传媒沙龙</a></li>
+			</ul>
+		</li>
+<li style="width:5px;"><img src="images/xian.jpg"></li>
+<li><a href="#">投票</a></li>
+
+
+</ul>
+</div>
+</div>
+<div class="middmain">
+<div class="sou"><div  style=" float:right; border:1px #999 solid; background:#CCC; width:34px; height:18px; text-align:center; font-size:12px; line-height:20px; "><a href="#">确认</a></div><input type="text" style=" width:100px; height:17px; float:right;padding-left:20px;"></div>
+<div  class="leftbian">
+<div class="lefttitle" style="background:url(images/08.gif)">传媒资讯分类</div>
+<div class="lefttopcontent"  style="background:url(images/littlexian.jpg) repeat-y">
+<div class="litlecontent"><a href="#">报刊</a>
+<font>NEWSPAPERS</font></div>
+<div class="litlecontent"><a href="#">光电</a>
+<font>TV&RADIO</font></div>
+<div class="litlecontent"><a href="#">网络</a>
+<font>INTERNET</font></div>
+<div class="litlecontent"><a href="#">出版</a>
+<font>PUBLISHING</font></div>
+<div class="litlecontent"><a href="#">广告</a>
+<font>ADVERTISEMENTS</font></div>
+<div class="litlecontent"><a href="#">精英</a>
+<font>MARKETING</font></div>
+<div class="litlecontent"><a href="#">其它</a>
+<font>OTHERS</font></div>
+</div>
+<div class="lefttitle" >传媒观点</div>
+<div class="lefttopcontent" style=" height:554px;">
+<div class="leftcontent">
+  <p><font><a href="#">满文军现央视与酒井法子被解雇</a></font></p>
+  <p>&nbsp; </p>
+  <p> 在5号晚上央视一套《实话实说》播出的关于明星吸毒的最新一期节目中，满文军以视频的方式“亮相”，他公开表示自己非常想念太太，并坦言希望能够在工作上以新的形象重新面对歌迷……</p>
+</div>
+<div class="leftcontent">
+  <p><font><a href="#">整治教辅书市场别忘转变教育理念</a></font></p>
+  <p><br />
+    新学期开学了，各类大小书店又出现了教辅读物热卖的现象。如此品种繁多的教辅读物，令许多家长和孩子无法选择。更令他们头痛的是，许多教辅读物内容雷同，质量低劣，错误百出。“教辅教辅，乱得离谱”，多、乱、差，成为目前教辅读物的基本现实……</p>
+</div>
+<div class="leftcontent">
+  <p><font><a href="#">整治低俗，让网络走出“中年危机”</a></font></p>
+  <p><br />
+9月2日互联网迎来了40岁生日。40年来互联网产业得到了飞速发展。然而，随着互联网的进一步普及……</p>
+</div>
+</div>
+<div class="lefttitle" >热门标签</div>
+<div class="lefttopcontent" style="height:219px;"><div class="leftcontent"><a href="#">新媒体</a> <a href="#">CMMB</a> <a href="#">视频网站</a> <a href="#">网瘾</a> <a href="#">山寨</a> <a href="#">广告收入</a> <a href="#">春晚</a> <a href="#">腾讯</a> <a href="#">人肉搜索</a> <a href="#">百度</a> <a href="#">地市报</a> <a href="#">出版集团</a> <a href="#">湖南卫视</a> <a href="#">央视</a> <a href="#">汶川地震</a> <a href="#">瑞星</a> <a href="#">裁员</a> <a href="#">雅虎</a> <a href="#">招聘</a> <a href="#">艳照门</a> </div>
+</div>
+</div>
+<div class="middtop">
+<div class="middtoptop"></div>
+<div class="middtop1">广东紧急叫停一起“休刊”事件 </div>
+<div class="middcontent">
+  <p><img src="images/002.jpg" border="0"  height="154" style="float:left; border:1px #999 solid"><div style="font-size:12px;
+	line-height:16px; float:left; padding-left:10px; width:262px">　　广东省新闻出版主管部门近期遭遇了一场突如其来的“休刊”事件：就在给发行量逾十万份的《家家乐》杂志发出准许休刊的批准后，由于职工反对，这份“休刊”通知又被紧急“叫停”。
+    </font></p>
+  <p><font>而记者日前在调查中了解到，两次方向相反的“叫停”背后，是本来一直在传统媒体经营轨道上运行的杂志社，在试图构建……
+    查看详情>>
+    
+    直接体现，种种经验教训值得相关产业人员高度关注和警惕。
+  </div></p>
+</div>
+<div style="background:url(images/middxian.jpg); float:left; width:446px; height:5px; overflow:hidden"></div>
+<div class="content">
+<div class="middtop1">联通跌出通讯网络广告投放前三 移动稳居榜首 </div>
+<div class="downcontent">
+  <p>&nbsp;</p>
+  <p>　　昨天，根据易观国际产业数据库研究显示，今年8月通讯行业品牌网络广告投放继续保持稳定增长，环比增长8.6%。中国联通由于减少了部分投放，跌出了一直占据的投放排行前三。   </p>
+  <p>&nbsp;&nbsp;&nbsp;&nbsp;数据显示，运营商及其服务的网络广告投放是行业主要的增长动力，环比增长达到19%。其中中国移动、中国电信继续占据行业中投放额排行……
+    　<a href="#">查看详情>></a></p>
+</div>
+</div>
+<div class="content"><div style="background:url(images/middxian.jpg); float:left; width:446px; height:5px; overflow:hidden"></div>
+<div class="middtop1">央视中秋晚会将全球直播 劲吹古典中国风</div>
+
+<div class="downcontent">
+  <p>&nbsp;</p>
+  <p>　　　 今晚会将落户有“月之故乡”之称的江西省宜春市。晚会主打“古典中国风”，将在古韵新风的交相辉映中为观众奉献一台月光盛宴。
+
+　　  
+  <p><br/>  　　中秋晚会总导演郭霁红介绍说，这台名为《宜春月·中国情》的晚会由“素月分辉，明河共影”“情月相通，山水为证”“心月相依，九州形胜”三个富有意蕴的华章构成。晚会将结合宜春当地独特的“月亮文化”，通过融合歌曲、舞蹈、模特走秀、民乐、戏曲、杂技表演、配乐朗诵等多种节目形态，展现欢度中秋、思念亲情、民族团结和盛世和谐的主题。
+    
+    <p><br/>　　“古典中国风”作为本届中秋晚会的特色将在节目中彰显。如将古雅的青花瓷、红瓷、法兰瓷的美学趣味与现代时装相结合，阐释、挖掘江西古老独特的瓷文化和韵味等。晚会还将编创一组由中国古典诗词谱曲，或为中国著名古曲填词的古诗词特别节目，用视听语言表达诗情画意。
+      　　　　　　　　　　<a href="#">查看详情>></a>
+      
+      
+      
+    </div>
+</div>
+<div class="content"><div style="background:url(images/middxian.jpg); float:left; width:446px; height:5px; overflow:hidden"></div>
+<div class="middtop1">中国电影呼唤提升文化品质</div>
+
+<div class="downcontent">
+  　　
+    <p>　　近年来，中国电影不断跃升新台阶，引来世人关注。然而，热闹背后的软肋，还是很明显的。那就是我们的电影不仅很难在全球市场打开局面，在国内市场的口碑也是骂多赞少。     </p><br/>
+    <p> 　　国产大片刚问世的时候，我们过于模仿好莱坞的视觉场景，在影片情节上遭人诟病。曾经一度，为了走向世界，我们的电影复制古装＋武打模式，效果不佳。今天，由于主要的商业电影院集中在一线城市，几十家主要电影院决定了一半的票房收入。这些主要电影院不仅仅是集中北京武汉上海等有限的一二十个城市，甚至于就是集中在北京的华星、万达，上海的永华等主要电影院。等于中国的电影艺术是整个电影院的艺术，不是一个全民的艺术。这些电影院来什么人，中国电影人就拍什么电影，这是一个非常令人难堪的现状。　　　　　　　　　　
+      <a href="#">查看详情>></a></p>
+</div>
+</div>
+</div>
+
+<div class="middright">
+<div class="righttitle">媒介关注</div>
+<div class="rightcontent">
+<ul>
+<li><a href="#">西班牙奔牛节一男子丧生意</a></li>
+<li><a href="#">游客巴西度假亲吻女儿</a></li>
+<li><a href="#">广州民营油站联手降价</a></li>
+<li><a href="#">粤港澳大反黑千余疑犯落网 </a></li>
+<li><a href="#">行动规模超北京奥运</a></li>
+<li><a href="#">经核实乌市已有531人被刺</a></li>
+<li><a href="#">假唱假演奏最高罚款3000元 </a></li>
+</ul>
+</div>
+
+<div  style="float:left; height:20px; width:188px"></div >
+<div class="righttitle">热评资讯</div>
+<div class="rightcontent">
+<ul>
+<li><a href="#">招聘会上简历无人问津 </a></li>
+<li><a href="#">大专生含泪</a></li>
+<li><a href="#">逼问官员北大教授孙东东</a></li>
+<li><a href="#">老上访户99%有 </a></li>
+<li><a href="#">为小品《不差钱》说些公</a></li>
+<li><a href="#">政干预疫情上报与病态官</a></li>
+<li><a href="#">北京市民通过网络记录 </a></li>
+<li><a href="#">湖南媒体人凭什么创造奇 </a></li>
+</ul>
+</div>
+
+
+<div  style="float:left; height:20px; width:188px"></div >
+<div class="righttitle" style="background:url(images/18.gif)">专题聚焦</div>
+<div class="rightcontent" style="background:#f8e096; ">
+    　<img src="images/004.jpg" border="0" style="padding:10px;">　
+      <p>　　从《朝闻天下》改版后的反应来看，人们原本对央视的挑剔，还是恨铁不成钢的因素居多，这不，稍有点进步，立刻就引来赞声一片啦。不抛弃不放弃，央视的忠实观众做到了，下面就要看央视在改革的路上能走多远，是会成为央三多还是央阿斗，咱不妨静心看看再说。 </p>
+      <p>&nbsp;</p>    
+       <div style="float:left; width:168px;border-bottom:1px #000 dashed; margin-bottom:10px;"></div >
+      <p>&nbsp;</p>
+      
+ 
+      <ul >
+<li><a href="#">《朝闻天下》改版 两任 </a></li>
+<li><a href="#">纽扣提高一颗 央视补上一</a></li>
+<li><a href="#">央视改版 赞一个先</a></li>
+<li><a href="#">央视《朝闻天下》悄然</a></li>
+<li><a href="#"> 央视“变脸”，除了亲民</a></li>
+<li><a href="#">《朝闻天下》为《新闻联·</a></li>
+<li><a href="#">细数《朝闻天下》6大变化 </a></li>
+<li><a href="#">为《朝闻天下》首次引入 </a></li>
+<li><a href="#">央视《朝闻天下》改版“</a></li>
+<li><a href="#">央视新闻悄然变脸 美女主</a></li>
+<li><a href="#">《开心辞典》将登央三 </a></li>
+</ul>
+</div>
+
+</div>
+</div>
+<div class="middmainright"></div>
+<div class="buttom">┊ <a href="#">关于我们</a> ┊  <a href="#">会员注册</a> ┊ <a href="#"> 交换链接</a> ┊ <a href="#"> 联系我们</a> ┊ <a href="#"> 法律声明</a> ┊ <a href="#"> 广告服务</a> ┊<br>
+Copyright © 2001-2007 MediaChina.net All Rights Reserved
+</div>
+</div>
+</div>
+
+</body>
+</html>

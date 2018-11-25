@@ -1,0 +1,328 @@
+* {
+	margin:0px;
+	padding:0px;
+}
+body {
+	font-size:12px;
+	font-family:"宋体";
+	color:#757575
+}
+ul, li {
+	list-style-type:none
+}
+.bigmain {
+	border-left:1px #000 solid;
+	border-right:1px #000 solid;
+	width:1005px;
+	height:1307px;
+	margin:0 auto;
+}
+.head {
+	width:1005px;
+	background:url(images/head.jpg);
+	height:52px;
+	float:left;
+}
+.rightmeun {
+	float:right;
+	background:url(images/menuright.jpg) no-repeat;
+	width:283px;
+	height:37px;
+}
+.leftmenu {
+	width:650px;
+	height:37px;
+	float:left
+}
+.pic {
+	width:1005px;
+	height:247px;
+	float:left;
+	overflow:hidden;
+}
+.main {
+	background:#f8f2da;
+	padding-left:65px;
+	float:left;
+	width:940px;
+	height:750px;
+}
+.kuai1 {
+	float:left;
+	background:#FFF;
+	width:319px;
+	border:1px #8ab42e solid;
+}
+.title {
+	font-weight:bold;
+	float:left;
+	color:#FFF;
+	font-size:14px;
+	line-height:24px;
+	padding-left:15px;
+	width:188px;
+	background:url(images/title.jpg);
+	height:24px;
+}
+.title2 {
+	font-weight:bold;
+	float:left;
+	color:#8ab42e;
+	font-size:12px;
+	line-height:27px;
+	padding-left:15px;
+	width:188px;
+	background:url(images/title2.jpg);
+	height:27px;
+}
+.list1 {
+	float:left;
+	width:203px;
+	padding-bottom:10px;
+}
+.list1 li {
+	height:20px;
+	line-height:20px;
+	padding-left:20px;
+	background: url(images/dian.jpg) no-repeat scroll 5px 5px transparent;
+	width:180px;
+	float:left;
+}
+.rightpic {
+	overflow:hidden;
+	width:128px;
+	height:257px;
+	float:left
+}
+.litlepic {
+	padding-right:5px;
+	text-align:center;
+	width:115px;
+	height:94px;
+	float:right;
+}
+.litle3 {
+	line-height:20px;
+	color:#8ab42e;
+	padding-bottom:10px;
+	padding-right:2px;
+	width:120px;
+	height:20px;
+	float:right;
+}
+.rightmian {
+	height:740px;
+	width:655px;
+	float:left;
+	padding-left:12px;
+}
+.kuai2 {
+	padding:20px 30px;
+	background:#FFF;
+	width:592px;
+	float:left;
+	border:1px #8ab42e solid;
+}
+.kuai2 li {
+	border-bottom:14px;
+	width:74px;
+	float:left;
+}
+.list2 {
+	background:#FFF;
+	padding-top:10px;
+	width:525px;
+	float:right;
+}
+.list2 li {
+	padding-left:20px;
+	background: url(images/dian.jpg) no-repeat scroll 0px 5px transparent;
+	line-height:18px;
+	height:18px;
+	float:left;
+	width:500px;
+	border-bottom:#CCC 1px dashed;
+}
+.middxian {
+	width:500px;
+	float:left;
+	height:10px;
+	overflow:hidden;
+}
+.downpic {
+	padding-top:10px;
+	padding-bottom:30px;
+	float:left;
+	width:290px;
+	height:75px;
+	padding-left:15px;
+}
+.downleft {
+	width:280px;
+	float:left
+}
+.xian {
+	overflow:hidden;
+	width:3px;
+	float:left;
+}
+.buttomtop {
+	float:left;
+	background:url(images/buttomtop.jpg);
+	height:26px;
+	width:1005px;
+}
+.buttom {
+	line-height:20px;
+	text-align:center;
+	width:1005px;
+	float:left;
+	background:url(images/buttom.jpg);
+	height:179px;
+}
+.buttom ul {
+	padding-left:65px;
+}
+.buttom li {
+	padding-top:20px;
+	line-height:20px;
+	text-align:center;
+	float:left;
+	width:120px;
+	height:95px;
+}
+.rightright {
+	height:12px;
+	line-height:12px;
+	padding-top:8px;
+	font-size:12px;
+	color:#a9ea1b;
+	width:220px;
+	float:right
+}
+.rightright a, .rightright a:visited, .rightright a:link {
+	color:#a9ea1b;
+	text-decoration:none;
+}
+.rightright a:hover {
+	text-decoration:none;
+	color:#F0C
+}
+a, a:visited, a:link {
+	color:#757575;
+	text-decoration:none;
+}
+a:hover {
+	text-decoration:none;
+	color:#CCC
+}
+.leftmain {
+	background:#FFF;
+	border:1px #8ab42e solid;
+	width:203px;
+	float:left;
+}
+.left {
+	height:740px;
+	width:205px;
+	float:left;
+}
+.buttom2 {
+	color:#000;
+	line-height:27px;
+	text-align:center;
+	background:url(images/buttom2.jpg);
+	width:66px;
+	height:27px;
+	float:left;
+}
+.buttom2 a, .buttom2 a:visited, .buttom2 a:link {
+	color:#000;
+	text-decoration:none;
+}
+.buttom2 a:hover {
+	color:#666;
+	text-decoration:none
+}
+.kuai3 {
+	padding-top:10px;
+	background:#FFF;
+	width:653px;
+	float:left;
+	border:1px #8ab42e solid;
+}
+.title4 {
+	color:#666;
+	font-weight:bold;
+	line-height:20px;
+	height:20px;
+	width:653px;
+	float:left;
+}
+.lian {
+	line-height:20px;
+	width:623px;
+	float:left;
+	padding:0px 15px;
+}
+.headtop {
+	padding-top:16px;
+	padding-left:466px;
+	color:#FFF;
+	font-size:14px;
+	line-height:20px;
+	width:275px;
+	height:20px;
+	float:left;
+}
+.righ {
+	height:20px;
+	width:100px;
+	float:right;
+	padding-top:25px;
+	padding-right:20px;
+}
+.headtop a, .headtop a:visited, .headtop a:link {
+	font-size:12px;
+	color:#000;
+	text-decoration:none;
+}
+.headtop a:hover {
+	font-size:12px;
+	color:#666;
+	text-decoration:none
+}
+
+.title a, .title a:visited, .title a:link {
+	font-weight:200px;
+	color:#fff;
+	text-decoration:none;
+}
+.title a:hover {
+	font-weight:100px;
+	color:#666;
+	text-decoration:none
+}
+
+.title8 a, .title8 a:visited, .title8 a:link {
+	font-weight:200px;
+	color:#333;
+	text-decoration:none;
+}
+.title8 a:hover {
+	font-weight:100px;
+	color:#CCC;
+	text-decoration:none
+}
+.title8{
+	font-weight:bold;
+	float:left;
+	color:#FFF;
+	font-size:14px;
+	line-height:24px;
+	padding-left:15px;
+	width:188px;
+	background:url(images/title.jpg);
+	height:24px;
+	}
+.

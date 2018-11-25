@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<head>
+<script type/javascript>
+function checkAudio(){
+    var myAudio = document.createElement('audio');
+    if (myAudio.canPlayType) {
+         if ( "" != myAudio.canPlayType('audio/mpeg')) {
+             document.write("您的浏览器支持mp3编码。<br>");
+         }
+         if ( "" != myAudio.canPlayType('audio/ogg; codecs="vorbis"')) {
+             document.write("您的浏览器支持oog编码。<br>");
+         }
+         if ( "" != myAudio.canPlayType('audio/mp4; codecs="mp4a.40.5"')) {
+             document.write("您的浏览器支持aac编码。");
+         }
+    }
+    else {
+        document.write("您的浏览器不支持要检测的音频格式。");
+    }
+}
+window.onload=function()
+{
+    checkAudio();
+}
+    </script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+</body>
+</html>

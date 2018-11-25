@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="Default.css"/>
+<title>电子产品</title>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript"> 
+$(function(){
+	$(".main-li").hover(function(){
+		$(this).children(".sub-menu").show().prev("a").css({"color":"#f00","text-decoration":"underline"});
+	},function(){
+		$(this).children(".sub-menu").hide().prev("a").css({"color":"#000","text-decoration":"none"});
+	});
+	$(".sub-menu .main-li2").hover(function(){
+		$(this).children(".li2-a").css({"color":"#f00","text-decoration":"none"});
+		$(this).children(".sub-menu-two").show();
+	},function(){
+		$(this).children(".li2-a").css({"color":"#000","text-decoration":"none"});
+		$(this).children(".sub-menu-two").hide();
+	});
+	
+});
+</script>
+
+<style>
+.menu2{
+	
+	padding-right:7px;
+	font-size:14px;
+	font-weight:bold;
+	color:#333}
+.menu2{
+	float:right;
+	width:510px;
+	height:20px;
+	}
+.menu2 a,.menu2 a:visited,.menu2 a:link{
+	color:#000; text-decoration:none;}
+.menu2 a:hover{ color:#F00; text-decoration:underline}
+.menu2 li{
+	line-height:20px;
+	text-align:center;
+	width:102px;
+	float:left;}
+	
+	
+	
+	.main-menu{
+width:100%;
+}
+.main-menu .main-li{
+float:left;  height:32px; line-height:20px; position:relative; z-index:1;
+}
+.main-menu .main-li a{
+display:block; font-weight:bold;
+}
+.main-menu .main-li .li-a{
+float:left;
+}
+.main-menu .main-li .li-a{
+width:101px;
+}
+.main-menu .main-li .sub-menu{
+position:absolute; top:32px; display:none; z-index:2; left:2px; width:104px; text-align:center; 
+	z-index:2;
+
+}
+.main-menu .main-li .sub-menu-two{
+position:absolute; top:0px; display:none; z-index:3; left:110px;text-align:center;
+}
+.sub-menu-two a{
+width:80px; background-color:#981C14; float:none;
+}
+.sub-menu .li2-a{
+background-color:#7C2418; float:none;width:101px;
+}
+.sub-menu a:hover{
+background-color:#981C14;
+}
+.main-li2{
+	
+	height:22px; line-height:22px;}
+.li2-a{filter:alpha(opacity=60);background:url(http://bbs.blueidea.com/attachments/2007/4/19/20070419_7b50ddb9bd958d7fd0b9cPp1WLN1bHYZ.png);position:relative;}
+
+</style>
+</head>
+
+<body>
+
+<div class="main">
+<div class="leftbian"></div>
+<div class="midd">
+<div class="head">
+<div class="headcontent">
+<div class="list">
+<ul>
+<li><a href="#">关于我们</a></li>
+<li><a href="#">特殊产品</a></li>
+<li><a href="#">高级搜索</a></li>
+
+</ul>
+</div>
+
+<div class="list">
+<ul>
+<li><a href="#">关于我们</a></li>
+<li><a href="#">特殊产品</a></li>
+<li><a href="#">高级搜索</a></li>
+
+</ul>
+</div>
+<img src="images/xina5.jpg" style="float:left">
+<div class="sou"><font style="width:113px; height:20px; line-height:20px; color:#1970ad">搜索用户：</font>
+<select name=""  style="width:87px; height:16px;"></select>
+</div>
+
+
+<div class="shop">
+<img src="images/07.jpg" style="float:left;"><div style="padding-left:5px; float:left; width:80px;"><font style="font-weight:bold; ">购物车</font><br /><font style="font-size:12px;">当前您的购物
+车有0件产品</font></div>
+</div>
+</div>
+
+
+<div class="menu2">
+<ul class="main-menu">
+<li><a href="#">首页</a></li>
+
+<li class="main-li"><a class="li-a" href="/">手机</a>
+			<ul class="sub-menu">
+				<li class="main-li2"><a class="li2-a" href="/">手机附件</a></li>
+				<li class="main-li2"><a class="li2-a" href="/">冲电器</a></li>
+                <li class="main-li2"><a class="li2-a" href="/">贴模</a></li>
+			</ul>
+
+
+<li class="main-li"><a class="li-a" href="/">笔记本电脑</a>
+			<ul class="sub-menu">
+				<li class="main-li2"><a class="li2-a" href="/">电脑配件</a></li>
+				<li class="main-li2"><a class="li2-a" href="/">本本维护</a></li>
+                <li class="main-li2"><a class="li2-a" href="/">主机</a></li>
+			</ul>
+
+<li class="main-li"><a class="li-a" href="/">DIY硬件</a>
+			<ul class="sub-menu">
+				<li class="main-li2"><a class="li2-a" href="/">硬盘检测</a></li>
+				<li class="main-li2"><a class="li2-a" href="/">坏道修理</a></li>
+                <li class="main-li2"><a class="li2-a" href="/">数据恢复</a></li>
+			</ul>
+<li><a href="#">家电</a></li>
+</ul>
+</div>
+</div>
+<div class="headdown">
+<div class="leftcontent">
+<font style="float:left;  font-weight:bold ; width:150px; padding-bottom:3px;">产品名称</font>
+<font style="float:left"><select name=""  style="width:160px; float:left; ">
+  <option>手机</option>
+  <option>笔记本</option>
+  <option>硬体</option>
+</select>
+</font>
+<font style="float:left;  font-weight:bold ; width:150px; padding-bottom:3px; padding-top:15px;">关键字</font>
+<font style="float:left; width:160px;">
+<input type="text"  style="float:left; width:111px;" value="手机"><font style="float:left; background:#C03; width:44px; height:20px; line-height:20px; color:#FFF; text-align:center">确定</font></font>
+
+</div>
+</div>
+<div class="title"><img src="images/title2.jpg"></div>
+<div class="mainleft">
+<div class="lefttitle">手&nbsp;机</div>
+<div class="leftlist">
+<ul>
+<li><img src="images/jiao.jpg"><a href="#">手机</a></li>
+<li><img src="images/jiao.jpg"><a href="#">小灵通</a></li>
+<li><img src="images/jiao.jpg"><a href="#">手机附件</a></li>
+</ul>
+</div>
+
+<div class="lefttitle">电子产品</div>
+<div class="leftlist">
+<ul>
+<li><img src="images/jiao.jpg"><a href="#">显示器</a></li>
+<li><img src="images/jiao.jpg"><a href="#">显示器</a></li>
+<li><img src="images/jiao.jpg"><a href="#">扫描仪</a></li>
+<li><img src="images/jiao.jpg"><a href="#">数码相机</a></li>
+<li><img src="images/jiao.jpg"><a href="#">电话</a></li>
+<li><img src="images/jiao.jpg"><a href="#">相机</a></li>
+<li><img src="images/jiao.jpg"><a href="#">MP3</a></li>
+<li><img src="images/jiao.jpg"><a href="#">笔记本</a></li>
+<li><img src="images/jiao.jpg"><a href="#">苹果笔记本</a></li>
+<li><img src="images/jiao.jpg"><a href="#">手写板</a></li>
+<li><img src="images/jiao.jpg"><a href="#">移动硬盘</a></li>
+<li><img src="images/jiao.jpg"><a href="#">液晶显示器</a></li>
+</ul>
+</div>
+</div>
+
+<div  class="middxian"></div>
+<div class="rightmain">
+<div class="kuai">
+<div class="litle2">诺基亚6720C</div>
+<img src="images/xun.jpg" style="float:left;">
+<a href="#"><img src="images/02.jpg" style="float:left; padding-top:0px;" border="0"></a>
+<div class="litlecontent"><a href="#">这款手机被很多人认为是6220 Classic的后续作品，而外观的异曲同工……</a></div>
+<div class="xun2"></div>
+<div class="jia">价格：&nbsp;<font style="font-weight:bold; color:#C00; font-size:14px;">1558元</font></div>
+<div style="float:left; width:240px; padding-top:10px; text-align:center; padding-left:3px; padding-bottom:10px;"><img src="images/xianxi.jpg" border="0" usemap="#Map" style="float:left;">
+  <map name="Map" id="Map">
+    <area shape="rect" coords="4,0,116,19" href="#" />
+  </map>
+  <img src="images/gouwu.jpg" border="0" usemap="#Map2" style="float:left;">
+  <map name="Map2" id="Map2">
+    <area shape="rect" coords="3,2,111,16" href="#" />
+  </map>
+</div>
+<img src="images/xian3.jpg"  style="float:left; width:243px;">
+</div>
+<div class="kuai">
+<div class="litle2">索尼爱立信C903</div>
+<img src="images/xun.jpg" style="float:left;">
+<a href="#"><img src="images/03.jpg" style="float:left; padding-top:0px;" border="0"></a>
+<div class="litlecontent"><a href="#">这款Cyber-Shot中算是重点机型了,在硬件配置方面相对于W995还存差距……</a></div>
+<div class="xun2"></div>
+<div class="jia">价格：&nbsp;<font style="font-weight:bold; color:#C00; font-size:14px;">658元</font></div>
+<div style="float:left; width:240px; padding-top:10px; text-align:center; padding-left:3px; padding-bottom:10px;"><img src="images/xianxi.jpg" border="0" usemap="#Map3" style="float:left;">
+  <map name="Map3" id="Map3">
+    <area shape="rect" coords="4,1,114,18" href="#" />
+  </map>
+  <img src="images/gouwu.jpg" border="0" usemap="#Map4" style="float:left;">
+  <map name="Map4" id="Map4">
+    <area shape="rect" coords="2,2,110,18" href="#" />
+  </map>
+</div>
+<img src="images/xian3.jpg"  style="float:left;">
+</div>
+<div class="kuai">
+<div class="litle2">纽曼G28</div>
+<img src="images/xun.jpg" style="float:left;">
+<a href="#"><img src="images/05.jpg" style="float:left; padding-top:0px;" border="0"></a>
+<div class="litlecontent"><a href="#">纽曼G28 GPS导航功能的实际上路测试，可以让大家对G28的GPS功能有……</a></div>
+<div class="xun2"></div>
+<div class="jia">价格：&nbsp;<font style="font-weight:bold; color:#C00; font-size:14px;">958元</font></div>
+<div style="float:left; width:240px; padding-top:10px; text-align:center; padding-left:3px;"><img src="images/xianxi.jpg" border="0" usemap="#Map5" style="float:left;">
+  <map name="Map5" id="Map5">
+    <area shape="rect" coords="5,0,116,17" href="#" />
+  </map>
+  <img src="images/gouwu.jpg" border="0" usemap="#Map6" style="float:left;">
+  <map name="Map6" id="Map6">
+    <area shape="rect" coords="0,1,105,18" href="#" />
+  </map>
+</div>
+</div>
+<div class="kuai">
+<div class="litle2">诺基亚Snapper</div>
+<img src="images/xun.jpg" style="float:left;">
+<a href="#"><img src="images/02.jpg" style="float:left; padding-top:0px;" border="0"></a>
+<div class="litlecontent"><a href="#">诺基亚Snapper是一款翻盖式的手机，多媒体出色，价格便宜……</a></div>
+<div class="xun2"></div>
+<div class="jia">价格：&nbsp;<font style="font-weight:bold; color:#C00; font-size:14px;">1066元</font></div>
+<div style="float:left; width:240px; padding-top:10px; text-align:center; padding-left:3px;"><img src="images/xianxi.jpg" border="0" usemap="#Map7" style="float:left;">
+  <map name="Map7" id="Map7">
+    <area shape="rect" coords="7,2,111,19" href="#" />
+  </map>
+  <img src="images/gouwu.jpg" border="0" usemap="#Map8" style="float:left;">
+  <map name="Map8" id="Map8">
+    <area shape="rect" coords="6,1,111,18" href="#" />
+  </map>
+</div>
+</div>
+</div>
+<img src="images/06.jpg" border="0" style="float:left; padding-top:2px;">
+<div style="float:left; width:511px;padding-top:3px;"><div class="leftpic">
+<ul>
+<li><a href="#"><img src="images/08.jpg" border="0" /></a></li>
+<li style="width:4px;"><img src="images/xian4.jpg" /></li>
+<li><a href="#"><img src="images/09.jpg" border="0"></a></li>
+<li style="width:4px;"><img src="images/xian4.jpg" /></li>
+<li><a href="#"><img src="images/010.jpg" border="0" /></a></li>
+<li style="width:4px;"><img src="images/xian4.jpg" /></li>
+<li><a href="#"><img src="images/011.jpg" border="0"></a></li>
+</ul>
+
+</div>
+<div class="buttom">
+  <p><a href="#">ZOL简介</a> | <a href="#">用户注册</a> | <a href="#">广告服务</a> | <a href="#">招聘</a> | <a href="#">ZOL历程</a> | <a href="#">互动营销中心</a> | <a href="#">站点地图</a> | <a href="#">联系方式</a> <br><br />Copyright©1999 - 2009 ZOL. All rights reserved.    </p>
+  <p>中关村在线 版权所有. 京ICP证010391号 </p>
+</div>
+</div>
+</div>
+<div class="rightbian"></div>
+</div>
+</body>
+</html>

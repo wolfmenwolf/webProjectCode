@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title></title>
+<style type="text/css">
+/*定义break-word值的字符串溢出样式*/
+
+.c2 {
+    width: 300px;
+    word-wrap: break-word;
+    border: 1px solid #F00;
+}
+/*定义break-word值和break-all值的字符串溢出样式*/
+.c3 {
+    width: 300px;
+    word-wrap: break-word;
+    word-break: break-all;
+    border: 1px solid #F90;
+}
+</style>
+</head>
+<body>
+<div class=c2>This is all English. This is all English. This is all English.</div>
+<div class=c2>全是中文的情况。全是中文的情况。全是中文的情况。</div>
+<div class=c3>中英文混排的情况。Chinese and English. 中英文混排的情况。Chinese and English.</div>
+</body>
+</html>

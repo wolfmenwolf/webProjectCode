@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<style type="text/css">
+#speech-sample {
+    voice-family: male;
+    border: 1px solid #666;
+    padding:5px;
+    font-size:14px;
+}
+#voice-volume {
+    -xv-voice-volume: x-soft;
+    -xv-voice-balance: right;
+}
+#voice-balance { -xv-voice-balance: left; }
+#speech-cue { cue-after: url(images/ding.wav); }
+#voice-rate { -xv-voice-rate: x-slow; }
+#voice-family { voice-family: female; }
+#voice-pitch { -xv-voice-pitch: x-low; }
+#speech-speak { speak: spell-out; }
+</style>
+</head>
+
+<body>
+<div>
+    <div id="speech-sample">
+        <span id="voice-volume">voice-volume、</span> 
+        <span id="voice-balance">voice-balance、</span> 
+        <span id="voice-rate">voice-rate、</span> 
+        <span id="voice-family">voice-family、</span> 
+        <span id="voice-pitch">voice-pitch、</span> 
+        <span id="speech-speak">speak</span> 和 
+        <span id="speech-cue">cue-after。</span>
+    </div>
+</div>
+</body>
+</html>

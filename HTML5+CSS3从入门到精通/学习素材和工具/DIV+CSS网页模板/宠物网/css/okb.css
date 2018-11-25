@@ -1,0 +1,793 @@
+body {
+	margin:0 auto;
+	font: .9em Arial, Helvetica, sans-serif;
+	line-height:1.55em;
+	color:#f2f2f2;
+	background:url(../images/back-site.jpg) #000 center top no-repeat;
+	text-align:center;
+}
+p, h3 {
+	margin:0;
+	padding:0;
+}
+#contenedor {
+	color:#f2f2f2;
+	margin:0 auto;
+	width:946px;
+	position:relative;
+	background:url(../images/back-content.jpg) #000 center top no-repeat;
+	overflow:hidden;
+}
+#contenido {
+	width:680px;
+	float:left;
+	text-align:left;
+}
+#lateral {
+	width:266px;
+	float:left;
+	text-align:left;
+}
+#pie {
+	width:800px;
+	text-align:left;
+	margin:10px auto;
+	padding:20px 0 30px 0;
+	border-top:1px solid #141414;
+	font-size:12px;
+}
+#pie a {
+	margin:0 3px 0 0;
+}
+.vcard {
+	margin:0 0 0 20px;
+	background-image:url(../images/vcard-06.png);
+	background-position:left bottom;
+	background-repeat:no-repeat;
+	width:217px;
+	height:430px;
+}
+.vcard #url {
+	width:217px;
+	height:165px;
+	background-image:url(../images/vcard-01.png);
+	background-repeat:no-repeat;
+	text-indent:-5000px;
+}
+.vcard #direccion {
+	width:217px;
+	height:91px;
+	background-image:url(../images/vcard-02.png);
+	background-repeat:no-repeat;
+	text-indent:-5000px;
+}
+.vcard #direccion .adr #provincia {
+	text-indent:-5000px;
+}
+.vcard #tel {
+	width:217px;
+	height:47px;
+	background-image:url(../images/vcard-03.png);
+	background-repeat:no-repeat;
+	text-indent:-5000px;
+}
+.vcard #fax {
+	width:217px;
+	height:39px;
+	background-image:url(../images/vcard-04.png);
+	background-repeat:no-repeat;
+	text-indent:-5000px;
+}
+#emailc a {
+	text-decoration:none;
+	display:block;
+	width:218px;
+	height:38px;
+	background-image:url(../images/vcard-05.png);
+	background-repeat:no-repeat;
+	text-indent:-5000px;
+}
+a {
+	color:#a2ab73;
+	text-decoration:none;
+	background-image:url(../images/enlaces.png);
+	background-repeat:repeat-x;
+	background-position:bottom;
+	outline:none
+}
+a:hover {
+	color:#D6E09F
+}
+span a {
+	font-size:.75em;
+	padding:0;
+	margin:90px 18px 0 0;
+	float:right;
+	text-align:right;
+	display:block;
+	color:#D6E09F !important;
+}
+span a:hover {
+	color:#D6E09F
+}
+h2 {
+	position:absolute;
+	float:left;
+	margin:0;
+	padding:15px 45px;
+}
+h2 a {
+	background:url(../images/logo-okb-es.png) no-repeat;
+	width:113px;
+	height:72px;
+	display:block;
+	text-indent:-2000px;
+}
+ol {
+	clear:both;
+	position:absolute;
+	top:128px;
+	padding:0 0 0 49px;
+	margin:0;
+	display:block;
+	z-index:100px;
+}
+ol li {
+	float:left;
+	padding:0;
+	list-style:none;
+	background-image:url(../images/separador-nav.png);
+	background-position:0 4px;
+	background-repeat:no-repeat;
+}
+ol #nosotros {
+	background-image:none !important;
+}
+ol a {
+	display:block;
+	background-repeat:no-repeat; /*width:95px;*/
+	height:73px;
+	text-indent:-2000px;
+	overflow:hidden;
+	background-position:0 0;
+}
+ol li#nosotros a {
+	width:94px;
+	margin:0 18px 0 0
+}
+ol li#servicios a {
+	width:120px;
+	margin:0 18px
+}
+ol li#trabajos a {
+	width:169px;
+	margin:0 18px
+}
+ol li#contacto a {
+	width:100px;
+	margin:0 0 0 18px
+}
+#nosotros a {
+	background-image: url(../images/nosotros.png);
+}
+#servicios a {
+	background-image: url(../images/servicios.png);
+}
+#trabajos a {
+	background-image: url(../images/trabajos.png);
+}
+#contacto a {
+	background-image: url(../images/contacto.png);
+}
+.cont-home, .cont-contacte {
+	padding:115px 0 30px 49px;
+	margin:0 0 0 0;
+	clear:both;
+}
+.cont-trabajos {
+	padding:115px 0 30px 0;
+	margin:0 0 0 -10px;
+	clear:both;
+}
+.cont-home p, .cont-home h3, .cont-contacte h3, .cont-contacte p {
+	margin:0 0 13px 0;
+}
+.izq {
+	float:left;
+	width:370px
+}
+.cont-servicios .izq {
+	float:left;
+	width:390px
+}
+.cont-servicios .der {
+	margin:0 0 0 27px;
+}
+.cont-home .izq h3 {
+	background:url(../images/texto-home.png) no-repeat;
+	width:307px;
+	height:97px;
+	text-indent:-5000px;
+}
+.der p {
+	padding:0 15px 0 3px;
+	line-height:1.7em;
+	font-size:1.06em;
+}
+.der, .der-submenu {
+	float:left;
+	width:155px;
+	padding:17px;
+	margin:0 0 0 47px;
+	font-size:.75em;
+	background-image:url(../images/fondo-destacado.png);
+}
+.der ul {
+	padding:0;
+	margin:0;
+	list-style:none;
+	font-size:1.2em;
+	line-height:1.5em;
+}
+.der ul li {
+	padding:4px 0 4px 17px;
+	background-image:url(../images/+.gif);
+	background-repeat:no-repeat;
+	background-position:2px 11px;
+}
+.der ul li a {
+	background: url(../images/enlaces.png) repeat-x bottom;
+	color:#a2ab73;
+	padding:0;
+}
+.der ul li a:hover {
+	color:#d6e09f
+}
+#caso {
+	width:218px;
+	padding:15px 0 0 0;
+	margin:-15px 0 10px 30px;
+	border-top:1px solid #141414;
+}
+#otto h4 {
+	margin:-10px 0 20px 30px;
+	width:218px;
+	height:143px;
+	background:url(../images/otto-es-genial.png) no-repeat;
+	text-indent:-5000px;
+}
+#caso h4 {
+	padding:0;
+	margin:0;
+	width:218px;
+	height:78px;
+	background:url(../images/caso-practico.png) no-repeat;
+	text-indent:-5000px;
+}
+#caso p {
+	margin:0 15px;
+	padding:0 0 20px 0;
+	font-size:.9em
+}
+div.fileinputs {
+	position: relative;
+}
+div.fakefile {
+	top: 0px;
+	z-index: 1;
+}
+input.file {
+	position: absolute;
+	text-align: right;
+	-moz-opacity:0;
+filter:alpha(opacity: 0);
+	opacity: 0;
+	z-index: 2;
+	top: 8px;
+	left: -85px;
+}
+#trabaja {
+	width:218px;
+	padding:15px 0 0 0;
+	margin:0 0 10px 30px;
+	border-top:1px solid #141414;
+}
+#trabaja h4 {
+	padding:0;
+	margin:0;
+	width:218px;
+	height:68px;
+	background:url(../images/trabaja-con-nosotros.png) no-repeat;
+	text-indent:-5000px;
+}
+#trabaja p {
+	margin:0;
+	padding:0 15px 20px 15px;
+	font-size:.9em
+}
+#formulario-trabaja {
+	position:relative;
+	padding:0 15px;
+}
+#formulario-trabaja p {
+	margin:0;
+	padding:0 0 15px 0;
+	border:none;
+}
+input.campo {
+	padding:6px;
+	border:none;
+	border-top:3px solid #7c8281;
+	color:#878787;
+	font-size:.9em;
+	margin-bottom:7px;
+	width:170px;
+}
+input.enviar {
+	background-color:#000000;
+	border:none;
+	color:#FFFFFF;
+	border-bottom:1px solid #FFFFFF;
+	margin:10px 0 0 0;
+	width:80px;
+	margin:8px 0 0 95px;
+}
+form {
+	padding:0;
+	margin:0;
+}
+#muestra {
+	display:block;
+	clear:both;
+	margin:0 0 15px 0;
+	overflow:hidden;
+	position:relative;
+	width:100%;
+}
+#muestra h4 {
+	background:url(../images/muestra-de-trabajos.png) no-repeat 0 14px;
+	text-indent:-5000px;
+	display:block;
+	border-top:1px solid #141414; /*width:364px;*/
+	height:29px;
+	padding:15px 0 0 0;
+	margin:20px 26px 5px 47px;
+}
+.trabajo {
+	width:628px;
+	height:371px;
+	background:url(../images/fondo-proyecto.jpg) no-repeat;
+	margin:0 0 0 40px;
+	padding:21px 0 0 18px;
+}
+.cont-trabajos .trabajo {
+	border-bottom:1px solid #141414;
+	width:628px;
+	height:371px;
+	background:url(../images/fondo-proyecto.jpg) no-repeat;
+	margin:30px 0 0 40px;
+	padding:21px 0 10px 18px;
+}
+.cont-trabajos #primero {
+	border-bottom:1px solid #141414;
+	width:628px;
+	height:371px;
+	background:url(../images/fondo-proyecto.jpg) no-repeat;
+	margin:0 0 0 40px;
+	padding:21px 0 10px 18px;
+}
+.slide {
+	width:408px;
+	height:330px;
+	float:left;
+	background-color:#000;
+}
+.info {
+	float:left;
+}
+.info p.cliente span {
+	clear:both;
+	display:block;
+	font-size:.65em;
+	margin:0 0 0 0;
+	color:#429d8e
+}
+.info p.cliente {
+	border-bottom:1px solid #000;
+	margin:0 0 8px 0;
+	padding:0 0 6px 20px;
+	font-size:1em;
+	width:160px
+}
+.info p span {
+	clear:both;
+	display:block;
+	font-size:.84em;
+	margin:0 0 2px 0;
+	color:#429d8e
+}
+.info p {
+	border-bottom:1px solid #000;
+	margin:0 0 8px 0;
+	padding:0 0 8px 20px;
+	font-size:.83em;
+	line-height:1.3em;
+	width:160px;
+	color:#F2F2F2
+}
+.info p.ver {
+	border:none;
+	margin:10px 0 8px 0;
+	padding:0 0 8px 20px;
+	font-size:.83em;
+	width:160px;
+}
+.info p.ver a {
+	color:#a2ab73
+}
+.der-submenu {
+	background-repeat:no-repeat;
+	width:183px;
+	padding:0;
+}
+.der-submenu p {
+	text-align:right;
+	padding:0 10px 3px 0;
+	font-size:10px;
+	background-image:url(../images/flechas.png);
+	background-repeat:no-repeat;
+	background-position:100px 5px;
+}
+.der-submenu ul {
+	background-image:url(../images/fondo-servicios.png);
+	border-top:1px solid #154e45;
+	padding:0;
+	margin:0;
+	list-style:none;
+	font-size:1.3em;
+	height:535px;
+}
+.der-submenu ul li {
+	border-bottom:1px solid #154e45;
+	padding:0;
+	margin:0;
+	line-height:1.2em;
+}
+.der-submenu ul li a {
+	position:relative;
+	display:block;
+	font-size:.85em;
+	text-decoration:none;
+	color:#FFF;
+	padding:8px 15px;
+	background:none;
+}
+.der-submenu ul li a:hover {
+	background-image:url(../images/fondo-seleccionado.png);
+}
+.der-submenu ul#paginas li#li-paginas, .der-submenu ul#blog li#li-blog, .der-submenu ul#demo li#li-demo, .der-submenu ul#optimizacion li#li-optimizacion, .der-submenu ul#imagen li#li-imagen, .der-submenu ul#consultoria li#li-consultoria {
+	background-image:url(../images/fondo-seleccionado.png);
+}
+.der-submenu ul#paginas a#e-paginas, .der-submenu ul#blog a#e-blog, .der-submenu ul#demo a#e-demo, .der-submenu ul#optimizacion a#e-optimizacion, .der-submenu ul#imagen a#e-imagen, .der-submenu ul#consultoria a#e-consultoria {
+	padding:8px 15px 8px 30px;
+	background:url(../images/actual.png) no-repeat 10px center;
+}
+::-moz-selection {
+background:#02493e;
+color:#FFF;
+}
+::selection {
+background:#02493e;
+color:#FFF;
+}
+#nota {
+	position:absolute;
+	top:15px;
+	left:300px;
+	display:none;
+}
+#nota p {
+	background-color:#000;
+	font-size:13px;
+	text-align:left;
+	padding:10px 20px;
+	border:1px solid #fff;
+}
+.cont-servicios-imagen, .cont-servicios-diseno, .cont-servicios-blogs, .cont-servicios-demos, .cont-servicios-optimizacion, .cont-servicios-consultoria, .cont-servicios-seosem, .cont-servicios-que-hacemos {
+	padding:110px 0 30px 49px;
+	margin:0 0 0 0;
+	clear:both;
+}
+.servicio p {
+	padding:0 0 10px 0;
+}
+.cont-servicios-imagen h3, .cont-servicios-diseno h3, .cont-servicios-blogs h3, .cont-servicios-demos h3, .cont-servicios-optimizacion h3, .cont-servicios-consultoria h3, .cont-servicios-seosem h3, .cont-servicios-que-hacemos h3 {
+	background-image:none;
+	border-bottom:1px solid #003F36;
+	padding:0 0 15px 0;
+	margin:0 0 15px 0;
+}
+.cont-servicios-diseno .izq .cab-imagen {
+	background:url(../images/titulo-diseno-web.png) no-repeat;
+	width:290px;
+	height:30px;
+	text-indent:-5000px;
+}
+.cont-servicios-blogs .izq .cab-imagen {
+	background:url(../images/titulo-blogs-corporativos.png) no-repeat;
+	width:236px;
+	height:30px;
+	text-indent:-5000px;
+}
+.cont-servicios-demos .izq .cab-imagen {
+	background:url(../images/titulo-demos-interactivas.png) no-repeat;
+	width:334px;
+	height:63px;
+	text-indent:-5000px;
+}
+.cont-servicios-optimizacion .izq .cab-imagen {
+	background:url(../images/titulo-optimizacion-buscadores.png) no-repeat;
+	width:208px;
+	height:63px;
+	text-indent:-5000px;
+}
+.cont-servicios-imagen .izq .cab-imagen {
+	background:url(../images/titulo-imagen-corporativa.png) no-repeat;
+	width:250px;
+	height:63px;
+	text-indent:-5000px;
+}
+.cont-servicios-imagen .izq .cab-imagen-01 {
+	background:url(../images/titulo-imagen-corporativa-01.png) no-repeat;
+	width:178px;
+	height:27px;
+	text-indent:-5000px;
+	border:none;
+	padding:0;
+	margin:10px 0 0 0;
+}
+.cont-servicios-imagen .izq .cab-imagen-02 {
+	background:url(../images/titulo-imagen-corporativa-02.png) no-repeat;
+	width:212px;
+	height:27px;
+	text-indent:-5000px;
+	border:none;
+	padding:0;
+	margin:10px 0 0 0;
+}
+.imagenes-imagen {
+	margin:25px 0;
+	width:370px;
+}
+.imagenes-imagen-diseno {
+	margin:50px 0 25px 0;
+	width:370px;
+}
+.cont-servicios-consultoria .izq .cab-imagen {
+	background:url(../images/titulo-consultoria-estrategias.png) no-repeat;
+	width:256px;
+	height:63px;
+	text-indent:-5000px;
+}
+.cont-servicios-seosem .izq .cab-imagen {
+	background:url(../images/titulo-seo-sem.png) no-repeat;
+	width:137px;
+	height:30px;
+	text-indent:-5000px;
+}
+.cont-servicios-que-hacemos .izq .cab-imagen {
+	background:url(../images/titulo-que-hacemos.png) no-repeat;
+	width:173px;
+	height:30px;
+	text-indent:-5000px;
+}
+.cont-contacte .izq {
+	width:347px;
+	margin:-10px 0 0 0;
+}
+.cont-contacte .izq h3 {
+	background-image:url(../images/contacte.png);
+	height:39px;
+	width:140px;
+	background-repeat:no-repeat;
+	text-indent:-5000px;
+	padding:0 0 10px 0;
+	margin:0;
+}
+.cont-contacte .izq p {
+	border-top:1px solid #155249;
+	padding:20px 0 10px 0;
+	width:340px;
+}
+#i-telefono {
+	display:none;
+}
+#telefonof {
+	width:336px;
+	float:left;
+	z-index:0;
+	position:relative;
+}
+#quitar {
+	float:left;
+	width:17px;
+	height:18px;
+	color:#666666;
+	margin:7px 0 5px -25px;
+	display:block;
+	z-index:50;
+	position:relative;
+}
+#e-telefono {
+	font-size:13px;
+}
+#consultaf {
+	width:200px;
+	height:216px;
+	border:none;
+	border-top:3px solid #7c8281;
+	color:#878787;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:1.2em;
+	padding:15px 10px;
+}
+.mapa {
+	width:631px;
+	height:371px;
+	background-image:url(../images/fondo-mapa.jpg);
+	background-repeat:no-repeat;
+	padding:19px 0 0 19px;
+	margin:0 0 0 30px;
+}
+.map {
+	width:589px;
+	height:330px;
+}
+#sec-trabajos #contenedor {
+	background:url(../images/back-trabajos.jpg) #000 center top no-repeat;
+}
+#sec-trabajos #contenido {
+	overflow:hidden;
+	width:946px;
+}
+#sec-trabajos #contenido .trabajos-realizados {
+	padding:90px 0 30px 0;
+	margin:0;
+	clear:both;
+}
+#sec-trabajos #contenido .trabajos-realizados p {
+	background:url(../images/tra-proyectos-rea.png) no-repeat;
+	width:197px;
+	height:38px;
+	position:absolute;
+	left: 691px;
+	top: 167px;
+	text-indent:-5000px;
+}
+#sec-trabajos #contenido .cont-trabajos {
+	display:block;
+	overflow:hidden;
+	padding:0 0 30px 50px;
+	margin:0;
+}
+#sec-trabajos #contenido .cont-trabajos .muestra-trabajo {
+	float:left;
+	padding:2px;
+	border:1px solid #061815;
+	width:409px;
+	margin:0 20px 25px 0;
+}
+#sec-trabajos #contenido .cont-trabajos .muestra-trabajo .nombre-cliente {
+	padding:2px;
+	border:1px solid #061815;
+	background-color:#061815;
+	margin:0 0 2px 0;
+	padding:0 0 0 5px;
+	font-size:11px;
+	color:#dcedea;
+	display:block;
+	clear:both;
+	overflow:hidden;
+	position:relative;
+	height:21px;
+}
+#sec-trabajos #contenido .cont-trabajos .muestra-trabajo .nombre-cliente ul {
+	position:relative;
+	float:right;
+*float:none;
+	padding:0 2px 0 0;
+	margin:3px 0 0 0;
+	list-style:none;
+}
+#sec-trabajos #contenido .cont-trabajos .muestra-trabajo .nombre-cliente ul li {
+	float:right;
+	padding:0;
+	margin:0 0 0 2px;
+}
+#sec-trabajos #contenido .cont-trabajos .muestra-trabajo .nombre-cliente ul li.proceso {
+	width:56px;
+	height:16px;
+	background:url(../images/en-proceso.gif) no-repeat;
+	text-indent:-5000px;
+}
+#sec-trabajos #contenido .cont-trabajos .muestra-trabajo .nombre-cliente ul li.www {
+	width:27px;
+	height:16px;
+	background:url(../images/www.gif) no-repeat;
+	text-indent:-5000px;
+}
+#sec-trabajos #contenido .cont-trabajos .muestra-trabajo .nombre-cliente ul li.imagen {
+	width:39px;
+	height:16px;
+	background:url(../images/imagen.gif) no-repeat;
+	text-indent:-5000px;
+}
+#sec-trabajos #contenido .cont-trabajos .muestra-trabajo .nombre-cliente ul li.off {
+	width:43px;
+	height:16px;
+	background:url(../images/off-line.gif) no-repeat;
+	text-indent:-5000px;
+}
+#sec-trabajos #contenido .cont-trabajos .muestra-trabajo .nombre-cliente ul li.demo {
+	width:30px;
+	height:16px;
+	background:url(../images/demo.gif) no-repeat;
+	text-indent:-5000px;
+}
+#sec-trabajos #contenido .cont-trabajos .muestra-trabajo .nombre-cliente ul li.desarrollo {
+	width:121px;
+	height:16px;
+	background:url(../images/desarrollo.gif) no-repeat;
+	text-indent:-5000px;
+}
+#sec-trabajos #contenido .cont-trabajos .muestra-trabajo .nombre-cliente ul li.link {
+	width:65px;
+	height:16px;
+	background:url(../images/ver-proyecto.gif) no-repeat;
+	text-indent:-5000px;
+}
+#sec-trabajos #contenido .cont-trabajos .muestra-trabajo .nombre-cliente ul li.salvapantallas {
+	width:73px;
+	height:16px;
+	background:url(../images/salvapantallas.gif) no-repeat;
+	text-indent:-5000px;
+}
+#sec-trabajos #contenido .cont-trabajos .muestra-trabajo .nombre-cliente ul li.link a {
+	width:65px;
+	height:16px;
+	display:block;
+	background-image:none;
+}
+#sec-trabajos #contenido .cont-trabajos .muestra-trabajo .nombre-cliente h4 {
+	padding:0;
+	margin:0;
+	font-size:12px;
+	float:left;
+	overflow:hidden;
+}
+#sec-trabajos #contenido .cont-trabajos .muestra-trabajo .flash {
+	padding:2px;
+	border:1px solid #061815;
+	background-color:#061815;
+	width:403px;
+	height:226px
+}
+#muestra h4.tit-contacte {
+	background:url(../images/nos-puedes-encontrar.gif) no-repeat 0 14px;
+	text-indent:-5000px;
+	display:block;
+	border-top:1px solid #141414; /*width:364px;*/
+	height:21px;
+	padding:15px 0 0 0;
+	margin:20px 26px 0 47px;
+}
+#caso-practico h3 {
+	background:url(../images/caso-practico-tit.png) no-repeat;
+	text-indent:-5000px;
+}
+#caso-practico .izq {
+	width:580px;
+}
+.info-pie {
+	font-size:12px;
+}

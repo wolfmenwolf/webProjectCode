@@ -1,0 +1,211 @@
+@charset "utf-8";
+/* CSS Document */
+* { margin:0; padding:0;}
+img { border:none;}
+body {
+	font-family:"宋体";
+	font-size:12px;
+}
+a {
+	text-decoration:none;
+	color:#000;
+}
+a:hover {
+	color:#000;
+	text-decoration:underline;
+}
+#container {
+	width:766px;
+	margin:0 auto;
+	background:url(../images/bg.jpg) repeat-y scroll 0 0;
+}
+#top {
+	width:766px;
+	height:125px;
+}
+#main {
+	width:750px;
+	padding-left:8px;
+}
+  #main_top {
+	  width:750px;
+	  height:4px;
+	  background:url(../images/main_topbg.jpg) no-repeat scroll 0 0;
+  }
+  #main_center {
+	  width:750px;
+	  height:557px;
+	  margin-top:0px!important;margin-top:-8px;
+	  background:url(../images/main_ctbg.jpg) repeat-y scroll 0 0;
+  }
+     #left {
+		 width:240px;
+		 float:left;
+		 padding-left:2px;
+		 display:inline;
+	 }
+	   #lawyer {
+		   width:240px;
+		   height:381px;
+	   }
+	 #left  p {
+		 padding:0 20px 0 15px;
+		 line-height:1.5;
+	 }
+	 #center {
+		 width:220px;
+		 float:left;
+		 padding-left:4px;
+	 }
+	   #team {
+		   height:185px;
+		   width:220px;
+	   }
+	   #team .title {
+		   width:220px;
+		   height:24px;
+		   line-height:24px;
+		   font-size:14px;
+		   margin-top:10px;
+		   background:url(../images/team_bg.jpg) no-repeat scroll 0 0;
+		   text-indent:40px;
+		   position:relative;
+	   }
+	   #team p {
+		   padding-left:8px;
+		   line-height:1.2;
+	   }
+	   #team p span {
+		   font-weight:bold;
+	   }
+	   #success {
+		   width:220px;
+		   height:130px;
+		   margin-top:5px!important;margin-top:-5px;
+	   }
+	   #success .title {
+		    width:220px;
+		   height:24px;
+		   line-height:24px;
+		   font-size:14px;
+		   margin-top:5px;
+		   background:url(../images/success_bg.jpg) no-repeat scroll 0 0;
+		   text-indent:40px;
+		   position:relative;
+	   }
+	    #success ul {
+			list-style:none;
+			list-style-image:url(../images/icon_01.jpg);
+			list-style-position:outside;
+			padding:5px 0 0 25px;
+		}
+		 #success li {
+			 line-height:1.5;
+		 }
+	   #advice {
+		   width:220px;
+		   background:url(../images/pic.jpg) no-repeat scroll right bottom;
+	   }
+	   #advice .title {
+		    width:220px;
+		   height:24px;
+		   line-height:24px;
+		   font-size:14px;
+		   margin-top:5px;
+		   background:url(../images/advice_bg.jpg) no-repeat scroll 0 0;
+		   text-indent:40px;
+		   position:relative;
+	   }
+	    #advice ul {
+			list-style:none;
+			list-style-image:url(../images/icon_01.jpg);
+			list-style-position:outside;
+			padding:5px 0 15px 25px;
+		}
+		 #advice li {
+			 line-height:1.8;
+		 }
+	 #right {
+		 width:276px;
+		 float:left;
+		 padding-left:2px;
+	 }
+	 #profile {
+		 width:276px;
+		  padding-bottom:15px;
+		 background-color:#EAEAEA;
+	 }
+	   #profile .title {
+		    width:276px;
+		   height:24px;
+		   line-height:24px;
+		   font-size:14px;
+		   background:url(../images/profile_bg.jpg) no-repeat scroll 0 0;
+		   text-indent:40px;
+		   position:relative;
+	   }
+	   #profile .img {
+		   float:left;
+		   width:157px;
+		   height:98px;
+		   padding:15px 0 0 6px;
+	   }
+	   #profile p {
+		   float:left;
+		   line-height:1.5;
+		   padding:10px 10px 0 5px;
+		   position:relative;
+	   }
+	   #profile p.pp {
+		   width:92px;
+		   padding-top:0;
+	   }
+	   #profile p span {
+		   font-weight:bold;
+	   }
+	 #friends {
+		 width:276px;
+	 }
+	 #friends .title {
+		   width:276px;
+		   height:24px;
+		   line-height:24px;
+		   font-size:14px;
+		   background:url(../images/friends_bg.jpg) no-repeat scroll -1px 0;
+		   text-indent:40px;
+	 }
+	 #friends ul {
+		 float:left;
+		 padding:10px 0 0 8px;
+		 list-style-image:url(../images/icon_02.jpg);
+		 list-style-position:inside;
+	 }
+	  #friends ul.pro {
+		 list-style-image:url(../images/icon_03.jpg);
+		 list-style-position:inside;
+		 padding-left:10px;
+	 }
+	  #friends  li {
+		  line-height:1.5;
+		  letter-spacing:1px;
+	  }
+  #main_bottom {
+	  width:750px;
+	  height:11px;
+	  background:url(../images/main_btbg.jpg) no-repeat scroll 0 0;
+  }
+ .clear {
+	 clear:both;
+	 line-height:0;
+	 height:0;
+	 font-size:0;
+ }
+#footer {
+	width:766px;
+	height:142px;
+	margin-top:20px;
+	background:url(../images/footer_bg.jpg) no-repeat scroll 0 0;
+}
+#footer p {
+	padding:100px 0 0 166px;
+}

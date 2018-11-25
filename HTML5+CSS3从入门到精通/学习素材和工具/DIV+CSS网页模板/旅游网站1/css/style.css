@@ -1,0 +1,229 @@
+@charset "utf-8";
+/* CSS Document */
+
+* { margin:0; padding:0;}
+img { border:none;}
+body {
+	font-family:"宋体";
+	font-size:12px;
+	color:#7F7D7D;
+}
+a {
+	text-decoration:none;
+	color:#7F7D7D;
+}
+a:hover {
+	color:#1B6796;
+	text-decoration:underline;
+}
+#container {
+	width:675px;
+	margin:0 auto
+}
+#top {
+	width:675px;
+	height:73px;
+}
+   #logo {
+	   width:174px;
+	   height:73px;
+   }
+#menuwrap {
+	width:675px;
+	height:196px;
+	position:relative
+}
+   #menu {
+		width:233px;
+		height:196px;
+		position:relative;
+		color:#fff;
+		font-size:14px;
+		background:url(../images/menu_bg.jpg) no-repeat scroll 0 0;
+		z-index:10;
+	}
+	#menu a {
+		color:#fff;
+		font-weight:bold;
+		text-decoration:none;
+		letter-spacing:1px;
+	}
+	#menu a:hover {
+		color:#8AB729;
+		text-decoration:underline;
+		letter-spacing:1px;
+	}
+	#nav {
+		position:absolute;
+		top:20px;
+		left:22px;
+		z-index:100;
+		}
+	#nav ul {
+		padding-left:30px;
+		list-style:none
+	}
+	#nav li {
+		line-height:2.2;
+	}
+	#nav li ul {
+		display:none;
+		list-style:none;
+		list-style-image:none;
+		padding-left:0px;
+	}
+	#nav li li {
+		margin-top:5px;
+		background-color:#FFDFEA;
+		width:80px;
+		text-align:center;
+		background:none;
+		padding-left:5px;
+	}
+  #banner {
+	  width:442px;
+	  height:196px;
+	  position:absolute;
+	  top:0;
+	  left:233px;
+  }
+#main {
+	width:675px;
+	margin-top:19px;
+}
+   #left {
+	   width:233px;
+	   float:left;
+	   background-color:#DFDFDF;
+   }
+   #left a {
+	   color:#7F7D7D;
+	   text-decoration:underline;
+   }
+   #left a:hover {
+	   color:#1B6796;
+	   text-decoration:underline;   
+   }
+      #eat {
+		  width:175px;
+		  padding:12px 0 0 25px;
+	  }
+	  #eat .title {
+		  color:#534242;
+		  height:20px;
+		  line-height:20px;
+		  font-size:14px;
+		  font-weight:bold;
+		  padding-left:5px;
+	  }
+	  #eat ul {
+		  list-style-type:square;
+		  list-style-position:inside;
+		  padding-left:5px;
+	  }
+	  #eat li {
+		  line-height:1.5;
+		  text-decoration:underline;
+	  }
+	  #resort {
+		  width:175px;
+		  padding:15px 0 0 25px;
+	  }
+	  #resort .title {
+		  color:#534242;
+		  height:20px;
+		  line-height:20px;
+		  font-size:14px;
+		  font-weight:bold;
+		  padding-left:5px;
+	  }
+	  #resort .img {
+		  width:175px;
+		  height:66px;
+		  padding:10px 0 5px 0;
+	  }
+	  #resort p {
+		  text-decoration:underline;
+		  line-height:1.2;
+	  }
+	  #resort p span {
+		  color:#CB2016;
+		  font-size:12px;
+		  font-weight:bold;
+		  text-decoration:none;
+	  }
+   #right {
+	   width:424px;
+	   float:left;
+	   padding-left:18px;
+   }
+     #rttop {
+		 width:424px;
+		 height:123px;
+		 border-bottom:1px solid #C0C0C0;
+	 }
+     #rttop  .img {
+	   width:163px;
+	   height:108px;
+	   float:left;
+   }
+     #rttop .imgright {
+	   width:216px;
+	   height:110px;
+	   padding-left:10px;
+	   float:left;
+   }
+    #rttop .imgright .title {
+	   width:216px;
+	   height:18px;
+	   padding-bottom:18px;
+   }
+   #rttop .imgright p {
+	   line-height:1.3;
+	   padding-left:2px;
+	   width:216px;
+   }
+   #rttop .imgright p span {
+	   color:#CB2016;
+	   font-weight:bold;
+   }
+   #rtbottom {
+	   width:424px;
+	   padding-top:25px;
+   }
+    #rtbottom .imgwrap {
+		width:163px;
+		float:left;
+	}
+	#rtbottom .imgright {
+	   width:216px;
+	   height:110px;
+	   padding:24px 0 0 10px;
+	   float:left;
+	}
+	#rtbottom .imgright p {
+	   line-height:1.3;
+	   width:216px;
+	   padding-left:10px;
+   }
+   #rtbottom .imgright p span {
+	   color:#CB2016;
+	   font-weight:bold;
+   }
+ .clear {
+	 clear:both;
+	 font-size:0;
+	 line-height:0;
+	 height:0;
+ }
+#footer {
+	width:675px;
+	height:60px;
+	margin-top:2px;
+	border-top:3px solid #C0C0C0;
+}
+#footer p {
+	float:right;
+	padding:8px 35px 0 0;
+	font-family:Verdana, Geneva, sans-serif;
+}

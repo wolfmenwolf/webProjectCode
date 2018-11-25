@@ -1,0 +1,148 @@
+@charset "utf-8";
+* {
+	margin: 0px;
+	padding: 0px;
+}
+body{
+	font-size:12px;
+	font-family:"宋体";
+	cursor:auto;
+	}
+.big{
+	width:1008px;
+	margin:0 auto 0 auto;
+	}
+.logo{
+	width:1008px;
+	height:98px;
+	}
+.nav{
+	height:27px;
+	margin-top:-2px;
+	}
+.nav_1{
+	margin-top:-2px;
+	}
+.nav_2{
+	margin-top:-2px;
+	}
+/*--------------------------------*/
+.down{
+	background-color:#e8e8d0;
+	width:1008px;
+	margin-top:-2px;
+	}
+.mina{
+	width:990px;
+	margin:0 auto 0 auto;
+	}
+.mina_left{
+	width:241px;
+	float:left;
+	}
+.login{
+	width:241px;
+	background-color:#d2d2b4;
+	}
+.login p{
+	margin:5px 0 5px 5px;
+	font-size:14px;
+	font-weight:700;
+	}
+.mina_left ul{
+	margin:0 0 0 10px;}
+.mina_left li{
+	height:25px;
+	line-height:25px;
+	border-bottom:#CCCCCC 1px solid;
+	}
+.mina_left ul a{
+	color:#000000;
+	text-decoration:none;
+	background-image:url(img/a-list.jpg);
+	background-repeat:no-repeat;
+	background-position:left;
+	}
+.mina_left ul a:hover{
+	color:#FF3300;
+	text-decoration:none;
+	}
+.new_food{
+	background-color:#d2d2b4;
+	margin-top:-2px;
+	}
+/*----------------------------------*/
+.mina_right{
+	float:left;
+	}
+.mina_right h2{
+	margin:5px 0 0 20px;
+	font-size:16px;
+	height:30px;
+	line-height:30px;
+	}
+.wen{
+	width:680px;
+	border-top:#999999 1px solid;
+	margin-left:25px;
+	padding-top:10px;
+	margin-bottom:15px;}
+.su{
+	position:absolute;
+	left:288px;
+	top:921px;
+	_left: 459px;
+	_top: 950px;
+	width: 668px;
+	height: 91px;
+	}
+.yan{
+	background-image:url(img/right-y.jpg);
+	background-position:left;
+	background-repeat:no-repeat;
+	height:69px;
+	margin-top:-4px;
+	margin-left:-2px;
+	width:742px;
+	}
+.yan p{
+	margin-right:50px;
+	text-align:right;}
+.ping{
+	width:742px;
+	height:429px;
+	background-image:url(img/right01-1.jpg);
+	background-repeat:no-repeat;
+	}
+.ping a{
+	color:#000000;
+	text-decoration:none;
+	}
+.ping a:hover{
+	color:#0000FF;
+	text-decoration:underline;
+	}
+.ping-wen{
+	margin:80px 0 0 50px;
+	width:650px;
+	border:1px #FFD0A2 solid;
+	height:90px;
+	}
+.ping-wen p{
+	margin:10px;}
+.ping-wen h6{
+	font-size:12px;
+	font-weight:400;	
+	}
+.ping-wen1{
+	margin:10px 0 0 50px;
+	width:650px;
+	border:1px #FFD0A2 solid;
+	height:90px;
+	}
+.ping-wen1 p{
+	margin:10px;}
+.ping-wen1 h6{
+	font-size:12px;
+	font-weight:400;	
+	}

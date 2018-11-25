@@ -1,0 +1,260 @@
+
+
+body {
+	line-height: 1.5em;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 12px;
+	color: #543d27;
+	background: #2c261d;
+}
+* {
+	margin:0px;
+	padding:0px;
+}
+ul, li {
+	list-style-type:upper-roman;
+}
+.title {
+	height:19xp;
+	float:left;
+	width:100%;
+	line-height:19px;
+	background:#DAD3C8;
+	margin-bottom:10px;
+}
+.fontclass {
+	font-size:12px;
+	font-family:'宋体';
+	font-style:normal;
+	color:#000;
+	line-height:14px;
+}
+.fontclass font {
+	color:#CC0000;
+	font-size:12px;
+	font-weight:bold
+}
+#background {
+	margin:0 auto;
+	float:none;
+	background:url(香水_01.jpg);
+	width:766px;
+	height:663px;
+}
+#bigmain {
+	border:#999933;
+	width:562px;
+	height:660px;
+	margin-left:20%;
+}
+#head {
+	float:left;
+	width:562px;
+	background:url(headpic.jpg);
+	height:37px;
+}
+#toppic {
+	background:url(005.jpg);
+	float:left;
+	width:562px;
+	height:20px;
+	margin-bottom:9px;
+}
+#pic {
+	float:left;
+	height:166px;
+	padding-bottom:10px;
+}
+.color {
+	background:url(footer.jpg);
+	float:left;
+	width:247px;
+	height:166px;
+}
+.middpic {
+	float:left;
+	width:315px;
+	height:166px;
+	background:url(001.jpg);
+}
+#menu {
+	padding-left:0px;
+	width:563px;
+	float:left;
+	height:21px;
+	background:#352D30;
+}
+#menu ul {
+}
+#menu ul li {
+	font-weight:bold;
+	float:none;
+	margin-left:20px;
+	margin-right:10px;
+	color:#a58665;
+	height:21px;
+	line-height:21px;
+	font-size:14px;
+	list-style-type: none;
+	float:left;
+}
+#menu ul li.dir li
+{margin-left:0;
+width:95px;
+text-align:center;
+background:#633;
+}
+#main {
+	float:left;
+	margin-top:4px;
+	background:#D1CABF;
+	height:347px;
+	width:562px;
+	overflow:visible;
+}
+.content {
+	float:none;
+	width:545px;
+	height:314px;
+	background:#EAE7E1;
+	overflow:visible;
+	margin-left:8px;
+	margin-top:5px;
+}
+.topflows {
+	background:url(topflows.jpg);
+	width:535px;
+	height:25px;
+	margin-left:5px;
+}
+.zhase {
+	float:none;
+	margin-left:5px;
+	background:url(zhase.jpg);
+	width:535px;
+	height:275px;
+}
+.contentleft {
+	background:#DAD3C7;
+	float:left;
+	width:222px;
+	height:273px;
+	margin-left:1px;
+	padding:0px;
+}
+.contentul {
+	width:222px;
+	float:left;
+	background:#E9E6E0;
+	height:273px;
+}
+.contentul ul li {
+	font-size:14px;
+	font-family:"黑体";
+	color:#000;
+	margin-left:10px;
+	float:left;
+	width:202px;
+	list-style-type:none;
+	margin-bottom:10px;
+}
+.size {
+	background:#FFFFFF;
+	margin-top:10px;
+	margin-left:5px;
+}
+.litlepic {
+	float:left;
+	
+	width:90px;
+	height:72px;
+}
+.litleimg {
+	
+	margin-left:2px;
+	margin-top:2px;
+	width:86px;
+	height:70px;
+}
+.litlecontent {
+	float:left;
+	height:600xp;
+	float:left;
+	width:102px;
+	padding-left:10px;
+	font-size:12px;
+	font-family:'宋体';
+	font-style:normal;
+	color:#000;
+	line-height:14px;
+}
+.litlecontent font {
+	color:#CC0000;
+	font-size:12px;
+	font-weight:bold
+}
+.contentright {
+	width:308px;
+	float:right;
+	margin-right:1px;
+	height:273px;
+}
+.rightlitlecontent {
+	float:left;
+	float:left;
+	width:200px;
+	padding-left:10px;
+	font-family:'宋体';
+	font-style:normal;
+	color:#000;
+	line-height:14px;
+	line-height: 1.5em;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 12px;
+	color: #543d27;
+	background: #E8E4DF;
+}
+.contentrighttop {
+	background:#E8E4DF;
+	width:308px;
+	float:left;
+	height:132px;
+	margin-bottom:2px;
+}
+.contentrightbuttom {
+	background:#CCC4B7;
+	width:308px;
+	float:left;
+	height:139px
+}
+.mainrightbuttomcontent ul li {
+	margin-left:10px;
+	margin-right:12px;
+	width:260px;
+	color:#92775C;
+	height:21px;
+	line-height:21px;
+	font-size:12px;
+	list-style-type: none;
+	float:left;
+}
+.footer li {
+	float:left;
+	list-style-type:none;
+}
+.footer ul {
+	color:#514c44;
+	margin-top:5px;
+	margin-left:80px;
+}
+a,a:link,a:active,a:visited{text-decoration:none; color:#5b3306}
+a:hover{text-decoration:none; color:#F00}
+#nav a,#menu a:active,#menu a:visited,#menu a:link{ text-decoration:none; color:#caa376}
+#nav a:hover{text-decoration:none; color:#5b3306}
+.fontclass font a,.fontclass font a:active,.fontclass font a:visited,.fontclass font a:link{ text-decoration:none; color:#F00}
+.fontclass font a:hover{ text-decoration:none; color:#5b3306}
+.litlecontent font a,.litlecontent font a:active,.litlecontent font a:visited,.litlecontent font a:link{ text-decoration:none; color:#F00}
+.litlecontent font a:hover{ text-decoration:none; color:#5b3306}
+
+
+

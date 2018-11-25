@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<title>鹏润房地产</title>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	$(".main-li").hover(function(){
+		$(this).children(".sub-menu").show().prev("a").css({"color":"#fff","text-decoration":"underline"});
+	},function(){
+		$(this).children(".sub-menu").hide().prev("a").css({"color":"#fff","text-decoration":"none"});
+	});
+	$(".sub-menu .main-li2").hover(function(){
+		$(this).children(".li2-a").css({"background-color":"#BB0708","color":"#fff","text-decoration":"underline"});
+		$(this).children(".sub-menu-two").show();
+	},function(){
+		$(this).children(".li2-a").css({"background-color":"#7C2418","color":"#BB0708","text-decoration":"none"});
+		$(this).children(".sub-menu-two").hide();
+	});
+	
+});
+</script>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+
+<body>
+<div id="container">
+   <div id="left">
+     <div id="logo"><a href="#"><img src="images/logo.jpg" /></a></div>
+	 <div id="login">
+	    <h3>企业邮箱</h3><br />
+          <div class="name">用户名</div><div class="input"><input type="text" size="10" value="user" style="background:#fff; border:1px solid #B7B09D" /></div>
+		   <div class="name" style="margin-top:10px;">密 码</div><div class="input" style="margin-top:10px;"><input type="text" size="10" value="password" style="background:#fff; border:1px solid #B7B09D" /></div>
+		   <div class="login_bt"><input type="button" style="background:url(images/login_icon.jpg) no-repeat; width:52px; height:19px; border:none; cursor:pointer;"/></div>
+		   <div style="width:100%; clear:both; height:1px; line-height:1px;"></div>
+	 </div>
+    <div style="width:100%; clear:both; height:1px; line-height:1px;"></div>
+   </div>
+   <div id="right">
+      <div id="top">
+	     <div id="menu">
+		   <ul class="main-menu">
+		     <li class="main-li"><a class="li-a" href="#">关于鹏润</a></li>
+		     <li class="main-li"><a class="li-a" href="#">新闻中心</a>
+			     <ul class="sub-menu">
+				<li class="main-li2"><a class="li2-a" href="#">业界新闻</a></li>
+				<li class="main-li2"><a class="li2-a" href="#">最新动态</a></li>
+			    </ul>
+			
+		     </li>
+		     <li class="main-li"><a class="li-a" href="#">鹏润项目</a></li>
+		     <li class="main-li"><a class="li-a" href="#">企业文化</a></li>
+		     <li class="main-li"><a class="li-a" href="#">鹏润人才</a></li>
+		     <li class="main-li"><a class="li-a" href="#">企业联盟</a></li>
+		     <li class="main-li"><a class="li-a" href="#">联系我们</a></li>
+	     </ul>
+		 </div>
+		 <div id="banner"><img src="images/banner.jpg" /></div>
+	  </div>
+	  <div id="center">
+	    <div id="news">
+		  <img src="images/news.jpg" />
+		   <ul>
+		      <li><a href="#">百安居进社区开便利店</a></li>
+			  <li><a href="#">百安居:签约北京国美第一城</a></li>
+			  <li><a href="#">五大业态支起国美商街</a></li>
+			  <li><a href="#">国美频频出招欲搏商业地产头彩</a></li>
+			  <li><a href="#">北京朝青版块渐成商业地产热点</a></li>
+		   </ul>
+		</div>
+		<div id="book">
+		  <img src="images/book.jpg" />
+		  <div id="imgwrap"><a href="#"><img src="images/002.jpg" /></a></div>
+		  <div id="pwrap">
+		  <p><a href="#">当地产业从项目导向过渡到资金导向的时候，当消费者从追捧楼盘到理性地选择品牌的时候，鹏润地产集团适时而生，凭借的是前瞻的战略眼光和运筹帷幄的自信以及18年的管理经验！
+		  </a></p>
+		  </div>
+		  <div class="select" style="padding-left:10px; margin-top:10px; float:left; width:90px;">
+		  <select style="width:93px; border:1px solid #D3D0CB; font-size:12px;">
+		    <option>2005年第4期</option>
+			<option>2005年第6期</option>
+			<option>2005年第8期</option>
+		  </select>
+		  </div>
+		</div>
+		  <div style="width: 100%; clear: both; line-height: 1px; height: 1px;"></div>
+	  </div>
+	  <div id="bottom">
+	     <img src="images/hot.jpg" />
+		 <div id="hotimgwrap"><a href="#"><img src="images/003.jpg" /></a></div>
+		 <div id="hotpwrap">
+		   <p>当地产业从项目导向过渡到资金导向的时候，当消费者从追捧楼盘到理性地选择品牌的时候，鹏润地产集团适时而生，凭借的是前瞻的战略眼光和运筹帷幄的自信以及18年的管理经验！
+		  </p>
+		  <p>企业不再简单的销售产品，更重要的是在推广理念和文化。我们的思想赋予文化内涵，我们的文化规范我们的行为。我们的思想赋予文化内涵，我们的文化规范我们的行为。鹏润地产集团将领地产业之选，引入完整的企业形象识别系统，使之傲立业界，卓尔不群！
+		  </p>
+		  <p style="float:right; color:#DA6F07; padding-right:10px; cursor:pointer;">更多>></p>
+		 </div>
+		   <div style="width: 100%; clear: both; line-height: 1px; height: 1px;"></div>
+	  </div>
+	  <div id="footer">
+	     <div id="copyright">
+		    <p style="padding-left:70px;">版权所有：北京鹏润房地产开发有限公司</p>
+			<p>copyright@2006-2010Eagle Real Estate,All Rights Reserved</p>
+		 </div>
+	  </div>
+	  <div style="width:100%; clear:both; height:1px; line-height:1px;"></div>
+   </div>
+    <div style="width:100%; clear:both; height:1px; line-height:1px;"></div>
+</div>
+</body>
+</html>

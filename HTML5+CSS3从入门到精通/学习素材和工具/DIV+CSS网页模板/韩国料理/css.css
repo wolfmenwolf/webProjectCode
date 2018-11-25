@@ -1,0 +1,152 @@
+@charset "utf-8";
+* {
+	margin: 0px;
+	padding: 0px;
+}
+body{
+	font-family:"宋体";
+	font-size:12px;
+	cursor:auto;
+	background-color:#edce7c;
+	}
+.big{
+	width:977px;
+	margin:0 auto 0 auto;
+	}
+/*----------------------*/
+.logo{
+	width:977px;
+	}
+.logo_left{
+	width:302px;
+	height:61px;
+	float:left;
+	}
+.logo_nav{
+	width:292px;
+	float:left;
+	}
+.logo_right{
+	width:383px;
+	float:left;
+	background-image:url(img/logoright.jpg);
+	height:61px;
+	}
+.logo_right p{
+	margin:20px 0 0 100px;}
+.guang{
+	margin-top:-2px;}
+/*----------------------*/
+.main{
+	width:977px;
+	}
+.main_left{
+	width:191px;
+	float:left;
+	background-color:#ccb36e;
+	}
+.left_list{
+	width:176px;
+	margin:0 auto 0 auto;
+	}
+.left_list li{
+	height:29px;
+	line-height:29px;
+	background-image:url(img/left-li.jpg);
+	background-repeat:no-repeat;
+	}
+.left_list li a{
+	margin-left:30px;
+	color:#000000;
+	text-decoration:none;
+	}
+.left_list li a:hover{
+	margin-left:30px;
+	color:#0033FF;
+	text-decoration:underline;
+	}
+/*----------------------*/
+.main_zhong{
+	width:524px;
+	float:left;
+	}
+.wenzi{
+	width:524px;
+	height:561px;
+	background-image:url(img/zhong01.jpg);
+	background-repeat:no-repeat;
+	}
+.wone{
+	width:480px;
+	margin:20px auto 0 auto;
+	}
+.wone h2{
+	text-align:center;
+	border-bottom:#999999 1px dashed;
+	font-size:16px;
+	margin-bottom:5px;
+	}
+.wone p{
+	line-height:25px;
+	}
+/*----------------------*/
+.main_right{
+	width:262px;
+	float:left;
+	}
+.login{
+	width:262px;
+	background-color:#ccb36e;
+	margin-top:-6px;
+	}
+.login p{
+	margin-top:5px;
+	margin-bottom:10px;
+	}
+.news p{
+	margin-left:6px;
+	margin-top:8px;
+	}
+.news h2{
+	margin:10px 0 0 200px;
+	}
+.right_list ul{
+	margin-left:10px;
+	}
+.right_list li{
+	height:27px;
+	line-height:27px;
+	background-image:url(img/right-li.jpg);
+	background-repeat:no-repeat;
+	}
+.right_list li a{
+	margin-left:20px;
+	color:#000000;
+	text-decoration:none;
+	}
+.right_list li a:hover{
+	margin-left:20px;
+	color:#0000FF;
+	text-decoration:underline;
+	}
+/*-------------------------*/
+.foot{
+	width:977px;
+	height:76px;
+	margin-top:20px;
+	margin-bottom:20px;
+	background-image:url(img/foot.jpg);
+	background-repeat:no-repeat;
+	text-align:center;
+	color:#FFFFFF;
+	}
+.foot a{
+	color:#FFFFFF;
+	text-decoration:none;
+	}
+.foot a:hover{
+	color:#00FFFF;
+	text-decoration:none;
+	}
+.foot p{
+	margin:10px 0 0 0;}

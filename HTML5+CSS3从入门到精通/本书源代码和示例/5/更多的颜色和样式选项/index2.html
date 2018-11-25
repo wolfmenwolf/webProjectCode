@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html> 
+<head>
+<script language="javascript">
+function draw() {
+    var ctx = document.getElementById('myCanvas').getContext('2d');
+    var lineJoin = ['round','bevel','miter'];
+    ctx.strokeStyle = 'blue';
+    for (var i=0;i<lineJoin.length;i++){
+        ctx.lineWidth = 25;  
+        ctx.lineJoin = lineJoin[i];
+        ctx.beginPath();
+        ctx.moveTo(10+i*150,30);
+        ctx.lineTo(100+i*150,30); 
+        ctx.lineTo(100+i*150,100); 
+        ctx.stroke();
+    }
+}
+window.onload=function(){
+    draw();
+}
+</script>
+</head>
+<body>
+<canvas id="myCanvas" width="600" height="300"></canvas>
+</body>
+</html>

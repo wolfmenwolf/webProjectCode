@@ -1,0 +1,263 @@
+*{
+	margin:0px;
+	padding:0px;}
+ul ,li{
+	list-style-type:none;}
+body{
+	font-family:"宋体";
+	font-size:12px;
+	color:#41454a;}
+.bigmain{
+	background:url(img/01.jpg);	
+	width:1000px;
+	height:1064px;
+
+	margin:0 auto
+	}
+.litlemain{
+	border:0px;
+	width:780px;
+	height:1064px;
+	float:left;
+	padding:0px 110px;
+	}
+.head{
+	padding-top:15px;
+	height:65px;
+	width:780px;
+	float:left;}
+.rightheaddiv{
+	width:694px;
+	height:45px;
+	float:left;  }
+.rightheaddiv1{
+	text-align:center;
+	width:332px;
+	float:left;
+	}
+.rightheaddiv2{
+	float:right;
+	width:200px;
+	font-size:12px;
+	text-align:right;
+	right:50px;
+	padding-top:20px;}
+
+.menudown{
+	overflow:hidden;
+	border:1px #FFF solid;
+	width:779px;
+	float:left;
+	background:url(img/toppic.png) no-repeat;
+	height:169px;}
+.logo{
+	
+	padding-left:30px;
+	padding-top:54px;
+	float:left;
+	width:243px;
+	height:98px;}
+.buttomnew{
+	text-align:center;
+	padding-top:3px;
+	float:left;
+	height:19px;
+	background:url(img/buttom.png);
+	width:52px;}
+.rightpic{
+	background:url(img/001.jpg);
+	width:181px;
+	height:169px;
+	float:right;}
+.main{
+	padding-top:2px;
+	width:780px;
+	height:509px;
+	float:left;
+	background:#f4f4f2 url(img/002.jpg) no-repeat  ;
+	
+	
+	}
+.rightmain{
+	float:right;
+	background:url(img/manbie.png);
+	width:478px;
+	height:509px;}
+.contenttop{
+	float:left;
+	padding-top:5px;
+	padding-left:10px;
+	width:433px;
+	height:24px;
+	font-size:18px;
+	font-family:"隶书";
+	font-weight:bold;
+	color:#41454a}
+.xuxian{
+	
+	width:430px;
+	height:8px;
+	float:left;
+	background:url(img/xixian.png);
+	}
+.topcontent{
+	padding-top:5px;
+	padding-bottom:5px;
+	line-height:18px;
+	width:420px;
+	padding-left:10px;
+	color:#41454a;
+	height:32px;
+	float:left;}
+.list{
+	
+	width:420px;
+	height:129px;
+	
+	float:left;}
+.list ul{
+	padding-top:5px;
+	padding-left:25px;
+	width:400px;
+	
+	list-style-image:url();
+	float:left;
+	}
+.list li{
+	padding-left:15px;
+	background:url("img/listpic.png") no-repeat scroll 0 8px transparent;
+	list-style-position:inherit;
+	line-height:20px;
+	float:left;
+	width:420px;}
+.mainbuttomcontentleft{
+	width:230px;
+	float:left;
+	height:130px;
+	}
+.mainbuttomcontentleft ul{
+	padding-top:5px;
+	padding-left:25px;
+	width:200px;
+	
+	
+	float:left;
+	}
+.mainbuttomcontentleft li{
+	padding-left:15px;
+	background:url("img/listpic.png") no-repeat scroll 0 8px transparent;
+	list-style-position:inherit;
+	line-height:19px;
+	float:left;
+	width:200px;
+	}
+.mainbuttomcontentmidd{
+	float:left;
+	background:url(img/xixian2.png) no-repeat;
+	padding-top:10px;
+	width:5px;
+	height:120px;}
+.mainbuttomcontentright{
+	float:left;
+	width:190px;
+	height:130px;}
+.mainbuttomcontentright ul{
+	padding-top:5px;
+	padding-left:15px;
+	width:190px;
+	
+	
+	float:left;}
+.mainbuttomcontentright li{
+	list-style-position:inside;
+	padding-left:15px;
+	background:url("img/listpic.png") no-repeat scroll 0 8px transparent;
+	list-style-position:inherit;
+	line-height:19px;
+	float:left;
+	width:190px;
+	}
+.pic{
+	padding-top:14px;
+	padding-bottom:14px;
+	margin-top:2px;
+	background:#FFF;
+	float:left;
+	width:780px;
+	height:139px;}
+.picleft{
+	float:left;
+	background:url(img/yuan.png);
+	width:19px;
+	height:139px;}
+.picright{
+	float:right;
+	background:url(img/yuanright.png);
+	width:17px;
+	height:139px;
+	}
+.picmidd{
+	padding-top:10px;
+	width:744px;;
+	height:129px;
+	float:left;
+	background:#8da1a5;
+	}
+.picdown{
+	padding:2px;
+	background:#FFF;
+	float:left;
+	text-align:center;
+	vertical-align:middle;
+	width:151px;
+	height:74px;}
+.zhongxian{
+	margin-left:2px;
+	float:left;
+	background:url(img/zhongxian.png);
+	width:39px;
+	height:75px;}
+.buttom{
+	border:0px;
+	margin-top:10px;
+	color:#999;
+	float:left;
+	width:780px;
+	height:40px;
+	text-align:center;}
+.rightheaddiv2 a,.rightheaddiv2 a:link,.rightheaddiv2 a:visited{
+	text-decoration:none;
+	color:#000;}
+.rightheaddiv2 a:hover{
+	text-decoration:underline;
+	color:#999;}
+.muen a,.muen a:link,.muen a:visited{
+	text-decoration:none;
+	color:#FFF;}
+.muen a:hover{
+	text-decoration:underline;
+	color:#CCC
+	}
+.buttomnew a,.buttomnew a:visited,.buttomnew a:link{
+	text-decoration:none;
+	color:#000;}
+.buttomnew a:hover{
+	text-decoration:underline;
+	color:#F00}
+.list a,.list a:visited,.list a:link{
+	
+	color:#464646}
+.list a:hover{
+	color:#F00;text-decoration:underline;}
+.mainbuttomcontentleft a,.mainbuttomcontentleft a:visited,.mainbuttomcontentleft a:link{
+	
+	color:#464646}
+.mainbuttomcontentleft a:hover{
+	color:#F00;text-decoration:underline;
+	}
+.mainbuttomcontentright a,.mainbuttomcontentright a:visited,.mainbuttomcontentright a:link{
+	
+	color:#464646}
+.mainbuttomcontentright a:hover{
+	color:#F00;text-decoration:underline;
+	}

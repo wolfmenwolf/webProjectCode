@@ -1,0 +1,141 @@
+@charset "utf-8";
+/* CSS Document */
+*{ margin:0; padding:0;}
+img { border:none;}
+body {
+	font-family:"宋体";
+	font-size:12px;
+	color:#606060;
+}
+a {
+	text-decoration:none;
+	color:#606060;
+}
+a:hover {
+	color:#4C1384;
+}
+#container {
+	width:1006px;
+	height:868px;
+	position:relative;
+	margin:0 auto;
+	background:url(../images/bg.jpg) repeat-x scroll left top;
+}
+  #menu {
+	  position:absolute;
+	  left:78px;
+	  top:15px;
+	  height:20px;
+	  color:#F3F3F3;
+  }
+  #menu a {
+	 color:#F3F3F3;
+	 text-decoration:none;
+  }
+  #menu a:hover {
+	  color:#F3F3F3;
+	  font-size:13px;
+	  text-decoration:underline;
+  }
+  #menu ul {
+	  list-style:none;
+  }
+  #menu li {
+	  float:left;
+	  height:20px;
+	  line-height:20px;
+	  width:55px;
+	  padding-left:23px;
+	  display:inline;
+	  background:url(../images/menu_icon.jpg) no-repeat scroll 0 0;
+  }
+#mainwrap {
+	width:868px;
+	height:680px;
+	position:absolute;
+	top:52px;
+	left:70px;
+	background-color:#ffffff;
+}
+ #main {
+	 width:851px;
+	 height:664px;
+	 margin:8px 8px;
+	 display:inline;
+	 position:absolute;
+	 background-color:#F1EEF6;
+ }
+    #banner {
+		width:851px;
+		height:135px;
+	}
+	#content {
+		width:851px;
+		padding-top:12px;
+	}
+	#content .name {
+		width:365px;
+		height:21px;
+		line-height:21px;
+		background-color:#17871E;
+		color:#fff;
+		text-indent:10px;
+		font-weight:bold;
+		vertical-align:middle;
+		position:relative;
+	}
+	#content span {
+		position:absolute;
+		left:300px;
+		top:0;
+		font-size:9px;
+		font-weight:normal;
+		font-family:Georgia, "Times New Roman", Times, serif;
+	}
+	#contentleft {
+		width:398px;
+		height:438px;
+		float:left;
+		padding-left:25px;
+		background:url(../images/slider.jpg) no-repeat scroll right top;
+	}
+	#contentleft p {
+		padding:10px 10px 12px 0;
+		width:355px;
+		line-height:1.5;
+	}
+	#contentleft img {
+		border:1px solid #BABABA;
+		margin-right:1px;
+		display:inline;
+		margin-top:15px;
+	}
+	#contentright {
+		width:370px;
+		float:left;
+		padding-left:22px;
+	}
+	#contentright ul {
+		float:left;
+		list-style:none;
+		padding:10px 0 0 5px;
+	}
+	#contentright li {
+		display:block;
+		padding-right:10px;
+		float:left;
+	}
+	.clear {
+		clear:both;
+		height:0;
+		line-height:0;
+	}
+#footer {
+	width:100%;
+	height:100px;
+	position:absolute;
+	top:772px;
+	padding-left:280px;
+	padding-top:15px;
+	color:#B3B3B3;
+}

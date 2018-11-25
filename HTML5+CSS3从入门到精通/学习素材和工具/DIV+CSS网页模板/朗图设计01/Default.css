@@ -1,0 +1,304 @@
+*{
+	margin:0px;
+	padding:0px;}
+body{
+	font-size:12px;
+	font-family:"宋体";
+	color:#885648;
+	}
+.leftmain{
+	
+	width:503px;
+	float:left;
+	height:905px;}
+.kuan{
+	width:1008px;
+	height:1005px;
+	margin:0 auto;
+	border:1px #000 solid;}
+.head{
+	width:503px;
+	background:url(img/topbian.jpg);
+	height:34px;
+	float:left;}
+.black{
+	vertical-align:middle;
+	width:503px;
+	height:27px;
+	float:left;
+	background:#000;}
+.pic{
+	background:url(img/001.jpg) no-repeat;
+	width:503px;
+	height:179px;
+	float:left;}
+.content{
+	overflow:hidden;
+	padding-left:15px;
+	padding-top:28px;
+	width:488px;
+	height:255px;
+	background:url(img/yanse.jpg);
+	float:left;}
+.downcontent{
+	padding-left:15px;
+	padding-top:20px;
+	width:488px;
+	float:left;
+	height:175px;
+	background:#885648}
+.div{
+	padding-left:15px;
+	padding-top:10px;
+	width:488px;
+	float:left;
+	height:177px;
+	background:#f1ff9c;}
+.buttom{
+	padding-top:20px;
+	width:1008px;
+	height:80px;
+	text-align:center;
+	line-height:20px;
+	color:#a0a09f;
+	
+	float:left;
+	background:#404040;}
+.middmain{
+	overflow:hidden;
+	padding:0px 9px;
+	width:197px;
+	float:left;
+	height:905px;
+	background:#fff6d7}
+.rightmain{
+	width:289px;
+	height:905px;
+	float:left;}
+	
+	
+	
+.head1{
+	width:289px;
+	background:url(img/topbian.jpg);
+	height:34px;
+	float:left;}
+.black1{
+	width:289px;
+	height:27px;
+	float:left;
+	background:#000;}
+.pic1{
+	padding-top:108px;
+	background:#404040;
+	width:289px;
+	height:71px;
+	float:left;}
+.content1{
+	padding-top:32px;
+	padding-left:12px;
+	width:277px;
+	height:251px;
+	background:url(img/yanse.jpg);
+	float:left;}
+.downcontent1{
+	padding-top:15px;
+	padding-left:15px;
+	background:#5f5f5f;
+	width:274px;
+	float:left;
+	height:180px;
+	}
+.div1{
+	padding-top:45px;
+	width:289px;
+	float:left;
+	height:142px;
+	background:#6b8030;}
+.buttom1{
+	width:289px;
+	height:100px;
+	
+	float:left;
+	background:#404040;}
+.litlediv{
+	margin-left:-9px;
+	float:right;
+	
+	background:url(img/topbain2.jpg);
+	width:10px;
+	height:32px;}
+.litlediv2{
+	overflow:inherit;
+	margin-left:-9px;
+	float:right;
+	
+	background:url(img/topbain2.jpg);
+	
+	height:32px;
+	}
+
+.blackdan{
+	padding-top:8px;
+	float:right;
+	height:12px;
+	width:200px;
+	line-height:12px;}
+.contentdown{
+	float:left;
+	width:488px;
+	height:205px;}
+.contentdown font{
+	float:left;
+	width:480px;
+	line-height:16px;}
+.leftlist{
+	width:223px;
+	float:left;
+	height:100px;}
+.leftlist ul{
+	width:223px;
+	float:left;padding-top:15px;
+	height:76px;}
+.leftlist li{
+	
+	padding-left:15px;
+background:url(img/dian.jpg) no-repeat scroll 0 5px transparent;
+	width:200px;
+	float:left;
+	line-height:19px;
+	}
+.xian{
+	margin-top:20px;
+	width:5px;
+	background:url(img/xian.jpg);
+	float:left;
+	height:76px;}
+.balckdan{
+	color:#f1ff9c;
+	line-height:18px;
+	margin-top:10px;
+	width:460px;
+	float:left;
+	height:18px;
+	background:#000}
+.blackdan2{
+	color:#f1ff9c;
+	line-height:18px;
+	margin-top:10px;
+	width:200px;
+	float:right;
+	height:18px;
+	}
+.divcintent{
+	padding-top:10px;
+	color:#344212;
+	line-height:18px;
+	width:460px;
+	float:left;
+	height:100px;}
+.rightpicdown{
+	padding-right:5px;
+	padding-top:15px;
+	padding-left:15px;
+	width:269px;
+	height:53px;
+	background:#5c5c5c;}
+.denlu{
+	line-height:9px;
+	padding-top:46px;
+	padding-left:18px;
+	float:left;
+	width:242px;
+	height:117px;
+	background:url(img/denlu.jpg)}
+.rihgtlist{
+	float:left; width:250px; height:90px; padding-top:20px;
+	}
+.rihgtlist ul{
+	width:250px;
+	float:left;}
+.rihgtlist li{
+	padding-left:15px;
+	background:url(img/jiangtou.jpg) no-repeat scroll 0 5px transparent;
+	width:250px;
+	line-height:20px;
+	float:left;}
+.litle{
+	font-size:70px;
+	color:#FFF;
+	float:left;
+	padding-left:5px;
+	width:192px;
+	height:68px;}
+.shu{
+	float:left;
+	color:#000;
+	font-weight:bold;
+	width:192px;
+	padding-left:5px;
+	height:21px;
+	padding-top:13px;
+	background:url(img/jiang2.jpg) no-repeat scroll 0 15px transparent;
+	}
+.leftlist a,.leftlist a:visited,.leftlist a:link{ text-decoration:none;
+color:#FFF
+	}
+.leftlist a:hover{
+	text-decoration:none;
+	color:#CCC}
+.rihgtlist a,.rihgtlist a:visited,.rihgtlist a:link{ text-decoration:none;
+color:#f4fdd9
+	}
+.rihgtlist a:hover{
+	text-decoration:none;
+	color:#CCC}
+	
+.buttom a,.buttom a:visited,.buttom a:link{ text-decoration:none;
+color:#9a9f8d
+	}
+.buttom a:hover{
+	text-decoration:none;
+	color:#CCC}
+	
+	
+.contentdown a,.contentdown a:visited,.contentdown a:link{ text-decoration:none;
+color:#675411
+	}
+.contentdown a:hover{
+	text-decoration:none;
+	color:#C09}
+.blackdan a,.blackdan a:visited,.blackdan a:link{ text-decoration:none;
+color:#b4b4b4
+	}
+.blackdan a:hover{
+	text-decoration:none;
+	color:#CCC}
+	
+.blackdan2 a,.blackdan2 a:visited,.blackdan2 a:link{ text-decoration:none;
+color:#FC3
+	}
+.blackdan2 a:hover{
+	text-decoration:none;
+	color:#FFF}
+	
+.meun{
+	
+	
+	float:left;}
+.meun ul{
+	padding-left:30px;width:460px;height:32px; float:left;
+	}
+.meun li{
+	font-size:18px;
+	font-weight:bold;
+	list-style-type:none;
+	float:left;
+	line-height:32px;
+	height:32px;}
+.meun a,.meun a:visited,.meun a:hover{
+	text-decoration:none;
+	color:#FFF;}
+.meun a:hover{
+	text-decoration:none;
+	color:#9C3}

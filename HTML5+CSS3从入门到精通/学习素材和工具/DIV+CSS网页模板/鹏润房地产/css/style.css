@@ -1,0 +1,207 @@
+/* CSS Document */
+ *{ margin:0; padding:0;}
+  body {
+  font-family:"ËÎÌו";
+  font-size:12px;
+  background:url(../images/bg.jpg) repeat-x scroll 0 0 #DE750C;
+  }
+  img { border:none;}
+  a {
+  text-decoration:none;
+  color:#000;
+  }
+  a:hover {
+  text-decoration:underline;
+  color:#AA8415;
+  }
+  #container {
+  width:900px;
+  margin:0 auto;
+  background-color:#AD4402;
+  }
+  #left {
+  width:197px;
+  margin-left:9px;
+  float:left;
+  display:inline;
+  height:780px;
+  border-right:1px solid #fff;
+  background:url(../images/left_bg.jpg) no-repeat scroll 0 0; 
+   }
+     #logo {
+	 width:197px;
+	 height:150px;
+	 margin-top:3px;
+	 }
+	 #login {
+	 width:137px;
+	 padding:0 27px;
+	 margin-top:15px;
+	 }
+	 #login h3 {
+	 font-size:12px;
+	 color:#95060A;
+	 height:25px;
+	 line-height:25px;
+	 font-weight:lighter;
+	 text-indent:40px;
+	 }
+	 #login .name {
+	 width:40px;
+	 float:left;
+	 padding-top:3px;
+	 text-align:center;
+	 }
+	 #login .input {
+	 float:left;
+	 width:94px;
+	 padding-left:3px;
+	 }
+	 #login .login_bt {
+	 width:57px;
+	 padding-left:78px;
+	 float:left;
+	 margin-top:10px;
+	 }
+  #right {
+  width:683px;
+  margin-right:10px;
+  margin-top:10px;
+  float:left;
+  display:inline;
+  height:100px;
+  }
+  #top {
+  width:683px;
+  height:253px;
+  }
+   #menu {
+   width:683px;
+   height:44px;
+   background:url(../images/mn_bg.jpg) no-repeat scroll 0 0;
+   }
+   #menu ul{
+    list-style:none;
+    padding-top:12px;
+}
+   #menu a{
+   text-decoration:none;color:#fff;
+   }
+   #menu a:hover{
+   text-decoration:underline; color:#000;
+   }
+   .main-menu{
+   width:100%;
+   }
+   .main-menu .main-li{
+   float:left; height:32px; line-height:32px; position:relative; z-index:1; text-align:center;
+   }
+  .main-menu .main-li a{
+  display:block;
+  color:#fff;
+  }
+  .main-menu .main-li .li-a{
+  float:left;
+  }
+  .main-menu .main-li .li-a{
+  width:96px;
+  }
+  .main-menu .main-li .sub-menu{
+  position:absolute; top:32px; display:none; z-index:2; left:0px; width:96px; text-align:center; background-color:#BB0708;
+  }
+  .main-menu .main-li .sub-menu-two{
+  position:absolute; top:0px; display:none; z-index:3; left:96px;text-align:center;
+  }
+  .sub-menu-two a{
+  width:80px; background-color:blue; float:none;
+  }
+  .sub-menu .li2-a{
+  background-color:#7C2418; float:none;width:96px;
+  }
+  .sub-menu a:hover{
+  background-color:blue;
+  }
+  #banner {
+  width:683px;
+  height:209px;
+  }
+ #center {
+ width:683px;
+ height:218px;
+ background-color:#fff;
+ }
+  #news {
+  width:327px;
+  height:42px;
+  float:left;
+  }
+  #center ul {
+  list-style-image:url(../images/icon_01.jpg);
+  padding-left:45px;
+  padding-top:15px;
+  list-style-position:inherit;
+  }
+  #center li {
+  line-height:1.5;
+  padding-left:3px;
+  }
+   #book {
+  width:356px;
+  height:42px;
+  float:left;
+  }
+     #imgwrap {
+	 width:92px;
+	 height:110px;
+	 float:left;
+	 padding-left:10px;
+	 margin-top:10px;
+	 }
+	 #pwrap {
+	 width:195px;
+	 height:110px;
+	 float:left;
+	 padding-left:15px;
+	 margin-top:10px;
+	 }
+	 #pwrap p {
+	 text-indent:2em;
+	 line-height:1.5;
+	 }
+ #bottom {
+ width:683px;
+ height:255px;
+ background-color:#fff;
+ }
+  #hot{
+  width:683px;
+  height:35px;
+  }
+    #hotimgwrap {
+	 width:118px;
+	 height:143px;
+	 float:left;
+	 padding-left:30px;
+	 margin-top:20px;
+	 }
+	 #hotpwrap {
+	 width:440px;
+	 height:143px;
+	 float:left;
+	 padding-left:20px;
+	 margin-top:20px;
+	 }
+	 #hotpwrap p {
+	 text-indent:2em;
+	 line-height:1.5;
+	 }
+	 #footer {
+	 width:683px;
+	 height:43px;
+	 color:#fff;
+	 background:url(../images/footer_bg.jpg) repeat-x scroll 0 0;
+	 }
+	   #copyright {
+	   padding-left:164px;
+	   padding-top:6px;
+	   }

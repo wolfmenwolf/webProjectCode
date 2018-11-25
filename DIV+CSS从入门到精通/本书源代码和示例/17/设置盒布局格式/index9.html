@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=gb2312" />
+<title></title>
+<style type="text/css">
+#container {
+    display: -moz-box;
+    display: -webkit-box;
+    border: solid 1px red;
+    -moz-box-orient: vertical;
+    -webkit-box-orient: vertical;
+    width: 800px;
+    height: 400px;
+}
+#text-a { background-color: orange; height:100px; }
+#text-b {
+    background-color: yellow;
+    -moz-box-flex: 1;
+    -webkit-box-flex: 1;
+}
+#text-c { background-color: limegreen;  height:60px; }
+#text-a, #text-b, #text-c {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+</style>
+</head>
+<body>
+<div id="container">
+    <div id="text-a">列1</div>
+    <div id="text-b">列2</div>
+    <div id="text-c">列3</div>
+</div>
+</body>
+</html>

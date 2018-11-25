@@ -1,0 +1,247 @@
+@charset "utf-8";
+* {
+	margin: 0px;
+	padding: 0px;
+}
+body{
+	font-size:12px;
+	font-family:"宋体";
+	cursor:auto;
+	}
+.big{
+	width:980px;
+	margin:0px auto 0px auto;
+	}
+/*------------------up---------------------*/
+.up{
+	background-image:url(../img/cofe-1_01.jpg);
+	background-position:top;
+	background-repeat:no-repeat;
+	height:99px;
+	width:980px;
+	}
+.top-dh{
+	width:206px;
+	background-image:url(../img/top-d-bg.jpg);
+	background-repeat:no-repeat;
+	height:20px;
+	line-height:20px;
+	float:right;
+	margin-right:5px;
+	}
+.top-dh ul{
+	list-style-type:none;
+	}
+.top-dh li{
+	float:left;
+	}
+.top-dh a{
+	display:block;
+	height:20px;
+	line-height:20px;
+	width:68px;
+	color:#FFFFFF;
+	background-image:url(../img/top-d.jpg);
+	background-position:left;
+	background-repeat:no-repeat;
+	text-decoration:none;
+	}
+.top-dh a:hover{
+	display:block;
+	height:20px;
+	line-height:20px;
+	width:68px;
+	color:#FFFFFF;
+	background-image:url(../img/top-d-hover.jpg);
+	background-position:left;
+	background-repeat:no-repeat;
+	text-decoration:none;
+	}
+.top-dh a p{
+	margin-left:10px;}
+.up_left{
+	width:225px;
+	float:left;
+	}
+.up_left p{
+	margin-top:5px;
+	}
+.up_midel{
+	width:616px;
+	height:79px;
+	}
+.up_midel ul{
+	list-style-type:none;
+	margin-top:30px;
+	}
+.up_midel li{
+	float:left;
+	}
+.up_right{
+	width:139px;
+	float:left;
+	}
+
+/*----------------down---------------*/
+.down{
+	width:980px;
+	height:435px;
+	}
+.d_left{
+	width:204px;
+	float:left;
+	height:435px;
+	background-image:url(../img/cofe-1_02.jpg);
+	background-repeat:no-repeat;
+	}
+.d_left .login{
+	width:85px;
+	margin:80px 0 0 40px;
+	}
+.login a{
+	display:block;
+	width:85px;
+	height:25px;
+	line-height:25px;
+	text-decoration:none;
+	background-image:url(../img/login.png);
+	background-repeat:no-repeat;
+	text-align:center;
+	margin-top:5px;
+	color:#000000;
+	}
+.login a:hover{
+	display:block;
+	width:85px;
+	height:25px;
+	line-height:25px;
+	text-decoration:none;
+	background-image:url(../img/login1.png);
+	background-repeat:no-repeat;
+	text-align:center;
+	margin-top:5px;
+	color:#000000;
+	}
+.d_midel{
+	width:463px;
+	float:left;
+	height:435px;
+	background-image:url(../img/cofe-1_03.jpg);
+	background-repeat:no-repeat;
+	}
+.d_right{
+	width:313px;
+	height:435px;
+	float:left;
+	background-image:url(../img/cofe-1_04.jpg);
+	background-repeat:no-repeat;
+	}
+#news {
+	display: inline-block;
+	width: 200px;
+	height: 120px;
+	vertical-align: middle;
+	margin-bottom: 5px;
+	margin-top:20px;
+	overflow:hidden;
+}
+.dis {
+	display: block;
+}
+.undis {
+	display: none;
+}
+#newsTop {
+	clear: both;
+}
+#newsTop P {
+	float: left;
+	line-height: 20px;
+	text-align: center;
+}
+#newsTop P.topTit {
+	font-weight: bold;
+	width: 0px;
+	color: #FF6600;
+}
+#newsTop P.topC0 {
+	
+	background-image:url(../img/ye2.png);
+	background-repeat:no-repeat;
+	width: 63px;
+}
+#newsTop P.topC1 {
+		background-image:url(../img/ye.png);
+		background-repeat:no-repeat;
+	width: 62px;
+	color: #fff;
+	
+}
+#newsTop #newsTop_tit {
+	border-bottom: #FF6600 3px solid;
+	height: 20px;
+	_height: 18px;
+}
+#newsTop #newsTop_cnt {
+	padding-left: 5px;
+	line-height: 20px;
+	height: 150px;
+	text-align: left;
+}
+#newsTop #newsTop_cnt A {
+	color: #000000;
+	text-decoration: none;
+	background-image:url(../img/news1.png);
+	background-position:left;
+	background-repeat:no-repeat;
+	padding-left:20px;
+}
+#newsTop #newsTop_cnt A:hover {
+	color: #FFF;
+	text-decoration: none;
+		background-image:url(../img/news.png);
+	background-position:left;
+	background-repeat:no-repeat;
+	padding-left:20px;
+}
+.cnt_n {
+	height: 20px;
+	line-height: 20px;
+	border-bottom:#FFCC99 1px solid;
+}
+.cnt_n img {
+	vertical-align: middle;
+}
+.tu h1{
+	font-size:14px;
+	font-family:"黑体";
+	}
+/*---------------foot----------------*/
+.foot{
+	width:980px;
+	height:66px;
+	background-image:url(../img/cofe-1_05.jpg);
+	background-repeat:repeat-x;
+	}
+.foot_left{
+	width:106px;
+	float:left;
+	}
+.foot_left p{
+	margin:10px 0 0 20px;
+	}
+.foot_right{
+	text-align:right;
+	}
+.foot_right p{
+	margin-top:10px;
+	margin-bottom:5px;
+	}
+.foot_right a{
+	color:#000000;
+	text-decoration:none;
+	}
+.foot_right a:hover{
+	color:#0033FF;
+	text-decoration:underline;
+	}

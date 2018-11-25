@@ -1,0 +1,162 @@
+@charset "utf-8";
+* {
+	margin: 0px;
+	padding: 0px;
+}
+body{
+	font-family:"宋体";
+	font-size:12px;
+	cursor:auto;
+	}
+.big{
+	width:900px;
+	margin:0 auto 0 auto;
+	}
+a{
+	color:#000000;
+	text-decoration:none;
+	}
+a:hover{
+	color:#FF6600;
+	text-decoration:underline;
+	}
+/*---------------*/
+.nav{
+	width:900px;
+	margin-top:-2px;
+	}
+.nav_left{
+	width:159px;
+	float:left;
+	}
+.nav_right{
+	width:741px;
+	float:left;
+	}
+.sousuo{
+	background-image:url(img/left.jpg);
+	height:94px;
+	width:160px;
+	background-repeat:no-repeat;
+	}
+.sousuo p{
+	margin:50px 0 0 10px;
+	 }
+/*--------------------*/
+.main{
+	width:900px;
+	margin-top:-2px;
+	}
+.main_left{
+	width:160px;
+	float:left;
+	height:570px;
+	background-image:url(img/left-bg.jpg);
+	background-repeat:repeat-y;
+	}
+.left_list{
+	margin-top:-2px;
+	
+	width:160px;
+	}
+.left_list ul{
+	list-style-type:none;
+	margin-left:10px;
+	margin-top:5px;}
+.left_list ul li{
+	height:24px;
+	line-height:24px;
+	width:140px;
+	border-bottom:groove 1px #006699;}
+.left_list ul li a{
+	margin-left:10px;}
+/*--------------*/
+.main_zhong{
+	width:244px;
+	float:left;
+	}
+/*-*---------------*/
+.main_right{
+	width:494px;
+	float:left;
+	background-image:url(img/right-bg.jpg);
+	background-repeat:repeat-y;
+	height:570px;
+	}
+.bignews{
+	background-image:url(img/right0-5.jpg);
+	background-repeat:no-repeat;
+	width:494px;
+	height:116px;
+	}
+.wenzi{
+	width:300px;
+	margin:20px 0 0 30px;}
+.wenzi h1{
+	color:#0000FF;
+	font-size:14px;
+	margin-bottom:5px;
+	}
+.wenzi p{
+	line-height:20px;
+	}
+.more a{
+	color:#FF0000;
+	}
+.dh_x{
+	margin-left:-1px;
+	margin-top:10px;}
+.nei{
+	width:494px;
+	}
+.nei_left{
+	width:59px;
+	height:96px;
+	float:left;
+	margin-left:-2px;
+	}
+.wen{
+	width:406px;
+	margin-top:10px;
+	}
+.wen_left{
+	width:220px;
+	float:left;
+	}
+.wen_right{
+	width:186px;
+	float:left;
+	}
+/*----------------------*/
+.foot{
+	width:977px;
+	background-image:url(img/foot-bg.jpg);
+	background-repeat:repeat-x;
+	height:125px;
+	text-align:center;
+	}
+.foot p{
+	margin:15px;
+	}
+/*----------------------*/
+#basic-accordian {
+	border:1px solid #EEE;
+	width:242px;
+}
+.accordion_headings {
+	padding:5px;
+	background:#99CC00;
+	color:#FFFFFF;
+	border:1px solid #FFF;
+	cursor:pointer;
+	font-weight:bold;
+}
+.accordion_headings:hover {
+	background:#00CCFF;
+}
+.accordion_child {
+	background:#EEE;
+}
+.header_highlight {
+	background:#00CCFF;
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<style type="text/css">
+body { background-color:#F7F7F7; }
+fieldset {
+    border:1px dashed #CCC;
+    padding:10px;
+}
+legend {
+    font-family:Arial, Helvetica, sans-serif;
+    color:#fff;
+    background: #666;
+    border: 1px solid #333;
+    padding: 2px 6px;
+}
+label {
+    width:142px;
+    height:32px;
+    margin:3px 2px 0 0;
+    padding:11px 0 0 6px;
+    float:left;
+    color:#666;
+    text-align:right;
+}
+.form {
+    margin:0;
+    padding:0;
+}
+#leftSide {
+    width:530px;
+    padding-top:30px;
+    float:left;
+}
+.div_texbox {
+    width:347px;
+    float:right;
+    background-color:#E6E6E6;
+    height:35px;
+    margin-top:3px;
+    padding-top:5px;
+    padding-bottom:3px;
+    padding-left:5px;
+}
+.textbox {
+    background-image: url(images/16t.gif);
+    background-repeat: no-repeat;
+    background-position:left;
+    width:285px;
+    font:normal 18px Arial;
+    color: #999999;
+    padding:3px 5px 3px 19px;
+}
+.username:focus, .username:hover { background-color:#F0FFE6; }
+.button_div {
+    width:287px;
+    float:right;
+    text-align:right;
+    height:35px;
+    margin-top:3px;
+    padding:5px 32px 3px;
+}
+.buttons {
+    padding:6px 14px;
+    border:2px solid;
+    border-color: #fff #d8d8d0 #d8d8d0 #fff;
+    background: #e3e3db;
+    color: #989070;
+    font-weight:bold;
+}
+
+input.nav1 { nav-index:1; }
+input.nav2 { nav-index:2; }
+input.nav3 { nav-index:3; }
+input.nav4 { nav-index:4; }
+input.nav5 { nav-index:5; }
+
+</style>
+</head>
+<body>
+<div id="leftSide">
+    <fieldset>
+        <legend>个人信息登记表</legend>
+        <form action="" method="POST" class="form">
+            <label for="name">姓名</label>
+            <div class="div_texbox">
+                <input name="name" type="text" class="textbox nav1" id="name" value="" />
+            </div>
+            <label for="address">地址</label>
+            <div class="div_texbox">
+                <input name="address" type="text" class="textbox nav4" id="address" value="" />
+            </div>
+            <label for="city">区/县</label>
+            <div class="div_texbox">
+                <input name="city" type="text" class="textbox nav3" id="city" value="" />
+            </div>
+            <label for="country">省/市</label>
+            <div class="div_texbox">
+                <input name="country" type="text" class="textbox nav2" id="country" value="" />
+            </div>
+            <div class="button_div">
+                <input name="Submit" type="button" value="提交" class="buttons nav5" />
+            </div>
+        </form>
+    </fieldset>
+</div>
+</body>
+</html>
