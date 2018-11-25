@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>浮动与两侧皆自适应的流体布局</title>
+<style>
+
+body {
+	font-size: 14px;/* 设置字体大小为14px*/
+	background-color: #DDF3F7;/* 设置背景 */
+	color: #333;/* 设置字体颜色 */
+}
+
+a {
+	color: #0082CB;/* 设置字体颜色 */
+	text-decoration: none;/*设置文本样式，去掉下划线*/
+}
+
+p {
+	margin: 0;/* 外边距为0*/
+}
+
+img {
+	border: 0;/* 边框为0 */
+}
+
+.mib_body {/*水平居中*/
+	width: 600px;/*宽度为0*/
+	margin-left: auto;/*左外边距自动适应*/
+	margin-right: auto;/*右外边距自动适应*/
+}
+
+.mib_x {
+	margin-bottom: 10px;/* 下外边距为10px;*/
+	background-color: #fff;/*背景颜色为白色*/
+}
+
+.mib_list {
+	padding: 20px;/*内边距为20px;*/
+}
+
+.mib_resize {
+	overflow: auto;/*滚动条自动隐藏*/
+	resize: both;/* 全部重设大小*/
+}
+
+.mib_vip {
+	display: inline-block;/*显示为内联块*/
+	width: 11px;/*宽度为11*/
+	height: 10px;/*高度*/
+	margin-left: 1px;/* 左外边距 */
+	background: url(data:image/gif;base64,R0lGODlhCwAKAJEDAPyZCveDBuJmBP///yH5BAEAAAMALAAAAAALAAoAAAIdhD1zopgTXgMpsBdylVCPK2UCKI0j95hoRa0NVwAAOw==);
+}
+
+.mib_head_a {
+	float: left;/*左浮动*/
+	margin-right: 20px;/*右外边距为20px*/
+}
+
+
+/* 下面这个是固定布局写法 */
+
+.mib_cell {
+	display: table-cell;/* 高级浏览器*/
+	*display: inline-block;/*ie8及以下浏览器*/
+	width: 2000px;/*高级浏览器*/
+	*width: auto;/*ie8及以下浏览器*/
+}
+
+.mib_sms {
+	line-height: 22px;/* 行高*/
+	padding-bottom: 6px;/* 下内边距*/
+	font-size: 14px;/*字体大小*/
+}
+
+.mib_select {
+	width: 80px;
+	padding: 5px;
+	font-size: 100%;
+}</style>
+</head>
+
+<body>
+<div id="mibBody" class="mib_body">
+    <div class="mib_x mib_resize">
+        <div class="mib_list">
+            <a href="http://t.sina.com.cn/xuruoxuan" class="mib_head_a">
+                <img id="mibHeadImg" title="徐若瑄VIVIAN" src="http://img.mukewang.com/53e2e9470001dfd200500050.jpg">
+            </a>
+            <div class="mib_cell">
+                <p class="mib_sms">
+                	<a title="徐若瑄VIVIAN" href="#">
+                		徐若瑄VIVIAN
+                		<i title="新浪认证" class="mib_vip"></i>
+                	</a>
+                	：一個人的晚餐！茶泡飯！飯、飯、飯… 
+                	今日不減肥，先把病治好再說！ 我認真吃完這，
+                	燒就會退了吧？！ 
+                	開動啦
+                	~~~~~~~~~~~~~~~~~~
+                </p>
+                <div class="feed_img">
+                	<img src="http://img.mukewang.com/53e2e9b10001948000890120.jpg"
+                		 height="120">
+                </div>
+            </div>    
+        </div>
+    </div>
+    <div class="mib_x">
+        <div class="mib_list">
+            <p class="mib_sms">
+            	选择头像的宽度：<select id="minSelect" class="mib_select">
+                	<option value="56px">56px</option>
+                    <option value="70px">70px</option>
+                    <option value="84px">84px</option>
+                    <option value="100px">100px</option>
+                </select>
+            </p>
+        </div>
+    </div>
+</div>
+<script>
+var ele_mibSelect = document.getElementById("minSelect"),
+	ele_mibHeadImg = document.getElementById("mibHeadImg");
+	
+if (ele_mibSelect && ele_mibHeadImg) {
+	ele_mibSelect.onchange = function() {
+		ele_mibHeadImg.style.width = this.value;
+	};
+}
+</script>
+</body>
+</html>
