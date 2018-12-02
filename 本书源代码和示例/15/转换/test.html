@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<script src="jQuery/jquery-1.6.4.js" type="text/javascript"></script>
+<script src="jqueryui/development-bundle/ui/jquery.effects.core.js"></script>
+<script src="jqueryui/development-bundle/ui/jquery.effects.transfer.js"></script>
+<link rel="stylesheet" href="jqueryui/development-bundle/themes/smoothness/jquery.ui.all.css">
+<script type="text/javascript" >
+$(function() {  
+	$("div").click(function () {
+		  var i = 1 - $("div").index(this);
+		  $(this).effect("transfer", { to: $("div").eq(i) }, 1000);
+	});
+});
+</script>
+<style type="text/css">
+div.green { margin: 0px; width: 100px; height: 80px; background: green; border: 1px solid black; position: relative; }
+div.red { margin-top: 10px; width: 50px; height: 30px; background: red; border: 1px solid black; position: relative; }
+.ui-effects-transfer { border: 2px solid black; }
+</style>
+<title>上机练习</title>
+</head>
+<body>
+<div class="green"></div>
+<div class="red"></div>
+</body>
+</html>

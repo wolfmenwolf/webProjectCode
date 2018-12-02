@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<script src="jQuery/jquery-1.6.4.js" type="text/javascript"></script>
+<script type="text/javascript" >
+$(function(){
+    $("p").hover(
+        function () {
+            $(this).css({'background-color' : 'yellow', 'color' : 'red'});
+        },
+		function () {
+            $(this).css({
+                'background-color' : '#fff',
+                'color' : 'rgb(0,0,255)'
+            });
+    });
+})
+
+</script>
+<title>上机练习</title>
+</head>
+<body>
+<p>jQuery是继Prototype之后又一个优秀的Javascrīpt框架。</p>
+<p>它是轻量级的JS库，它兼容CSS3，还兼容各种浏览器 （IE 6.0+, FF 1.5+, Safari 2.0+, Opera 9.0+）。</p>
+</body>
+</html>

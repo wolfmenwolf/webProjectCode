@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<script src="jQuery/jquery-1.6.4.js" type="text/javascript"></script>
+<script type="text/javascript" >
+$(function(){
+    $("div").hover(	//绑定hover()合成事件
+        function(event){ 	//注册mouseover事件处理函数
+            $("p").append(event.type + "<br />");
+        },
+        function(event){ 	//注册mouseout事件处理函数
+            $("p").append(event.type + "<br />");
+        }
+    )
+})
+
+</script>
+<style type="text/css">
+div { width:300px; height:180px; background:red; padding:20px; }
+span { float:right; width:120px; height:80px; background:blue; color:white; font-weight:bold; }
+</style>
+<title>上机练习</title>
+</head>
+<body>
+<div>
+    <span></span>
+</div>
+<p></p>
+</body>
+</html>

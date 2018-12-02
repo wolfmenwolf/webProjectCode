@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<script src="jQuery/jquery-1.6.4.js" type="text/javascript"></script>
+<script type="text/javascript" >
+//定义XMLHttpRequest对象
+if (window.XMLHttpRequest){	//兼容Mozilla、Safari等非IE浏览器
+    var xmlhttprequest = new XMLHttpRequest();
+}
+else if (window.ActiveXObject){	//兼容IE浏览器
+    try{
+        var xmlhttprequest = new ActiveXObject("Msxml2.XMLHTTP");
+    }
+    catch (e){
+        try{
+            xmlhttprequest = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        catch (e)
+        { }
+    }
+}
+window.onload = function(){	//页面初始化处理函数
+    var input = document.getElementsByTagName("input")[0];		//获取按钮
+    input.onclick = function(){	//绑定click事件类型
+        xmlhttprequest.open("GET","test.txt", false);	//调用XMLHttpRequest对象的open()方法，打开与服务器之间的同步通信连接
+        xmlhttprequest.send(null);	//向服务器发送请求
+        alert("来自服务器端的问候: "  + xmlhttprequest.responseText);	//显示服务器的影响信息
+    }
+}
+</script>
+<title>上机练习</title>
+</head>
+<body>
+<input type="button" value="向服务器发出异步请求" />
+</body>
+</html>
